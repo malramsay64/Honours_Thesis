@@ -1,0 +1,17 @@
+% This package imports my standard packages and defines
+% macros that I use.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{std_preamble}
+  [2014/01/12 v0.01 LaTeX package for my standard preamble]
+
+\RequirePackage{fullpage}
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{siunitx}
+
+% Defines a vector as bold font
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+
+
+\endinput
