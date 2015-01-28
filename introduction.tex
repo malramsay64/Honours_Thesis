@@ -7,40 +7,20 @@ Repulsive interactions give rise to short range order. Absence of long range ord
 \subsection{Dynamics}
 
 
-\section{Molecular Crystals}
-\subsection{Structure}
-
-One of the descriptions of the efficacy close packed crystal structure is the Molecular Coordination Number (MCN). This is very similar to the concept of coordination number in inorganic crystals however the generally much weaker interparticle interactions in molecules over ions introduce some nuances.
-
-The typical picture of a molecular crystal is of a close packed structure~\cite{kitaigorodskii:73} where the crystal is arranged such that it occupies as much space as possible. This approach assumes the atoms behave in a manner similar to hard spheres from which molecular shapes can be constructed. The densest packing can the be found utilising one of a number of methods that search the configuration space. This method is suitably effective in inorganic chemistry~\cite{wells:73} however there are many organic crystals with a MCN = 14 which is not predicted using this model.
-
-An alternate method for describing molecular crystals is based on the model of thinnest space covering~\cite{blatov:95} where the entire space is filled with Voroni-Dirichlet polyhedra. These polyhedra are formed by overlapping the atomic spheres until in such a way that they fill the entire space with minimum overlap. The vertexes of the polyhedra correspond to the intersections of the spheres and give information about the interatomic interactions of the molecule. The MCN of these convex polyhedra is the number of faces and the size of the face is proportional to the strength of the interaction. This description of molecular packing is based on the idea of soft deformable atoms and has been shown to be a better description of many molecular crystals~\cite{blatov:97,peresypkina:99,peresypkina:00}
-
-The optimal packing of hard shapes has been a problem studied extensively throughout history, from circle packings studied by the ancient Greeks, to the packing of spheres studied by Kepler to more recently the packings of more complicated and unusual shapes~\cite{atkinson:12,torquato:12}. These problems of packing hard shapes however are incredibly difficult to solve analytically. The hexagonal close packing was first proposed as the most efficient packing of space in 1611~\cite{kepler:1611}, 400 years later Thomas Hales published the first proof~\cite{hales:05,hales:14} relying heavily on computers to check all possibilities. While a formal proof is difficult there are a number of computational methods that are commonly used in an attempt to find the global minimum of a function.
-
-
-Long range order
-\subsection{Formation}
-\subsubsection{Thermodynamics}
-
-\subsubsection{Crystal Growth}
-Rate of crystal growth determined by the rate of nucleation and by the speed at which the crystal-liquid interface advances~\cite{turnbull:69}.
-Recalescence - latent heat of crystallisation, 
-\subsubsection{Nucleation}
-Rate limiting step, needs to be supercooled
-
 \section{Supercooled Liquids}
 Definition - cooled below melting point
 Part of transition from liquid to solid - need to be supercooled for nucleation to take place.
-
-Figure - temperature dependence of volume or enthalpy.
-heat capacity of liquid greater than crystal - greater temperature dependence on enthalpy
+\begin{figure}
+    \todofigure{Temperature dependence of enthalpy or volume}
+\end{figure}
+heat capacity of liquid greater than crystal - greater temperature dependence on enthalpy~\cite{debenedetti:01}
 Important temperatures
 
 \subsection{Kinetics}
 Viscosity - relation to relaxation time
 Strong vs fragile liquids
 Kauzmann temperature - entropy crisis
+Entropy of liquid decreases faster with T than in a solid.
 Rotational motion and viscosity proportional to viscosity - breaks down below 1.2 Tg
 Heterogeneous dynamics - areas with motion, areas non-diffusing
 
@@ -63,22 +43,87 @@ Disc 2 DOF in 2D -> up/down, left/right
 Snowman 3 DOF -> up/down left/right, rotation
 
 
+\section{Molecular Crystals}
+\subsection{Structure}
+
+One of the descriptions of the efficacy close packed crystal structure is the Molecular Coordination Number (MCN). This is very similar to the concept of coordination number in inorganic crystals however the generally much weaker interparticle interactions in molecules over ions introduce some nuances.
+
+The typical picture of a molecular crystal is of a close packed structure~\cite{kitaigorodskii:73} where the crystal is arranged such that it occupies as much space as possible. This approach assumes the atoms behave in a manner similar to hard spheres from which molecular shapes can be constructed. The densest packing can the be found utilising one of a number of methods that search the configuration space. This method is suitably effective in inorganic chemistry~\cite{wells:73} however there are many organic crystals with a MCN = 14 which is not predicted using this model.
+
+An alternate method for describing molecular crystals is based on the model of thinnest space covering~\cite{blatov:95} where the entire space is filled with Voroni-Dirichlet polyhedra. These polyhedra are formed by overlapping the atomic spheres until in such a way that they fill the entire space with minimum overlap. The vertexes of the polyhedra correspond to the intersections of the spheres and give information about the interatomic interactions of the molecule. The MCN of these convex polyhedra is the number of faces and the size of the face is proportional to the strength of the interaction. This description of molecular packing is based on the idea of soft deformable atoms and has been shown to be a better description of many molecular crystals~\cite{blatov:97,peresypkina:99,peresypkina:00}
+
+The optimal packing of hard shapes has been a problem studied extensively throughout history, from circle packings studied by the ancient Greeks, to the packing of spheres studied by Kepler to more recently the packings of more complicated and unusual shapes~\cite{atkinson:12,torquato:12}. These problems of packing hard shapes however are incredibly difficult to solve analytically. The hexagonal close packing was first proposed as the most efficient packing of space in 1611~\cite{kepler:1611}, 400 years later Thomas Hales published the first proof~\cite{hales:05,hales:14} relying heavily on computers to check all possibilities. While a formal proof is difficult there are a number of computational methods that are commonly used in an attempt to find the global minimum of a function.
+
+Molecular crystals typically have simple unit cells~\cite{brock:94}
+
+Long range order
+\subsection{Formation}
+\subsubsection{Thermodynamics}
+
+\subsubsection{Crystal Growth Kinetics}
+Rate of crystal growth determined by the rate of nucleation and by the speed at which the crystal-liquid interface advances~\cite{turnbull:69}.
+Recalescence - latent heat of crystallisation, results in single nucleation site.~\cite{turnbull:69} Most effective seed first, afterwards temperature increases preventing any further nucleation (any other seed is worse, since it hadn't already formed a crystal)
+
+Anisotropic - some faces crystallise more easily, this gives rise to rod shaped crystals.
+The larger the face the slower the crystal growth along that face.
+
+Control of growth~\cite{de-yoreo:03}
+
+A series of steps containing kinks~\cite{chernov:61} More bonds to neighbours when attaching, more likely to stick at these locations. Growth rate impacted by the number of these kink sites.
+
+There is a point at which the driving force for crystallisation, which increases with decreasing temperature and the atomic mobility, which decreases with increasing temperature results in a minimum in the time for a volume fraction to crystallise.~\cite{uhlmann:71}
+\begin{figure}
+    \todofigure{Time temperature transformation curve}
+\end{figure}
+
+The crystal growth a large supercoolings is dependent on the fragility of the liquid~\cite{ediger:08}. This is in the region where the crystal growth is limited by diffusion. 
+
+
+\subsubsection{Nucleation}
+Requires passage over a free energy barrier. The free energy per molecule of a crystal phase is only lower than the liquid in the bulk phase; the surface is less well bound. There is such a size where the free energy of a system will decrease whether the nucleus grows or dissolves, a transition state/saddle point.
+
+Nucleation can be controlled by manipulating the surface energy of the nucleus.~\cite{de-yoreo:03}
+
+Rate limiting step, needs to be supercooled
+
 \section{Glasses}
 When the shear viscosity reaches a value (eg. \si{10^13} poise)
 No thermodynamic phase transition~\cite{santen:00}
-The structure of the glass is somewhat dependent on how it was constructed, the rate of cooling.
-Although only by a small amount
+The structure of the glass is somewhat dependent on how it was constructed, the rate of cooling, although only by a small amount
 Glasses form from in every category of material~\cite{turnbull:69}
 
+Have a number of useful properties~\cite{greer:07}
+
+Indistinguishable from that of a liquid on thermodynamic grounds~\cite{santen:00}
+
+There are some glasses that have formed from every bond type: covalent, van der Waals, ionic, metallic, hydrogen.~\cite{turnbull:06}
+
 \subsection{Structure}
-Indistinguishable from that of a liquid.
 
 
 \subsection{Formation}
 Kinetically favoured product
 Rate of change of volume or enthalpy with respect to temperature is on par with that of a solid
+Ideal glass - lowest energy non-crystalline phase
+
+The most favourable conditions for glass formation involve a large viscosity at the melting point and a rapidly rising viscosity below the melting point.~\cite{uhlmann:71}
 
 
+
+The value of the maximum crystal growth rate might be correlated with glass forming ability~\cite{tang:13}
+
+Little difference between activation energies in poor vs strong glass formers~\cite{tang:13}
+
+Locally ordered clusters key to formation~\cite{yang:12} Higher local packing efficiency - lower energy. 
+
+\section{Energy Landscape}
+One way of understanding the behaviours system is using a multidimensional topographic map, with a dimension for each degree of freedom of each particle. The minima of this topology correspond to regions where there is little net force on each particle, they are also known as inherent structures. With enough energy the system can sample all configurations, this corresponds to the liquid phase. Reducing the energy we begin to limit the configurations the system can sample. If this occurs slowly enough the system will find the lowest energy state, the crystal. However if the energy drops below that of the transition state to the crystal, then the best the system can do is to form a glass.~\cite{stillinger:95} Ideal glass is lowest energy non-crystalline state.
+
+\begin{figure}
+    \todofigure{2D energy landscape}
+\end{figure}
+
+Fragile glass formers have two types of relaxations, dual scale topology. $\alpha$ relaxations large wells, $\beta$ relaxations small wells.~\cite{stilliger:95}
 
 \section{Binary Mixtures}
 Glass formers, separate to crystallise. Above 0.7? No increase in packing efficiency
