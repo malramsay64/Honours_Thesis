@@ -246,4 +246,36 @@
 \renewcommand{\labelenumi}{\alph{enumi})}
 \renewcommand{\labelenumii}{(\roman{enumii})}
 
+
+% Change chapter and section headings
+
+% Arguments of \startsection
+%  #1    #2      #3       #4          #5       #6
+%{NAME}{LEVEL}{INDENT}{BEFORESKIP}{AFTERSKIP}{STYLE}
+
+
+\def\@makechapterhead#1{\global\topskip 7.5pc\relax
+  \begingroup
+  \fontsize{\@xxpt}{24}\bfseries\centering
+  \ifnum\c@secnumdepth>\m@ne
+      \leavevmode \hskip-\leftskip
+      \rlap{\vbox to\z@{\vss
+          \centerline{\normalsize\mdseries
+              \uppercase\@xp{\chaptername}\enspace\thechapter}
+          \vskip 3pc}}\hskip\leftskip\fi
+     #1\par \endgroup
+  \skip@34\p@ \advance\skip@-\normalbaselineskip
+  \vskip\skip@ }
+
+\def\section{\@startsection{section}{1}%
+  \z@{.7\linespacing\@plus\linespacing}{0.5\linespacing}%
+  {\normalfont\large\bfseries}}
+
+\def\subsection{\@startsection{subsection}{2}%
+ \z@{.5\linespacing\@plus.7\linespacing}{0.5\linespacing}%
+ {\normalfont\bfseries}}
+
+\parindent=0pt
+\parskip=\baselineskip
+
 \endinput
