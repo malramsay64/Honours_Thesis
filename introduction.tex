@@ -2,11 +2,34 @@
 \chapter{Introduction}
 
 \section{Liquids}
+The liquid phase is the most prevalent on Earth, from the liquid water in our oceans, to the liquid magma beneath the crust, it plays an important role in keeping us alive, but was also just as important in our evolutionary history.
+
+The liquid phase can be characterised by its near incompressibility, and its ability to flow. \todo{General description of liquid phase}
+
+The liquid phase exists due to an attractive force that extends far enough~\figref{fig:potentials} for a particles to move past one another while still feeling the potential~\cite{tejero:94}. When the potential well becomes too narrow the liquid phase ceases to exist leaving only the solid and gas phases.
+
+\begin{figure}
+    \todofigure{Potentials, short and long range}
+    \label{fig:potentials}
+    \caption{Short range potential ($\sigma < 1.60$) compared to a long range potential ($\sigma > 1.60$)}
+\end{figure}
+
 \subsection{Structure}
-Repulsive interactions give rise to short range order. Absence of long range order.
+The structure of the liquid is defined by this attractive force, with particles forming distinct shells~\figref{fig:radial distribution}. These shells however decay over distance, leaving an isotropic distribution.
+
+
+Form well defined shells of nearest neighbours~\cite[p2]{barrat:03}
+\begin{figure}
+    \todofigure{Radial distribution function for liquid}
+    \label{fig:radial distribution}
+    \caption{We can see the short range order which after a few shells decays to an isotropic distribution.}
+\end{figure}
+
+\subsection{Thermodynamics}
+Stabilised by extra degrees of freedom of molecule.
+
 \subsection{Dynamics}
-
-
+Diffusion
 \section{Supercooled Liquids}
 Definition - cooled below melting point
 Part of transition from liquid to solid - need to be supercooled for nucleation to take place.
@@ -42,6 +65,8 @@ Jammed when degrees of freedom removed
 Disc 2 DOF in 2D -> up/down, left/right
 Snowman 3 DOF -> up/down left/right, rotation
 
+\subsection{Thermodynamics}
+
 
 \section{Molecular Crystals}
 \subsection{Structure}
@@ -54,11 +79,12 @@ An alternate method for describing molecular crystals is based on the model of t
 
 The optimal packing of hard shapes has been a problem studied extensively throughout history, from circle packings studied by the ancient Greeks, to the packing of spheres studied by Kepler to more recently the packings of more complicated and unusual shapes~\cite{atkinson:12,torquato:12}. These problems of packing hard shapes however are incredibly difficult to solve analytically. The hexagonal close packing was first proposed as the most efficient packing of space in 1611~\cite{kepler:1611}, 400 years later Thomas Hales published the first proof~\cite{hales:05,hales:14} relying heavily on computers to check all possibilities. While a formal proof is difficult there are a number of computational methods that are commonly used in an attempt to find the global minimum of a function.
 
-Molecular crystals typically have simple unit cells~\cite{brock:94}
+Molecular crystals typically have simple unit cells~\cite{brock:94}. Periodic lattice
 
 Long range order
 \subsection{Formation}
 \subsubsection{Thermodynamics}
+First order phase transition
 
 \subsubsection{Crystal Growth Kinetics}
 Rate of crystal growth determined by the rate of nucleation and by the speed at which the crystal-liquid interface advances~\cite{turnbull:69}.
@@ -83,9 +109,9 @@ The crystal growth a large supercoolings is dependent on the fragility of the li
 Requires passage over a free energy barrier. The free energy per molecule of a crystal phase is only lower than the liquid in the bulk phase; the surface is less well bound. There is such a size where the free energy of a system will decrease whether the nucleus grows or dissolves, a transition state/saddle point.
 
 Nucleation can be controlled by manipulating the surface energy of the nucleus.~\cite{de-yoreo:03}
-
+ 
 Rate limiting step, needs to be supercooled
-
+ 
 \section{Glasses}
 When the shear viscosity reaches a value (eg. \si{10^13} poise)
 No thermodynamic phase transition~\cite{santen:00}
@@ -106,7 +132,7 @@ Kinetically favoured product
 Rate of change of volume or enthalpy with respect to temperature is on par with that of a solid
 Ideal glass - lowest energy non-crystalline phase
 
-The most favourable conditions for glass formation involve a large viscosity at the melting point and a rapidly rising viscosity below the melting point.~\cite{uhlmann:71}
+The most favourable conditions for glass formation involve a large viscosity at the melting point and a rapidly rising viscosity below the melting point.~\cite{uhlmann:72}
 
 
 
@@ -123,7 +149,7 @@ One way of understanding the behaviours system is using a multidimensional topog
     \todofigure{2D energy landscape}
 \end{figure}
 
-Fragile glass formers have two types of relaxations, dual scale topology. $\alpha$ relaxations large wells, $\beta$ relaxations small wells.~\cite{stilliger:95}
+Fragile glass formers have two types of relaxations, dual scale topology. $\alpha$ relaxations large wells, $\beta$ relaxations small wells.~\cite{stillinger:95}
 
 \section{Binary Mixtures}
 Glass formers, separate to crystallise. Above 0.7? No increase in packing efficiency
