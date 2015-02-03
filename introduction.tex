@@ -4,7 +4,7 @@
 \section{Liquids}
 The liquid phase is the most prevalent on Earth, from the liquid water in our oceans, to the liquid magma beneath the crust, it plays an important role in keeping us alive, but was also just as important in our evolutionary history.
 
-The liquid phase can be characterised by its near incompressibility, and its ability to flow. \todo{General description of liquid phase}
+The liquid phase can be characterised by its near incompressibility, and its ability to flow. \towrite{General description of liquid phase}
 
 The liquid phase exists due to an attractive force that extends far enough~\figref{fig:potentials} for a particles to move past one another while still feeling the potential~\cite{tejero:94}. When the potential well becomes too narrow the liquid phase ceases to exist leaving only the solid and gas phases.
 
@@ -15,8 +15,17 @@ The liquid phase exists due to an attractive force that extends far enough~\figr
 \end{figure}
 
 \subsection{Structure}
-The structure of the liquid is defined by this attractive force, with particles forming distinct shells~\figref{fig:radial distribution}. These shells however decay over distance, leaving an isotropic distribution.
+The structure of the liquid is defined by this attractive force, with particles forming distinct shells~\figref{fig:radial distribution}. These shells however decay over distance, leaving an isotropic distribution. The \emph{radial distribution function} $g(r)$ is the distribution of particles found at a distance $r$ from any other particle,
+\begin{align}
+    g(r) &= \frac{1}{\rho} \langle \delta(r - r_i) \rangle
+\end{align}
+where $\rho = \frac{N}{V}$, the number density. The radial distribution function is a factor that when multiplied by the bulk density $\rho$ we get a local density $\rho(r) = \rho g(r)$. This means we can integrate over all space,
+\begin{equation}
+    \int_0^\infty \rho g(r) 4 \pi r^2\,dr = N-1 \approx N
+\end{equation}
+and get the total number of particles in the system.
 
+The radial distribution function is also crucial in comparing simulation to experiment, x-ray diffraction patterns are also the result of two particle interactions and can be used to determine the short range order of the liquid, giving peaks just like the radial distribution function.
 
 Form well defined shells of nearest neighbours~\cite[p2]{barrat:03}
 \begin{figure}
@@ -29,7 +38,30 @@ Form well defined shells of nearest neighbours~\cite[p2]{barrat:03}
 Stabilised by extra degrees of freedom of molecule.
 
 \subsection{Dynamics}
-Diffusion
+The motion of particles in a liquid can best be explained by Brownian motion, where the path taken by an atom appears to be random and irregular. We can describe this mathematically using the \emph{Langevin equation};
+\begin{equation}
+    \ddiff{\vect u}{t} = - \zeta \vect u + \vect A(t)
+\end{equation}
+There are two parts to this equation, the frictional force ($\zeta$) generating the drag of the particle in the medium. There is also the stochastic fluctuating force ($A(t)$) which arises from the frequent collisions of particles in the liquid phase.
+
+This can be solved~\cite{mcquarrie:76} by looking at the ensemble averages of the motion, giving two results. When the time $t$ is very small we get;
+\begin{equation}
+    \langle | \vect r - \vect{r_0}|^2 \rangle \rightarrow |u_0^2|t^2,   t \rightarrow 0
+\end{equation}
+while on large time scales we have a different result;
+\begin{equation}
+    \langle | \vect r - \vect{r_0} | \rangle = \frac{6kT}{m\zeta} t = 6Dt
+\end{equation}
+where we have introduced the diffusion constant $D = kT/m\zeta$. This tells us that the mean squared displacement ($\langle | \vect r \vect{r_0} |^2 \rangle$) at short time scales will have a $t^2$ relationship, however after a long time compared to $\zeta^{-1}$ the statistical nature of the motion takes over and we see linear dependence on $t$~\figref{fig:MSD}.
+
+\begin{figure}
+    \todofigure{MSD plot showing both short and long timescale dependence}
+    \label{fig:MSD}
+    \caption{Calculation illustrating the time dependence of the mean squared displacement}
+\end{figure}
+
+\towrite{Rotational relaxations}
+
 \section{Supercooled Liquids}
 Definition - cooled below melting point
 Part of transition from liquid to solid - need to be supercooled for nucleation to take place.
