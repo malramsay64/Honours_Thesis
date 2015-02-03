@@ -13,9 +13,37 @@
 \RequirePackage{todonotes}
 
 % Default missing figure
-\newcommand{\todofigure}[1]{\missingfigure{#1}}
+\newcommand*{\todofigure}[1]{\missingfigure{#1}}
+
+% Figure reference
+\newcommand*{\figref}[1]{(FIG.~\ref{#1})}
 
 % Defines a vector as bold font
 \newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+
+% Derivatives
+\renewcommand*{\d}[1]{\,\ensuremath{d #1}}
+\newcommand*{\pd}[1]{\,\ensuremath{\partial #1}}
+\newcommand*{\dd}[1]{\,\ensuremath{d^2 #1}}
+\newcommand*{\pdd}[1]{\,\ensuremath{\partial^2 #1}}
+
+\newcommand*{\ddiff}[2]{\ensuremath{\frac{\d #1}{\d #2}}}
+\newcommand*{\pddiff}[2]{\ensuremath{\frac{\pd #1}{\pd #2}}}
+\newcommand*{\dddiff}[2]{\ensuremath{\frac{\dd #1}{\d #2^2}}}
+\newcommand*{\pdddiff}[2]{\ensuremath{\frac{\pdd #1}{\pd #2^2}}}
+
+% Todo commands
+\newcommand*{\towrite}[1]{\todo[color=green,inline]{#1}}
+\newcommand*{\toedit}[1]{\todo[color=orange,inline]{#1}}
+\newcommand*{\tofix}[1]{\todo[color=red,inline]{#1}}
+
+
+
+% Get todolist working with amsart
+%\let\oldtodolist\listoftodos
+%\renewcommand{\listoftodos}{\makeatletter
+%                            \providecommand\@dotstep{5}
+%                            \makeatother
+%                            \oldtodolist\relax}
 
 \endinput

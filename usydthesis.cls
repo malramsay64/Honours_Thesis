@@ -21,6 +21,7 @@
 \DeclareOption{handbook}{\HandBooktrue}
 
 \def\MasterClass{amsbook}
+%\def\MasterClass{book}
 
 % degree types
 \def\@thesistype{An essay}
@@ -277,5 +278,6 @@
 
 \parindent=0pt
 \parskip=\baselineskip
+
 
 \endinput
