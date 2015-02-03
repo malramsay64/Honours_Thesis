@@ -52,7 +52,7 @@ while on large time scales we have a different result;
 \begin{equation}
     \langle | \vect r - \vect{r_0} | \rangle = \frac{6kT}{m\zeta} t = 6Dt
 \end{equation}
-where we have introduced the diffusion constant $D = kT/m\zeta$. This tells us that the mean squared displacement ($\langle | \vect r \vect{r_0} |^2 \rangle$) at short time scales will have a $t^2$ relationship, however after a long time compared to $\zeta^{-1}$ the statistical nature of the motion takes over and we see linear dependence on $t$~\figref{fig:MSD}.
+where we have introduced the diffusion constant $D = kT/m\zeta$. This tells us that the mean squared displacement ($\langle | \vect r - \vect{r_0} |^2 \rangle$) at short time scales will have a $t^2$ relationship, however after a long time compared to $\zeta^{-1}$ the statistical nature of the motion takes over and we see linear dependence on $t$~\figref{fig:MSD}.
 
 \begin{figure}
     \todofigure{MSD plot showing both short and long timescale dependence}
@@ -63,8 +63,15 @@ where we have introduced the diffusion constant $D = kT/m\zeta$. This tells us t
 \towrite{Rotational relaxations}
 
 \section{Supercooled Liquids}
-Definition - cooled below melting point
-Part of transition from liquid to solid - need to be supercooled for nucleation to take place.
+
+Intrinsically there is nothing to differentiate a liquid from a supercooled liquid, the difference comes from their relationship to the melting point. Liquids are the liquid phase when the temperature is above the melting point, supercooled liquids have a temperature below the melting point. The process of supercooling a liquid is an integral part of forming the solid phase, spontaneous crystallisation takes a long time to occur at the melting point due to the large surface area of any nucleus~\figref{fig:supercool crys}.
+
+\begin{figure}
+    \todofigure{Rate of crystallisation as a function of temperature}
+    \caption{There is a supercooling that gives maximum rate of crystal formation}
+    \label{fig:supercool crys}
+\end{figure}
+
 \begin{figure}
     \todofigure{Temperature dependence of enthalpy or volume}
 \end{figure}
@@ -105,7 +112,7 @@ Snowman 3 DOF -> up/down left/right, rotation
 
 One of the descriptions of the efficacy close packed crystal structure is the Molecular Coordination Number (MCN). This is very similar to the concept of coordination number in inorganic crystals however the generally much weaker interparticle interactions in molecules over ions introduce some nuances.
 
-The typical picture of a molecular crystal is of a close packed structure~\cite{kitaigorodskii:73} where the crystal is arranged such that it occupies as much space as possible. This approach assumes the atoms behave in a manner similar to hard spheres from which molecular shapes can be constructed. The densest packing can the be found utilising one of a number of methods that search the configuration space. This method is suitably effective in inorganic chemistry~\cite{wells:73} however there are many organic crystals with a MCN = 14 which is not predicted using this model.
+The typical picture of a molecular crystal is of a close packed structure~\cite{kitaigorodskii:73} where the crystal is arranged such that it occupies as much space as possible. This approach assumes the atoms behave in a manner similar to hard spheres from which molecular shapes can be constructed. The densest packing can the be found utilising one of a number of methods that search the configuration space. This method is suitably effective in inorganic chemistry~\cite{wells:84} however there are many organic crystals with a MCN = 14 which is not predicted using this model.
 
 An alternate method for describing molecular crystals is based on the model of thinnest space covering~\cite{blatov:95} where the entire space is filled with Voroni-Dirichlet polyhedra. These polyhedra are formed by overlapping the atomic spheres until in such a way that they fill the entire space with minimum overlap. The vertexes of the polyhedra correspond to the intersections of the spheres and give information about the interatomic interactions of the molecule. The MCN of these convex polyhedra is the number of faces and the size of the face is proportional to the strength of the interaction. This description of molecular packing is based on the idea of soft deformable atoms and has been shown to be a better description of many molecular crystals~\cite{blatov:97,peresypkina:99,peresypkina:00}
 
@@ -129,7 +136,7 @@ Control of growth~\cite{de-yoreo:03}
 
 A series of steps containing kinks~\cite{chernov:61} More bonds to neighbours when attaching, more likely to stick at these locations. Growth rate impacted by the number of these kink sites.
 
-There is a point at which the driving force for crystallisation, which increases with decreasing temperature and the atomic mobility, which decreases with increasing temperature results in a minimum in the time for a volume fraction to crystallise.~\cite{uhlmann:71}
+There is a point at which the driving force for crystallisation, which increases with decreasing temperature and the atomic mobility, which decreases with increasing temperature results in a minimum in the time for a volume fraction to crystallise.~\cite{uhlmann:72}
 \begin{figure}
     \todofigure{Time temperature transformation curve}
 \end{figure}
