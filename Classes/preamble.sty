@@ -2,16 +2,18 @@
 % macros that I use.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{std_preamble}
+\ProvidesPackage{preamble}
   [2014/01/12 v0.01 LaTeX package for my standard preamble]
 
-\RequirePackage{fullpage}
+%\RequirePackage{fullpage}
 \RequirePackage{amsmath}
 \RequirePackage{graphicx}
 \RequirePackage{siunitx}
 \RequirePackage[backend=biber]{biblatex}
 \RequirePackage{todonotes}
-\RequirePackage{titlesec}
+\RequirePackage{parskip}
+
+\setcounter{tocdepth}{3}
 
 % Default missing figure
 \newcommand*{\todofigure}[1]{\missingfigure{#1}}
@@ -39,7 +41,22 @@
 \newcommand*{\tofix}[1]{\todo[color=red,inline]{#1}}
 
 % Redo chapter titles
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%                                 % Insert 50pt (vertical) space
+  {\parindent \z@ \raggedright \normalfont         % No paragraph indent, ragged right
+    \ifnum \c@secnumdepth >\m@ne                   % If you should number chapters
+        \centering{\huge\sc \@chapapp\space \thechapter} % huge, small caps, centering , Chapter + number
+        \par\nobreak                               % paragraph break without page break
+        \vskip 20\p@                               % Insert 20pt (vertical) space
+    \fi
+    \interlinepenalty\@M                           % Penalty
+    \raggedright
+    \Huge \bfseries #1\par\nobreak                 % Huge, bold chapter title
+    \vskip 40\p@                                   % Insert 40pt (vertical) space
+  }}
 
+% Space after header
+%\setlength{\headsep}{30pt}
 
 % Get todolist working with amsart
 %\let\oldtodolist\listoftodos

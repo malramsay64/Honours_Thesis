@@ -1,29 +1,31 @@
-\documentclass[a4paper, 12pt, chem, BSc]{usydthesis}
+\documentclass[12pt,a4paper,oneside,british]{report}
 
-\usepackage{preamble}
-\usepackage[doublespacing]{setspace}
+\usepackage{Classes/suthesis-2e}
+
+\usepackage{Classes/preamble}
 
 \bibliography{/Users/malcolm/Honours/resources/crystal}
-
-\title{Investigation of 2D Lennard Jones "Molecules"}
-
-\author{Malcolm Ramsay}
+\makeatother
 
 \begin{document}
-%\frontmatter
+\title{Investigation of 2D Lennard Jones "Molecules"}
+\author{Malcolm Ramsay}
+\uni{The University of Sydney}
+\dept{School of Chemistry}
+\crest{\includegraphics[width=50mm]{figures/USYD_logo}}
+\principaladviser{Professor Peter Harrowell}
+\coprincipaladvisor{Dr Asaph Widmer-Cooper}
 
-\maketitle
+\beforepreface
 
-%\listoftodos
+\prefacesection{Acknowledgements}
 
-\setcounter{tocdepth}{3}
-\tableofcontents
+\afterpreface
 
-%\mainmatter
-\include{introduction}
+\include{introduction/introduction}
 
-\include{method}
+\include{method/method}
 
-\backmatter
+\printbibliography
 
 \end{document}
