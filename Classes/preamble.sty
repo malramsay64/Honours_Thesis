@@ -40,21 +40,6 @@
 \newcommand*{\toedit}[1]{\todo[color=orange,inline]{#1}}
 \newcommand*{\tofix}[1]{\todo[color=red,inline]{#1}}
 
-% Redo chapter titles
-\def\@makechapterhead#1{%
-  \vspace*{50\p@}%                                 % Insert 50pt (vertical) space
-  {\parindent \z@ \raggedright \normalfont         % No paragraph indent, ragged right
-    \ifnum \c@secnumdepth >\m@ne                   % If you should number chapters
-        \centering{\huge\sc \@chapapp\space \thechapter} % huge, small caps, centering , Chapter + number
-        \par\nobreak                               % paragraph break without page break
-        \vskip 20\p@                               % Insert 20pt (vertical) space
-    \fi
-    \interlinepenalty\@M                           % Penalty
-    \raggedright
-    \Huge \bfseries #1\par\nobreak                 % Huge, bold chapter title
-    \vskip 40\p@                                   % Insert 40pt (vertical) space
-  }}
-
 % Space after header
 %\setlength{\headsep}{30pt}
 
