@@ -1,7 +1,27 @@
 
 \chapter{Introduction}
 
+
+
 \towrite{stuff about the uses of molecular crystals, where there are applications, drug design, solubility, solid state reactions}
+
+\towrite{Overview of introduction, the journey we are going on}
+
+Manipulating the formation of a condensed phase a critical part of both nature and technology. From molluscs that control the crystal formation of calcium carbonate, pharmaceutical companies forming molecular glasses to increase the solubility of drugs, to Apple controlling the formation of sapphire glass to put in its iphones.
+
+The glassy state is a crucial part of modern technology. Many of the materials that we rely on, plastics, optical fibres, silicon in photovoltaic cells, the display of your smartphone and the drugs you might take. However we are yet to fully understand and control the transition to this glassy state. Most of these processes involve navigating the supercooled regime where the slower dynamics tend to bypass crystallisation leading to dynamical arrest.
+
+A full understanding of this process not only needs to include the processes for forming a glass but also those to form a liquid. This comprehensive approach will help us better understand the features that are better suited for either glass or crystal formation. Molecules are the favoured approach since topology is a variable that can be easily changed and is suspected to be heavily involved in glass formation.
+
+
+
+All these processes take control of the nucleation and crystal growth process.
+
+\begin{figure}
+    \missingfigure{Plot of entropy vs Temperature, where all the phases lie}
+    \caption{}
+    \label{fig:}
+\end{figure}
 
 \section{Molecular Liquids}
 The liquid phase is the most prevalent on Earth, from the liquid water in our oceans, to the liquid magma beneath the crust, it plays an important role in keeping us alive, but was also just as important in our evolutionary history.
@@ -74,6 +94,14 @@ Intrinsically there is nothing to differentiate a liquid from a supercooled liqu
     \label{fig:supercool crys}
 \end{figure}
 
+
+\subsection{Fragility}
+When cooling a liquid towards  
+
+Super-Arrhenius behaviour.
+Rotational motion decays faster than translational motion
+
+
 \begin{figure}
     \todofigure{Temperature dependence of enthalpy or volume}
 \end{figure}
@@ -87,10 +115,6 @@ Kauzmann temperature - entropy crisis
 Entropy of liquid decreases faster with T than in a solid.
 Rotational motion and viscosity proportional to viscosity - breaks down below 1.2 Tg
 Heterogeneous dynamics - areas with motion, areas non-diffusing
-
-\subsection{Fragility}
-Super-Arrhenius behaviour.
-Rotational motion decays faster than translational motion
 
 \subsection{Energy Landscape}
 A crystal sampling an energy landscape
@@ -112,13 +136,25 @@ Snowman 3 DOF -> up/down left/right, rotation
 \section{Molecular Crystals}
 \subsection{Structure}
 
+The optimal packing of hard shapes has been a problem studied extensively throughout history, from circle packings studied by the ancient Greeks, to the packing of spheres studied by Kepler to more recently the packings of more complicated and unusual shapes~\cite{atkinson:12,torquato:12}. These problems of packing hard shapes however are incredibly difficult to solve analytically. The hexagonal close packing~\figref{fig:hcp} was first proposed as the most efficient packing of space in 1611~\cite{kepler:1611}, 400 years later Thomas Hales published the first proof~\cite{hales:05,hales:14} relying heavily on computers to check all possible arrangements in space. While a formal proof of an optimal packing is difficult there are a number of computational methods that are commonly used in an attempt to find the global minimum of a function.
+
+\begin{figure}
+    \missingfigure{Close packings of a variety of shapes}
+    \caption{We have the closest known packed structure for a number of shapes}
+    \label{fig:hcp}
+\end{figure}
+
+\towrite{Finding global minimum, techniques}
+
+The reason we are interested in the closest packed structure is that is a typical picture of a molecular crystal~\cite{kitaigorodskii:73}. This approach assumes the atoms behave in a manner similar to hard spheres from which molecular shapes can be constructed. The densest packing can the be found utilising one of a number of methods that search the configuration space. 
+
+This method is suitably effective in inorganic chemistry~\cite{wells:84} however there are many organic crystals with a MCN = 14 which is not predicted using this model.
+
 One of the descriptions of the efficacy close packed crystal structure is the Molecular Coordination Number (MCN). This is very similar to the concept of coordination number in inorganic crystals however the generally much weaker interparticle interactions in molecules over ions introduce some nuances.
 
-The typical picture of a molecular crystal is of a close packed structure~\cite{kitaigorodskii:73} where the crystal is arranged such that it occupies as much space as possible. This approach assumes the atoms behave in a manner similar to hard spheres from which molecular shapes can be constructed. The densest packing can the be found utilising one of a number of methods that search the configuration space. This method is suitably effective in inorganic chemistry~\cite{wells:84} however there are many organic crystals with a MCN = 14 which is not predicted using this model.
 
 An alternate method for describing molecular crystals is based on the model of thinnest space covering~\cite{blatov:95} where the entire space is filled with Voroni-Dirichlet polyhedra. These polyhedra are formed by overlapping the atomic spheres until in such a way that they fill the entire space with minimum overlap. The vertexes of the polyhedra correspond to the intersections of the spheres and give information about the interatomic interactions of the molecule. The MCN of these convex polyhedra is the number of faces and the size of the face is proportional to the strength of the interaction. This description of molecular packing is based on the idea of soft deformable atoms and has been shown to be a better description of many molecular crystals~\cite{blatov:97,peresypkina:99,peresypkina:00}
 
-The optimal packing of hard shapes has been a problem studied extensively throughout history, from circle packings studied by the ancient Greeks, to the packing of spheres studied by Kepler to more recently the packings of more complicated and unusual shapes~\cite{atkinson:12,torquato:12}. These problems of packing hard shapes however are incredibly difficult to solve analytically. The hexagonal close packing was first proposed as the most efficient packing of space in 1611~\cite{kepler:1611}, 400 years later Thomas Hales published the first proof~\cite{hales:05,hales:14} relying heavily on computers to check all possibilities. While a formal proof is difficult there are a number of computational methods that are commonly used in an attempt to find the global minimum of a function.
 
 Molecular crystals typically have simple unit cells~\cite{brock:94}. Periodic lattice
 
