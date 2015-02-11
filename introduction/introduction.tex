@@ -1,7 +1,7 @@
 
 \chapter{Introduction}
 
-
+Controlling the formation of the solid phase is important in many apl
 
 \towrite{stuff about the uses of molecular crystals, where there are applications, drug design, solubility, solid state reactions}
 
@@ -26,7 +26,11 @@ All these processes take control of the nucleation and crystal growth process.
 \section{Molecular Liquids}
 The liquid phase is the most prevalent on Earth, from the liquid water in our oceans, to the liquid magma beneath the crust, it plays an important role in keeping us alive, but was also just as important in our evolutionary history.
 
-The liquid phase can be characterised by its near incompressibility, and its ability to flow. \towrite{General description of liquid phase}
+The liquid phase can be characterised by its near incompressibility, and its ability to flow. One of the key properties of a liquid is its viscosity (\eta), which is measured in poise (P). Water has a viscosity in the range of \si{10e-2}{\poise}, and honey \si{2}{\poise}. Using the Stokes-Einstein equation
+\begin{equation}
+    D=\frac{k_B T}{\eta\,C\,a}
+\end{equation}
+where $C$ and $a$ are constants for the interaction and surface area~\tocheck of particles respectively, we have a relation between the diffusion constant $D$ and the viscosity~\tocite. This relation is important to understanding the dynamics of the system.
 
 The liquid phase exists due to an attractive force that extends far enough~\figref{fig:potentials} for a particles to move past one another while still feeling the potential~\cite{tejero:94}. When the potential well becomes too narrow the liquid phase ceases to exist leaving only the solid and gas phases.
 
@@ -47,7 +51,7 @@ where $\rho = \frac{N}{V}$, the number density. The radial distribution function
 \end{equation}
 and get the total number of particles in the system.
 
-The radial distribution function is also crucial in comparing simulation to experiment, x-ray diffraction patterns are also the result of two particle interactions and can be used to determine the short range order of the liquid, giving peaks just like the radial distribution function.
+The radial distribution function is also crucial in comparing simulation to experiment. By performing a transformation \towrite{specifics} we get the structure factor. The structure factor is another two particle interaction that is experimentally determined from x-ray diffraction patterns.
 
 Form well defined shells of nearest neighbours~\cite[p2]{barrat:03}
 \begin{figure}
@@ -56,11 +60,8 @@ Form well defined shells of nearest neighbours~\cite[p2]{barrat:03}
     \caption{We can see the short range order which after a few shells decays to an isotropic distribution.}
 \end{figure}
 
-\subsection{Thermodynamics}
-Stabilised by extra degrees of freedom of molecule.
-
 \subsection{Dynamics}
-The motion of particles in a liquid can best be explained by Brownian motion, where the path taken by an atom appears to be random and irregular. We can describe this mathematically using the \emph{Langevin equation};
+The motion of particles in a liquid over a long time period is characterised by an uncorrelated random walk. Brownian motion which assumes that the path taken by an atom is to be random and irregular is in many cases a good theoretical description of diffusion in a liquid. The mathematical description of Brownian motion uses the \emph{Langevin equation};
 \begin{equation}
     \ddiff{\vect u}{t} = - \zeta \vect u + \vect A(t)
 \end{equation}
@@ -74,7 +75,8 @@ while on large time scales we have a different result;
 \begin{equation}
     \langle | \vect r - \vect{r_0} | \rangle = \frac{6kT}{m\zeta} t = 6Dt
 \end{equation}
-where we have introduced the diffusion constant $D = kT/m\zeta$. This tells us that the mean squared displacement ($\langle | \vect r - \vect{r_0} |^2 \rangle$) at short time scales will have a $t^2$ relationship, however after a long time compared to $\zeta^{-1}$ the statistical nature of the motion takes over and we see linear dependence on $t$~\figref{fig:MSD}.
+where we have introduced the diffusion constant $D = kT/m\zeta$. From this to get a meaningful measure of the diffusion constant we need to look at timescales that are long compared to $\zeta^{-1}$.
+
 
 \begin{figure}
     \todofigure{MSD plot showing both short and long timescale dependence}
@@ -82,7 +84,8 @@ where we have introduced the diffusion constant $D = kT/m\zeta$. This tells us t
     \caption{Calculation illustrating the time dependence of the mean squared displacement}
 \end{figure}
 
-\towrite{Rotational relaxations}
+\towrite{Rotational relaxations, equations used, why used what it gives us.}
+
 
 \section{Supercooled Liquids}
 
@@ -95,24 +98,36 @@ Intrinsically there is nothing to differentiate a liquid from a supercooled liqu
 \end{figure}
 
 
-\subsection{Fragility}
-When cooling a liquid towards  
+\subsection{Thermodynamics}
 
-Super-Arrhenius behaviour.
-Rotational motion decays faster than translational motion
-
+If looking at thermodynamics alone the supercooled liquid state should never exist, a liquid will always spontaneously crystallise at $T_m$. While this is not the case there are other ways that thermodynamics can yield more useful information about the supercooled state. Looking at entropy~\figref{fig:entropy} the liquid phase has a greater heat capacity than the crystal, resulting in a greater temperature dependence on entropy.~\cite{debenedetti:01}.
 
 \begin{figure}
     \todofigure{Temperature dependence of enthalpy or volume}
+    \caption{Entropy as a function of temperature}
+    \label{fig:entropy}
 \end{figure}
-heat capacity of liquid greater than crystal - greater temperature dependence on enthalpy~\cite{debenedetti:01}
-Important temperatures
 
-\subsection{Kinetics}
-Viscosity - relation to relaxation time
-Strong vs fragile liquids
+\subsection{Dynamics}
+
+Over much of the temperature range of a liquid the viscosity ($\eta$) observes Arrhenius behaviour
+\begin{equation}
+    \eta = \eta_0 \e^(E/k_bT)
+\end{equation}
+however in in supercooled molecular liquids we can get deviation from this~\figref{fig:angell}. Glass formers which stick to the Arrhenius temperature dependence are considered strong glass formers, with molten \ce{SiO2} being an archetypal example. Those that exhibit super-arrhenius behaviour are considered fragile glass formers, with ortho-ter-phenyl\tocheck being the canonical example. It is important to note that there is a full continuum of glass formers between the strong and fragile cases.
+
+\begin{figure}
+    \todofigure{Plot of strong and fragile liquids}
+    \caption{T scaled arrhenius representation, straight line represent arrhenius behaviour}
+    \label{fig:angell}
+\end{figure}
+
+Fragile glass formers are more interesting in understanding the glass transition because there is a change in the dynamics near the glass transition temperature $T_g$ and therefore there is something more fundamental about the glass transition for these systems. 
+
+As we go to lower and lower temperatures the dynamics of the system slows down dramatically. The relaxation time ($\tau_r$), the time it takes for a liquid to behave like a liquid is proportional to the viscosity. The relaxation time is indicative of the length of time the system needs to sample all thermodynamic states, shorter times will result in a divergence from the thermodynamic equilibrium.
+
+
 Kauzmann temperature - entropy crisis
-Entropy of liquid decreases faster with T than in a solid.
 Rotational motion and viscosity proportional to viscosity - breaks down below 1.2 Tg
 Heterogeneous dynamics - areas with motion, areas non-diffusing
 
@@ -130,10 +145,19 @@ Jammed when degrees of freedom removed
 Disc 2 DOF in 2D -> up/down, left/right
 Snowman 3 DOF -> up/down left/right, rotation
 
-\subsection{Thermodynamics}
-
-
 \section{Molecular Crystals}
+
+With the great diversity in molecular shape and structure one might expect that the same could be said of molecular crystals, however five space groups make up \si{75}{\percent} of all known structures~\cite{brock:94}. This is at odds with the inorganic crystals which occupy a wide range of space groups.
+
+\subsection{Space Groups}
+
+Space groups describe the type of unit cell and the symmetry operations that make up the unit cell. 
+
+
+Space groups are a series of rotations, translations, mirror planes, inversions and improper rotations that completely describe the unit cell of a crystal given the position and orientation of a single molecule within that unit cell.
+
+Wallpaper groups are the two dimensional equivalent,
+
 \subsection{Structure}
 
 The optimal packing of hard shapes has been a problem studied extensively throughout history, from circle packings studied by the ancient Greeks, to the packing of spheres studied by Kepler to more recently the packings of more complicated and unusual shapes~\cite{atkinson:12,torquato:12}. These problems of packing hard shapes however are incredibly difficult to solve analytically. The hexagonal close packing~\figref{fig:hcp} was first proposed as the most efficient packing of space in 1611~\cite{kepler:1611}, 400 years later Thomas Hales published the first proof~\cite{hales:05,hales:14} relying heavily on computers to check all possible arrangements in space. While a formal proof of an optimal packing is difficult there are a number of computational methods that are commonly used in an attempt to find the global minimum of a function.
@@ -152,6 +176,7 @@ This method is suitably effective in inorganic chemistry~\cite{wells:84} however
 
 One of the descriptions of the efficacy close packed crystal structure is the Molecular Coordination Number (MCN). This is very similar to the concept of coordination number in inorganic crystals however the generally much weaker interparticle interactions in molecules over ions introduce some nuances.
 
+The typical picture of a molecular crystal is of a close packed structure~\cite{kitaigorodskii:73} where the crystal is arranged such that it occupies as much space as possible. This approach assumes the atoms behave in a manner similar to hard spheres from which molecular shapes can be constructed. The densest packing can the be found utilising one of a number of methods that search the configuration space. This method is suitably effective in inorganic chemistry~\cite{wells:84} however there are many organic crystals with a MCN = 14 which is not predicted using this model.
 
 An alternate method for describing molecular crystals is based on the model of thinnest space covering~\cite{blatov:95} where the entire space is filled with Voroni-Dirichlet polyhedra. These polyhedra are formed by overlapping the atomic spheres until in such a way that they fill the entire space with minimum overlap. The vertexes of the polyhedra correspond to the intersections of the spheres and give information about the interatomic interactions of the molecule. The MCN of these convex polyhedra is the number of faces and the size of the face is proportional to the strength of the interaction. This description of molecular packing is based on the idea of soft deformable atoms and has been shown to be a better description of many molecular crystals~\cite{blatov:97,peresypkina:99,peresypkina:00}
 
