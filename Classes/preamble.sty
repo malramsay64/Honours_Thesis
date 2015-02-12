@@ -12,6 +12,9 @@
 \RequirePackage[backend=biber,citestyle=nature]{biblatex}
 \RequirePackage{todonotes}
 \RequirePackage{parskip}
+\RequirePackage{hyperref}
+\RequirePackage{doi}
+\RequirePackage[version=3]{mhchem}
 
 \setcounter{tocdepth}{3}
 
@@ -39,6 +42,14 @@
 \newcommand*{\towrite}[1]{\todo[color=green,inline]{#1}}
 \newcommand*{\toedit}[1]{\todo[color=orange,inline]{#1}}
 \newcommand*{\tofix}[1]{\todo[color=red,inline]{#1}}
+\newcommand*{\tocite}{\todo[color=blue]{cite}}
+\newcommand*{\tocheck}{\todo[color=red]{check}}
+
+% Defining Poise as a unit
+\DeclareSIUnit[number-unit-product = \,]{\poise}{P}
+
+% Defining style of constants
+\newcommand*{\e}{\ensuremath{\text{e}}}
 
 % Space after header
 %\setlength{\headsep}{30pt}
