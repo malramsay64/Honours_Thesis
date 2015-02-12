@@ -18,7 +18,7 @@
 \setcounter{tocdepth}{3}
 
 % Default missing figure
-\newcommand*{\todofigure}[1]{\missingfigure{#1}}
+\newcommand*{\todofigure}[1]{\missingfigure[figcolor=white]{#1}}
 
 % Figure reference
 \newcommand*{\figref}[1]{(FIG.~\ref{#1})}
@@ -38,11 +38,11 @@
 \newcommand*{\pdddiff}[2]{\ensuremath{\frac{\pdd #1}{\pd #2^2}}}
 
 % Todo commands
-\newcommand*{\towrite}[1]{\todo[color=green,inline]{#1}}
-\newcommand*{\toedit}[1]{\todo[color=orange,inline]{#1}}
-\newcommand*{\tofix}[1]{\todo[color=red,inline]{#1}}
-\newcommand*{\tocite}{\todo[color=blue]{cite}}
-\newcommand*{\tocheck}{\todo[color=red]{check}}
+\newcommand*{\towrite}[1]{\todo[color=green,inline]{Write: #1}}
+\newcommand*{\toedit}[1]{\todo[color=orange,inline]{Edit: #1}}
+\newcommand*{\tofix}[1]{\todo[color=red,inline]{Fix: #1}}
+\newcommand*{\tocite}{\todo[color=blue]{Cite}}
+\newcommand*{\tocheck}{\todo[color=pink]{Check}}
 
 % Defining Poise as a unit
 \DeclareSIUnit[number-unit-product = \,]{\poise}{P}
