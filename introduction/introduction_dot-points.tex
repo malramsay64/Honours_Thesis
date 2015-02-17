@@ -1,0 +1,292 @@
+
+\chapter{Introduction}
+
+
+Manipulating the formation of a condensed phase is a critical part of both nature and technology. From molluscs controlling crystal formation\tocite, to forming molecular glasses to increase the solubility of drugs\tocite, to the plastics we use everyday\tocite, silicon in photovoltaic cells\tocite and many other materials that we rely on every day. As the devices we use become smaller the need to understand the processes that form them becomes more important. A complete theory of glass formation is still elusive and our ability to control crystal formation is far from what is available to nature. To better understand the formation of the solid phase an understanding of the molecular rearrangements that take place as we move from a molecular liquid through a supercooled liquid to either a glass or molecular crystal.
+
+\section{Molecular Liquids}
+
+The liquid phase can be characterised by its near incompressibility, and its ability to flow. One of the key properties of liquids is viscosity ($\eta$), measured in poise (\si{\poise}). The viscosity of some common liquids is shown in \tabref{tab:viscosity}.
+\begin{table}
+    \begin{tabular}{l c }
+    & {\bf Viscosity (\si{\poise})}\\
+    Water   & \si{e-2}\\
+    Honey   &  2    \\
+    \end{tabular}
+    \caption{Viscosity of some common liquids}
+    \label{tab:viscosity}
+\end{table}
+
+The liquid phase exists due to an attractive force that extends far enough~\figref{fig:potentials}\tofix{figure reference format} for a particles to move past one another while still feeling the potential~\cite{tejero:94}. When the potential well becomes too narrow the liquid phase ceases to exist leaving only the solid and gas phases.
+
+\begin{figure}
+    \todofigure{Potentials, short and long range}
+    \label{fig:potentials}
+    \caption{Short range potential ($\sigma < 1.60$) compared to a long range potential ($\sigma > 1.60$)}
+\end{figure}
+
+\subsection{Structure}
+While the liquid phase exists due to an attractive force, the structure of the liquid is defined by a short range repulsive force. The molecules in a liquid form distinct shells of nearest neighbours around the repulsive region~\figref{fig:radial distribution}~\cite{barrat:03}. These shells however decay over distance, giving an overall isotropic distribution. The \emph{radial distribution function} $g(r)$ is the distribution of particles found at a distance $r$ from any other particle,
+\begin{align}
+    g(r) &= \frac{1}{\rho} \langle \delta(r - r_i) \rangle
+\end{align}
+where $\rho = \frac{N}{V}$, the number density\tofix{Radial distribution function}. The radial distribution function is a factor that when multiplied by the bulk density $\rho$ we get a local density $\rho(r) = \rho g(r)$. Integrating over all space,
+\begin{equation}
+    \int_0^\infty \rho g(r) 4 \pi r^2\,dr = N-1 \approx N
+\end{equation}
+gives the total number of particles in the system.
+
+The radial distribution function is also crucial in comparing simulation to experiment. By performing a Fourier transformation on $g(r)$
+\begin{equation}
+    S(q) = 1 + 4\pi\,\rho \int^\infty_0\d r\,r^2 \frac{\sin{(q\,r)}}{q\,r} (g(r)-1)
+\end{equation}
+we get the static structure factor $S(q)$~\cite{allen:87,hansen:86} which can be experimentally determined by inelastic neutron scattering~\tocite or x-ray diffraction~\tocite.
+
+\begin{figure}
+    \todofigure{Radial distribution function for liquid}
+    \label{fig:radial distribution}
+    \caption{We can see the short range order which after a few shells decays to an isotropic distribution.}
+\end{figure}
+
+\subsection{Dynamics}
+
+The motion of particles in a liquid over a long time period is characterised by an uncorrelated random walk. \emph{Brownian motion} assumes the path taken by an atom is random and irregular and in many cases is a good theoretical description of diffusion in a liquid. The mathematical description of Brownian motion uses the \emph{Langevin equation};
+\begin{equation}
+    \ddiff{\vect u}{t} = - \zeta \vect u + \vect A(t)
+    \label{eq:langevin}
+\end{equation}
+There are two parts to this equation, the frictional force ($\zeta$) represents the drag of the particle through the medium and the stochastic fluctuating force ($A(t)$) arising from the frequent collisions of particles.
+
+This equation \eqref{eq:langevin} can be solved~\cite{mcquarrie:76} by using the ensemble averages of the motion, giving two results. When the time ($t$) is small
+\begin{equation}
+    \langle | \vect r(t) - \vect{r_0}|^2 \rangle \rightarrow |u_0^2|t^2,   t \rightarrow 0
+\end{equation}
+while on large time scales
+\begin{equation}
+    \langle | \vect r(t) - \vect{r_0} |^2 \rangle = \frac{6kT}{m\zeta} t = 6Dt
+\end{equation}
+where we have introduced the diffusion constant $D = kT/m\zeta$. From this to get a meaningful measure of the diffusion constant we need to look at timescales that are long compared to $\zeta^{-1}$.
+
+Using the Stokes-Einstein equation
+\begin{equation}
+    D=\frac{k_B T}{\eta\,C\,a}
+\end{equation}
+where $C$ and $a$ are constants for the interaction and surface area~\tocheck of particles respectively, we have a relation between the diffusion constant $D$ and the viscosity~\tocite. This relation is important to understanding the dynamics of the system.
+
+\begin{figure}
+    \todofigure{MSD plot showing both short and long timescale dependence}
+    \label{fig:MSD}
+    \caption{Calculation illustrating the time dependence of the mean squared displacement}
+\end{figure}
+
+\towrite{Rotational relaxations, equations used, why used what it gives us.}
+
+
+\section{Supercooled Liquids}
+
+Intrinsically there is nothing to differentiate a liquid from a supercooled liquid, the difference comes from their relationship to the melting point. Liquids are the liquid phase when the temperature is above the melting point, supercooled liquids have a temperature below the melting point.
+
+\begin{figure}
+    \todofigure{Rate of crystallisation as a function of temperature}
+    \caption{There is a supercooling that gives maximum rate of crystal formation}
+    \label{fig:supercool crys}
+\end{figure}
+
+
+\subsection{Thermodynamics}
+
+If looking at thermodynamics alone the supercooled liquid state should never exist, a liquid will always spontaneously crystallise at $T_m$. While this is not the case there are other ways that thermodynamics can yield more useful information about the supercooled state. Looking at entropy~\figref{fig:entropy} the liquid phase has a greater heat capacity than the crystal, resulting in a greater temperature dependence on entropy.~\cite{debenedetti:01}.
+
+\begin{figure}
+    \todofigure{Temperature dependence of enthalpy or volume}
+    \caption{Entropy as a function of temperature}
+    \label{fig:entropy}
+\end{figure}
+
+The supercooled liquid state can still be regarded as being at equilibrium despite being a metastable state. This is a result of the short relaxation time of the system, it is still able to sample all thermodynamic states~\cite{cavagna:09}.
+
+\subsection{Dynamics}
+
+Over much of the temperature range of a liquid the viscosity ($\eta$) observes Arrhenius behaviour
+\begin{equation}
+    \eta = \eta_0 \e^{(E/k_bT)}
+\end{equation}
+however in in supercooled molecular liquids we can get deviation from this~\figref{fig:angell}. Arrhenius behaviour is indicative of a process that requires negotiating a free energy barrier.  Glass formers which stick to the Arrhenius temperature dependence are considered strong glass formers, with molten \ce{SiO2} being an archetypal example. Those that exhibit super-arrhenius behaviour are considered fragile glass formers, with ortho-ter-phenyl\tocheck being the canonical example. It is important to note that there is a full continuum of glass formers between the strong and fragile cases.
+
+\begin{figure}
+    \todofigure{Plot of strong and fragile liquids}
+    \caption{T scaled arrhenius representation, straight line represent arrhenius behaviour}
+    \label{fig:angell}
+\end{figure}
+
+Fragile glass formers are more interesting in understanding the glass transition because there is a change in the dynamics near the glass transition temperature $T_g$ and therefore there is something more fundamental about the glass transition for these systems. 
+
+As we go to lower and lower temperatures the dynamics of the system slows down dramatically. The relaxation time ($\tau_r$), the time it takes for a liquid to behave like a liquid is proportional to the viscosity. The relaxation time is indicative of the length of time the system needs to sample all thermodynamic states, shorter times will result in a divergence from the thermodynamic equilibrium.
+
+\begin{itemize}
+    \item Kauzmann temperature - entropy crisis
+    \item Rotational motion and diffusion proportional to viscosity - breaks down below 1.2 Tg
+    \item Heterogeneous dynamics - areas with motion, areas non-diffusing
+\end{itemize}
+
+\subsection{Energy Landscape}
+
+\begin{itemize}
+    \item A crystal sampling an energy landscape
+    \item Amount of energy proportional to T
+    \item Higher T more of the space
+    \item When temperature lowered gets stuck in a local minimum
+    \item Slower cooling more likely to find lower energy minimum
+    \item Temperature affects how the system samples the landscape, not the landscape itself.
+\end{itemize}
+
+\subsection{Jamming}
+\begin{itemize}
+    \item Jammed when degrees of freedom removed
+    \item 2 contacts remove DOF
+    \item Disc 2 DOF in 2D -> up/down, left/right
+    \item Snowman 3 DOF -> up/down left/right, rotation
+\end{itemize}
+\section{Molecular Crystals}
+
+With great diversity in molecular shape and structure one might expect the same could be said of molecular crystals. However, only five space groups make up \SI{75}{\percent} of all known structures~\cite{brock:94}. This is at odds with the inorganic crystals which occupy a wide range of space groups with none representing more than \SI{7}{\percent}.
+
+\subsection{Space Groups}
+
+Space groups are a series of rotations, reflections, improper rotations, screw axes and glide planes that completely describe the unit cell of a crystal. In three dimensional space there are 219 distinct groups (230 including chiral copies) made from combining the 32 crystallographic point groups with the 14 Bravais lattices with the 7 lattice systems. If we are only concerned with two dimensional space then there are only 17 {\em wallpaper} groups~\tabref{tab:wallpaper}.
+
+\begin{table}
+    \begin{tabular}{ l l l l }
+        Group & Symmetry & Structure & Example \\
+    \end{tabular}
+    \caption{All 17 wallpaper groups}
+    \label{tab:wallpaper}
+\end{table}
+
+The space group that a crystal occupies informs the level of symmetry in the crystal lattice. The top five space groups for molecular crystals all have low numbers of symmetry elements.
+
+\subsection{Structure}
+
+The optimal packing of hard shapes has been a problem studied throughout history. From circle packings by the ancient Greeks, to the packing of spheres studied by Kepler, to more recently the packing of complicated and unusual shapes~\cite{atkinson:12,torquato:12}. These problems of packing hard shapes are incredibly difficult to solve analytically even for simple shapes. The hexagonal close packing~\figref{fig:hcp} was first proposed as the most efficient packing of space in 1611~\cite{kepler:1611}, 400 years later Thomas Hales published the first proof~\cite{hales:05,hales:14} relying on computers to check all possible configurations in space. While a formal proof of an optimal packing is difficult there are a number of computational methods that are commonly used in an attempt to find the global minimum of a function.
+
+\begin{figure}
+    \todofigure{Close packings of a variety of shapes}
+    \caption{We have the closest known packed structure for a number of shapes}
+    \label{fig:hcp}
+\end{figure}
+
+\towrite{Finding global minimum, techniques, simulated annealing}
+
+The typical picture of a molecular crystal is of a close packed structure~\cite{kitaigorodskii:73}. This approach assumes the atoms behave in a manner similar to hard spheres forming molecular shapes. This method is effective in inorganic chemistry~\cite{wells:84} however there are many organic crystals which are not predicted using this model.
+
+One of the simple measures of a crystal structure is the Molecular Coordination Number (MCN). This is the same concept as coordination number in inorganic crystals, it is the number of nearest neighbours.
+
+An alternate method for describing molecular crystals is based on the model of \emph{thinnest space covering}~\cite{blatov:95} where the entire space is filled with Voroni-Dirichlet polyhedra. These polyhedra are formed by overlapping atomic spheres so they fill space with minimum overlap. The vertexes of these polyhedra are the intersections of the spheres and provide information on the intermolecular interactions. The MCN of these polyhedra is the number of faces and the size of the face is proportional to the strength of the interaction. This description of molecular packing is based on the idea of soft deformable atoms and has been shown to be a better description of many molecular crystals~\cite{blatov:97,peresypkina:99,peresypkina:00}
+
+\subsubsection{Thermodynamics}
+\begin{itemize}
+
+    \item First order phase transition
+    \item At $T_m$ liquid and solid have same free energy
+\end{itemize}
+
+\subsection{Nucleation}
+
+\begin{itemize}
+
+    \item Requires passage over a free energy barrier. The free energy per molecule of a crystal phase is only lower than the liquid in the bulk phase; the surface is less well bound. There is such a size where the free energy of a system will decrease whether the nucleus grows or dissolves, a transition state/saddle point.
+
+    \item Nucleation can be controlled by manipulating the surface energy of the nucleus.~\cite{de-yoreo:03}
+ 
+    \item Rate limiting step, needs to be supercooled
+    \item Nucleus surface energy cost
+    \item \SIrange{0.1}{0.2}{\poise}
+\end{itemize}
+
+\subsection{Crystal Growth Kinetics}
+
+There are two competing processes that control the rate of crystallisation~\cite{turnbull:69,ediger:08}. At small supercoolings (\SIrange{0.95}{1}{\Tm}) the limiting factor of the growth of the crystal is the spontaneous nucleation~\figref{fig:crys growth}. The surface instabilities override the lower enthalpy of the crystal nuclei. While at larger supercoolings (\si{< 0.9}{$T_m$) the limiting factor is the growth of the crystal front. For every system there is some supercooling at which results in the fastest crystallisation~\cite{uhlmann:72}.
+
+\begin{figure}
+    \todofigure{growth rate of crystals at various supercoolings}
+    \caption{Growth rate as a function of supercooling}
+    \label{fig:crys growth}
+\end{figure}
+
+\begin{figure}
+    \todofigure{Time temperature transformation curve}
+\end{figure}
+
+While there is kinetic control in the overall growth of the crystal, there is also kinetic control at each face. Favourable faces will promote the formation of steps, with each step containing kinks~\figref{fig:steps}. Molecules are more likely to remain attached at these locations since there are more crystalline neighbours~\cite{chernov:61}.
+
+\begin{figure}
+    \todofigure{Showing formation of steps and kinks}
+    \caption{Shows the formation of steps and kinks and how they promote crystal growth}
+    \label{fig:steps}
+\end{figure}
+
+\begin{itemize}
+
+    \item Recalescence - latent heat of crystallisation, results in single nucleation site.~\cite{turnbull:69} Most effective seed first, afterwards temperature increases preventing any further nucleation (any other seed is worse, since it hadn't already formed a crystal)
+
+    \item Control of growth~\cite{de-yoreo:03} lowering energy required to form steps
+
+    \item The crystal growth a large supercoolings is dependent on the fragility of the liquid~\cite{ediger:08}. This is in the region where the crystal growth is limited by diffusion. 
+
+\end{itemize}
+
+
+\section{Glasses}
+
+The glassy state is present in materials with all bond types, covalent, van der Waals, ionic, metallic and hydrogen~\cite{turnbull:69}. Despite this universality there is still no complete theory of glass formation. Unlike the transition from a liquid to a solid, there is no thermodynamic phase transition forming a glass~\cite{santen:00}, instead we see dynamic arrest. The glass transition temperature $T_g$ is defined as the temperature at which the viscosity of the liquid reaches \SI{e13}{\poise}. This is a somewhat arbitrary point, related to how long we are willing to undertake an experiment, however fragile liquids at least exhibit interesting effects near $T_g$.
+
+\begin{itemize}
+
+    \item Have a number of useful properties~\cite{greer:07}
+    \item solubility, silica glass, plastics, metallic glasses (mechanical and thermal properties), drug delivery, fiber optics
+\end{itemize}
+
+\subsection{Structure}
+\begin{itemize}
+
+    \item The structure of the glass is somewhat dependent on how it was constructed, the rate of cooling, although only by a small amount
+
+\end{itemize}
+
+\subsection{Formation}
+
+\begin{itemize}
+    \item It has been postulated~\tocite that the glassy phase forms to avoid the Kauzmann paradox. 
+
+    \item Kinetically favoured product
+    \item Rate of change of volume or enthalpy with respect to temperature is on par with that of a solid
+    \item Ideal glass - lowest energy non-crystalline phase
+
+    \item The most favourable conditions for glass formation involve a large viscosity at the melting point and a rapidly rising viscosity below the melting point.~\cite{uhlmann:72}
+
+
+
+    \item The value of the maximum crystal growth rate might be correlated with glass forming ability~\cite{tang:13}
+
+    \item Little difference between activation energies in poor vs strong glass formers~\cite{tang:13}
+
+    \item Locally ordered clusters key to formation~\cite{yang:12} Higher local packing efficiency - lower energy. 
+\end{itemize}
+
+\section{Energy Landscape}
+One way of understanding the behaviours of a system is through a multidimensional topographic map. This requires a dimension for each degree of freedom of each particle. The minima of this topology correspond to regions where there is little net force on each particle, they known as inherent structures. With enough energy the system can sample all configurations, this corresponds to the liquid phase. Reducing the energy we begin to limit the configurations the system can sample. If this occurs slowly enough the system will find the lowest energy state, the crystal. However if the energy drops below that of the transition state to the crystal, then the best the system can do is to form a glass~\cite{stillinger:95}. 
+
+\begin{figure}
+    \todofigure{2D energy landscape}
+\end{figure}
+
+\begin{itemize}
+    \item Ideal glass is lowest energy non-crystalline state.
+    \item Fragile glass formers have two types of relaxations, dual scale topology. $\alpha$ relaxations large wells, $\beta$ relaxations small wells.~\cite{stillinger:95}
+\end{itemize}
+
+
+\section{Project Goals}
+
+The goal of my project is to explore fundamental features of molecular shape; asymmetry and concavity, influence the properties of the various condensed phases; liquid, crystal, glass and supercooled-liquid. This requires the characterisation of a new set of molecular models for computer simulation. I will be addressing how the molecular orientation and translational motion couple during crystal growth, how the degree of concavity in the molecular shape determines the dynamics of rotations and translations in the low temperature liquid phase and, to find stable structures that determine the properties of crystals and glasses and how these structures are influenced by molecular shape.
+
