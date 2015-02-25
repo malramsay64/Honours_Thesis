@@ -6,11 +6,11 @@ Manipulating the formation of a condensed phase is a critical part of both natur
 
 \section{Molecular Crystals}
 
-It might be expected the diversity in molecular shape will correspond to a diversity in molecular crystal structure. This is not the case, \SI{75}{\percent} of molecules occupy only five space groups~\cite{brock:94}. These space groups are a series of rotations, reflections, improper rotations, screw axes and glide planes that completely describe the unit cell of a crystal. There are 219 space groups in three dimensional space (230 including chiral copies) many of which are the basis of metallic crystal structures.
+It might be expected the diversity in molecular shape will correspond to a diversity in molecular crystal structure. This is not the case, \SI{75}{\percent} of molecules occupy only five space groups~\cite{brock:94}. These space groups are a series of rotations, reflections, improper rotations, screw axes and glide planes that completely describe the unit cell of a crystal. There are 219 space groups in three dimensional space (230 including chiral copies) many of which are the basis of metallic crystal structures\tocite.
 
-It is speculated that this discrepancy between molecular and metallic crystals is a result of how they pack space. One method of simulating crystal structures is assuming that atoms are hard spheres and finding the arrangement occupying the largest volume of space~\cite{kitaigorodskii:73}, also known as the \emph{packing fraction}. The simplest example of this is packing spheres, to which Kepler proposed the hexagonal closed packed structure~\figref{} in 1611\cite{kepler:1611}. However this is not a simple problem it has taken over 400 years to prove the hexagonal close packed structure gives the largest packing fraction~\cite{hales:05,hales:14}, requiring computers to check every possible configuration in space. More complicated systems are nigh impossible to prove. Fortunately finding a close packed structure is far simpler.
+It has been proposed that the small distribution of space groups for molecular crystals is a result of how they pack space\tocite. One method of simulating crystal structures is assuming that atoms are hard spheres and finding the arrangement occupying the largest volume of space~\cite{kitaigorodskii:73}, also known as the \emph{packing fraction}. The simplest example of this is packing spheres, to which Kepler proposed the hexagonal closed packed structure~\figref{} in 1611\cite{kepler:1611}. However this is not a simple problem it has taken over 400 years to prove the hexagonal close packed structure gives the largest packing fraction~\cite{hales:05,hales:14}, requiring computers to check every possible configuration in space. More complicated systems are nigh impossible to prove. Fortunately finding a close packed structure is far simpler.
 
-There are a number of computational tools used to find good approximations of closest packed structures\tocite. One of the simplifications that is made is to work in two dimensional space. This significantly simplifies the problem, now dealing with only 17 \emph{wallpaper groups}\figref{}. There have been a number of studies on the packing of convex shapes, however when dealing with a molecule there is going to be some degree of concavity~\figref{}. There has been less attention on concave shapes, however those that do show the p2 and the p2gg wallpaper groups make up nearly \SI{95}{\percent} of two dimensional molecular crystals~\tocite. \tocite propose that concave particles without central symmetry will pair with the pair forming an inversion center; the p2 and p2gg wallpaper groups are the only ones that have this type of inversion center. 
+There are a number of computational tools used to find good approximations of closest packed structures\tocite. One of the simplifications that is made is to work in two dimensional space. This significantly simplifies the problem, now dealing with only 17 \emph{wallpaper groups}\figref{}. There have been a number of studies on the packing of convex shapes, however when dealing with a molecule there is going to be some degree of concavity~\figref{}. There has been less attention on concave shapes, however those that do show the p2 and the p2gg wallpaper groups make up nearly \SI{95}{\percent} of two dimensional molecular crystals~\tocite. \textcite{torquato:12} propose that concave particles without central symmetry will pair with the pair forming an inversion center; the p2 and p2gg wallpaper groups are the only ones that have this type of inversion center. 
 
 The periodic and ordered structure that comes from the symmetry of the space group is also responsible for a number of properties of the crystal phase. These include mechanical properties such as hardness~\tocite or brittleness~\tocite, electrical properties\tocite, magnetic properties\tocite, even colour\tocite. For some applications the solid form is necessary however the crystal has unfavourable properties. An example of this is in drug design, a drug administered in tablet form needs to be solid, however it also needs to be soluble\tocite. Or in fiber optics where the fiber needs to be solid but also needs to be flexible\tocite. These applications can benefit from an amorphous solid, also known as a glass.
 
@@ -24,18 +24,16 @@ Glass formers are characterised by their behaviour near \si{\Tg}. Liquids that a
 \end{equation}
 has an energy barrier that requires an activation energy ($E_a$) to surmount. This activation energy remains constant throughout the temperature range. Fragile liquids however have an activation energy that depends on the temperature\tocite, characterised by large increases in viscosity over a small temperature range as \si{\Tg} is approached. The temperature dependence of the viscosity in fragile liquids indicates that the glass transition temperature is more than just an arbitrary value, rather; the glass transition is an inherent characteristic of a material.
 
-Developing a theoretical understanding of a material requires a model system, something simple enough to model easily, yet easy enough to scale up. A defining feature of fragile glass formers~\tabref{} is the prominence of molecules, 
+Developing a theoretical understanding of a material requires a model system, something simple enough to model easily, yet close enough to a real world example. A defining feature of fragile glass formers~\tabref{} is the prominence of molecular liquids, making simple molecular liquids a good choice for a model system.
 
 
 \begin{figure}
-    \todofigure{Plot of entropy vs Temperature, where all the phases lie}
-    \caption{}
+    \includegraphics[width=\textwidth]{angell}
+    \caption{Angell plot (from \textcite{lubchenko:07}, used with permissioni Annual reviews)}
     \label{fig:entropy}
 \end{figure}
 
 \section{Liquids}
-
-
 
 \section{Project Goals}
 
