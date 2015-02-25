@@ -39,9 +39,11 @@
 \newcommand*{\pdddiff}[2]{\ensuremath{\frac{\pdd #1}{\pd #2^2}}}
 
 % Todo commands
+\reversemarginpar
+\setlength{\marginparwidth}{3cm}
 \newcommand*{\towrite}[1]{\todo[color=green!50,inline]{Write: #1}}
-\newcommand*{\toedit}[1]{\todo[color=orange,inline]{Edit: #1}}
-\newcommand*{\tofix}[1]{\todo[color=red!50,inline]{Fix: #1}}
+\newcommand*{\toedit}[1]{\todo[color=orange]{Edit: #1}}
+\newcommand*{\tofix}[1]{\todo[color=red!50]{Fix: #1}}
 \newcommand*{\tocite}{\todo[color=yellow]{Cite}}
 \newcommand*{\tocheck}{\todo[color=blue!50]{Check}}
 
