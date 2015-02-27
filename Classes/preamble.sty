@@ -21,8 +21,9 @@
 \newcommand*{\todofigure}[1]{\missingfigure[figcolor=white]{#1}}
 
 % References
-\newcommand*{\figref}[1]{(Figure~\ref{#1})}
-\newcommand*{\tabref}[1]{(Table~\ref{#1})}
+\newcommand*{\figref}[1]{(Figure~\ref{fig:#1})}
+\newcommand*{\tabref}[1]{(Table~\ref{tab:#1})}
+\newcommand*{\secref}[1]{(Section~\ref{sec:#1})}
 
 % Defines a vector as bold font
 \newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
@@ -48,11 +49,16 @@
 \newcommand*{\tocheck}{\todo[color=blue!50]{Check}}
 
 % Defining Poise as a unit
+\sisetup{qualifier-mode = subscript}
 \DeclareSIUnit[number-unit-product = \,]{\poise}{P}
 \DeclareSIQualifier{\melting}{m}
 \DeclareSIQualifier{\glass}{g}
-\DeclareSIUnit[number-unit-product = \,]{\Tg}{T\glass}
-\DeclareSIUnit[number-unit-product = \,]{\Tm}{T\melting}
+\sisetup{qualifier-mode = subscript}
+\sisetup{qualifier-mode = subscript}
+\DeclareSIUnit[number-unit-product = \,]{\T}{T}
+\DeclareSIUnit[number-unit-product = \,]{\Tg}{\T\glass}
+\DeclareSIUnit[number-unit-product = \,]{\Tm}{\T\melting}
+
 
 % Defining style of constants
 \newcommand*{\e}{\ensuremath{\text{e}}}
