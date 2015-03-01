@@ -27,7 +27,7 @@ with the `report' document style}{}}{}
 \usepackage{times}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-
+\RequirePackage{todonotes}
 
 %%%%%
 %%%%%   SETUP DOUBLESPACING
@@ -220,14 +220,27 @@ for examination for the degree of Doctor of Philosophy.
         \end{minipage}
         \end{flushright}}
 
+
 \def\beforepreface{
         \pagenumbering{roman}
         \pagestyle{plain}
         \titlep
         \ifcopyright\ifthesiscopyright\thesiscopyrightpage\else\tradcopyrightpage\fi\fi
-        \signaturepage
         \cleardoublepage}
-        
+
+\long\def\contributionsignature{%
+\begin{minipage}{5in}
+\parindent=0pt
+\vspace{2ex}
+I certify that this report contains work carried out by myself
+except where otherwise acknowledged\\
+\vspace{1ex}
+Signed:\\
+\vspace{3ex}
+
+\@author\\
+\hspace*{3em}\@submitdate
+\end{minipage}}
 
 \def\prefacesection#1{%
         \chapter*{#1}
