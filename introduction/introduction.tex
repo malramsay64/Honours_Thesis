@@ -6,16 +6,81 @@ Manipulating the formation of a condensed phase is a critical part of both natur
 
 \section{Molecular Crystals}
 
-The unit cell is the building block of a crystal. As such it is a useful tool to be able to describe the type of crystal, this is commonly used to describe metal salts. There is the \ce{CsCl} structure, or \ce{NaCl}, Zinc blende and many others. These are used because they are common materials characteristic of their unit cell structure, however the names do not directly inform us of the properties of the underlying unit cell. The simplest descriptor of the unit cell is the shape of the lattice system. There are 7 of these systems~\figref{} representing the different shapes that can be used to pack three dimensional space. Some of these lattice systems can then be combined with a lattice centering, an extra point or points in the lattices. Taking the cubic lattice system, there is the primitive (P) lattice centering where there are only lattice points on the corner of the unit cell which is the lattice of the primitive cubic packing of spheres. The second lattice centering is body centered (I) where there is an additional lattice point in the center of the lattice system resulting in the face centered cubic lattice. There is also the face lattice centering (F) where there is an additional lattice point on each face of the unit cell, for spheres this gives the densest known packing, the face centered cubic packing. The final lattice centering is the base (C) where there is an extra lattice point on one pair of sides. This lattice centering is not present in the cubic lattice system. The combination of these lattice systems and lattice centerings gives the 14 \emph{Bravais lattices}~\figref{}. While extensive, the Bravais lattices are not a complete description of the unit cell, especially in the case of molecules. There are no descriptors of relative orientation of molecules at each of the lattice points, the orientation of each molecule would have to be defined separately. There is a more complete description of the unit cell known as the \emph{Space Group}. The unit cell can be completely recreated from the space group, the unit cell parameters and the position and orientation of a single molecule within the unit cell. Space groups are the combination of a set of symmetry operations and one of the Bravais lattices resulting in 219 space groups, 230 when including chiral copies. There are five symmetry operations that are important to space groups, reflection, rotation, improper rotation (a rotation combined with a mirror plane), screw axis (rotation and translation), and glide plane (reflection and translation)~\figref{}. This complete description of unit cells using space groups allows simple comparisons of crystal structures.
+The unit cell is the building block of a crystal. As such it is a useful tool to be able to describe the type of crystal, this is commonly used to describe metal salts. There is the \ce{CsCl} structure, or \ce{NaCl}, Zinc blende and many others. These are used because they are common materials characteristic of their unit cell structure, however the names do not directly inform us of the properties of the underlying unit cell. The simplest descriptor of the unit cell is the shape of the lattice system. There are 7 of these systems~\figref{lattice} representing the different shapes that can be used to pack three dimensional space. Some of these lattice systems can then be combined with a lattice centering, an extra point or points in the lattices. Taking the cubic lattice system, there is the primitive (P) lattice centering where there are only lattice points on the corner of the unit cell which is the lattice of the primitive cubic packing of spheres. The second lattice centering is body centered (I) where there is an additional lattice point in the center of the lattice system resulting in the face centered cubic lattice. There is also the face lattice centering (F) where there is an additional lattice point on each face of the unit cell, for spheres this gives the densest known packing, the face centered cubic packing. The final lattice centering is the base (C) where there is an extra lattice point on one pair of sides. This lattice centering is not present in the cubic lattice system. The combination of these lattice systems and lattice centerings gives the 14 \emph{Bravais lattices}~\figref{bravais}. While extensive, the Bravais lattices are not a complete description of the unit cell, especially in the case of molecules. There are no descriptors of relative orientation of molecules at each of the lattice points, the orientation of each molecule would have to be defined separately. There is a more complete description of the unit cell known as the \emph{Space Group}. The unit cell can be completely recreated from the space group, the unit cell parameters and the position and orientation of a single molecule within the unit cell. Space groups are the combination of a set of symmetry operations and one of the Bravais lattices resulting in 219 space groups, 230 when including chiral copies. There are five symmetry operations that are important to space groups, reflection, rotation, improper rotation (a rotation combined with a mirror plane), screw axis (rotation and translation), and glide plane (reflection and translation)~\figref{symmetry ops}. This complete description of unit cells using space groups allows simple comparisons of crystal structures.
 
-When metallic crystals are grouped into their respective space groups there is a fairly even distribution amongst all the space groups~\figref{}. Do the same with molecular crystals and there is a very different distribution~\figref{}, the P2~\tocheck space group contains a third of all molecular crystals~\tocite and the five most populous space groups contain \SI{75}{\percent} of all molecular crystals. To explain why molecules prefer these space groups over all the others we look to the simpler case of 2D. Using two dimensions has many benefits over a three dimensional system. Computations are far quicker in two dimensions, there are far fewer values to calculate. The visualisation of a two dimensional system on a two dimensional interface such as a computer monitor or a piece of paper does not have to deal with issues such as perspective. This makes visual identification of a pattern or property that incites a 'that's interesting' response far more likely. Another benefit of working in 2D is that there are only 17 \emph{wallpaper groups}~\figref{}, the 2D equivalent of space groups. Wallpaper groups are constructed in the same way as space groups and it is easier to identify the symmetry operations~\figref{}. In a similar manner to 3D we can group all the 2D molecular shapes that have been studied into their wallpaper groups~\figref{}. In this case there are two wallpaper groups that contain the vast majority of molecules, the p2 and the p2gg wallpaper groups. As a general guideline for the packing of 2D molecules without central symmetry \textcite{toquato:12} suggest that the molecules will pair such that the pair will have an inversion center~\figref{}. The only wallpaper groups that support pairs of molecules with this inversion center are the p2 and the p2gg, suggesting that the pairing of molecules has reasonable basis. Now this concept of an inversion center has been identified it can be used as the basis of further investigation in the 3D system.
+\begin{figure}
+    \todofigure{Image of 7 lattice systems, Wikipedia}
+    \caption{The seven lattice systems}
+    \label{fig:lattice}
+\end{figure}
 
-The way that molecular crystals pack space is an important problem in simulating crystal structures. One of the methods used to find the optimal crystal structure is to model the molecule as an arrangement of hard spheres and find the arrangement of molecules that occupies the largest volume of space~\cite{kitaigorodskii:73}, also known as the \emph{packing fraction}. The simplest example of this is packing spheres, to which Kepler proposed that the hexagonal close packed structure was the most efficient in 1611~\cite{kepler:1611}. The hexagonal close packed structure has the same packing fraction as the face centered cubic structure although being structurally distinct~\figref{}. While these structures have been considered the best possible packing of spheres in space for hundreds of years there has not been a mathematical proof until recently. In 2005 \textcite{hales:05} published a 400 page proof of this problem of which mathematicians were \SI{99}{\percent} certain was correct. Nearly 10 years later \textcite{hales:14} announced the completion of a project to completely satisfy the proof, using computers to check all possible configurations. 
+\begin{figure}
+    \includegraphics[width=\textwidth]{bravais_lattices}
+    \caption{Modifying the seven lattice systems with lattice centerings gives the 14 Bravais lattices. TO LICENCE}
+    \label{fig:bravais}
+\end{figure}
 
-If finding a proof for the simplest of shapes was so difficult, how hard is it going to be to find closest packings for arbitrary shapes. While having a mathematical proof of the closest packed structure is nice, it is not necessary to perform useful chemistry, using the closest known packed structure is a reasonable alternative. Without the requirement for proof of correctness the problem of finding the closest known packing of arbitrary shapes becomes far simpler. The degrees of freedom of the particles can be considered a multidimensional space with the height of that space being the packing fraction~\figref{}, finding the solution is now a case of finding the global minimum of this multidimensional function. Finding the global minimum of a function is a problem that appears in many fields, including computer science. As such there are a number of algorithms that can be used in an attempt to find the global minimum~\tocite. It should be noted that the only method that guarantees finding the global minimum is to evaluate packing fraction at every possible configuration. In 2D, molecules have three degrees of freedom, 2 translational and 1 rotational, if each unit cell has 2 molecules then at minimum there are 6 degrees of freedom. Calculating just 10 points along each degree of freedom, nowhere near enough, requires 1 million calculations of the density, and it scales exponentially with the number of particles. This method very quickly runs into calculations that would take longer than the age of the universe, hence sticking to approximations. Many of these approximations use the concept of simulated annealing~\tocite. This is the process by which the configuration is given an amount of energy to move around the configuration space, moving out of a configuration that has a low packing fraction happens with a high probability, while moving out of a well where the packing fraction is high occurs with low probability. The probability of the configuration moving scales with the energy, as the energy is slowly reduced only the best configurations are sampled. If the energy is reduced slowly enough the global minimum is the final configuration, however there is no way to determine beforehand what slowly enough is. This concept comes from the process of glass formation which will be discussed in~\secref{} and many of the same concepts hold.
+\begin{figure}
+    \todofigure{Symmetry Operations}
+    \caption{Diagram showing the symmetry operations}
+    \label{fig:symmetry ops}
+\end{figure}
 
-\towrite{convex vs concave particles}
+When metallic crystals are grouped into their respective space groups there is a fairly even distribution amongst all the space groups~\figref{metal dist}. Do the same with molecular crystals and there is a very different distribution~\figref{molecular dist}, the P2~\tocheck space group contains a third of all molecular crystals~\tocite and the five most populous space groups contain \SI{75}{\percent} of all molecular crystals. To explain why molecules prefer these space groups over all the others we look to the simpler case of 2D. Using two dimensions has many benefits over a three dimensional system. Computations are far quicker in two dimensions, there are far fewer values to calculate. The visualisation of a two dimensional system on a two dimensional interface such as a computer monitor or a piece of paper does not have to deal with issues such as perspective. This makes visual identification of a pattern or property that incites a 'that's interesting' response far more likely. Another benefit of working in 2D is that there are only 17 \emph{wallpaper groups}~\figref{wallpaper}, the 2D equivalent of space groups. Wallpaper groups are constructed in the same way as space groups and it is easier to identify the symmetry operations. In a similar manner to 3D we can group all the 2D molecular shapes that have been studied into their wallpaper groups~\figref{wallpaper dist}. In this case there are two wallpaper groups that contain the vast majority of molecules, the p2 and the p2gg wallpaper groups. As a general guideline for the packing of 2D molecules without central symmetry \textcite{torquato:12} suggest that the molecules will pair such that the pair will have an inversion center~\figref{molecule pair}. The only wallpaper groups that support pairs of molecules with this inversion center are the p2 and the p2gg, suggesting that the pairing of molecules has reasonable basis. Now this concept of an inversion center has been identified it can be used as the basis of further investigation in the 3D system.
 
+\begin{figure}
+    \todofigure{Distribution of metallic space groups}
+    \caption{Showing the distribution of metallic crystals amongst the 230 space groups}
+    \label{fig:metal dist}
+\end{figure}
+
+\begin{figure}
+    \todofigure{Distribution of molecular space groups}
+    \caption{Showing the distribution of molecular crystals amongst the space groups}
+    \label{fig:molecular dist}
+\end{figure}
+
+\begin{figure}
+    \includegrahics{wallpaper_groups}
+    \caption{Showing all the wallpaper groups and the symmetry operations that comprise them. TODO LICENCE}
+    \label{fig:wallpaper}
+\end{figure}
+
+\begin{figure}
+    \todofigure{Distribution amongst wallpaper groups}
+    \caption{Distribution of 2D molecules amongst the 17 wallpaper groups}
+    \label{fig:wallpaper dist}
+\end{figure}
+
+\begin{figure}
+    \todofigure{Paired molecules}
+    \caption{When molecules are non centrally symmetric they tend to pair creating an inversion center}
+    \label{fig:molecule pair}
+\end{figure}
+
+The way that molecular crystals pack space is an important problem in simulating crystal structures. One of the methods used to find the optimal crystal structure is to model the molecule as an arrangement of hard spheres and find the arrangement of molecules that occupies the largest volume of space~\cite{kitaigorodskii:73}, also known as the \emph{packing fraction}. The simplest example of this is packing spheres, to which Kepler proposed that the hexagonal close packed structure was the most efficient in 1611~\cite{kepler:1611}. The hexagonal close packed structure has the same packing fraction as the face centered cubic structure although being structurally distinct~\figref{sphere packing}. While these structures have been considered the best possible packing of spheres in space for hundreds of years there has not been a mathematical proof until recently. In 2005 \textcite{hales:05} published a 400 page proof of this problem of which mathematicians were \SI{99}{\percent} certain was correct. Nearly 10 years later \textcite{hales:14} announced the completion of a project to completely satisfy the proof, using computers to check all possible configurations. 
+
+\begin{figure}
+    \todofigure{Close packed spheres}
+    \caption{There are two structurally distinct closest packings of spheres, the hexagonal close packed structure and the cubic close packed structure}
+    \label{fig:sphere packing}
+\end{figure}
+
+If finding a proof for the simplest of shapes was so difficult, how hard is it going to be to find closest packings for arbitrary shapes. While having a mathematical proof of the closest packed structure is nice, it is not necessary to perform useful chemistry, using the closest known packed structure is a reasonable alternative. Without the requirement for proof of correctness the problem of finding the closest known packing of arbitrary shapes becomes far simpler. The degrees of freedom of the particles can be considered a multidimensional space with the height of that space being the packing fraction~\figref{packing space}, finding the solution is now a case of finding the global minimum of this multidimensional function. Finding the global minimum of a function is a problem that appears in many fields, including computer science. As such there are a number of algorithms that can be used in an attempt to find the global minimum~\tocite. It should be noted that the only method that guarantees finding the global minimum is to evaluate packing fraction at every possible configuration. In 2D, molecules have three degrees of freedom, 2 translational and 1 rotational, if each unit cell has 2 molecules then at minimum there are 6 degrees of freedom. Calculating just 10 points along each degree of freedom, nowhere near enough, requires 1 million calculations of the density, and it scales exponentially with the number of particles. This method very quickly runs into calculations that would take longer than the age of the universe, hence sticking to approximations. Many of these approximations use the concept of simulated annealing~\tocite. This is the process by which the configuration is given an amount of energy to move around the configuration space, moving out of a configuration that has a low packing fraction happens with a high probability, while moving out of a well where the packing fraction is high occurs with low probability. The probability of the configuration moving scales with the energy, as the energy is slowly reduced only the best configurations are sampled. If the energy is reduced slowly enough the global minimum is the final configuration, however there is no way to determine beforehand what slowly enough is. This concept comes from the process of glass formation which will be discussed in~\secref{} and many of the same concepts hold.
+
+\begin{figure}
+    \todofigure{Visualisation of packing space to search}
+    \caption{}
+    \label{fig:packing space}
+\end{figure}
+
+Much of the work that has been done in determining best packed structures has dealt with convex particles. These are fairly easy to pack efficiently. The shape with the worst packing efficiency in 2D is the curved octahedron \tocheck wit ha packing efficiency of 0.74. While dealing with the packing of convex shapes is suitable top metallic crystal, when dealing with molecules when holding two spheres in any orientation there will always be a region on concavity~\figref{concavity}.
+
+\begin{figure}
+    \todofigure{Overlapping spheres showing concavity}
+    \caption{}
+    \label{fig:concavity}
+\end{figure}
 
 \towrite{results of packing stuff}
 
@@ -26,38 +91,100 @@ Along with categorising the crystal structure the unit cell of a crystal structu
 
 The periodic and ordered structure that comes from the symmetry of the space group is also responsible for a number of properties of the crystal phase. These include mechanical properties such as hardness~\tocite or brittleness~\tocite, electrical properties\tocite, magnetic properties\tocite, even colour\tocite. For some applications the solid form is necessary however the crystal has unfavourable properties. An example of this is in drug design, a drug administered in tablet form needs to be solid, however it also needs to be soluble\tocite. Or in fiber optics where the fiber needs to be solid but also needs to be flexible\tocite. These applications can benefit from an amorphous solid, also known as a glass.
 
-
 \section{Molecular Liquids}
 
+The liquid phase is defined by its incompressibility and its ability to flow. There are two forces at play that define this behaviour. The ability to flow is comes from the energy of the particles, they have enough energy to move out of their local environments, but not enough to escape the attractive forces of the neighbouring particles as they flow around them. This attractive force is integral to the liquid phase, if the force is too short range or not present then the liquid phase does not exist~\tocite, only the solid and gas phases will form. When considering the process that occurs for flow to occur, molecules must move away from their optimal position and around neighbouring molecules, if the attraction is too small at these larger distances there is nothing stopping the molecule flying off and becoming a gas. The other important force in a liquid is the repulsive force which is responsible for the structure of the liquid. A common measure of the structure of the liquid phase is the \emph{radial distribution function}~\figref{radial distribution}  denoted $G(r)$. In essence it maps the probability of finding molecules at a distance $r$ from any particle, however unlike a probability the radial distribution function is normalised to $N-1$ where $N$ is the total number of particles in the system. It can also be expressed as the term that when multiplied by the density $\rho$ gives the local density around a particle. The radial distribution function gives a very clear distinction between between the crystal, and liquid and gas phases~\figref{radial distribution}. In the liquid phase phase we can see there is a region of excluded volume at small $r$, this is the result of the repulsive force, the apparent size of the molecule. Beyond the excluded region there is a sharp peak corresponding to the shell of nearest neighbours around the central molecule. It is the excluded region and short range ordering that results in the incompressibility, there is nowhere for the particles to move upon compression because of the repulsive force. The final part of the radial distribution function is the long range behaviour, for liquids there is no long range ordering, while for crystals there are peaks out to very large $r$. The radial distribution function is very useful when modelling systems where it is easy to calculate the distance between each particle, for experimental systems this is not possible. The usefulness of the radial distribution function is that is can be linked to a directly measurable quantity, the \emph{static structure factor} by a Fourier transform. The static structure factor can be determined by taking the x-ray diffraction pattern of a sample providing the link between experimental and theoretical systems. Along with the structural differences between a liquid and a crystal there are also significant dynamical differences.
+
+\begin{figure}
+    \todofigure{Radial distribution functions}
+    \caption{}
+    \label{fig:radial distribution}
+\end{figure}
+
+Two common dynamic properties of a liquid are the viscosity and diffusion. The viscosity ($\rho$) of a liquid is a property of the bulk liquid measured in \si{\poise} or \emph{units of poise}. The viscosity is a temperature dependent quantity, following an Arrhenius curve
+\begin{equation}
+	\text{Arrhenius}
+\end{equation}
+where $T_0$ is the viscosity at a known temperature $T_0$, \KB is the Boltzman constant, and $E_a$ is the activation energy. In this case the activation energy can be considered the energy required to move past the nearest neighbours. The Arrhenius relation holds because this activation energy remains constant throughout the temperature range. The viscosities of some common liquids are shown in \tabref{} showing the range that viscosities take. The other dynamic property is diffusion, this is a property of individual molecules. Diffusion in liquids is described by \emph{Brownian motion}, first postulated by Einstein in 1911~\tocheck. The motion of particles is described by a differential equation 
+\begin{equation}
+	\text{Brownian motion}
+\end{equation}
+which is broken into two parts, a stochastic function ($A(t)$) responsible randomness of the motion as well as a term for the force a particle requires to move through the liquid, a similar concept to the activation energy. The stochastic nature of this differential equation requires that it be solved as an ensemble average, with the motion of any single particle being random solving for a particular particle results in a random solution. This ensemble averaged solution gives the result that at short times relative to~\tocheck the motion is ballistic, dominated by the local vibrations of particles. However looking to longer times we get a relation
+\begin{equation}
+	\text{Diffusion constant relation}
+\end{equation}
+where \tofix{define all terms}. This can be simplified by \towrite{define diffusion constant}
+
+
+\towrite{Link diffusion constant and viscosity}
+
+When dealing with molecules, along with the motion of the molecules the rotations of the molecules is also important. 
+\towrite{rotational relaxations}
 
 
 
+\section{Supercooled Liquids}
+
+Supercooled liquids are just liquid, super cool. Supercooled liquids are an important part of forming the solid phase. At the melting point of a crystal \si{\Tm} both the liquid phase and the solid phase have the same free energy, there is no preferred state. However along with the energy of each phase there is also an energy penalty at the boundary of each phase, this means that for crystal formation to occur there has to be free energy gained by the formation of the crystal that offsets the penalty of the surface effects. The free energy of the crystal phase is only lower than the liquid phase when the liquid is supercooled. The free energy gained by the crystal phase scales with the supercooling, increasing the speed of crystal growth just requires reducing the temperature. Reducing the temperature will increase the growth rate of the crystal while the nucleation event is limiting the growth. As the temperature decreases the diffusion constant increases~\secref{}, this also means that the movements at the interface of the crystal to get molecules to align become slower, this is also well pronounced in the rotations of molecules. These two competing forces result in a temperature dependence on the rate of crystallisation that for some supercooling has a maximum rate of crystallisation~\figref{crys rate}.
+
+\begin{figure}
+    \todofigure{crystallisation as a function of temperature}
+    \caption{}
+    \label{fig:crys rate}
+\end{figure}
+
+If we are dealing with a system containing a constant number of particles, constant temperature and constant pressure, the standard conditions when working in a laboratory, the free energy that we are concerned with is the \emph{Gibbs free energy} ($G$). The change in free energy can be calculated using
+\begin{equation}
+    \Delta G = \Delta H - T\Delta S
+\end{equation}
+where $\Delta H$ is the change in enthalpy and $\delta S$ is the change in entropy. The temperature dependence on the entropy is the reason that larger supercoolings promote nucleation. The entropy of the system is also a temperature dependent quantity which scales with the number of degrees of freedom. In a crystal molecules are far more constrained than in a liquid giving the temperature dependence of entropy a more gradual slope~\figref{entropy}. The result of this is that if the supercooled liquid can be kept in the liquid state there is a point at which the entropy of the liquid is below that of the crystal. Continuing this down to absolute zero the entropy will at worst track the slope of the crystal meaning there is a lower entropy state than the crystal at \SI{0}{\kelvin}. This is known as the Kauzmann paradox~\cite{kausmann:48} and the temperature at which the entropy of the supercooled liquid is projected to cross that of the crystal is the Kauzmann temperature (\si{\Tk}). Another important temperature when dealing with supercooled liquids is the \emph{glass transition temperature} (\si{\Tg}), defined as the temperature at which the viscosity of the supercooled liquid reaches \SI{e13}{\poise}. One of the theories of glass formation~\cite{debendetti:01} is that the glass transition is the system providing a solution to the paradox, undergoing dynamical arrest above \si{\Tk} reducing the number of degrees of freedom.
+
+\begin{figure}
+    \todofigure{entropy of liquid and crystal phase}
+    \label{fig:entropy}
+\end{figure}
+
+
+When dealing with dynamics of supercooled liquids in most cases the viscosity observes Arrhenius behaviour just like a liquid. When approaching the glass transition temperature (\si{\Tg}) there are a number of supercooled liquids that display super-Arrhenius behaviour~\figref{angell} where there is a temperature dependence in the activation energy~\cite{angell:91}. Supercooled liquids that display this temperature dependence on the activation energy are known as \emph{fragile} liquids, they are interesting because they suggest that the glass transition temperature is not just an arbitrary concept but an inherent property of a material. The typical example of a fragile liquid is \emph{o} - terphenyl which has been widely studied~\cite{greet:67}. The liquids that keep the Arrhenius behaviour over the entire temperature range are known as \emph{strong} liquids, with the prototypical example being silica (\ce{SiO2}). The fragility ($m$) of a supercooled liquid can be given by the slope given in~\figref{angell},
+\begin{equation}
+    m = \text{stuff here}
+\end{equation}
+This gives a range of fragilities from silica, $m = 1$ to \emph{o} - terphenyl, $m = 4$\tocheck with everything in between~\tabref{}. It is interesting to note that along with \emph{o} - terphenyl many of the fragile supercooled liquids are molecular, this feeds the hypothesis that glass forming ability is in some way related to shape, it can not be the only contributing factor but is a line of investigation to pursue.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{angell}
+    \caption{Angell plot (from \textcite{lubchenko:07}, used with permission from Annual reviews)}
+    \label{fig:angell}
+\end{figure}
+
+Along with the fragility of molecular glass formers, they are also interesting due to their rotational motion. In supercooled liquids below approximately \SI{1.2}{\Tg} there is a decoupling between rotational and translational diffusion~\tocite. It has been found that molecules translate faster than expected for their viscosity by as much as two orders of magnitude~\cite{debenedetti:01}. This results in molecules being able to move past each other but unable to rotate, limiting the range of states that can be sampled by the supercooled liquid. This is not the only decoupling present as close to \si{\Tg}, there is also a splitting of the relaxation frequency into two bands, the slow $\alpha$ relaxation and fast $\beta$ relaxation~\tocite. This decoupling in the relaxation can be explained by interpreting the supercooled liquid as a point on a multidimensional potential energy landscape, just like for the packing problem~\secref{}. Here the way that the supercooled liquid moves through the potential energy landscape is a function of the temperature. At high temperatures the liquid moves freely about the potential energy landscape, the energy of the molecules is often above any of the potential energy barriers. As the temperature gets lower the space of configurations available to the system gets smaller, there are potential energy barriers which only have a low probability of crossing. Close to the glass transition temperature the space of configurations is limited, there are many small local potential energy minima separated by larger energy minima. Moving between these larger minima requires a large number of rearrangements in the structure of the system, these movements correspond to the slow $\alpha$ relaxations~\figref{pe landscape}. The motion between the smaller energy minima are the $\beta$ relaxations resulting from small particle shifts.
+
+\begin{figure}
+    \todofigure{Potential energy landscape showing alpha a beta relaxations}
+    \caption{}
+    \label{fig:pe landscape}
+\end{figure}
+
+This topological view of the relaxation is consistent with a growing dynamic length scale, a property observed when approaching the glass transition~\cite{berthier:05}. At low temperatures the ability of the system to rearrange is very limited and requires coordinated rearrangement of a number of particles to move between each of the larger potential energy wells. Moving back into real space this growing dynamic length scale was first theorised when looking at dynamic heterogeneity~\cite{hurley:95} in model glass formers. These simulations showed areas of glasses that were highly mobile, where other regions were completely stationary. The mobile regions are those that are cooperatively moving as the liquid relaxes. As the supercooled liquid moves to lower temperatures larger regions have to move cooperatively, in the topological view this is where there is a barrier that is insurmountable in one direction, however by incorporating more particles and increasing the dimensionality the supercooled liquid can just move around the barrier~\figref{barrier dimensions}.
+
+\begin{figure}
+    \todofigure{Increasing dimensionality to go around barrier}
+    \caption{In 2D space there is a barrier that is impassable, by including the 3rd dimension the traversal of the barrier is just a simple case of going around.}
+    \label{fig:barrier dimensions}
+\end{figure}
+
+Taking these dynamic quantities to their limit, the glass transition temperature results in the formation of the glassy phase.
 
 
 \section{Molecular Glasses}
 
-The structure of a glass is indistinguishable from that of a liquid~\figref{}. Despite the liquid like structure the glassy phase is most definitely solid~\tocite, contrary to urban legends~\tocite. Much of the misunderstanding of the glassy phase is related to the lack of a first order phase transition~\tocite. None of the thermodynamic properties change upon transition, instead the \emph{glass transition temperature} (\si{\Tg}) is defined as the temperature at which the viscosity reaches \SI{e13}{\poise}, a somewhat arbitrary value. However as we approach the \si{\Tg} from the liquid there is a dramatic increase in the viscosity~\figref{}, especially for \emph{fragile} liquids.
+The structure of a glass is indistinguishable from that of a liquid, the difference is that a glass has a viscosity of \SI{e13}{\poise}. Despite the liquid like structure, and urban legends~\tocite the glassy phase is most definitely solid, it would require a timescale of 100 million years for a glass with a viscosity at the glass transition to appreciably flow~\tocite. Much of the misunderstanding of the glassy phase is related to the lack of a first order phase transition~\tocite. None of the thermodynamic properties change upon transition, all the structural properties of the liquid phase apply to the glass phase, however the dynamics of the glass phase are far slower than any liquid. What does this mean for the glass phase? 
 
-Glass formers are characterised by their behaviour near \si{\Tg}. Liquids that adhere to a purely Arrhenius temperature dependence are considered \emph{strong} glass formers, the typical example being silica (\ce{SiO2}). Liquids with super-Arrhenius behaviour are considered \emph{fragile}, \emph{o}-terphenyl being the canonical example. A system that displays Arrhenius temperature dependence,
-\begin{equation}
-    k = A \e^{-E_a/(RT)}
-\end{equation}
-has an energy barrier that requires an activation energy ($E_a$) to surmount. This activation energy remains constant throughout the temperature range. Fragile liquids however have an activation energy that depends on the temperature\tocite, characterised by large increases in viscosity over a small temperature range as \si{\Tg} is approached. The temperature dependence of the viscosity in fragile liquids indicates that the glass transition temperature is more than just an arbitrary value, rather; the glass transition is an inherent characteristic of a material.
+\towrite{Molecular glasses}
 
-Developing a theoretical understanding of a material requires a model system, something simple enough to model easily, yet close enough to a real world example. A defining feature of fragile glass formers~\tabref{} is the prominence of molecular liquids, making simple molecular liquids a good choice for a model system.
-
-
-\begin{figure}
-    \includegraphics[width=\textwidth]{angell}
-    \caption{Angell plot (from \textcite{lubchenko:07}, used with permissioni Annual reviews)}
-    \label{fig:entropy}
-\end{figure}
-
-\section{Liquids}
 
 
 
 \section{Project Goals}
 
 The goal of my project is to explore fundamental features of molecular shape; asymmetry and concavity, influence the properties of the various condensed phases; liquid, crystal, glass and supercooled-liquid. This requires the characterisation of a new set of molecular models for computer simulation. I will be addressing how the molecular orientation and translational motion couple during crystal growth, how the degree of concavity in the molecular shape determines the dynamics of rotations and translations in the low temperature liquid phase and, to find stable structures that determine the properties of crystals and glasses and how these structures are influenced by molecular shape.
-
