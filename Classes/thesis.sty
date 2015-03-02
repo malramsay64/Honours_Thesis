@@ -97,7 +97,7 @@ with the `report' document style}{}}{}
 \def\languagemajor#1{\gdef\@languagemajor{#1}} \def\@language{babel}
 \def\@title{}
 \def\@author{}
-\def\@dept{Computer Science}
+\def\@dept{School of Chemistry}
 \def\@uni{The University of Sydney}
 \def\@extendedtitle{*}
 \def\@principaladviser{}\def\@firstreader{*}\def\@secondreader{*}
@@ -139,10 +139,10 @@ with the `report' document style}{}}{}
         the requirements for the degree of\\
         B.Sc.~(Honours)
     \vfil\vfil
-      {\large Chemistry\\[5pt]
-      University of Sydney}\\
+      {\large \@dept\\[5pt]
+      \@uni}\\
       \vskip6mm
-      \includegraphics[width=18mm]{figures/USYD_Logo}
+      \@crest
     \vfil
       \normalsize\@submitdate
     \end{center}
@@ -171,8 +171,10 @@ with the `report' document style}{}}{}
 
 
 \newlength{\signaturespace}
-\setlength{\signaturespace}{.5in}
+\setlength{\signaturespace}{3ex}
 
+\newlength{\dayspace}
+\setlength{\dayspace}{2em}
 
 \long\def\signature#1{%
 \begin{flushright}
@@ -233,13 +235,12 @@ for examination for the degree of Doctor of Philosophy.
 \parindent=0pt
 \vspace{2ex}
 I certify that this report contains work carried out by myself
-except where otherwise acknowledged\\
-\vspace{1ex}
+except where otherwise acknowledged\\\\
 Signed:\\
-\vspace{3ex}
-
+\vfill
+\vspace{\signaturespace}
 \@author\\
-\hspace*{3em}\@submitdate
+\hspace*{\dayspace}\@submitdate
 \end{minipage}}
 
 \def\prefacesection#1{%
@@ -259,6 +260,14 @@ Signed:\\
         \cleardoublepage
         \pagenumbering{arabic}
         \pagestyle{headings}}
+
+\def\backmatter{\newpage
+    \pagenumbering{roman}
+    \pagestyle{plain}
+    \setstretch{1}
+    \printbibliography
+}
+
 
 
 % Redo chapter titles
