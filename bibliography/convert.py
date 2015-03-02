@@ -1,35 +1,45 @@
 #!/usr/local/bin/python
 
 import bibtexparser as btp
+import sys
+import codecs
+import string
 
-shorten = {}
-lengthen = {}
 
-for line in open('journals.txt'):
-    if line.strip():
-        long, short = line.split('=')
-        short = short.strip()
-        long = long.strip();
-        #print short, "=", long
-        shorten[long.lower()] = short
-        lengthen[short.lower()] = long
+def my_strip(s):
+    for c in string.punctuation + string.whitespace:
+        s = s.replace(c,'')
+    return s.lower()
 
-with open('crystal.bib') as bibtex_file:
-    bibtex_database = btp.load(bibtex_file)
+if __name__ == '__main__':
+    shorten = {}
+    lengthen = {}
 
-for entry in bibtex_database.entries:
-    if entry.get('journal'):
-        j = entry.get('journal')
-        entry['journal'] = lengthen.get(shorten.get(j.lower(),j),j)
+    for line in open('journals.txt'):
+        if line.strip():
+            long, short = line.split('=')
+            short = short.strip()
+            long = long.strip();
+            shorten[my_strip(long)] = short
+            lengthen[my_strip(short)] = long
 
-with open('bibtex.bib', 'w') as bibtex_file:
-    btp.dump(bibtex_database, bibtex_file)
-bibtex_database.write(open('fixed.bib', 'w'))
+    with open('crystal.bib') as bibtex_file:
+        bibtex_database = btp.load(bibtex_file)
 
-print "Test\n"
-j_list = ['Journal of Chemical Physics', 'Physical Review E', 'Acta Crystallographica Section B']
-for j in j_list:
-    print shorten.get(j.lower())
+    for entry in bibtex_database.entries:
+        if entry.get('journal'):
+            j = entry.get('journal')
+            entry['journal'] = lengthen.get(my_strip(shorten.get(my_strip(j),j)),j)
+            if my_strip(j) not in shorten and my_strip(j) not in lengthen:
+                print j, my_strip(j)
 
-#for entry in bibtex_database.entries:
-#    print entry.get('journal')
+    if len(sys.argv) > 1 and sys.argv[1] == 'true':
+        for entry in bibtex_database.entries:
+            if entry.get('journal'):
+                j = entry.get('journal')
+                entry['journal'] = shorten.get(my_strip(j),j)
+
+    output = codecs.open('crystal.bib', 'w', 'utf-8')
+    w = btp.bwriter.BibTexWriter();
+    output.write(w.write(bibtex_database))
+
