@@ -3,14 +3,14 @@
 \usepackage{Classes/thesis}
 \usepackage{Classes/preamble}
 
-\graphicspath{{introduction/figures/}}
+\graphicspath{{preface/figures} {introduction/figures/}}
 
 \usepackage[backend=biber,style=nature]{biblatex}
 \bibliography{/Users/malcolm/Honours/resources/crystal}
-
-%\includeonly{method/method}
-
 \let\cite\supercite
+
+
+\includeonly{introduction/introduction}
 
 \makeatother
 
@@ -23,33 +23,12 @@
 \principaladviser{Professor Peter Harrowell}
 \coprincipaladvisor{Dr Asaph Widmer-Cooper}
 
-
-\beforepreface
-
-\prefacesection{Abstract}
-
-\towrite{Abstract}
-
-\prefacesection{Statement of Contribution}
-
-\towrite{Contributions}
-
-\contributionsignature
-
-\prefacesection{Acknowledgements}
-
-\towrite{Acknowledgements}
-
-
-\todototoc\listoftodos
-
-\afterpreface
+\include{preface/preface}
 
 \include{introduction/introduction}
 
 \include{method/method}
 
 \backmatter
-
 
 \end{document}
