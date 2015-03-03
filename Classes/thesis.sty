@@ -28,7 +28,7 @@ with the `report' document style}{}}{}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \RequirePackage{todonotes}
-
+\RequirePackage{appendix}
 %%%%%
 %%%%%   SETUP DOUBLESPACING
 %%%%%
@@ -263,12 +263,25 @@ Signed:\\
 
 \def\backmatter{\newpage
     \pagenumbering{roman}
+    \newcounter{appendix}
+    \renewcommand{\thepage}{A-\roman{page}}
+    \renewcommand{\thechapter}{\Alph{appendix}}
+    \renewcommand{\chaptername}{Appendix}
+    %\renewcommand{\chaptermark}{\markboth{}{\MakeUppercase{\chaptername\ \thechapter}}}
+    %\renewcommand{\leftmark}{{\MakeUppercase{\chaptername\ \thechapter.}}{}}
+    %\renewcommand{\rightmark}[1]{\MakeUppercase{\chaptername\ \thechapter.\ ##1}}
     \pagestyle{plain}
-    \setstretch{1}
-    \printbibliography
+    %\setstretch{1}
+    %\printbibliography
 }
 
+\def\appendix#1{\newpage
+    \addtocounter{appendix}{1}
+    \@makeschapterhead{Appendix \Alph{appendix}: #1}
+    \addcontentsline{toc}{chapter}{Appendix \Alph{appendix}: #1}
+}
 
+\def\endbackmatter{}
 
 % Redo chapter titles
 \def\@makechapterhead#1{%
