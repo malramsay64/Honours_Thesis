@@ -2,32 +2,54 @@
 \chapter{Method}
 
 \section{Molecules}
-Degrees of freedom
 
-\subsection{Interaction Potentials}
-Intermolecular - LJ potential from each atom
-Intramolecular - harmonic potential between atoms, large potential to model rigid atoms
-Constraints due to software
+\begin{itemize}
+    \item Construction of molecules
+    \item Why circles
+    \item Intermolecular interaction potentials
+    \item Intramolecular potentials
+\end{itemize}
 
-\section{Lammps}
-Freely available software
-Molecular dynamics
-Noose-Hoover thermostating
+\section{Molecular Dynamics}
 
+\begin{itemize}
+    \item Freely available software
+    \item limits to software
+    \item Reduced units
+    \item NPT ensemble
+    \item Noose-Hoover thermostating
+    \item Rahmann-Parinello
+\end{itemize}
 
-\subsection{Rahman-Parinello}
-Allowing simulation cell to adjust to shape of crystal
+\section{Packing}
+
+\begin{itemize}
+    \item Creating initial states
+    \item Quenching
+\end{itemize}
+
+\section{Dynamics}
+
+\begin{itemize}
+    \item Equilibration vs production runs
+    \item Timescales
+\end{itemize}
 
 \section{Crystal Structures}
-Toby's structures
-Converting to large unit cell, squaring the edges
-The starting unit cells
 
-\section{Melting Points}
-Heat up slowly until melting
-More points around melting
+\begin{itemize}
+    \item starting from Toby's structures
+    \item Converting to large unit cell, squaring the edges
+    \item equilibration at low T
+\end{itemize}
 
 \section{Interface Kinetics}
-Region of liquid, region of crystal. Liquid created by holding the crystal region in place and heating the liquid above melting point.
+
+\begin{itemize}
+    \item Start with crystal
+    \item Melt half holding other half in place
+    \item equilibrate at temperature
+    \item Production run
+\end{itemize}
 
 
