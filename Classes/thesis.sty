@@ -262,24 +262,28 @@ Signed:\\
         \pagestyle{headings}}
 
 \def\backmatter{\newpage
-    \pagenumbering{roman}
-    \newcounter{appendix}
-    \renewcommand{\thepage}{A-\roman{page}}
-    \renewcommand{\thechapter}{\Alph{appendix}}
-    \renewcommand{\chaptername}{Appendix}
+    \appendix
+    %\pagenumbering{arabic}
+    
+    %\newcounter{appendix}
+    %\setcounter{chapter}{0}
+    %\renewcommand{\thepage}{A-\arabic{page}}
+    %\renewcommand{\thechapter}{\Alph{chapter}}
+    %\renewcommand{\chaptername}{Appendix}
     %\renewcommand{\chaptermark}{\markboth{}{\MakeUppercase{\chaptername\ \thechapter}}}
     %\renewcommand{\leftmark}{{\MakeUppercase{\chaptername\ \thechapter.}}{}}
     %\renewcommand{\rightmark}[1]{\MakeUppercase{\chaptername\ \thechapter.\ ##1}}
-    \pagestyle{plain}
+    %\pagestyle{plain}
     %\setstretch{1}
     %\printbibliography
 }
 
-\def\appendix#1{\newpage
-    \addtocounter{appendix}{1}
-    \@makeschapterhead{Appendix \Alph{appendix}: #1}
-    \addcontentsline{toc}{chapter}{Appendix \Alph{appendix}: #1}
-}
+%\def\appendix#1{\newpage
+%    \thispagestyle{plain}
+%    \addtocounter{chapter}{1}
+%    \@makechapterhead{Appendix \Alph{chapter}: #1}
+%    \addcontentsline{toc}{chapter}{Appendix \Alph{chapter}: #1}
+%}
 
 \def\endbackmatter{}
 
