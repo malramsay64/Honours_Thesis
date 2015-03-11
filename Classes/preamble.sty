@@ -7,6 +7,8 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{graphicx}
+%\RequirePackage{subfigure}
+\RequirePackage{subcaption}
 \RequirePackage{siunitx}
 \RequirePackage{todonotes}
 \RequirePackage{parskip}
@@ -23,6 +25,9 @@
 \newcommand*{\figref}[1]{(Figure~\ref{fig:#1})}
 \newcommand*{\tabref}[1]{(Table~\ref{tab:#1})}
 \newcommand*{\secref}[1]{(Section~\ref{sec:#1})}
+\newcommand*{\textfigref}[1]{Figure~\ref{fig:#1}}
+\newcommand*{\texttabref}[1]{Table~\ref{tab:#1}}
+\newcommand*{\textsecref}[1]{Section~\ref{sec:#1}}
 
 % Defines a vector as bold font
 \newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
@@ -46,6 +51,7 @@
 \newcommand*{\tofix}[1]{\todo[color=red!50]{Fix: #1}}
 \newcommand*{\tocite}{\todo[color=yellow]{Cite}}
 \newcommand*{\tocheck}{\todo[color=blue!50]{Check}}
+\newcommand*{\toref}{\todo[color=orange]{Ref}}
 
 % Defining Poise as a unit
 \sisetup{qualifier-mode = subscript}
