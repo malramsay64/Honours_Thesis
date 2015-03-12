@@ -5,6 +5,7 @@
 \ProvidesPackage{preamble}
   [2014/01/12 v0.01 LaTeX package for my standard preamble]
 
+  \RequirePackage[australian]{babel}
 \RequirePackage{amsmath}
 \RequirePackage{graphicx}
 %\RequirePackage{subfigure}
@@ -15,8 +16,9 @@
 \RequirePackage{hyperref}
 \RequirePackage{doi}
 \RequirePackage[version=3]{mhchem}
-
+\RequirePackage{biblatex}
 \setcounter{tocdepth}{3}
+
 
 % Default missing figure
 \newcommand*{\todofigure}[1]{\missingfigure[figcolor=white]{#1}}
@@ -68,6 +70,26 @@
 % Defining style of constants
 \newcommand*{\e}{\ensuremath{\text{e}}}
 \newcommand*{\KB}{\ensuremath{K_\text{B}}}
+
+\PassOptionsToPackage{colorlinks=true, linkcolor=blue, citecolor=blue}{hyperref}
+
+% Bibliography Settings
+\PassOptionsToPackage{%
+    backend=biber,
+    style=phys,
+    autocite=superscript,
+    url=true,
+    doi=false,
+    eprint=false,
+    isbn=false
+    }{biblatex}
+\DeclareFieldFormat{labelnumberwidth}{#1.~~}
+\DeclareFieldFormat[article]{title}{#1.}
+\DeclareFieldFormat[article]{journaltitle}{{\em #1}}
+\AtEveryBibitem{\clearlist{language}} % clears language
+\AtEveryBibitem{\clearlist{series}} % clear series
+\bibliography{bibliography/crystal}
+\let\cite\autocite
 
 % Space after header
 %\setlength{\headsep}{30pt}

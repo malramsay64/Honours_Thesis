@@ -11,6 +11,8 @@ master_bibfile=/Users/malcolm/Honours/resources/crystal.bib
 bibfile=bibliography/crystal.bib
 abbrev=true
 
+empty=
+space=$(empty) $(empty)
 
 ifeq ($(bib), bibtex)
 	bibcommand = ( cd $(output); $(bib) $(basename $(input)) )
@@ -21,6 +23,7 @@ endif
 all: thesis.pdf
 
 thesis.pdf: thesis.tex $(folders) $(bibfile) | $(output)
+	$(shell export TEXINPUTS=.:$(subst $(space),:,$(folders)))
 	pdflatex $(pre_flags) $(pdf_flags) $(input)
 	$(bibcommand)
 	pdflatex $(pre_flags) $(pdf_flags) $(input)

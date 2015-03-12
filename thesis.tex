@@ -1,32 +1,19 @@
-\documentclass[12pt,a4paper,oneside,british]{report}
+\documentclass[12pt,a4paper,oneside]{report}
 
-\usepackage{Classes/thesis}
-\usepackage{Classes/preamble}
+% Add paths to look through
+\makeatletter
+\def\input@path{{Classes/}{introduction/}{method/}{packing/}{dynamics/}{ordering/}{crystallisation/}{conclusion/}{appendix/}}
+\makeatother
 
+
+\usepackage{thesis}
+\usepackage{preamble}
+
+% Paths of figures
 \graphicspath{{preface/figures/} {introduction/figures/}}
 
-
-\usepackage[backend=biber,
-            style=phys,
-            autocite=superscript, 
-            url=true,
-            doi=false,
-            eprint=false,
-            isbn=false
-        ]{biblatex}
-\DeclareFieldFormat{labelnumberwidth}{#1.~~}
-\DeclareFieldFormat[article]{title}{#1.}
-\DeclareFieldFormat[article]{journaltitle}{{\em #1}}
-\AtEveryBibitem{\clearlist{language}} % clears language
-\AtEveryBibitem{\clearlist{series}} % clear series
-\bibliography{bibliography/crystal}
-\let\cite\autocite
-
-\PassOptionsToPackage{colorlinks=true, linkcolor=blue, citecolor=blue}{hyperref}
-
-%\includeonly{method/method,packing/packing,dynamics/dynamcs,ordering/ordering,crystallisation/crystallisation,conclusion/conclusion,appendix/appendix}
-
-\makeatother
+% To include only some sections in the output, saves typesetting the entire thesis when working on a small section.
+\includeonly{packing}
 
 \begin{document}
 \title{The Role of Molecular Shape on the Properties of the Condensed Phase:\\ A Simulation Study}
@@ -37,25 +24,25 @@
 \principaladviser{Professor Peter Harrowell}
 \coprincipaladvisor{Dr Asaph Widmer-Cooper}
 
-\include{preface/preface}
+\include{preface}
 
-\include{introduction/introduction}
+\include{introduction}
 
-\include{method/method}
+\include{method}
 
-\include{packing/packing}
+\include{packing}
 
-\include{dynamics/dynamics}
+\include{dynamics}
 
-\include{ordering/ordering}
+\include{ordering}
 
-\include{crystallisation/crystallisation}
+\include{crystallisation}
 
-\include{conclusion/conclusion}
+\include{conclusion}
 
 \backmatter
 
-\include{appendix/appendix}
+\include{appendix}
 \endbackmatter
 \printbibliography
 
