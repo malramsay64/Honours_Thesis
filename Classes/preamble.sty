@@ -16,8 +16,15 @@
 \RequirePackage{hyperref}
 \RequirePackage{doi}
 \RequirePackage[version=3]{mhchem}
-\RequirePackage{biblatex}
 \RequirePackage{caption}
+\RequirePackage[%
+    backend=biber,
+    style=nature,
+    autocite=superscript,
+    url=true,
+    doi=false,
+    isbn=false
+    eprint=false]{biblatex}
 
 \setcounter{tocdepth}{3}
 
@@ -89,15 +96,6 @@
 \PassOptionsToPackage{colorlinks=true, linkcolor=blue, citecolor=blue}{hyperref}
 
 % Bibliography Settings
-\PassOptionsToPackage{%
-    backend=biber,
-    style=phys,
-    autocite=superscript,
-    url=true,
-    doi=false,
-    eprint=false,
-    isbn=false
-    }{biblatex}
 \DeclareFieldFormat{labelnumberwidth}{#1.~~}
 \DeclareFieldFormat[article]{title}{#1.}
 \DeclareFieldFormat[article]{journaltitle}{{\em #1}}
