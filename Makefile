@@ -40,6 +40,9 @@ clean:
 	-rm -f $(input:.tex=.pdf)
 	-rm $(bibfile)
 
+clean-cache:
+	rm -rf $$(biber --cache)
+
 $(output):
 	mkdir $(output)
 	$(foreach f, $(folders), mkdir $(output)/$(f); )

@@ -23,8 +23,11 @@ if __name__ == '__main__':
             shorten[my_strip(long)] = short
             lengthen[my_strip(short)] = long
 
+    parser = btp.bparser.BibTexParser()
+    parser.ignore_nonstandard_types = False
+    parser.homogenise_fields = False
     with open('crystal.bib') as bibtex_file:
-        bibtex_database = btp.load(bibtex_file)
+        bibtex_database = btp.load(bibtex_file, parser)
 
     for entry in bibtex_database.entries:
         if entry.get('journal'):
@@ -39,7 +42,8 @@ if __name__ == '__main__':
                 j = entry.get('journal')
                 entry['journal'] = shorten.get(my_strip(j),j)
 
-    output = codecs.open('crystal.bib', 'w', 'utf-8')
-    w = btp.bwriter.BibTexWriter();
-    output.write(w.write(bibtex_database))
+    with codecs.open('crystal.bib', 'w', 'utf-8') as bibtex_file:
+        btp.dump(bibtex_database, bibtex_file)
+    #w = btp.bwriter.BibTexWriter();
+    #output.write(w.write(bibtex_database))
 

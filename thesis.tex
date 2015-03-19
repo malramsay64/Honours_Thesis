@@ -8,12 +8,29 @@
 
 \usepackage{thesis}
 \usepackage{preamble}
+%\let\cite\autocite
+% Bibliography Settings
+\PassOptionsToPackage{%
+    backend=biber,
+    style=nature,
+    autocite=superscript,
+    url=true,
+    doi=false,
+    eprint=false,
+    isbn=false
+    }{biblatex}
+\DeclareFieldFormat{labelnumberwidth}{#1.~}
+\DeclareFieldFormat[article]{title}{#1.}
+\DeclareFieldFormat[article]{journaltitle}{{\em #1}}
+\AtEveryBibitem{\clearlist{language}} % clears language
+\AtEveryBibitem{\clearlist{series}} % clear series
+\bibliography{bibliography/crystal}
 
 % Paths of figures
 \graphicspath{{preface/figures/} {introduction/figures/}}
 
 % To include only some sections in the output, saves typesetting the entire thesis when working on a small section.
-\includeonly{packing}
+\includeonly{introduction,appendix}
 
 \begin{document}
 \title{The Role of Molecular Shape on the Properties of the Condensed Phase:\\ A Simulation Study}

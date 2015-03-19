@@ -5,7 +5,7 @@
 \ProvidesPackage{preamble}
   [2014/01/12 v0.01 LaTeX package for my standard preamble]
 
-  \RequirePackage[australian]{babel}
+\RequirePackage[australian]{babel}
 \RequirePackage{amsmath}
 \RequirePackage{graphicx}
 %\RequirePackage{subfigure}
@@ -17,6 +17,8 @@
 \RequirePackage{doi}
 \RequirePackage[version=3]{mhchem}
 \RequirePackage{biblatex}
+\RequirePackage{caption}
+
 \setcounter{tocdepth}{3}
 
 
@@ -30,6 +32,19 @@
 \newcommand*{\textfigref}[1]{Figure~\ref{fig:#1}}
 \newcommand*{\texttabref}[1]{Table~\ref{tab:#1}}
 \newcommand*{\textsecref}[1]{Section~\ref{sec:#1}}
+
+% Citations
+\newcommand*{\linecite}[1]{Ref.~\cite{#1}}
+
+% Figure Source
+\newcommand*{\source}[2]{%
+    \raggedright
+    \vskip-0.5em
+    \captionsetup{font=footnotesize,justification=raggedright}
+    \caption*{{\bf Source:} Adapted with permission from \linecite{#1}.~%
+    \copyright~\citeyear{#1} {#2}}
+    \hfill
+}
 
 % Defines a vector as bold font
 \newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
@@ -69,7 +84,7 @@
 
 % Defining style of constants
 \newcommand*{\e}{\ensuremath{\text{e}}}
-\newcommand*{\KB}{\ensuremath{K_\text{B}}}
+\newcommand*{\kb}{\ensuremath{k_\text{B}}}
 
 \PassOptionsToPackage{colorlinks=true, linkcolor=blue, citecolor=blue}{hyperref}
 
@@ -89,7 +104,7 @@
 \AtEveryBibitem{\clearlist{language}} % clears language
 \AtEveryBibitem{\clearlist{series}} % clear series
 \bibliography{bibliography/crystal}
-\let\cite\autocite
+%\let\cite\autocite
 
 % Space after header
 %\setlength{\headsep}{30pt}
