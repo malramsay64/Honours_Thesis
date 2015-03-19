@@ -8,7 +8,7 @@
 
 \usepackage{thesis}
 \usepackage{preamble}
-%\let\cite\autocite
+
 % Bibliography Settings
 \PassOptionsToPackage{%
     backend=biber,
@@ -25,12 +25,13 @@
 \AtEveryBibitem{\clearlist{language}} % clears language
 \AtEveryBibitem{\clearlist{series}} % clear series
 \bibliography{bibliography/crystal}
+\let\cite\autocite
 
 % Paths of figures
 \graphicspath{{preface/figures/} {introduction/figures/}}
 
 % To include only some sections in the output, saves typesetting the entire thesis when working on a small section.
-\includeonly{introduction,appendix}
+%\includeonly{introduction,appendix}
 
 \begin{document}
 \title{The Role of Molecular Shape on the Properties of the Condensed Phase:\\ A Simulation Study}
@@ -59,5 +60,6 @@
 
 \include{appendix}
 
+\printbibliography
 
 \end{document}
