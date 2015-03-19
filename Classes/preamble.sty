@@ -23,7 +23,7 @@
     autocite=superscript,
     url=true,
     doi=false,
-    isbn=false
+    isbn=false,
     eprint=false]{biblatex}
 
 \setcounter{tocdepth}{3}
@@ -41,7 +41,9 @@
 \newcommand*{\textsecref}[1]{Section~\ref{sec:#1}}
 
 % Citations
-\newcommand*{\linecite}[1]{Ref.~\cite{#1}}
+\let\textcite\cite
+\let\cite\supercite
+\newcommand*{\linecite}[1]{Ref.~\textcite{#1}}
 
 % Figure Source
 \newcommand*{\source}[2]{%
