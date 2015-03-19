@@ -1,7 +1,9 @@
 # LaTeX Ouput
 .output
 
-# PDF files
-*.pdf
+# Include all image files
+!*.pdf
+!*.png
+!*.jpg
 
 
