@@ -41,9 +41,9 @@
 \newcommand*{\textsecref}[1]{Section~\ref{sec:#1}}
 
 % Citations
-\let\textcite\cite
+%\let\textcite\cite
 \let\cite\supercite
-\newcommand*{\linecite}[1]{Ref.~\textcite{#1}}
+\newcommand*{\linecite}[1]{Ref.~\onlinecite{#1}}
 
 % Figure Source
 \newcommand*{\source}[2]{%
@@ -106,6 +106,18 @@
 \bibliography{bibliography/crystal}
 %\let\cite\autocite
 
+\DeclareCiteCommand{\onlinecite}%[\mkbibbrackets]
+    {\usebibmacro{cite:init}%
+    \usebibmacro{prenote}}
+    {\usebibmacro{citeindex}%
+    \usebibmacro{cite:comp}}
+    {}
+    {\usebibmacro{cite:dump}%
+    \usebibmacro{postnote}}
+
+\renewcommand*{\textcite}[1]{%
+    \citeauthor{#1}~\autocite{#1}
+}
 % Space after header
 %\setlength{\headsep}{30pt}
 
