@@ -1,5 +1,54 @@
 \chapter{Crystallisation}
 
+\section{Order parameters}
+
+There area many types of order that we can look for, each most suitable to a certain system. In the case of the d=1.637556 snowmen we know the perfect packing of the shape~\figref{}, and that it can also have a random arrangement. To detect the ordering in this random arrangement we can't use an orientational order parameter since we expect the orientations to be disordered, we have to use the properties of the underlying structure. In this case it involves dealing with each particle individually and finding its neighbours satisfy the criteria for closest packed structure, each small particle will have 1 small and 4 large neighbours and each large particle 4 small and 3 large neighbours\tocheck. We find that very few particles have this ordering, even for long runs below the melting point where we would expect a crystal to form. To investigate this we need another order parameter with more focus on the short range interactions.
+
+The short range order parameter that we used is an adaptation of that used by~\textcite{} for ordering of similar shapes. This order parameter is focused on two particle interactions where there are multiple contacts between molecules, these multiple contacts are a property only exhibited by concave particles and it is anticipated that these multiple contacts makes them more stable than single particle interactions. There are four distinct ways that particles can pack in this way, antiparallel I~\figref{antiparallel i}, antiparallel II~\figref{antiparallel ii}, parallel~\figref{parallel} and chiral~\figref{chiral}. Of these orderings the only one that can pack space with the d=1.637556 snowman as a simple unit cell is the antiparallel I, however a significant portion of the molecules are in the antiparallel II structure~\figref{short order hist}. This is suspected to be because of the lower energy of the antiparallel II dimer than the antiparallel I dimer~\tabref{dimer energy}, the molecules get stuck in the local energy minimum preventing them from crystallising.
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \todofigure{antiparallel I dimer}
+        \caption{antiparallel I dimer}
+        \label{fig:antiparallel i}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \todofigure{antiparallel II dimer}
+        \caption{antiparallel II dimer}
+        \label{fig:antiparallel ii}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \todofigure{parallel dimer}
+        \caption{Parallel dimer}
+        \label{fig:parallel}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \todofigure{Chiral dimer}
+        \caption{Chiral dimer}
+        \label{fig:chiral}
+    \end{subfigure}
+    \caption{Short range orderings}
+    \label{fig:short range order}
+\end{figure}
+
+\begin{figure}
+    \todofigure{Short range order histogram}
+    \caption{Distribution of short range orderings}
+    \label{fig:short order hist}
+\end{figure}
+
+\begin{table}
+    \begin{tabular}{l r}
+        Dimer & Energy \\ \hline
+        Antiparallel I & \\
+        Antiparallel II & \\
+        Parallel & \\
+        Chiral & \\
+    \end{tabular}
+    \caption{Energy of the dimers}
+    \label{tab:dimer energy}
+\end{table}
+
 \section{Nothing crystallised}
 
 \section{Here's why}
