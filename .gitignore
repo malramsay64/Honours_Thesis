@@ -6,4 +6,6 @@
 !*.png
 !*.jpg
 
+# Ignore thesis.pdf
+thesis.pdf
 

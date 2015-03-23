@@ -42,9 +42,9 @@ These four plots are the main features of each system. The MSD tells us about th
         1 &\text{if } \Delta \vect x \leq 0.3
     \end{cases}
 \end{align}
-where $\Delta \vect x$ is the distance of each individual particle from the initial position.
+where $\Delta \vect x$ is the distance of each individual particle from the initial position. The combination of the rotation and diffusion is a result of considering each particle individually rather than as molecules. This approach is also more in line with what would be observed experimentally, x-ray diffraction sees areas of high electron density separately, the atoms, rather than molecules.
 
-Along with being averaged over the ensemble these functions are averaged over many overlapping time points. This removes any large fluctuations since the initial configuration is a random configuration in the space of all possible configurations. The simulation can be thought of as sampling all possible configurations, this is the premise of statistical thermodynamics, so any configuration sufficiently separated in time is another random configuration from which it is reasonable to start a new analysis.
+Along with being averaged over the ensemble these functions are averaged over many overlapping time points. This removes any large fluctuations since the initial configuration is a random configuration in the space of all possible configurations~\tocite. The simulation can be thought of as sampling all possible configurations, this is the premise of statistical thermodynamics, so any configuration sufficiently separated in time is another random configuration from which it is reasonable to start a new analysis.
 
 All the properties so far have been investigating the bulk properties of the molecules, however in the highly supercooled region in which we are interested in, the dynamics of the system are often heterogeneous, there are spatially separated regions of highly mobile particles and regions of slow moving particles. \textfigref{} shows that there are these dynamically heterogeneous areas in the snowman molecule. It is also important to note that there are also dynamically heterogeneous rotations, these are not something that have been studied before~\tocheck. At a most basic level these measurements are the standard deviation of these bulk properties, however they have been attributed real physical meaning.
 
@@ -54,7 +54,7 @@ All the properties so far have been investigating the bulk properties of the mol
     \label{snowman 0.637556 1.0 moved}
 \end{figure}
 
-The first of these measures in the nongaussian parameter $\alpha$ which is a measure of the deviation of the MSD from a gaussian distribution, what would be expected if the motion for all particles was truly randomly distributed.
+The first of these measures in the nongaussian parameter $\alpha(t)$ which is a measure of the deviation of the MSD from a gaussian distribution, what would be expected if the motion for all particles was truly randomly distributed.
 
 \begin{figure}
     \includegraphics[width=0.5\linewidth]{{{Snowman-0.637556-1.0-alpha}}}
