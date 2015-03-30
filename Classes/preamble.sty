@@ -52,12 +52,12 @@
 \def\@commons[#1]#2{%
     \vskip-0.5em
     \captionsetup{font=footnotesize,singlelinecheck=false}
-    \caption*{{\bf Source:} From \linecite{#2}. Liscensed under Creative Commons #1}
+    \caption*{{\bf Source:} Adapted from \linecite{#2}. Liscensed under Creative Commons #1}
 }
 
 \def\@copyright#1#2{%
     \vskip-0.5em
-    \captionsetup{font=footnotesize,justification=justified,singlelinecheck=false}
+    \captionsetup{font=footnotesize,singlelinecheck=false}
     \caption*{{\bf Source:} Adapted with permission from \linecite{#1}~%
     \copyright~\citeyear{#1} {#2}}
 }
@@ -66,10 +66,10 @@
 \newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
 
 % Derivatives
-\renewcommand*{\d}[1]{\,\ensuremath{\,d #1}}
-\newcommand*{\pd}[1]{\,\ensuremath{\partial #1}}
-\newcommand*{\dd}[1]{\,\ensuremath{d^2 #1}}
-\newcommand*{\pdd}[1]{\,\ensuremath{\partial^2 #1}}
+\renewcommand*{\d}[1]{\ensuremath{d #1}}
+\newcommand*{\pd}[1]{\ensuremath{\partial #1}}
+\newcommand*{\dd}[1]{\ensuremath{d^2 #1}}
+\newcommand*{\pdd}[1]{\ensuremath{\partial^2 #1}}
 
 \newcommand*{\ddiff}[2]{\ensuremath{\frac{\d #1}{\d #2}}}
 \newcommand*{\pddiff}[2]{\ensuremath{\frac{\pd #1}{\pd #2}}}
