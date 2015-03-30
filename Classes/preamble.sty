@@ -17,6 +17,7 @@
 \RequirePackage{doi}
 \RequirePackage[version=3]{mhchem}
 \RequirePackage{caption}
+\RequirePackage{ccicons}
 \RequirePackage[%
     backend=biber,
     style=nature,
@@ -46,20 +47,26 @@
 \newcommand*{\linecite}[1]{Ref.~\onlinecite{#1}}
 
 % Figure Source
-\newcommand*{\source}[2]{%
-    \raggedright
+\def\source{\@ifnextchar[{\@commons}{\@copyright}}
+
+\def\@commons[#1]#2{%
     \vskip-0.5em
-    \captionsetup{font=footnotesize,justification=raggedright}
-    \caption*{{\bf Source:} Adapted with permission from \linecite{#1}.~%
+    \captionsetup{font=footnotesize,singlelinecheck=false}
+    \caption*{{\bf Source:} From \linecite{#2}. Liscensed under Creative Commons #1}
+}
+
+\def\@copyright#1#2{%
+    \vskip-0.5em
+    \captionsetup{font=footnotesize,justification=justified,singlelinecheck=false}
+    \caption*{{\bf Source:} Adapted with permission from \linecite{#1}~%
     \copyright~\citeyear{#1} {#2}}
-    \hfill
 }
 
 % Defines a vector as bold font
 \newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
 
 % Derivatives
-\renewcommand*{\d}[1]{\,\ensuremath{d #1}}
+\renewcommand*{\d}[1]{\,\ensuremath{\,d #1}}
 \newcommand*{\pd}[1]{\,\ensuremath{\partial #1}}
 \newcommand*{\dd}[1]{\,\ensuremath{d^2 #1}}
 \newcommand*{\pdd}[1]{\,\ensuremath{\partial^2 #1}}
@@ -93,12 +100,12 @@
 
 % Defining style of constants
 \newcommand*{\e}{\ensuremath{\text{e}}}
-\newcommand*{\kb}{\ensuremath{k_\text{B}}}
+\newcommand*{\boltzman}{\ensuremath{k_\text{B}}}
 
 \PassOptionsToPackage{colorlinks=true, linkcolor=blue, citecolor=blue}{hyperref}
 
 % Bibliography Settings
-\DeclareFieldFormat{labelnumberwidth}{#1.~~}
+\DeclareFieldFormat{labelnumberwidth}{#1.~}
 \DeclareFieldFormat[article]{title}{#1.}
 \DeclareFieldFormat[article]{journaltitle}{{\em #1}}
 \AtEveryBibitem{\clearlist{language}} % clears language
@@ -118,14 +125,3 @@
 \renewcommand*{\textcite}[1]{%
     \citeauthor{#1}~\autocite{#1}
 }
-% Space after header
-%\setlength{\headsep}{30pt}
-
-% Get todolist working with amsart
-%\let\oldtodolist\listoftodos
-%\renewcommand{\listoftodos}{\makeatletter
-%                            \providecommand\@dotstep{5}
-%                            \makeatother
-%                            \oldtodolist\relax}
-
-\endinput
