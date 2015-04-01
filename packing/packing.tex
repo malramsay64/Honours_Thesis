@@ -1,83 +1,54 @@
 \chapter{Packing shapes on a Plane}
 
+It is known that shape is an important attribute for crystal packings~\tocite, small changes in shape can lead to large changes in the packing fraction and the space group of the resulting crystal. The amorphous packing of shapes has not had the degree of study, focussing on ellipses and circles~\tocite. In this chapter I aim to elucidate the effects that shape has on amorphous packing and how they compare to the crystal packings. Along with generating this database of packing data I will also be looking to identify molecules that are resistant to crystal growth for further study in later chapters.
+
+The two parameters of the Snowman molecule is the radius and the distance, searching the space of molecules can be done by sampling structures over values of these variables. The ranges of these variables that we chose to search over was
+\begin{align}
+            r &= [0.5, 1] \\
+            d &= [1,1+r]
+\end{align}
+the range of the radius chosen to display behaviour markedly different to a disc. The distance $d=1$ was chosen as the initial value as previous research~\tocite showed interesting behaviour of crystal packings at that value. The other end of the range corresponds to an equimolar binary disc packing of which there are a number of known \emph{compact packings}~\figref{binary-packings}~\cite{heppes:03,kennedy:06}. One of these optimal packings $r=0.637556$ was included in the survey, it was anticipated that it could show markedly different characteristics than nearby snowmen.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{binary-packings}
+    \caption[Perfect binary packings]{The eight perfect equimolar binary packings. All of these are maximums in the packing of space by snowmen crystals.}
+    \sourcehan:13}{American Physical Society}
+    \label{fig:binary-packings}
+\end{figure}
+
+For trimers the extra dimension makes a complete too computationally expensive. Instead it makes sense to focus on the remaining dimension, the angle, over a range of radii and at both $d=1$ and $d=1+r$.
+
+
 \section{Packing Dimers}
 
-
-\section{Packing Dimers}
-
-It is widely documented that shape plays an important role in crystal packing\tocite, with small changes to the shape dramatically affecting the crystal structure. Amorphous packing however is an unstructured arrangement, small changes would just get averaged over the system.
-
-I have studied how a number of small modifications to the shape of a molecule affects the amorphous packings. The amorphous packings are inherent structures taken from a liquid or glassy phase. The first of these is the effect of the relative sizes of the two discs. There are a number of binary disc mixtures that are glass forming~\tocite, the two sizes of discs incapable of packing better than individually. There are also a number of binary disc packings that provide optimal space coverage~\tocite, the small particles perfectly filling the gaps left by the large particles. When the two discs ($r_1 = 1, r_2 = r$) are held fixed at a distance of $1+r$ the packing is conceptually similar to a binary disc mixture however there is the extra constraint that the distance and orientation remains fixed. \textfigref{fix d var r} shows how the packing fraction compares to the optimal packing fraction, the optimal packings were found by Toby Hudson~\tocite and equilibrated using the same potential as the amorphous systems\toref. At $r = 1$ both the amorphous and the optimal crystal packing have the same packing fraction, looking at their configurations~\figref{config:d2r1} the individual particles pack as though they are just discs, the packing efficiency of individual particles is the same, however the rotational orientation of the molecules in the crystal structure is ordered, while the amorphous structure has the molecules randomly arranged in the 6 possible orientations\tocheck. This means the packing is not strictly amorphous.
+The packing fraction is a concept used to asses the packing of hard shapes and it can also describe the packing of soft shapes. Taking the inherent structures after equilibration at a temperature of 3.0, the packing fraction of the Snowmen is shown in \textfigref{snowman dist high} and \textfigref{snowman radius high}. As the distance increases from $1$ to $1+r$ the packing fraction drops, this is a result of the overlap of the molecule increasing. At $d=1+r$ the two particles are touching, decreasing the distance results in overlap and a filling of the space between the molecules that was previously unoccupied. The decrease in packing fraction as a function of distance breaks down for four molecules, $d=1+0.8r, 1+r$ and $r=0.9, 1.0$. The cause of this anomaly is not immediately obvious, since our simulations are in two dimensions we can examine the configuration~\figref{snowman 0.9 1.7 frame high}. Here we can see a high degree of order in the packing, while the orientation of the bonds is distributed randomly the packing is crystalline.
 
 \begin{figure}
-    \todofigure{r = 0.5 - 1.0, d = 1+r vs packing fraction, compare to optimal}
-    \caption{The packing efficiencies of amorphous snowmen compared to their optimal packing fraction.}
-    \label{fig:fix d var r}
+    \includegraphics[width=0.5\textwidth]{dist-high}
+    \caption[Packing fraction of snowmen as a function of distance ($T=3.0$)]{The packing fraction as a function of distance for the snowman molecules. For reference the optimal circle packing of 0.91 is included.}
+    \label{fig:snowman dist high}
 \end{figure}
 
 \begin{figure}
-    \todofigure{configuration of d=1 r=2 for both amorphous and crystal showing alignment of the molecules}
-    \label{fig:config:d1r2}
-    \caption{Both the amorphous and the crystal structure pack in the same way with only the orientations of particles differing between them}
+    \includegraphics[width=0.5\textwidth]{radius-high}
+    \caption[Packing fraction of snowmen as a function of radius ($T=3.0$)]{The packing fraction as a function of radius for the snowman molecules. For reference the optimal circle packing of 0.91 is included.}
+    \label{snowman dist high}
 \end{figure}
-
-Another special crystal structure is where $d=1.637556$, this is one of the optimal binary packings~\figref{crys:d=1.637556}. Unlike where $d=2$ the packing fraction of this amorphous configuration is far lower than the crystal structure. This is interesting as both crystal structures are from the p2 or p2gg space groups, however the $d=2$ structure is easier to form than the $d=1.637556$.
 
 \begin{figure}
-    \todofigure{Structure of d=1.637556 snowman}
-    \caption{Optimal packing of binary discs, small disc is 0.637556 times the size of the large disc.}
-    \label{crys:d=1.637556}
+    \includegraphics[width=\textwidth]{Snowman-0.9-1.7-frame-high}
+    \caption[Inherent structure of Snowman $r=0.9$ $d=1.7$]{Inherent structure of the Snowman $r=0.9$ $d=1.7$.}
+    \label{fig:snowman 0.9 1.7 frame high}
 \end{figure}
 
-At smaller radii 
-\towrite{what the smaller radii do, how they compare to the crystal packing}
-
-The case where the two particles are at a distance of $1+r$ is an extreme case, molecules tend to have overlapping spheres, the overlap responsible for the bonding between them. As a result of this it makes sense to investigate the effect of distance on the amorphous packing. In \textfigref{var d fix r} shows how the packing fraction changes as a function of the distance where the radius of both particles is the same. There is a significant increase in the packing fraction as the radius decreases, this is as a result of the overlap of the particles filling more space. Despite this increase in the packing fraction the packing becomes amorphous as the distance decreases, then increasing again as the distance goes to 0. Rather than looking at every configuration and we need an order parameter to quantify the amount of order within the system.
+When an crystal structure has an orientationally ordered state and a randomly oriented state at the same energy level, it is going to form the disordered state. The extra free energy gained from the entropy of the random orientation at higher temperatures will overcome the small differences in entropy from a slightly misaligned structure. This orientational disorder is something that can be found in all the compact packings, using the compact packing of the $0.637556$ binary disc mixture.
 
 \begin{figure}
-    \todofigure{plot of d vs packing fraction for r = 1}
-    \label{fig:var d fix r}
-    \caption{Some words}
+    \includegraphics[width=\textwidth]{snowman-0.637556-1.637556-random}
+    \caption{Random orientation of bonds within a compact binary packing can be randomly oriented}
+    \source[\ccbysa]{dense-packing}
+    \label{fig:snowman 0.637556 1.637556 random}
 \end{figure}
 
-\section{Order Parameters}
 
-\begin{itemize}
-    \item Circle order (number of neighbours for d=1.637556)
-    \item Packing fraction
-    \item structure factor
-    \item 6 fold order
-    \item g(r)
-    \item short range order
-    \item orientational order
-\end{itemize}
-
-\begin{itemize}
-    \item The 6 fold order parameter is most suitable for degree of crystallinity.
-    \item g(r) for d=1 snowman
-\end{itemize}
-
-\towrite{fill out $\uparrow$}
-
-\begin{figure}
-    \begin{subfigure}{0.5\textwidth}
-        \todofigure{Various order parameters for crystal and amorphous as a function of r}
-        \caption{Order parameters for radii}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \todofigure{Various order parameters for crystal and amorphous as a function of d}
-    \end{subfigure}
-\end{figure}
-
-\section{Packing Trimers}
-\label{packing trimers}
-
-There is another simple property that has the potential to have an effect on the amorphous structures, angle. To study angle we need to move from two particles to three.
-
-\section{Shapes of Interest}
-\label{shapes of interest}
-
-The range of shapes, even simple ones is huge with a wide range of behaviour. It is not feasible to study this entire range of shapes in detail, the list of shapes need to be narrowed down to a range that is both interesting and representative of the wider spectrum of shapes.
-
-\towrite{I chose d=1.637556 snowmen, here's why}
 
