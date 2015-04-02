@@ -21,34 +21,50 @@ For trimers the extra dimension makes a complete too computationally expensive. 
 
 \section{Packing Dimers}
 
-The packing fraction is a concept used to asses the packing of hard shapes and it can also describe the packing of soft shapes. Taking the inherent structures after equilibration at a temperature of 3.0, the packing fraction of the Snowmen is shown in \textfigref{snowman dist high} and \textfigref{snowman radius high}. As the distance increases from $1$ to $1+r$ the packing fraction drops, this is a result of the overlap of the molecule increasing. At $d=1+r$ the two particles are touching, decreasing the distance results in overlap and a filling of the space between the molecules that was previously unoccupied. The decrease in packing fraction as a function of distance breaks down for four molecules, $d=1+0.8r, 1+r$ and $r=0.9, 1.0$. The cause of this anomaly is not immediately obvious, since our simulations are in two dimensions we can examine the configuration~\figref{snowman 0.9 1.7 frame high}. Here we can see a high degree of order in the packing, while the orientation of the bonds is distributed randomly the packing is crystalline.
+The packing fraction is a concept used to asses the packing of hard shapes and it can also describe the packing of soft shapes. Taking the inherent structures after equilibration at a temperature of 3.0, the packing fraction of the Snowmen is shown in \textfigref{snowman dist high} and \textfigref{snowman radius high}. As the distance increases from $1$ to $1+r$ the packing fraction drops, this is a result of the overlap of the molecule increasing. At $d=1+r$ the two particles are touching, decreasing the distance results in overlap and a filling of the space between the molecules that was previously unoccupied. The decrease in packing fraction as a function of distance breaks down for four molecules, $d=1+0.8r, 1+r$ and $r=0.9, 1.0$. The cause of this anomaly is not immediately obvious, since our simulations are in two dimensions we can examine the configuration~\figref{snowman 0.9 1.7 frame high}. Here we can see a high degree of order in the packing, while the orientation of the bonds is distributed randomly, the packing is crystalline. This crystalline order forms in the inherent structure despite the initial state being well above the melting point, a behaviour exhibited by soft discs; the molecule is an excellent crystal former.
 
 \begin{figure}
-    \includegraphics[width=0.5\textwidth]{dist-high}
+    \centering
+    \includegraphics[width=0.75\textwidth]{dist-high}
     \caption[Packing fraction of snowmen as a function of distance ($T=3.0$)]{The packing fraction as a function of distance for the snowman molecules. For reference the optimal circle packing of 0.91 is included.}
     \label{fig:snowman dist high}
 \end{figure}
 
 \begin{figure}
-    \includegraphics[width=0.5\textwidth]{radius-high}
+    \centering
+    \includegraphics[width=0.75\textwidth]{radius-high}
     \caption[Packing fraction of snowmen as a function of radius ($T=3.0$)]{The packing fraction as a function of radius for the snowman molecules. For reference the optimal circle packing of 0.91 is included.}
-    \label{snowman dist high}
+    \label{fig:snowman radius high}
 \end{figure}
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{{{Snowman-0.9-1.7-frame-high}}}
+    \centering
+    \includegraphics[width=\textwidth]{{{Snowman-3.0-0.9-1.7-frame}}}
     \caption[Inherent structure of Snowman $r=0.9$ $d=1.7$]{Inherent structure of the Snowman $r=0.9$ $d=1.7$.}
     \label{fig:snowman 0.9 1.7 frame high}
 \end{figure}
 
-When an crystal structure has an orientationally ordered state and a randomly oriented state at the same energy level, it is going to form the disordered state. The extra free energy gained from the entropy of the random orientation at higher temperatures will overcome the small differences in entropy from a slightly misaligned structure. This orientational disorder is something that can be found in all the compact packings, using the compact packing of the $0.637556$ binary disc mixture.
+When an crystal structure has an orientationally ordered state and a randomly oriented state at the same energy level, it is going to form the disordered state. The extra free energy gained from the entropy of the random orientation at higher temperatures will overcome the small differences in entropy from a slightly misaligned structure. This orientational disorder is something that can be found in all the compact packings, using the compact packing of the $0.637556$ binary disc mixture. It results from the criteria for a compact packing, that any two neighbours must have two mutual neighbours. Taking any molecule, it has a contact between the large and small disc, this also means that the particles share two other neighbours. In the case of a small neighbour, this means there were at least two options to draw the bond from the large to the small. The case of the large neighbour, there are two options to join a large molecule to the small molecule. In either case there is a choice over which bond to form in the packing.
 
 \begin{figure}
+    \centering
     \includegraphics[width=\textwidth]{{{snowman-0.637556-1.637556-random}}}
     \caption{Random orientation of bonds within a compact binary packing can be randomly oriented}
     \source[\ccbysa]{dense-packing}
     \label{fig:snowman 0.637556 1.637556 random}
 \end{figure}
 
+Detecting crystal formation is a simple task for \textfigref{snowman 0.7 1.7 frame high}, although requiring inspection of every interaction separately. One way we can visually average over all interactions is through a pair distribution function~\figref{snowman 0.9 1.7 radial high}.
+\towrite{About this function, link to 2D pair distribution function}
+
+\begin{figure}
+    \includegraphics[width=0.75\textwidth]{{{snowman-3.0-0.9-1.7-radial}}}
+    \caption{Radial distribution function of Snowman with  $r=0.9$ and  $d=1.7$}
+    \label{fig:snowman 0.9 1.7 radial high}
+\end{figure}
+
+\section{Comparison to Crystal Packings}
 
 
+
+\section{Packing Trimers}
