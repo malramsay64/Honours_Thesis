@@ -105,12 +105,14 @@
 \PassOptionsToPackage{colorlinks=true, linkcolor=blue, citecolor=blue}{hyperref}
 
 % Bibliography Settings
-\DeclareFieldFormat{labelnumberwidth}{#1.~}
-\DeclareFieldFormat[article]{title}{#1.}
-\DeclareFieldFormat[article]{journaltitle}{{\em #1}}
+%\DeclareFieldFormat{labelnumberwidth}{#1.~}
+%\DeclareFieldFormat[article]{title}{#1.}
+%\DeclareFieldFormat[article]{journaltitle}{{\em #1}}
+\DeclareFieldFormat{url}{\url{#1}}
 \AtEveryBibitem{\clearlist{language}} % clears language
 \AtEveryBibitem{\clearlist{series}} % clear series
-\bibliography{bibliography/crystal}
+\addbibresource{bibliography/crystal.bib}
+\addbibresource{bibliography/images.bib}
 %\let\cite\autocite
 
 \DeclareCiteCommand{\onlinecite}%[\mkbibbrackets]

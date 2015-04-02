@@ -22,6 +22,8 @@ endif
 
 all: thesis.pdf
 
+bib: $(bibfile)
+
 thesis.pdf: thesis.tex $(folders) $(bibfile) | $(output)
 	$(shell export TEXINPUTS=.:$(subst $(space),:,$(folders)))
 	pdflatex $(pre_flags) $(pdf_flags) $(input)
@@ -30,7 +32,7 @@ thesis.pdf: thesis.tex $(folders) $(bibfile) | $(output)
 	pdflatex $(pdf_flags) $(input)
 	mv $(output)/$(input:.tex=.pdf) .
 
-$(bibfile): $(master_bibfile) bibliography/convert.py
+$(bibfile): $(master_bibfile) bibliography/convert.py bibliography/journals.txt
 	cp $< $@
 	( cd bibliography; python convert.py $(abbrev))
 
