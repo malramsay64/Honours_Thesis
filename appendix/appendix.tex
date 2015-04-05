@@ -8,6 +8,54 @@
 
 \chapter{Code}
 
+\section{Calculating Distances}
+
+Since the boundary is periodic to make calculating distances easier the coordinates were mapped onto a unit circle. 
+
+\begin{lstlisting}[language=myc]
+void direction(double *r1, double *r2, double *res){
+    res[0] = atan2(sin(r1[0]), cos(r2[0]));
+    res[1] = atan2(sin(r1[1]), cos(r2[1]));
+}
+\end{lstlisting}
+
+If only the absolute distance is needed then a cosine transformation can be performed instead.
+
+\begin{lstlisting}[language=myc]
+double distance(double *r1, double *r2){
+    double x = x1 - x2;
+    return acos(cos(x));
+}
+\end{lstlisting}
+
+In both these cases we are assuming that the input coordinates have been mapped to the range $[0,2\pi]$.
+
+\begin{lstlisting}[language=myc]
+double fractional(double x, double xmin, double xmax){
+    return (x-xmin)/(xmax-xmin);
+}
+
+\end{lstlisting}
+
+\section{Graph Traversal}
+
+Once we have all the neighbours of the particles finding molecules within range of another is a case of performing a Breadth First Search (BFS) on the resulting graph with a stopping condition once a range has been reached.
+
+\begin{lstlisting}[language=myc]
+molecule * dyn_queue::pop(){
+    if (q.size()){
+        molecule *t = q.front();
+        for (auto &i: t->my_neighbours){
+            push(i, get_depth()+1);
+        }
+        q.pop_front();
+        depth.pop_front();
+        return t;
+    }
+    return 0;
+}
+\end{lstlisting}
+
 \section{Some code, cause I want to put it somewhere}
 
 \chapter{Results}

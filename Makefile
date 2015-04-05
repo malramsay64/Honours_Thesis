@@ -5,7 +5,7 @@ output=.output
 folders=$(shell ls -d */)
 
 bib=biber
-pdf_flags=--output-dir=$(output)
+pdf_flags=--output-dir=$(output) --shell-escape
 pre_flags=-draftmode
 master_bibfile=/Users/malcolm/Honours/resources/crystal.bib
 bibfile=bibliography/crystal.bib
