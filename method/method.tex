@@ -9,10 +9,10 @@ The potential that I have chosen to use is a modified Lennard-Jones potential. T
 \end{equation}
 where $r$ is the separation of two centers and, $\epsilon$ and $\sigma$ are parameters describing the strength and the size of the potential respectively. The computational simplicity comes from the 6th power function which is easy to compute, and the 12th power term is the square of the 6th power term. In the default form the potential for each particle acts on all other particles, despite most of these interactions being negligible. To account for this the potential is commonly modified to have a cutoff at some value of the potential; we chose a cutoff of $2.5\sigma$. The final modification to the potential is to retain the continuity of the original function, this involves subtracting the value at the cutoff giving a function of the form
 \begin{equation}
-    V_{mod}(r) = \begin{case}
+    V_{mod}(r) = \begin{cases}
         V_{LJ}(r) - V_{LJ}(2.5\sigma) r &< 2.5\sigma \\
         0,  r &>= 2.5\sigma
-    \end{case}
+    \end{cases}
 \end{equation}
 These particles were then constructed into molecules.
 
