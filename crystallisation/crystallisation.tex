@@ -1,57 +1,90 @@
 \chapter{Crystallisation}
 
-\section{Order parameters}
+In this chapter we apply the concepts of the previous two chapters together, in other words examining the dynamic structural changes present as a liquid moves from the liquid to the crystalline phase. Since the molecules \sone, \sone and \tri were chosen partly because of their lack of crystallisation the timescales on which these dynamics are studied are exceptionally long.
 
-There area many types of order that we can look for, each most suitable to a certain system. In the case of the d=1.637556 snowmen we know the perfect packing of the shape~\figref{}, and that it can also have a random arrangement. To detect the ordering in this random arrangement we can't use an orientational order parameter since we expect the orientations to be disordered, we have to use the properties of the underlying structure. In this case it involves dealing with each particle individually and finding its neighbours satisfy the criteria for closest packed structure, each small particle will have 1 small and 4 large neighbours and each large particle 4 small and 3 large neighbours\tocheck. We find that very few particles have this ordering, even for long runs below the melting point where we would expect a crystal to form. To investigate this we need another order parameter with more focus on the short range interactions.
 
-The short range order parameter that we used is an adaptation of that used by~\textcite{} for ordering of similar shapes. This order parameter is focused on two particle interactions where there are multiple contacts between molecules, these multiple contacts are a property only exhibited by concave particles and it is anticipated that these multiple contacts makes them more stable than single particle interactions. There are four distinct ways that particles can pack in this way, antiparallel I~\figref{antiparallel i}, antiparallel II~\figref{antiparallel ii}, parallel~\figref{parallel} and chiral~\figref{chiral}. Of these orderings the only one that can pack space with the d=1.637556 snowman as a simple unit cell is the antiparallel I, however a significant portion of the molecules are in the antiparallel II structure~\figref{short order hist}. This is suspected to be because of the lower energy of the antiparallel II dimer than the antiparallel I dimer~\tabref{dimer energy}, the molecules get stuck in the local energy minimum preventing them from crystallising.
+\section{Melting Points}
 
-\begin{figure}
-    \begin{subfigure}{0.5\textwidth}
-        \todofigure{antiparallel I dimer}
-        \caption{antiparallel I dimer}
-        \label{fig:antiparallel i}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \todofigure{antiparallel II dimer}
-        \caption{antiparallel II dimer}
-        \label{fig:antiparallel ii}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \todofigure{parallel dimer}
-        \caption{Parallel dimer}
-        \label{fig:parallel}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \todofigure{Chiral dimer}
-        \caption{Chiral dimer}
-        \label{fig:chiral}
-    \end{subfigure}
-    \caption{Short range orderings}
-    \label{fig:short range order}
-\end{figure}
-
-\begin{figure}
-    \todofigure{Short range order histogram}
-    \caption{Distribution of short range orderings}
-    \label{fig:short order hist}
-\end{figure}
+The most important temperature for crystal formation is the melting point, try to form a crystal above it and nothing is going to happen, too low and the dynamics are too slow. Getting an idea of the melting point can be done by heating the crystal until it disorders. The melting points and molecular energy for the \sone and \scon are tabulated in \texttabref{melting sone, melting scon} respectively. The energy per molecule was determined by equilibrating the crystal below the melting point and taking an inherent structure. The melting points were determined by visual inspection of the resulting inherent structures at each temperature, when there was a region of disorder the temperature was deemed to be above the melting point.
 
 \begin{table}
-    \centering
-    \begin{tabular}{l r r}
-        Dimer & Energy d = 1.637556 & Energy d = 1.0 \\ \hline
-        Antiparallel I &  -0.606 & -0.608 \\
-        Antiparallel II & -0.430 & API\\
-        Parallel & CH & CH \\
-        Chiral & -0.476 & -0.579 \\
+    \begin{tabular}{r | c c }
+        Space Group & Melting Point & Energy per molecule \\
+        p2 & & \\
+        p2gg & & \\
+        p3 & & \\
+        p1 & & \\
     \end{tabular}
-    \caption{Energy of the dimers}
-    \label{tab:dimer energy}
+    \caption{Melting points for \sone}
+    \label{tab:melting sone}
 \end{table}
 
-\section{Nothing crystallised}
+\begin{table}
+    \begin{tabular}{r | c c }
+        Space Group & Melting Point & Energy per molecule \\
+        p2 & & \\
+        p2gg & & \\
+        p3 & & \\
+        p1 & & \\
+    \end{tabular}
+    \caption{Melting points for \scon}
+    \label{tab:melting scon}
+\end{table}
 
-\section{Here's why}
+Determining melting points in this way tends to overestimate the melting point, areas of melted crystal are highly unfavourable and there is no surface on which the melting can occur.
+
+\section{Crystallisation at a Boundary}
+
+Like melting from a bulk crystal, the formation of a crystal in a bulk liquid is difficult, the nucleation event is the process that limits the formation. The solution to both these issues is to create an initial state that is half liquid and half crystal. At temperatures above the melting point the liquid region will advance into the crystal region, below the melting point the crystal should advance on the liquid region. The rate of procession of the crystal into the liquid can be used to determine a crystal growth rate for that temperature.
+
+\subsection{\sone}
+
+The closest packed wallpaper group for the \sone molecule is a close race between the p2, p2gg and p3 groups\tocheck. The structures of all these crystals are very different, making use of different interactions~\figref{sone closest packed}. We hypothesised that the concavities play a role in the stability of the liquid phase, the crystal with these dimeric interactions is the p2gg crystal and so will be most likely to form.
+
+\begin{figure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.0-p3}}}
+        \caption{p3}
+        \label{fig:sone p3}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.0-p2gg}}}
+        \caption{p2gg}
+        \label{fig:sone p2gg}
+    \end{subfigure}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.0-pg}}}
+        \caption{pg}
+        \label{fig:sone pg}
+    \end{subfigure}
+    \caption{Closest packed crystal structures of \sone}
+    \label{fig:sone closest packed}
+\end{figure}
+
+This brought the approximation of the melting point down to $0.68$, however more interesting than the new melting point is a solid state phase transition that is occurring in the crystal region~\figref{sone solid phase}. Along with a melting of the crystal phase there are regions that have reoriented. This tells us that our guess of the appropriate space group was incorrect. However somewhat serendipitously we managed to achieve nucleation while running long simulations for the dynamics, growing into a number of orientationally distinct regions~\figref{sone crystal}. This new crystal that has formed was not even considered previously, it is 5th\tocheck in term of packing fraction. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{{{Snowman-0.70-0.637556-1.0-p2gg-1-frame}}}
+    \caption{Two phase simulation of \sone}
+    \label{fig:sone solid phase}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{{{Snowman-0.65-0.637556-1.0-frame}}}
+    \caption{Crystallisation}
+    \label{fig:sone crystal}
+\end{figure}
+
+So why is the p2mg crystal more favourable than other crystals with a higher packing fraction. One possibility is that the packing of hard discs is not a suitable approximation for this system. There is some research~\cite{medvedev:87,blatov:95,blatov:97} that suggests that hard discs are not suitable for soft three dimensional systems because they give a different number of neighbours than experimental results. For our systems hard and soft discs both give the same number of neighbours. The other possible explanation is that at high temperatures it becomes unfavourable for molecules to interlock in their concavities as this prevents the molecular vibrations. The p2mg structure that grows has room for vibrational and rotational motion, there is also enough flexibility in the structure for packing defects, the most common being a molecule oriented in the wrong direction.
+
+\subsection{Crystal Growth Kinetics}
+
+Now we have a stable crystal structure that forms in a reasonable time we can perform crystal growth kinetics. 
+
+\towrite{Crystal growth kinetics data, regio plots, regions become far less dynamic, crystal growth rate as a function of temperature}
+
+\section{\scon}
 
 
