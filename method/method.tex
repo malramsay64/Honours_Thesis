@@ -3,47 +3,72 @@
 
 \section{Molecules}
 
-\begin{itemize}
-    \item Construction of molecules
-    \item Why circles
-    \item Intermolecular interaction potentials
-    \item Intramolecular potentials
-\end{itemize}
+The potential that I have chosen to use is a modified Lennard-Jones potential. This is a potential commonly used in molecular dynamics systems due to its simplicity to calculate. It is also the potential used by most studies on glass forming binary mixtures~\tocite. The potential takes the form
+\begin{equation}
+    V_{LJ}(r) = 4\epsilon\left [ \left (\frac{\sigma}{r})^{12}\right ) -\left ( \frac{\sigma}{r} \right )^6 \right]
+\end{equation}
+where $r$ is the separation of two centers and, $\epsilon$ and $\sigma$ are parameters describing the strength and the size of the potential respectively. The computational simplicity comes from the 6th power function which is easy to compute, and the 12th power term is the square of the 6th power term. In the default form the potential for each particle acts on all other particles, despite most of these interactions being negligible. To account for this the potential is commonly modified to have a cutoff at some value of the potential; we chose a cutoff of $2.5\sigma$. The final modification to the potential is to retain the continuity of the original function, this involves subtracting the value at the cutoff giving a function of the form
+\begin{equation}
+    V_{mod}(r) = \begin{case}
+        V_{LJ}(r) - V_{LJ}(2.5\sigma) r &< 2.5\sigma \\
+        0,  r &>= 2.5\sigma
+    \end{case}
+\end{equation}
+These particles were then constructed into molecules.
+
+There were two types of molecule that we study in this thesis, Snowmen~\figref{snowman} and Trimers~\figref{trimer}. The Snowman molecule is constructed from two particles, a large and a small particle. The large particle has a radius 1, the size of the small particle $r$ is then a ratio to the size of the large particle. The only other variable in the Snowman particle is the distance $d$ between the centers of the two particles. The Trimer molecule is similar to the Snowman molecule, it also has a large particle of radius $1$, the difference is that there are two small particles of radius $r$ at distance $d$ subtended by an angle $\theta$.
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Snowman}
+        \caption{Construction of Snowman molecules}
+        \label{fig:snowman}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Trimer}
+        \caption{Construction of Trimer molecules}
+        \label{fig:trimer}
+    \end{subfigure}
+    \caption{Construction of the molecules used in this thesis}
+    \label{fig:construction}
+\end{figure}
+
+The particles of each molecule are implemented as modified Lennard-Jones particles with $\epsilon = 1$ and $\sigma = 2r$. Interactions between combinations of particles are given by the average $r$. The bond lengths and angles use a harmonic potential with a spring constant $k=5000$, more than three orders of magnitude greater than the bonded interactions. This large spring constant is to keep the arrangement of the particles as close as possible to that of a rigid molecule.
 
 \section{Molecular Dynamics}
 
-\begin{itemize}
-    \item Freely available software
-    \item limits to software
-    \item Reduced units
-    \item NPT ensemble
-    \item Noose-Hoover thermostating
-    \item Rahmann-Parinello
-\end{itemize}
+The simulations in this thesis are performed using molecular dynamics, the positions of molecules are stepped through time by solving Newton's equations at each step. The software used to perform the molecular dynamics is Lammps~\tocite, an open source program designed to efficiently perform large scale molecular dynamics simulations. An integral part of the optimisation achieved by Lammps is the spatial decomposition of particles amongst the available processors, allowing for efficient use use of a large number of processors~\tocite. Spatial decomposition is a technique that divides the simulation area into a grid equal to the number of processors. Each processor is then assigned an area of the grid for which it is responsible for computing. The processors are also assigned a set of \emph{ghost particles}, particles which are outside of the region the processor is responsible for computing but are close enough to be applying a force to particles in that region. The use of ghost atoms reduces the amount of communication between processors, at each step the only communication required is the updated positions of the ghost atoms. The reduction in communication is important for efficiency as it is the major speed bottleneck in alternative methods.
 
-\section{Packing}
+Lammps implements the modified Lennard-Jones potential and also the associated reduced units.
+\towrite{reduced units}
 
-\begin{itemize}
-    \item Creating initial states
-    \item Quenching
-\end{itemize}
+The thermodynamic ensemble for the simulation is the NPT ensemble, with a constant number of particles (N), constant pressure (P) and constant temperature (T). The constant number of particles is achieved by not adding or removing any particles from the simulation, the pressure and temperature are kept constant by a Noose-Hoover thermostat\tocheck.
+\towrite{Thermostat and barostat}
 
-\section{Dynamics}
 
-\begin{itemize}
-    \item Equilibration vs production runs
-    \item Timescales
-\end{itemize}
+\section{Specific Implementations}
 
-\section{Crystal Structures}
+\subsection{Packing}
+
+The initial configuration for the random packings is a grid of molecules in a random orientation with a distance between them larger such that they are unable to contact each other. From this state the molecules are allowed to compress and equilibrate at a temperature $T=5$, well above the melting point. The configuration was then equilibrated at a series of lower temperatures with a quenched configuration taken at each temperature.
+
+\subsection{Dynamics}
+
+The initial state of these runs was the same as for the packing, however the series of temperatures was finer. The other difference is that the system was equilibrated at each temperature, before a production run, from which data as collected was performed. As the temperature gets lower the timescale of the dynamical phenomenon gets slower, the length of the production run was longer for lower temperatures.
+
+\subsection{Crystal Structures}
 
 \begin{itemize}
+    \item Isopointal algorithm
     \item starting from Toby's structures
     \item Converting to large unit cell, squaring the edges
     \item equilibration at low T
+    \item Rahman-Parinello
 \end{itemize}
 
-\section{Interface Kinetics}
+\subsection{Interface Kinetics}
 
 \begin{itemize}
     \item Start with crystal
