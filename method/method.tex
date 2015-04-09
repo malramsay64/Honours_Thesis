@@ -5,13 +5,13 @@
 
 The potential that I have chosen to use is a modified Lennard-Jones potential. This is a potential commonly used in molecular dynamics systems due to its simplicity to calculate. It is also the potential used by most studies on glass forming binary mixtures~\tocite. The potential takes the form
 \begin{equation}
-    V_{LJ}(r) = 4\epsilon\left [ \left (\frac{\sigma}{r})^{12}\right ) -\left ( \frac{\sigma}{r} \right )^6 \right]
+    V_{LJ}(r) = 4\epsilon\left [ \left (\frac{\sigma}{r}\right )^{12} -\left ( \frac{\sigma}{r} \right )^6 \right]
 \end{equation}
 where $r$ is the separation of two centers and, $\epsilon$ and $\sigma$ are parameters describing the strength and the size of the potential respectively. The computational simplicity comes from the 6th power function which is easy to compute, and the 12th power term is the square of the 6th power term. In the default form the potential for each particle acts on all other particles, despite most of these interactions being negligible. To account for this the potential is commonly modified to have a cutoff at some value of the potential; we chose a cutoff of $2.5\sigma$. The final modification to the potential is to retain the continuity of the original function, this involves subtracting the value at the cutoff giving a function of the form
 \begin{equation}
     V_{mod}(r) = \begin{cases}
-        V_{LJ}(r) - V_{LJ}(2.5\sigma) r &< 2.5\sigma \\
-        0,  r &>= 2.5\sigma
+        \quad V_{LJ}(r) - V_{LJ}(2.5\sigma) & \text{if} r < 2.5\sigma \\
+        \quad 0  &\text{if} r >= 2.5\sigma
     \end{cases}
 \end{equation}
 These particles were then constructed into molecules.

@@ -37,11 +37,12 @@
 % References
 \newcommand*{\figref}[1]{(Figure~\ref{fig:#1})}
 \newcommand*{\tabref}[1]{(Table~\ref{tab:#1})}
-\newcommand*{\secref}[1]{(Section~\ref{sec:#1})}
+\newcommand*{\secref}[1]{(\S~\ref{sec:#1})}
 \newcommand*{\appref}[1]{(See Appendix~\ref{sec:#1})}
 \newcommand*{\textfigref}[1]{Figure~\ref{fig:#1}}
 \newcommand*{\texttabref}[1]{Table~\ref{tab:#1}}
-\newcommand*{\textsecref}[1]{Section~\ref{sec:#1}}
+\newcommand*{\textsecref}[1]{\S~\ref{sec:#1}}
+
 
 % Molecules
 \newcommand*{\sone}{{\bf S1}}
@@ -59,7 +60,7 @@
 \def\@commons[#1]#2{%
     \vskip-0.5em
     \captionsetup{font=footnotesize,singlelinecheck=false}
-    \caption*{{\bf Source:} Adapted from \linecite{#2}. Liscensed under Creative Commons #1}
+    \caption*{{\bf Source:} Adapted from \linecite{#2}. Licensed under Creative Commons #1}
 }
 
 \def\@copyright#1#2{%
