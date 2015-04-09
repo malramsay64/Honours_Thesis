@@ -7,7 +7,8 @@ folders=$(shell ls -d */)
 bib=biber
 pdf_flags=--output-dir=$(output) --shell-escape
 pre_flags=-draftmode
-master_bibfile=/Users/malcolm/Honours/resources/crystal.bib
+master_bibfile:=/Users/malcolm/Honours/resources/crystal.bib
+master_bibfile:=$(shell if [ -e $(master_bibfile) ]; then echo $(master_bibfile); fi)
 bibfile=bibliography/crystal.bib
 abbrev=true
 
