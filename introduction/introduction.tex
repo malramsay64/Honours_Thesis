@@ -2,12 +2,13 @@
 \chapter{Introduction}
 
 
-Manipulating the formation of a condensed phase is a critical part of both nature and technology. From molluscs controlling crystal formation~\cite{de-yoreo:03}, to molecular glasses to increasing the solubility of drugs~\cite{hancock:00}, to plastics\tocite, silicon in photovoltaic cells\tocite, and many other materials that we rely on every day. As the devices we use become smaller the need to understand the processes that form them becomes more important. A complete theory of glass formation is still elusive and our ability to control crystal formation is far from what is available to nature. To better understand the formation of the solid phase, we need an understanding of the molecular rearrangements that take place as we move from a molecular liquid, through a supercooled liquid to either a glass or molecular crystal.
+Manipulating the formation of a condensed phase is a critical part of both nature and technology. From molluscs controlling crystal formation~\cite{de-yoreo:03}, to molecular glasses to increasing the solubility of drugs~\cite{hancock:00}, to plastics\tocite, silicon in photovoltaic cells\tocite, resins holding wheels together~\tocite and many other materials that we rely on every day. As the devices we use become smaller the need to understand the processes that form them becomes more important. A complete theory of glass formation is still elusive and our ability to control crystal formation is far from what is available to nature. To better understand the formation of the solid phase, we need an understanding of the molecular rearrangements that take place as we move from a molecular liquid, through a supercooled liquid to either a glass or molecular crystal.
 
 The goal of my project is to explore fundamental features of molecular shape; asymmetry and concavity, influence the properties of the various condensed phases; liquid, crystal, glass and supercooled-liquid. This requires the characterisation of a new set of molecular models for computer simulation. I will be addressing how the molecular orientation and translational motion couple during crystal growth, how the degree of concavity in the molecular shape determines the dynamics of rotations and translations in the low temperature liquid phase and, to find stable structures that determine the properties of crystals and glasses and how these structures are influenced by molecular shape.\tofix{This whole bit}
 
 
 \section{Molecular Crystals}
+\label{sec:molecular crystals}
 
 The unit cell is the building block of a crystal, as such it is a useful tool to be able to describe the type of crystal. It is commonly used to describe metal salts, there is the \ce{CsCl} structure, or \ce{NaCl}, Zinc blende and many others. These are used because they are common materials characteristic of their unit cell structure, however the names do not directly inform us of the properties of the underlying unit cell. The simplest descriptor of the unit cell is the shape of the lattice system. There are 7 of these systems representing the different shapes that can be used to pack three dimensional space. Some of these lattice systems can then be combined with a lattice centering, an extra point or points on which a molecule is placed within the lattice. Taking the cubic lattice system as an example, there is the primitive (P) lattice centering where there are only lattice points on the corner of the unit cell which is the lattice of the primitive cubic packing of spheres. The second lattice centering is body centered (I) where there is an additional lattice point in the center of the lattice system resulting in the face centered cubic lattice. There is also the face lattice centering (F) where there is an additional lattice point on each face of the unit cell, for spheres this gives the densest known packing, the face centered cubic packing. The final lattice centering is the base (C) where there is an extra lattice point on one pair of opposing sides. This lattice centering is not present in the cubic lattice system. The combination of these lattice systems and lattice centerings gives the 14 \emph{Bravais lattices}~\figref{bravais}. 
 
@@ -67,7 +68,7 @@ The way that molecular crystals pack space is an important problem in simulating
     \label{fig:sphere packing}
 \end{figure}
 
-If finding a proof for the simplest of shapes was so difficult, how hard is it going to be to find closest packings for arbitrary shapes. While having a mathematical proof of the closest packed structure is nice, it is not necessary to perform useful chemistry, using the closest known packed structure is a reasonable alternative. Without the requirement for proof of correctness the problem of finding the closest known packing of arbitrary shapes becomes far simpler. The degrees of freedom of the particles can be considered a multidimensional space with the value at each point in space being the packing fraction~\figref{packing space}, finding the solution is now a case of finding the global minimum of this multidimensional function. Finding the global minimum of a function is a problem that appears in many fields, including computer science. As such there are a number of algorithms that can be used in an attempt to find the global minimum~\tocite. It should be noted that the only method that guarantees finding the global minimum is to evaluate packing fraction at every possible configuration. This is not computationally possible for any reasonably sized system, the number of points required scales exponentially with the number of molecules, quickly running into calculations that would take longer than the age of the universe. Many of these approximations use the concept of simulated annealing~\tocite. This is the process by which the configuration is given an amount of energy to move around the configuration space, moving out of a configuration that has a low packing fraction happens with a high probability, while moving out of a well where the packing fraction is high occurs with low probability. The probability of the configuration moving scales with the energy, as the energy is slowly reduced only the best configurations are sampled. If the energy is reduced slowly enough the global minimum is the final configuration, however there is no way to determine beforehand what slowly enough is. This concept comes from the process of glass formation which will be discussed in~\secref{} and many of the same concepts hold.
+If finding a proof for the simplest of shapes was so difficult, how hard is it going to be to find closest packings for arbitrary shapes. While having a mathematical proof of the closest packed structure is nice, it is not necessary to perform useful chemistry, using the closest known packed structure is a reasonable alternative. Without the requirement for proof of correctness the problem of finding the closest known packing of arbitrary shapes becomes far simpler. The degrees of freedom of the particles can be considered a multidimensional space with the value at each point in space being the packing fraction~\figref{packing space}, finding the solution is now a case of finding the global minimum of this multidimensional function. Finding the global minimum of a function is a problem that appears in many fields, including computer science. As such there are a number of algorithms that can be used in an attempt to find the global minimum~\tocite. It should be noted that the only method that guarantees finding the global minimum is to evaluate packing fraction at every possible configuration. This is not computationally possible for any reasonably sized system, the number of points required scales exponentially with the number of molecules, quickly running into calculations that would take longer than the age of the universe. Many of these approximations use the concept of simulated annealing~\tocite. This is the process by which the configuration is given an amount of energy to move around the configuration space, moving out of a configuration that has a low packing fraction happens with a high probability, while moving out of a well where the packing fraction is high occurs with low probability. The probability of the configuration moving scales with the energy, as the energy is slowly reduced only the best configurations are sampled. If the energy is reduced slowly enough the global minimum is the final configuration, however there is no way to determine beforehand what slowly enough is. This concept comes from the process of glass formation which will be discussed in~\secref{molecular glasses} and many of the same concepts hold.
 
 \begin{figure}
     \todofigure{Visualisation of packing space to search}
@@ -99,7 +100,7 @@ The liquid phase is defined by its incompressibility and its ability to flow. Th
 \end{equation}
 where $N$ is the number of particles $\rho$ is the number density and $r_{ij}$ the separation of two particles. In essence it maps the probability of finding molecules at a distance $r$ from any particle, however unlike a probability the radial distribution function is normalised to $N-1$ where $N$ is the total number of particles in the system. It can also be expressed as the term that when multiplied by the number density $\rho$ gives the local density around a particle. The radial distribution function gives a very clear distinction between between the crystal, and liquid and gas phases~\figref{radial distribution}. In the liquid phase phase we can see there is a region of excluded volume at small $r$, this is the result of the repulsive force, the apparent size of the molecule. Beyond the excluded region there is a sharp peak corresponding to the shell of nearest neighbours around the central molecule. It is the excluded region and short range ordering that results in the incompressibility, there is nowhere for the particles to move upon compression because of the repulsive force. The final part of the radial distribution function is the long range behaviour, for liquids there is no long range ordering, while for crystals there are peaks out to very large $r$. The radial distribution function is very useful when modelling systems where it is easy to calculate the distance between each particle, for experimental systems this is not possible. The usefulness of the radial distribution function is that is can be linked to a directly measurable quantity, the \emph{static structure factor} by a Fourier transform
 \begin{equation}
-    S(q) = 1 + \rho \int [G(r)-1]\,\e^{ikr} \d r
+    S(q) = 1 + \rho \int [G(r)-1]\,\e^{ikr}\, \d r
 \end{equation}
 The static structure factor can be experimentally determined by taking the x-ray diffraction pattern of a sample providing the link between experimental and theoretical systems. Along with the structural differences between a liquid and a crystal there are also significant dynamical differences.
 
@@ -111,7 +112,7 @@ The static structure factor can be experimentally determined by taking the x-ray
 
 Two common dynamic properties of a liquid are the viscosity and diffusion. The viscosity ($\eta$) of a liquid is a property of the bulk liquid measured in \si{\poise} or \emph{units of poise}. The viscosity is a temperature dependent quantity, following an Arrhenius curve
 \begin{equation}
-    \eta = \eta_0 \e^{-E_a/(\boltzman T)}
+    \eta = \eta_0\, \e^{-E_a/(\boltzman T)}
 \end{equation}
 where $T_0$ is the viscosity at a known temperature $T_0$, \boltzman is the Boltzman constant, and $E_a$ is the activation energy. In this case the activation energy can be considered the energy required to move past the nearest neighbours. The Arrhenius relation holds because this activation energy remains constant throughout the temperature range. The viscosities of some common liquids are shown in \tabref{} showing the range that viscosities take. The other dynamic property is diffusion, this is a property of individual molecules. Diffusion in liquids is described by \emph{Brownian motion}, first postulated by Einstein in 1911~\tocheck. The motion of particles is described by a differential equation 
 \begin{equation}
@@ -126,8 +127,11 @@ where $\Delta \vect r$ is the distance between $r$ and $r_0$, $T$ is the tempera
 
 When dealing with molecules, along with the motion of the molecules the rotations of the molecules is also important. 
 
-\towrite{rotational relaxations}
 
+\towrite{rotational relaxations}
+\begin{itemize}
+    \item Rotational relaxation of OTP~\cite{eastwood:13}
+\end{itemize}
 
 
 \section{Supercooled Liquids}
@@ -159,16 +163,32 @@ When dealing with dynamics of supercooled liquids in most cases the viscosity ob
 \begin{equation}
     m = \left [ \pddiff{\log_{10} \eta}{\si{\Tg}/T} \right ]_{T=\si{\Tg}}
 \end{equation}
-This gives a range of fragilities from silica, $m = 1$ to \emph{o}-terphenyl, $m = ??$~\tocheck with everything in between~\tabref{}. It is interesting to note that along with \emph{o}-terphenyl many of the fragile supercooled liquids are molecular, this feeds the hypothesis that glass forming ability is in some way related to shape, it can not be the only contributing factor but is a line of investigation to pursue.
+This gives a range of fragilities from silica, $m = 1$ to \emph{o}-terphenyl, $m = ??$~\tocheck with everything in between~\tabref{fragility}. It is interesting to note that along with \emph{o}-terphenyl many of the fragile supercooled liquids are molecular, this feeds the hypothesis that glass forming ability is in some way related to shape, it can not be the only contributing factor but is a line of investigation to pursue.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{angell}
     \source{lubchenko:07}{Annual Reviews}
+    \caption{Angell plot showing the relative response to cooling of a variety of glass formers.}
     \label{fig:angell}
 \end{figure}
 
-Along with the fragility of molecular glass formers, they are also interesting due to their rotational motion. In supercooled liquids below approximately \SI{1.2}{\Tg} there is a decoupling between rotational and translational diffusion~\tocite. It has been found that molecules translate faster than expected for their viscosity by as much as two orders of magnitude~\cite{debenedetti:01}. This results in molecules being able to move past each other but unable to rotate, limiting the range of states that can be sampled by the supercooled liquid. This is not the only decoupling present as close to \si{\Tg}, there is also a splitting of the relaxation frequency into two bands, the slow $\alpha$ relaxation and fast $\beta$ relaxation~\tocite. This decoupling in the relaxation can be explained by interpreting the supercooled liquid as a point on a multidimensional potential energy landscape, just like for the packing problem~\secref{}. Here the way that the supercooled liquid moves through the potential energy landscape is a function of the temperature. At high temperatures the liquid moves freely about the potential energy landscape, the energy of the molecules is often above any of the potential energy barriers. As the temperature gets lower the space of configurations available to the system gets smaller, there are potential energy barriers which only have a low probability of crossing. Close to the glass transition temperature the space of configurations is limited, there are many small local potential energy minima separated by larger energy minima. Moving between these larger minima requires a large number of rearrangements in the structure of the system, these movements correspond to the slow $\alpha$ relaxations~\figref{pe landscape}. The motion between the smaller energy minima are the $\beta$ relaxations resulting from small particle shifts.
+\begin{table}
+    \begin{tabular}{l | c c c }
+        System & Fragility ($m$) & \si{\Tm} (\si{\kelvin}) & Type \\ \hline
+        $\alpha$-phenol \emph{o}-cresol (\ce{C_{13}H_{14}O}) & 84 & 324 & Molecular \\
+        Indomethacin $\alpha$ (\ce{C_{19}H_{16}ClNO4}) & 89 & 426 & Molecular \\
+        \emph{o}-terphenyl (\ce{C_{18}H_{14}}) & 86 & 329 & Molecular \\
+        Sorbitol E (\ce{C6H14O6}) & 77 & 353 & Molecular \\
+        Diopside (\ce{CaO.MgO.2SiO2}) & 66 & 1664 & Ionic \\
+        Silica (\ce{SiO2}) & 21 & 2007 & Ionic \\
+        Sodium disilicate (\ce{Na2O.2SiO2}) & 45 & 1146 & Ionic \\
+    \end{tabular}
+    \caption{The fragility of a number of different systems}
+    \label{tab:fragility}
+\end{table}
+
+Along with the fragility of molecular glass formers, they are also interesting due to their rotational motion. In supercooled liquids below approximately \SI{1.2}{\Tg} there is a decoupling between rotational and translational diffusion~\tocite. It has been found that molecules translate faster than expected for their viscosity by as much as two orders of magnitude~\cite{debenedetti:01}. This results in molecules being able to move past each other but unable to rotate, limiting the range of states that can be sampled by the supercooled liquid. This is not the only decoupling present as close to \si{\Tg}, there is also a splitting of the relaxation frequency into two bands, the slow $\alpha$ relaxation and fast $\beta$ relaxation~\tocite. This decoupling in the relaxation can be explained by interpreting the supercooled liquid as a point on a multidimensional potential energy landscape, just like for the packing problem~\secref{molecular crystals}. Here the way that the supercooled liquid moves through the potential energy landscape is a function of the temperature. At high temperatures the liquid moves freely about the potential energy landscape, the energy of the molecules is often above any of the potential energy barriers. As the temperature gets lower the space of configurations available to the system gets smaller, there are potential energy barriers which only have a low probability of crossing. Close to the glass transition temperature the space of configurations is limited, there are many small local potential energy minima separated by larger energy minima. Moving between these larger minima requires a large number of rearrangements in the structure of the system, these movements correspond to the slow $\alpha$ relaxations~\figref{pe landscape}. The motion between the smaller energy minima are the $\beta$ relaxations resulting from small particle shifts.
 
 \begin{figure}
     \centering
@@ -190,15 +210,32 @@ Taking these dynamic quantities to their limit, the glass transition temperature
 
 
 \section{Molecular Glasses}
+\label{sec:molecular glasses}
 
 The structure of a glass is indistinguishable from that of a liquid, the difference is that a glass has a viscosity of \SI{e13}{\poise}. Despite the liquid like structure, and urban legends~\tocite the glassy phase is most definitely solid, it would require a timescale of 100 million years for a glass with a viscosity at the glass transition to appreciably flow~\tocite. Much of the misunderstanding of the glassy phase is related to the lack of a first order phase transition~\tocite. None of the thermodynamic properties change upon transition, all the structural properties of the liquid phase apply to the glass phase, however the dynamics of the glass phase are far slower than any liquid. What does this mean for the glass phase? 
 
-\towrite{Molecular glasses}
-\begin{itemize}
-    \item Jamming - 6 contacts
-    \item Inherent structures
-    \item out of thermodynamic equilibrium
-\end{itemize}
+Glasses are an amorphous structure that has \emph{jammed} into a rigid disordered state which can withstand a force before yielding. There are a number of other materials that we regularly interact with that are a disordered media in a jammed state~\figref{jammed media}. Granular media like lentils, or sand will form a disordered state, like the colloidal suspension in toothpaste, or the emulsion of oil droplets in a liquid, and similarly for air bubbles in shaving cream. So what is this jammed state?
+
+A circular particle in two dimensions has two degrees of freedom, translations in the $x$ and $y$ directions. To restrict a degree of freedom we need a minimum of 2 contacts, to prevent movement in the $x$ direction we need a particle in contact on the positive and negative $x$ directions. This means for a circular particle with 4 contacts it no longer has any degrees of freedom; it is \emph{jammed}. If the particle is no longer circularly symmetric like an ellipse then there is a extra degree of freedom, the rotation, so it requires six contacts to reach jamming. A jammed state originates where the density of particles is high, where the temperature is low~\figref{jamming transition}~\cite{liu:98,ohern:03,vanhecke:10}. In the case of molecular glasses jamming occurs as a result of the low temperatures. There are two types of particles in a jammed system, the structural particles which have the required number of contacts and \emph{rattlers}, particles which are free to move around in space left between the rigid particles. 
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{jammed-media}
+    \caption{Examples of disordered media in a jammed state. (a) Granular media. (b) Toothpaste (c) Mayonnaise (d) Shaving foam.}
+    \source{vanhecke:09}{NO PERMISSION}
+    \label{fig:jammed media}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{jamming-transition}
+    \caption{A possible phase diagram for the jamming transition, the jammed region at the center is enclosed by the surface.}
+    \source{liu:98}{NO PERMISSION}
+    \label{fig:jammed media}
+\end{figure}
+
+Studies have been undertaken on the jamming point of a number of systems~\cite{vanhecke:09}. For systems of spheres the contact number at jamming is 6, corresponding to 2 contacts per degree of freedom. This is an \emph{isostatic} transition, the number of contacts at jamming is equal to two times the number of degrees of freedom. For ellipsoidal systems which have rotational degrees of freedom the contact number at jamming is 11.4, less than the isostatic value of 12. This is a \emph{hypostatic} transition, which results in a transition possessing a series of rotational modes~\cite{mailman:09}. A system with a contact number larger than the isostatic value is a \emph{hyperstatic} transition. The type of transition that takes place determines the properties of the resulting jammed phase~\cite{schreck:11}. One method of generating jammed systems is by taking inherent structures.
 
 Inherent structures are the structures generated when vibrations are removed, essentially structures at a temperature of \SI{0}{\kelvin}. These structures are interesting because it removes the complexity of vibrations, the structures are representative of the position of the atoms rather than their positions. In a way this is similar to taking x-ray diffraction patterns over timescales much longer than the vibration of the structure, the position observed is the average value, removing the noise generated by the vibrations. Removing vibrations is important for determining whether particles are within a cutoff to determine whether they are neighbouring, the vibrations can be easily large enough to push molecules inside or outside this cutoff producing noisy results. By taking a number of inherent structures at various temperatures~\figref{inherent structures} the effect that the temperature the inherent structure is equilibrated is easily observed. This means that any glassy state is dependent on its temperature history, glasses cooled quickly have different properties to those cooled slowly, a technique used for hundreds of years by glass blowers to produce more durable glass\tocite.
 
@@ -211,6 +248,8 @@ At high temperature the liquid can sample the entire energy landscape where most
     \source{debenedetti:01}{Nature Publishing Group}
     \label{fig:inherent structures}
 \end{figure}
+
+\section{Minimisation Algorithms}
 
 The algorithm commonly used to find the inherent structure is conjugate gradients\tocite. This is another algorithm focused on finding minima on a multidimensional landscape, $F(\vect x)$~\cite{shewchuk:94,hestenes:52}. In this case conjugate gradients is an iterative algorithm that will find the closest local minima in a small number of steps. The conjugate gradient algorithm is most simply explained as as extension of another iterative algorithm, steepest descent. The naming of the steepest descent algorithm is very self descriptive, a step of size $\gamma$ is taken in the direction of the steepest descent. Each step is given by
 \begin{equation}
@@ -226,3 +265,18 @@ Steepest descent is limited in that it will often zig-zag slowly towards the min
      \Delta \vect r_{i} &= \alpha( \nabla F(\vect r_i) + \beta \Delta \vect r_{i-1})
 \end{align}
 with constants $\alpha$ and $\beta$ which in practice are calculated each step for fastest convergence. Note that it is not possible to take a first step with the conjugate gradient algorithm, the direction of the previous step is needed. In practical applications of the conjugate gradient algorithm the initial step is taken using the steepest descent algorithm, with the remaining steps using conjugate gradient. Each step of the conjugate gradient algorithm requires more calculation than a step with the steepest descent algorithm, the improvement from using conjugate gradient comes from reducing the number of steps required~\cite{knyazev:08}.
+
+Both the steepest descent and the conjugate gradient methods are good at finding the local minimum. Often more important than local minima are the global minima, where other techniques are required. One case where finding the global minima is important is the formation of a crystal from a liquid phase. This is one of the common techniques, known in computer science as simulated annealing~\tocite, the idea is that you start at a high temperature and slowly reduce the temperature. If the reduction in temperature is slow enough the final state will be the global minimum of the function, otherwise it will be a local minima. This is exactly the process that is being investigated in this thesis using molecular dynamics to sample the possible space of the function describing the degrees of freedom of all the molecules with the state of the function given by the total energy of the molecules. Here the aim is to arrange the molecules in the lowest energy configuration, the crystal state. In some cases, like a single component disc liquid will easily crystallise~\tocite, other cases like certain binary disc mixtures~\tocite are highly resistant to crystallisation. In these cases there are other methods to find the lowest energy state.
+
+Molecular dynamics simulations typically have a large number of particles to give a reasonable approximation of real world phenomena and to remove the effects of particles interacting with themselves through the periodic boundary conditions. These requirements are not always the case, by exploiting the symmetry of a space group and \emph{isopointal sets} the dimensionality and search space can be dramatically reduced~\cite{hudson:10}. An isopointal set is a space group and a minimal set of symetrically distinct sites, with the rest of the molecules in the unit cell generated by application of the symmetry operations. These minimal set of sites are known an \emph{Wyckoff} sites~\cite{gelato:87,bergerhoff:99}. These simplifications reduce the dimensionality of the problem significantly, each space group has a small set of possible Wyckoff sites, each with only a few optimisation parameters which can be optimised using \emph{Monte Carlo} simulated annealing.
+
+The basis of \emph{Monte Carlo} methods is that the space of interest is traversed stochastically. It is used in a number of applications, the simplest application of this method is to approximate the area of a region in space. This can be done by taking an easy to calculate enclosing area, like a square, and an unknown area defined by some inequalities and generating a series of points in the larger area~\figref{monte carlo pi}. The fraction of points in the unknown area is an approximation of the relative size of the area. We can also consider this process as an accept/reject criterion, accept if in the area of interest, reject if not. In this case the percentage accepted is important. In simulated annealing this accept/reject criterion is related to the energy of the state, a high energy state is less likely to be accepted than a low energy state. As the temperature is reduced the region of acceptance shrinks along with the size of the jumps between configurations, with the final configuration ideally being the lowest energy configuration.
+
+\begin{figure}
+    \centering
+    \animategraphics[loop,autoplay,width=0.5\linewidth]{3}{Pi-}{0}{9}
+    \caption[Approximating $\pi$ using the monte carlo method]{Approximating $\pi$ using the Monte Carlo method using the ratio of points falling in each area. Increasing the number of points reduces the error in the result.}
+    \source[\ccby]{montecarlopi}
+    \label{fig:monte carlo pi}
+\end{figure}
+
