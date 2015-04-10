@@ -4,8 +4,6 @@
 
 \section{Stuff I couldn't fit in the Introduction}
 
-\section{Other cool stuff just because}
-
 \chapter{Code}
 
 \section{Calculating Distances}
@@ -60,8 +58,6 @@ molecule * dyn_queue::pop(){
 }
 \end{lstlisting}
 
-\section{Some code, cause I want to put it somewhere}
-
 \chapter{Results}
 
 \section{Order parameters}
@@ -115,5 +111,17 @@ The short range order parameter that we used is an adaptation of that used by~\t
     \label{tab:dimer energy}
 \end{table}
 
+\section{Compact Packings}
+\label{sec:compact packing}
+
+When an crystal structure has an orientationally ordered state and a randomly oriented state at the same energy level, it is going to form the disordered state. The extra free energy gained from the entropy of the random orientation at higher temperatures will overcome the small differences in entropy from a slightly misaligned structure. This orientational disorder is something that can be found in all the compact packings, using the compact packing of the $0.637556$ binary disc mixture. It results from the criteria for a compact packing, that any two neighbours must have two mutual neighbours. Taking any molecule, it has a contact between the large and small disc, this also means that the particles share two other neighbours. In the case of a small neighbour, this means there were at least two options to draw the bond from the large to the small. The case of the large neighbour, there are two options to join a large molecule to the small molecule. In either case there is a choice over which bond to form in the packing.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-random}}}
+    \caption{Random orientation of bonds within a compact binary packing can be randomly oriented}
+    \source[\ccbysa]{dense-packing}
+    \label{fig:snowman 0.637556 1.637556 random}
+\end{figure}
 
 \endbackmatter
