@@ -27,14 +27,25 @@ While the techniques to find crystalline ordering have been non-specialised, we 
 
 \section{What Crystals would Form}
 
-In the interests of developing more specialised tools for detecting crystalline order, we need to understand the crystal structures that are likely to form. This involves finding the structures that we believe to be the lowest in energy, 
+In the interests of developing more specialised tools for detecting crystalline order, we need to understand the crystal structures that are likely to form. This involves finding the structures that we believe to be the lowest in energy. To find these lowest energy structures we need tools other than molecular dynamics since the timescales for molecular dynamics are beyond the limits of our simulations. To find a good approximation of the lowest energy structures we look to packing hard shapes, by modelling our molecules as hard shapes we are able to use an isopointal algorithm to get a good approximation of the closest packed configurations. These closest packed configurations were then used as the starting configuration for a Lennard-Jones system.
 
+\begin{table}
+    \caption{Tabulated energies}
+\end{table}
 
-
-
-
+Knowing the crystal does help however there are other complications. For the \scon molecule the lowest energy state is degenerate. The bonds between the contacting particles can be arranged randomly with no change in energy, however there is an entropy change, with the random arrangement having more entropy than the ordered arrangement. The degeneracy of the \scon crystal state means that to detect crystalline order instead of looking at orientation and position instead we need to be focused on the centers of density, i.e. each particle individually.
 
 \section{Order Parameters}
+
+
+Rather than dealing with each molecule as at the start of this chapter we are now exploring order parameters of each individual particle, rather than each molecule.
+
+One simple order parameter is to take the radial distribution function and apply it to each particle. Using each particle is going to be much closer to something seen in a x-ray defractometer as it is focused on center of density, rather than center of mass. These function still display the short range order...
+
+
+We can also look at other properties of each particle, like the number of neighbours.
+
+With the techniques that we possess we are unable to find any significant crystalline order in the system. There are small regions which show order, a result expected for a distribution of all possible arrangements, however these small regions are static, not displaying an important aspect of a crystal; growth.
 
 
 
