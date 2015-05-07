@@ -1,8 +1,8 @@
-\chapter{Structure}
+\chapter{Ordering in Inherent Structures}
 
-In the previous chapter we investigated the dynamics of three molecular systems; \sone, \scon and \tri. The dynamics properties of these systems remained smooth throughout the range we simulated them, indicating that there was no phase transition taking place. While there is no obvious phase transition, one possible cause of the increasing time scales for the dynamics properties is the growth of crystal regions within the simulations.
+In the previous chapter we investigated the dynamics of three molecular systems. The dynamics properties of these systems remained smooth throughout the range we simulated them, indicating that there was no phase transition taking place. While there is no obvious phase transition, one possible cause of the increasing time scales for the dynamics properties is the growth of crystal regions within the simulations.
 
-The goal of this chapter is to investigate the structural properties of the three systems studied in the previous chapter; the \sone, \scon and \tri to determine whether the dynamic properties observed are purely dynamic properties or can be attributed to structural properties of the system.
+The goal of this chapter is to investigate the structural properties of the three systems studied in the previous chapter to determine whether the dynamic properties observed are purely dynamic properties or can be attributed to structural properties of the system.
 
 \section{Is there Crystal Formation}
 
@@ -15,26 +15,98 @@ Over the course of the simulations to determine the dynamic properties of the sy
     \label{fig:inherent structures frame}
 \end{figure}
 
-While there appears to be no long range ordering in these configurations, to make a definitive statement we need more specialised tools. One of the alternate forms that could form is a plastic-crystal, a form where the position of the molecules is ordered while their orientations are disordered. This form can be more easily discerned by removing the orientational representation of the molecules, instead representing the center of mass of each molecule as a dot~\figref{inherent structures com}. This focuses the search for order, the centers of mass lining up over long ranges would be indicative of this plasti-crystal order.
+While there appears to be no long range ordering in these configurations, to make a definitive statement we need more specialised tools. Consider the compact binary packing with a size ration of 0.637556:1; this is equivalent to packing the \scon molecule without the allocation of bonds. The allocation of bonds can be performed randomly with no adjustment to the structure of the underlying particles~\secref{compact degeneracy}. Two examples of assigning bonds; an ordered p2 structure~\figref{ordered frame}, and a randomly oriented structure~\figref{random frame}. The orientational order of the p2 structure can easily be seen with diagonal banding of colours, corresponding to the two orientations present in the structure. The randomly assigned structure has molecules arranged with no orientational order, distributed between the eight possible molecular orientations. We can attempt to remove the noise of this orientational disorder by only plotting the centers of mass~\figref{ordered com, random com}, however this gives a very similar result, the ordered structure exhibits distinctly crystalline behaviour with centers of mass aligning in rows while the random structure that needs further analysis to be considered ordered.
+
+Both of the previous attempts at describing order in the compact packing were using the properties of a molecule, its orientation and center of mass. While molecular properties are useful for dynamics, in both the ordered and random allocation of bonds the molecule is just a construct sitting atop a lattice of ordered particles. The particles define the arrangement and so using the particles to detect order within a configuration is a far more appropriate approach. Using the particles to define a 2D radial distribution function gives \textfigref{ordered radial2d, random radial2d} which are almost identical to each other. The energy and ordering of the structures is determined by the arrangement of the individual particles, not the arrangement of bonds.
 
 \begin{figure}
-    \todofigure{Inherent structure COM}
-    \caption{COM of inherent structures}
-    \label{fig:inherent structures com}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{ordered-frame}
+        \caption{Ordered frame}
+        \label{fig:ordered frame}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{random-frame}
+        \caption{Random frame}
+        \label{fig:random frame}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{ordered-com}
+        \caption{Ordered com}
+        \label{fig:ordered com}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{random-com}
+        \caption{Random com}
+        \label{fig:random com}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{ordered-radial2d-part}
+        \caption{Ordered radial2d}
+        \label{fig:ordered radial2d}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{random-radial2d-part}
+        \caption{Random radial2d}
+        \label{fig:random radial2d}
+    \end{subfigure}
+    \caption{Comparison of crystalline and random assignment of bonds to a compact packing}
+    \label{fig:compact bonds}
 \end{figure}
-
-While the techniques to find crystalline ordering have been non-specialised, we do not know what the crystal looks like. Knowing the structure of the crystal beforehand allows an enhancement of our tools to look specifically for the expected structure.
 
 \section{What Crystals would Form}
 
-In the interests of developing more specialised tools for detecting crystalline order, we need to understand the crystal structures that are likely to form. This involves finding the structures that we believe to be the lowest in energy. To find these lowest energy structures we need tools other than molecular dynamics since the timescales for molecular dynamics are beyond the limits of our simulations. To find a good approximation of the lowest energy structures we look to packing hard shapes, by modelling our molecules as hard shapes we are able to use an isopointal algorithm to get a good approximation of the closest packed configurations. These closest packed configurations were then used as the starting configuration for a Lennard-Jones system.
+In the interests of developing more specialised tools for detecting crystalline order, we need to understand the crystal structures that are likely to form. This involves finding the structures that we believe to be the lowest in energy. To find these lowest energy structures we need tools other than molecular dynamics since the timescales for molecular dynamics are beyond the limits of our simulations. To find a good approximation of the lowest energy structures we look to packing hard shapes, by modelling our molecules as hard shapes we are able to use an isopointal algorithm to get a good approximation of the closest packed configurations. These closest packed configurations were then used as the starting configuration for a Lennard-Jones system. \texttabref{crystal energies} shows the energy of the Lennard Jones systems using the best packed isopointal structures for each wallpaper group as a starting configuration. The Lennard-Jones system does not retain the constraints of the wallpaper group symmetry, however the lower energy structures we are interested in do not deviate from these structures.
 
 \begin{table}
-    \caption{Tabulated energies}
+    \sisetup{
+        table-format = +3.4,
+        table-omit-exponent,
+        fixed-exponent =-4,
+        parse-numbers=true,
+        scientific-notation=true,
+        round-mode=places,
+        round-precision=3}
+    \centering
+    \begin{tabular}{ | l | S  S  S | }
+        \hline
+        {Crystal} & \multicolumn{3}{c|}{Energy per molecule (\num{e-4})} \\
+            &\sone & \scon & \tri \\ \hline
+        p1 & 0.00002598963975 & 0.0001551885511& -0.0003279078448\\
+        p2 & 0.00001376280055& 0.0001527208398& -0.0003934685913\\
+        p2mg & 0.000005732595806& 0.0004479052484& -0.0003354198174\\
+        p2gg & 0.00002632511042& 0.0001699363766& -0.000401823091\\
+        pg & 0.00002824743917& 0.0002860863393& -0.0004000561542\\
+        p3 & 0.00003468842645& 0.0002424453316& -0.0003292839541\\
+        \hline
+    \end{tabular}
+    \caption{Tabulated energies per particle}
+    \label{tab:crystal energies}
 \end{table}
-The \scon molecule is an interesting case, the optimal packing of this shape is known as a compact packing. A compact packing is one where each pair of contacting particles has two other contacting particles in common, a phenomenon commonly found while packing discs. One of the consequences of a compact packing is that the packing of our \scon molecules is not unique.  Closest packed molecular configurations can be found by randomly arranging the bonds between the large and small particles in the compact packing. From testing the random arrangement has the same energy\tocheck as the crystalline structure however has far more entropy, giving it lower Gibbs free energy than the ordered structure. While from a theoretical perspective the random arrangement of bonds is more favourable, it is also more difficult to detect. Comparing the centers of mass of the ordered and disordered compact packings shows a dramatic difference in the degree of order we observe. The ordered packing has nicely ordered centers of mass that align with each other through the crystal, while the random arrangement shows centers of mass that appear highly disordered. In this case it is nessecary to move away from the description of molecules as a center of mass and an orientation and instead describe molecules as the individual particles.
 
-In the case of \scon the move from a molecular to particle description allows us to correctly identify crystal structure regardless of the bonding of the molecules. The approach that works best for \sone is to count the number and type of neighbours of each particle. In the compact packing each small particle has three large and 1 small neighbour, and each large particle has four small and 3 large neighbours. This counting of neighbours correctly classifies the randomly oriented configuration as crystalline, while not returning false positives on the amorphous phase. Although counting the type and number of neighbours works well for the \sone molecule it is very specific in that it only works for this particular arrangement of particles. 
+From the energies in \texttabref{crystal energies} the most stable crystal structures are: \sone{} - p2mg, \scon{} - p2, and \tri{} - p2gg, with their repsectice configurations shown in \textfigref{crystals}. Interestingly these lowest energy structures are not necessarily the closest packed structures, it is possible the extra 
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.47\textwidth}
+        \includegraphics[width=\textwidth]{{{Snowman-0.4-0.637556-1.00-p2mg-frame}}}
+        \caption{}
+        \label{fig:crystal sone}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.47\textwidth}%
+        \includegraphics[width=\textwidth]{{{Snowman-0.4-0.637556-1.637556-p2-frame}}}
+        \caption{}
+        \label{fig:crystal sone}
+    \end{subfigure}
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[width=\textwidth]{{{Trimer-0.4-0.637556-1.00-120-p2gg-frame}}}
+        \caption{}
+        \label{fig:crystal sone}
+    \end{subfigure}
+    \caption{}
+    \label{fig:crystals}
+\end{figure}
+
 
 
 \section{Order Parameters}
