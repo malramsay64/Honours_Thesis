@@ -47,6 +47,22 @@ Lammps implements the modified Lennard-Jones potential and also the associated r
 The thermodynamic ensemble for the simulation is the NPT ensemble, with a constant number of particles (N), constant pressure (P) and constant temperature (T). The constant number of particles is achieved by not adding or removing any particles from the simulation, the pressure and temperature are kept constant by a Noose-Hoover thermostat\tocheck.
 \towrite{Thermostat and barostat}
 
+\section{Units}
+
+In a simple system like a Lennard-Jones system the standard units for various properties are cumbersome and not well matched to the specific system. Instead a set of reduced units is used, using a mass $m = 1$ as the fundamental unit. A series of further units can be derived using the parameters of the Lennard-Jones potential $\sigma$ and $\epsilon$. 
+
+\begin{table}
+    \begin{tabular}{ l c }
+        Mass & $ m = 1$ \\
+        Energy & $E^* = E/\epsilon$ \\
+        Temperature & $T^* = T_k/\epsilon$ \\
+        Length & $L^* = L/\sigma$ \\
+        Pressure & $P^* = P\sigma^3/\epsilon$ \\
+        Time & $t^* = t\sqrt{\epsilon/(m\sigma^2)}$
+    \end{tabular}
+    \caption{Reduced LJ Units}
+    \label{tab:reduced units}
+\end{table}
 
 \section{Specific Implementations}
 
