@@ -2,7 +2,7 @@
 
 % Add paths to look through
 \makeatletter
-\def\input@path{{Classes/}{preface/}{introduction/}{method/}{packing/}{dynamics/}{crystallisation/}{conclusion/}{appendix/}}
+\def\input@path{{Classes/}{preface/}{introduction/}{method/}{structure/}{dynamics/}{crystallisation/}{conclusion/}{appendix/}}
 \makeatother
 
 \usepackage{thesis}
@@ -10,10 +10,10 @@
 \usepackage{animate}
 
 % Paths of figures
-\graphicspath{{preface/figures/}{method/figures/}{introduction/figures/}{dynamics/figures/}{packing/figures/}{crystallisation/figures/}}
+\graphicspath{{preface/figures/}{method/figures/}{introduction/figures/}{dynamics/figures/}{structure/figures/}{crystallisation/figures/}}
 
 % To include only some sections in the output, saves typesetting the entire thesis when working on a small section.
-\includeonly{method}
+\includeonly{structure}
 
 \begin{document}
 \title{The Role of Molecular Shape on the Properties of the Condensed Phase:\\ A Simulation Study}
@@ -31,9 +31,9 @@
 
 \include{method}
 
-\include{packing}
-
 \include{dynamics}
+
+\include{structure}
 
 \include{crystallisation}
 
