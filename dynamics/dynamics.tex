@@ -4,19 +4,20 @@ The dynamics of a molecular system is characterised by two main elements, the di
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.3\textwidth}
+    \captionsetup{justification=centering}
+    \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.637556}}}
-        \caption{Snowman $r=0.637556,\,d=1.637556$ (\scon)}
+        \caption{\dimer{0.637556}{1.637556} \\\scon}
         \label{fig:scon}
     \end{subfigure}
-    \begin{subfigure}{0.3\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.0}}}
-        \caption{Snowman $r=0.637556,\,d=1.0$ (\sone)}
+        \caption{\dimer{0.637556}{1.0} \\\sone}
         \label{fig:sone}
     \end{subfigure}
-    \begin{subfigure}{0.3\textwidth}
-        \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.0}}}
-        \caption{Trimer $r=0.637556,\,d=1.0,\,\theta=120$ (\tri)}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\linewidth]{{{Trimer-0.637556-1.00-120}}}
+        \caption{\trimer{0.637556}{1.0}{120} \\\tri}
         \label{fig:tri}
     \end{subfigure}
     \caption[Molecules chosen for further study]{The molecules chosen for study in this chapter. }
@@ -34,17 +35,17 @@ This chapter focused on the time dependent dynamic properties of a system.
         \label{fig:snowman 0.637556 1.0 msd}
     \end{subfigure}
     \begin{subfigure}{0.5\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-r1}}}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-P1(t)}}}
         \caption{R1}
         \label{fig:snowman 0.637556 1.0 r1}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-struct}}}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-F}}}
         \caption{structure function}
         \label{fig:snowman 0.637556 1.0 structure}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-r2}}}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-P2(t)}}}
         \caption{r2}
         \label{fig:snowman 0.637556 1.0 r2}
     \end{subfigure}
@@ -52,7 +53,7 @@ This chapter focused on the time dependent dynamic properties of a system.
     \label{fig:snowman 0.637556 1.0}
 \end{figure}
 
-The four plots in~\textfigref{snowman 0.637556 1.0} are the main features of each system. The MSD tells us about the translational motion of the molecules, how fast they move through space and the timescales required for them to enter a diffusive regime, moving out of the ballistic region. The rotational relaxations tell us about the timescales of rotations, these can be completely uncorrelated from the diffusion, molecules can rotate around a point with no diffusion, they can also diffuse in a straight line with no rotational motion. The final function, the structure function is a combination of the both rotation and diffusion, the structure function is a binary function
+The four plots in~\textfigref{snowman 0.637556 1.0} are the main features of each system. The 1SD tells us about the translational motion of the molecules, how fast they move through space and the timescales required for them to enter a diffusive regime, moving out of the ballistic region. The rotational relaxations tell us about the timescales of rotations, these can be completely uncorrelated from the diffusion, molecules can rotate around a point with no diffusion, they can also diffuse in a straight line with no rotational motion. The final function, the structure function is a combination of the both rotation and diffusion, the structure function is a binary function
 \begin{align}
     F(t) = \begin{cases}
         \quad0 &\text{if } \Delta \vect x > 0.3 \\
@@ -101,17 +102,17 @@ All these same functions can also be applied to the other systems we are studyin
         \label{fig:snowman 0.637556 1.637556 msd}
     \end{subfigure}
     \begin{subfigure}{0.5\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-r1}}}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-P1(t)}}}
         \caption{R1}
         \label{fig:snowman 0.637556 1.637556 r1}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-struct}}}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-F}}}
         \caption{structure function}
         \label{fig:snowman 0.637556 1.637556 structure}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-r2}}}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-P2(t)}}}
         \caption{r2}
         \label{fig:snowman 0.637556 1.637556 r2}
     \end{subfigure}
@@ -137,22 +138,22 @@ All these same functions can also be applied to the other systems we are studyin
 
 \begin{figure}
     \begin{subfigure}{0.5\linewidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.0-120-msd}}}
+        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-msd}}}
         \caption{MSD}
         \label{fig:trimer 0.637556 1.0 120 msd}
     \end{subfigure}
     \begin{subfigure}{0.5\linewidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.0-120-r1}}}
+        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-P1(t)}}}
         \caption{R1}
         \label{fig:trimer 0.637556 1.0 120 r1}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.0-120-struct}}}
+        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-F}}}
         \caption{structure function}
         \label{fig:trimer 0.637556 1.0 120 structure}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.0-120-r2}}}
+        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-P2(t)}}}
         \caption{r2}
         \label{fig:trimer 0.637556 1.0 120 r2}
     \end{subfigure}
@@ -162,14 +163,14 @@ All these same functions can also be applied to the other systems we are studyin
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{{{Trimer-0.637556-1.0-120-alpha}}}
+    \includegraphics[width=0.5\linewidth]{{{Trimer-0.637556-1.00-120-alpha}}}
     \caption{Nongaussian function}
     \label{fig:trimer 0.637556 1.0 120 alpha}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{{{Trimer-0.637556-1.0-120-chi}}}
+    \includegraphics[width=0.5\linewidth]{{{Trimer-0.637556-1.00-120-chi}}}
     \caption{$\chi_4(t)$}
     \label{fig:trimer 0.637556 1.0 120 chi4}
 \end{figure}
