@@ -1,75 +1,77 @@
 \chapter{Liquid Dynamics}
 
-The dynamics of a molecular system is characterised by two main elements, the diffusion of the particles through the liquid and the rotational motion of those particles. Understanding these properties of the liquid provide the basis for further study giving estimates of the timescales that events are likely to occur at. It also provides important information about the range of temperatures at which the particular system can be studied. The molecules that we have chosen for study are shown in \textfigref{my mols}, these molecules were chosen to be representative of the range of samples and also with the possibility of showing interesting behaviour as discussed in \textsecref{shapes of interest}. Through the rest of this thesis the molecules will be referred to by symbols as indicated in \textfigref{my mols}.
+The dynamics of a molecular system is characterised by two main elements, the diffusion of the particles through the liquid and the rotational motion of those particles. Understanding these properties of the liquid provide the basis for further study giving estimates of the timescales that events are likely to occur at. It also provides important information about the range of temperatures at which the particular system can be studied. The molecules that we have chosen for study in this thesis are shown in \textfigref{my mols}. These three molecules were chosen as they represent a wide range of concavity, from the small concavity in the \sone molecule through to the large concavity in the \tri molecule. This difference in concavity if expected to give rise to differing dynamical behaviour, particularly the fragility.
 
 \begin{figure}
     \centering
     \captionsetup{justification=centering}
-    \begin{subfigure}[t]{0.3\textwidth}
-        \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.637556}}}
-        \caption{\dimer{0.637556}{1.637556} \\\scon}
-        \label{fig:scon}
-    \end{subfigure}
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.0}}}
         \caption{\dimer{0.637556}{1.0} \\\sone}
         \label{fig:sone}
     \end{subfigure}
     \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.637556}}}
+        \caption{\dimer{0.637556}{1.637556} \\\scon}
+        \label{fig:scon}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Trimer-0.637556-1.00-120}}}
         \caption{\trimer{0.637556}{1.0}{120} \\\tri}
         \label{fig:tri}
     \end{subfigure}
-    \caption[Molecules chosen for further study]{The molecules chosen for study in this chapter. }
+    \caption[Molecules chosen for further study]{The molecules chosen for study in this thesis in order of the size of the concavity. The \sone with the smallest concavity, \scon with the smaller disc contacting and \tri with a concavity larger than the large disc.}
     \label{fig:my mols}
 \end{figure}
-
-This chapter focused on the time dependent dynamic properties of a system.
 
 \section{Dynamics of \sone}
 
 \begin{figure}
-    \begin{subfigure}{0.5\linewidth}
+    \begin{subfigure}[t]{0.5\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-msd}}}
         \caption{MSD}
         \label{fig:snowman 0.637556 1.0 msd}
     \end{subfigure}
-    \begin{subfigure}{0.5\linewidth}
+    \begin{subfigure}[t]{0.5\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-P1(t)}}}
         \caption{R1}
         \label{fig:snowman 0.637556 1.0 r1}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-F}}}
-        \caption{structure function}
+        \caption{Structure Function}
         \label{fig:snowman 0.637556 1.0 structure}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-P2(t)}}}
-        \caption{r2}
+        \caption{R2}
         \label{fig:snowman 0.637556 1.0 r2}
     \end{subfigure}
-    \caption{Snowman 0.637556 1.0}
+    \caption{The main dynamical features of the \sone molecule.}
     \label{fig:snowman 0.637556 1.0}
 \end{figure}
 
-The four plots in~\textfigref{snowman 0.637556 1.0} are the main features of each system. The 1SD tells us about the translational motion of the molecules, how fast they move through space and the timescales required for them to enter a diffusive regime, moving out of the ballistic region. The rotational relaxations tell us about the timescales of rotations, these can be completely uncorrelated from the diffusion, molecules can rotate around a point with no diffusion, they can also diffuse in a straight line with no rotational motion. The final function, the structure function is a combination of the both rotation and diffusion, the structure function is a binary function
+With the main dynamical quantities of interest being the translation of the center of mass (COM) and the rotation it makes sense to represent the particles as the center of mass and an orientation vector. This method is independent of the number of particles making analysis simple, allowing us to find the Mean Squared Displacement (MSD) a measure of the translational motion which when differentiated can be used to find the diffusion constant. The MSD for \sone over a range of temperatures is shown in \textfigref{snowman 0.637556 1.0 msd}. The initial region up to approximately $10^1$ timesteps is the ballistic region where the particles are yet to collide with each other. At higher temperatures the transition from the ballistic to the diffusive regime is seamless. The diffusive regime is defined by a MSD that increases as a linear function of $t$, indicated by the grey line on the plot. At lower temperatures like 0.90 (shown in red) there is a distinct levelling off of the MSD between the ballistic and diffusive regimes. This region of slow diffusion is where there are only a small number of particles that have escaped their local minima, they still have the same neighbours that they started with and are vibrating within the bounds of those neighbours.
+
+The orientation of the molecule allows us to define a rotational relaxation, a measure of the type of rotational motions that take place. There are two rotational relaxations we are concerned with, R1 is a measure of the small angular steps that take place while R2 is concerned with orientational flips that take place. Both of these relaxations are used to give us information about the type of relaxations that take place, large differences between R1 and R2 would be indicative of a process dominated by large jumps in the orientation. Instead we have observed very similar behaviour between R1~\figref{snowman 0.637556 1.0 r1} and R2~\figref{snowman 0.637556 1.0 r2}. Again like the MSD we see the stagnation of the relaxation at low temperatures.
+
+Another dynamical quantity that we were interested in is the Structure Function $F(t)$. This is a deviation from the COM and orientation that we have been using to define previous dynamical quantities. The Structure function instead uses the position of each individual particle. The approach is used as it allows us to combine both the rotations and translations of a molecule into a single function. The Structure function is given by
 \begin{align}
     F(t) = \begin{cases}
         \quad0 &\text{if } \Delta \vect x > 0.3 \\
         \quad1 &\text{if } \Delta \vect x \leq 0.3
     \end{cases}
 \end{align}
-where $\Delta \vect x$ is the distance of each individual particle from the initial position. The combination of the rotation and diffusion is a result of considering each particle individually rather than as molecules. This approach is also more in line with what would be observed experimentally, x-ray diffraction sees areas of high electron density separately, the atoms, rather than molecules.
+where $\Delta \vect x$ is the distance of each particle from its initial position. The value of $0.3$ was chosen to be small enough to be able to observe the combination of translational and rotational relaxations. The Structure function for \sone is shown in \textfigref{snowman 0.637556 1.0 structure} and shows some interesting characteristics. The initial region between \num{e0} and \num{e1} timesteps is flat as the particles have not had enough time to move \si{0.3} units in distance. The sharp dropoff, characteristic of the binary function matches closely with the time that the MSD transitions from the ballistic regime indicative of the molecules escaping their local environment. The other interesting feature is the increase in the Structure function for low temperatures at \num{e4}. This can be explained by the molecular vibrations or rotations of molecules within their initial local environment. Particles will move outside the cutoff distance as part of a vibration and return to their initial positions resulting in the periodicity of the vibrations.
 
-Along with being averaged over the ensemble these functions are averaged over many overlapping time points. This removes any large fluctuations since the initial configuration is a random configuration in the space of all possible configurations~\tocite. The simulation can be thought of as sampling all possible configurations, this is the premise of statistical thermodynamics, so any configuration sufficiently separated in time is another random configuration from which it is reasonable to start a new analysis.
+All the properties so far have been investigating the bulk properties of the molecules, however in the highly supercooled region in which we are interested in, the dynamics of the system are often heterogeneous, there are spatially separated regions of highly mobile particles and regions of slow moving particles. \textfigref{snowman 0.637556 1.0 moved} shows that \sone exhibits areas of both dynamic and rotational heterogeneity. There is a strong correlation between the regions of dynamic and rotational motion, however it is not a direct correlation, there are both particles that have moved a long way with a small rotation and particles that have moved a very short distance with a large rotation.
 
-All the properties so far have been investigating the bulk properties of the molecules, however in the highly supercooled region in which we are interested in, the dynamics of the system are often heterogeneous, there are spatially separated regions of highly mobile particles and regions of slow moving particles. \textfigref{snowman 0.637556 1.0 moved} shows that there are these dynamically heterogeneous areas in the snowman molecule. It is also important to note that there are also dynamically heterogeneous rotations, these are not something that have been studied before~\tocheck. At a most basic level these measurements are the standard deviation of these bulk properties, however they have been attributed real physical meaning.
+The visual inspection of these homogeneities tells us that they exist but makes it difficult to make comparisons. To do this we can use a variety of functions designed to compare dynamic homogeneities. These functions are based on finding the variance of dynamic variables over the frame.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-moved}}}
-    \caption{Movement of particles within a frame}
+    \includegraphics[width=0.75\textwidth]{{{Snowman-0.637556-1.0-moved}}}
+    \caption{Movement of particles within a frame. This shows the net motions of all \sone molecules over a simulation run. The motion of the centers of mass are displayed by the vectors, directly representing the motion that took place. The magnitude of the rotation is given by the intensity of the green circles.}
     \label{fig:snowman 0.637556 1.0 moved}
 \end{figure}
 
