@@ -52,40 +52,47 @@ The radius of 0.637556 is interesting as it one of the radius ratios that form a
         \caption{Structure Function}
         \label{fig:snowman 0.637556 1.0 structure}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-P2(t)}}}
-        \caption{R2}
-        \label{fig:snowman 0.637556 1.0 r2}
-    \end{subfigure}
     \caption{The main dynamical features of the \sone molecule.}
     \label{fig:snowman 0.637556 1.0}
-\end{figure}
+\end{figure} 
 
-With the main dynamical quantities of interest being the translation of the center of mass (COM) and the rotation it makes sense to represent the particles as the center of mass and an orientation vector. This method is independent of the number of particles making analysis simple, allowing us to find the Mean Squared Displacement (MSD) a measure of the translational motion which when differentiated can be used to find the diffusion constant. The MSD for \sone over a range of temperatures is shown in \textfigref{snowman 0.637556 1.0 msd}. The initial region up to approximately $10^1$ timesteps is the ballistic region where the particles are yet to collide with each other. At higher temperatures the transition from the ballistic to the diffusive regime is seamless. The diffusive regime is defined by a MSD that increases as a linear function of $t$, indicated by the grey line on the plot. At lower temperatures like 0.90 (shown in red) there is a distinct levelling off of the MSD between the ballistic and diffusive regimes. This region of slow diffusion is where there are only a small number of particles that have escaped their local minima, they still have the same neighbours that they started with and are vibrating within the bounds of those neighbours.
+With the main dynamical quantities of interest being the translation of the center of mass (COM) and the rotation. The measure of translational motion we are interested in is Mean Squared Displacement (MSD) a measure of the translational motion which when differentiated can be used to find the diffusion constant. The MSD is given by
+\begin{equation}
+    MSD(t) = \langle (x(t) - x_0)^2 + (y(t) - y_0)^2 \rangle
+\end{equation}
+where $x(t)$ and $y(t)$ are the positions of the COM at time $t$, while $x_0$ and $y_0$ are the initial positions of the molecules. The angle brackets $\langle\,\rangle$ denote averaging over all particles. The MSD for \sone over a range of temperatures is shown in \textfigref{snowman 0.637556 1.0 msd}. The initial region up to approximately $10^1$ timesteps is the ballistic region where the particles are yet to collide with each other. At higher temperatures the transition from the ballistic to the diffusive regime is seamless. The diffusive regime is defined by a MSD that increases as a linear function of $t$, indicated by the grey line on the plot. At lower temperatures like 0.90 (shown in red) there is a distinct levelling off of the MSD between the ballistic and diffusive regimes. This region of slow diffusion is where there are only a small number of particles that have escaped their local minima, they still have the same neighbours that they started with and are vibrating within the bounds of those neighbours.
 
-The orientation of the molecule allows us to define a rotational relaxation, a measure of the type of rotational motions that take place. There are two rotational relaxations we are concerned with, R1 is a measure of the small angular steps that take place while R2 is concerned with orientational flips that take place. Both of these relaxations are used to give us information about the type of relaxations that take place, large differences between R1 and R2 would be indicative of a process dominated by large jumps in the orientation. Instead we have observed very similar behaviour between R1~\figref{snowman 0.637556 1.0 r1} and R2~\figref{snowman 0.637556 1.0 r2}. Again like the MSD we see the stagnation of the relaxation at low temperatures.
+The second dynamic quantity we are interested in is the rotational relaxation, a measure of the angular mobility of the molecule. The rotational relaxation $C_n(t)$ is given by
+\begin{equation}
+    C_n(t) = \langle P_n[\vect e(0) \dot \vect e(t)] \rangle
+\end{equation}
+where $P_n$ is the $n$\textsuperscript Legendre polynomial, $e(t)$ is the orientation vector at time $t$ and the angle brackets $\langle\,\rangle$ denote the averaging over all molecules. The rotational relaxation in this form is a function with a range of $[-1,1]$, a value of $C_n(t)=1$ is when the molecule is in the same orientation as at $t=0$, a value of $C_n(t)=0$ is when the molecule is perpendicular to its initial orientation, and a value $C_n(t)=-1$ when the orientation is perpendicular to the initial orientation. We are primarily concerned with $C_1$ in which the Legendre polynomial takes the form
+\begin{equation}
+    P_1(x) = x
+\end{equation}
+however we do use the second order function $C_2$ later in this thesis for comparison to elucidate further information about rotations. The second order Legendre polynomial is given by
+\begin{equation}
+    P_2(x) = 2x^2 - 1
+\end{equation}
 
-Another dynamical quantity that we were interested in is the Structure Function $F(t)$. This is a deviation from the COM and orientation that we have been using to define previous dynamical quantities. The Structure function instead uses the position of each individual particle. The approach is used as it allows us to combine both the rotations and translations of a molecule into a single function. The Structure function is given by
+The rotational relaxation for \sone is given in \textfigref{snowman 0.637556 1.0 r1}. The rotational relaxation shows many features that are similar to the MSD, there is an initial period between \num{e0} and \num{e2} timesteps where the molecules have not had enough time to relax. Longer times show relaxation at high temperatures, however like the MSD at low temperatures there is a stagnation of the relaxation before relaxation that has the same shape as the higher temperature relaxations.
+
+The third dynamical quantity that we were interested in is the Structure Function $F(t)$. The Structure function is different from the MSD and Rotational relaxations in that instead of calculating quantities for each molecule and averaging over all molecules, the values are calculated for each particle of each molecule and averaged over all the particles. The Structure function is given by
 \begin{align}
-    F(t) = \begin{cases}
+    F(t) = \langle \begin{cases}
         \quad0 &\text{if } \Delta \vect x > 0.3 \\
         \quad1 &\text{if } \Delta \vect x \leq 0.3
-    \end{cases}
+    \end{cases} \rangle
 \end{align}
-where $\Delta \vect x$ is the distance of each particle from its initial position. The value of $0.3$ was chosen to be small enough to be able to observe the combination of translational and rotational relaxations. The Structure function for \sone is shown in \textfigref{snowman 0.637556 1.0 structure} and shows some interesting characteristics. The initial region between \num{e0} and \num{e1} timesteps is flat as the particles have not had enough time to move \si{0.3} units in distance. The sharp dropoff, characteristic of the binary function matches closely with the time that the MSD transitions from the ballistic regime indicative of the molecules escaping their local environment. The other interesting feature is the increase in the Structure function for low temperatures at \num{e4}. This can be explained by the molecular vibrations or rotations of molecules within their initial local environment. Particles will move outside the cutoff distance as part of a vibration and return to their initial positions resulting in the periodicity of the vibrations.
+where $\Delta \vect x$ is the distance of each particle from its initial position and the angle brackets $\langle\,\rangle$ denote averaging over all particles. The value of \num{0.3} was chosen to be small enough to be able to observe the combination of translational and rotational relaxations within a molecule.
 
-All the properties so far have been investigating the bulk properties of the molecules, however in the highly supercooled region in which we are interested in, the dynamics of the system are often heterogeneous, there are spatially separated regions of highly mobile particles and regions of slow moving particles. \textfigref{snowman 0.637556 1.0 moved} shows that \sone exhibits areas of both dynamic and rotational heterogeneity. There is a strong correlation between the regions of dynamic and rotational motion, however it is not a direct correlation, there are both particles that have moved a long way with a small rotation and particles that have moved a very short distance with a large rotation.
+The Structure function for \sone is shown in \textfigref{snowman 0.637556 1.0 structure} and shows some interesting characteristics. The initial region between \num{e0} and \num{e1} timesteps is flat as the particles have not had enough time to move \si{0.3} units in distance. The sharp dropoff, characteristic of the binary function, matches closely with the time that the MSD transitions from the ballistic regime indicative of the molecules escaping their local environment. The other interesting feature is the increase in the Structure function for low temperatures at \num{e4}. This can be explained by the molecular vibrations or rotations of molecules within their initial local environment. Particles will move outside the cutoff distance as part of a vibration and return to their initial positions resulting in the periodicity of the vibrations.
 
-The visual inspection of these homogeneities tells us that they exist but makes it difficult to make comparisons. To do this we can use a variety of functions designed to compare dynamic homogeneities. These functions are based on finding the variance of dynamic variables over the frame.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\textwidth]{{{Snowman-0.637556-1.0-moved}}}
-    \caption{Movement of particles within a frame. This shows the net motions of all \sone molecules over a simulation run. The motion of the centers of mass are displayed by the vectors, directly representing the motion that took place. The magnitude of the rotation is given by the intensity of the green circles.}
-    \label{fig:snowman 0.637556 1.0 moved}
-\end{figure}
-
-The first of these measures in the nongaussian parameter $\alpha(t)$ which is a measure of the deviation of the MSD from a gaussian distribution, what would be expected if the motion for all particles was truly randomly distributed~\figref{snowman 0.637556 1.0 alpha}.
+All the properties we have investigated so far have been averages over all the molecules or particles. These properties are geared towards homogeneous liquids, where all molecules show similar behaviour. One of the features of supercooled liquids is inhomogeneous dynamics, where the dynamics of the system is dominated by a small number of highly mobile molecules. One measure of the homogeneity of the system is the nongaussian parameter $\alpha(t)$ a measure of how closely the MSD of the system matches that of a gaussian distribution, the distribution a high temperature liquid would match. The nongaussian parameter is given by
+\begin{equation}
+    \alpha(t) = \frac{\langle \Delta x(t)^4 \rangle}{2 \langle \Delta x(t)^2\rangle^2} - 1
+\end{equation}
+where $\Delta x(t) = \sqrt{(x(t) - x_0)^2 + (y(t) - y_0)^2}$ and the angle brackets $\lange\,\rangle$ denote averaging over all molecules.
 
 \begin{figure}
     \centering
@@ -94,13 +101,13 @@ The first of these measures in the nongaussian parameter $\alpha(t)$ which is a 
     \label{fig:snowman 0.637556 1.0 alpha}
 \end{figure}
 
-Another of these gives a value for a characteristic length scale and the relaxation time of the dynamic inhomogeneities, the $\chi_4(t)$ function~\figref{snowman 0.637556 1.0 chi4}. This is given by the variance of the structure function at each time point. 
+The nongaussian parameter for \sone is given in \testfigref{snowman 0.637556 1.0 alpha}. We can see that that with decreasing temperature there is an increase in the nongaussian parameter, meaning an increase in the dynamic inhomogeneities. There is also a move of the peak of the dynamics inhomogeneities to longer timescales as the temperature increases, a result that matches previous observations.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{{{Snowman-0.637556-1.0-chi}}}
-    \caption{$\chi_4(t)$}
-    \label{fig:snowman 0.637556 1.0 chi4}
+    \includegraphics[width=0.75\textwidth]{{{Snowman-0.637556-1.0-moved}}}
+    \caption{Movement of particles within a frame. This shows the net motions of all \sone molecules over a simulation run. The motion of the centers of mass are displayed by the vectors, directly representing the motion that took place. The magnitude of the rotation is given by the intensity of the green circles.}
+    \label{fig:snowman 0.637556 1.0 moved}
 \end{figure}
 
 All these same functions can also be applied to the other systems we are studying
@@ -123,11 +130,6 @@ All these same functions can also be applied to the other systems we are studyin
         \caption{structure function}
         \label{fig:snowman 0.637556 1.637556 structure}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-P2(t)}}}
-        \caption{r2}
-        \label{fig:snowman 0.637556 1.637556 r2}
-    \end{subfigure}
     \caption{Snowman 0.637556 1.637556}
     \label{snowman 0.637556 1.637556}
 \end{figure}
@@ -139,12 +141,10 @@ All these same functions can also be applied to the other systems we are studyin
     \label{fig:snowman 0.637556 1.637556 alpha}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{{{Snowman-0.637556-1.637556-chi}}}
-    \caption{$\chi_4(t)$}
-    \label{fig:snowman 0.637556 1.637556 chi4}
-\end{figure}
+The dynamics of the \scon molecule show similar behaviour to the \scon molecule. The most noticeable difference is the temperature at which the dynamics slow down, in the \sone molecule we are able to collect dynamic quantities down to a temperature of 0.50, for the \scon molecule we are only able to get results down to 1.50. This is a dramatic change in behaviour for a relatively small change in molecular shape and a result that we investigate further throughout the rest of this thesis. 
+
+Apart from the dramatic differences in temperature the dynamics exhibits very similar behaviour. The MSD \figref{snowman 0.637556 1.637556 msd} shows the same levelling out at low temperature in the region between the short time ballistic regime and the long time diffusive regime. The rotational relaxations \figref{snowman 0.637556 1.637556 r1} occur on a longer timescale than \sone as might be expected of the elongated \scon molecule. The Structure function also shows the same behaviour, with peaks which we believe to be a result of the vibrational motion of particles at low temperature. Finally the nongaussian function \figref{snowman 0.637556 1.637556 alpha} shows a increasing heterogeneity at an increasing time as the temperature decreases.
+
 
 \section{Dynamics of \tri}
 
@@ -163,11 +163,6 @@ All these same functions can also be applied to the other systems we are studyin
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-F}}}
         \caption{structure function}
         \label{fig:trimer 0.637556 1.0 120 structure}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-P2(t)}}}
-        \caption{r2}
-        \label{fig:trimer 0.637556 1.0 120 r2}
     \end{subfigure}
     \caption{Trimer 0.637556 1.0 120}
     \label{fig:trimer 0.637556 1.0 120}
@@ -190,7 +185,13 @@ All these same functions can also be applied to the other systems we are studyin
 
 \section{Comparison}
 
-By themselves these functions don't allow easy comparison between different molecules. For this we can represent these functions as a single value, the MSD can be sufficiently represented as the diffusion constant, the constant for the linear region. For the structure function and the rotation functions we can define a relaxation time, the time it takes for the functions to reach a value of $1/\e$. This value is chosen as the relaxation is typically exponential, so this is representative of half the time to zero.\tocheck These can then be plotted as a function of 1/T for all molecules.
+The functions that we have dealt with so far allow a comparison of the behaviour of a molecule over a range of temperatures, what we are unable to do is easily compare molecules and be able to interpret all the data on a single plot. To make comparisons we want to represent each function as a single value. The MSD can be represented as a diffusion constant $D$
+\begin{equation}
+    D = \frac{1}{4}\ddiff{MSD(t)}{t}
+\end{equation} 
+the gradient of the MSD. The gradient that we are interested in is the diffusive region, to calculate an accurate value of the diffusion constant an average value of the gradient was calculated for this region. For the rotational relaxation and the structure function are similar in nature and can be treated in the same way. We can define a relaxation time for these function as the time for these functions to reach a specific value. The exponential nature of the rotational relaxation and structure functions 
+
+
 
 \begin{figure}
     \begin{subfigure}{0.5\linewidth}
