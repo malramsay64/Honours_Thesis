@@ -4,7 +4,7 @@ In the previous chapter we investigated the dynamics of three molecular systems.
 
 The goal of this chapter is to investigate the structural properties of the three systems studied in the previous chapter to determine whether the dynamic properties observed are purely dynamic properties or can be attributed to structural properties of the system.
 
-\section{Is there Crystal Formation}
+\section{Do the Structures Remain Amorphous?}
 
 Over the course of the simulations to determine the dynamic properties of the system it is possible that the system transitioned from the purely amorphous phase to a structure that was a mixture of crystalline and amorphous regions. If these regions are long lived, rather than just fluctuations, as the temperature is dropped these regions are only more likely to grow; the lower entropy crystal phase is more favourable at low temperatures. Using this reasoning we can use the final configuration as an indication of the formation of crystalline regions over the entire temperature range of the simulation. From this final configuration we can take an inherent structure, removing any of the vibrational noise giving a configuration that is representative of the mean arrangement of the molecules. These arrangements are shown in \textfigref{inherent structures frame} where the colour of each molecule is given by its orientation.
 \towrite{discuss inherent structures}
@@ -53,6 +53,9 @@ Both of the previous attempts at describing order in the compact packing were us
     \caption{Comparison of crystalline and random assignment of bonds to a compact packing}
     \label{fig:compact bonds}
 \end{figure}
+
+
+\section{Order Parameters}
 
 \section{What Crystals would Form}
 
@@ -106,19 +109,5 @@ From the energies in \texttabref{crystal energies} the most stable crystal struc
     \caption{}
     \label{fig:crystals}
 \end{figure}
-
-
-\section{}
-
-
-Rather than dealing with each molecule as at the start of this chapter we are now exploring order parameters of each individual particle, rather than each molecule.
-
-One simple order parameter is to take the radial distribution function and apply it to each particle. Using each particle is going to be much closer to something seen in a x-ray defractometer as it is focused on center of density, rather than center of mass. These function still display the short range order...
-
-
-We can also look at other properties of each particle, like the number of neighbours.
-
-With the techniques that we possess we are unable to find any significant crystalline order in the system. There are small regions which show order, a result expected for a distribution of all possible arrangements, however these small regions are static, not displaying an important aspect of a crystal; growth.
-
 
 
