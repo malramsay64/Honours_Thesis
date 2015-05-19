@@ -1,16 +1,20 @@
 \chapter{Liquid Dynamics}
 
-The dynamics of a molecular system is characterised by two main elements, the diffusion of the particles through the liquid and the rotational motion of those particles. Understanding these properties of the liquid provide the basis for further study giving estimates of the timescales that events are likely to occur at. It also provides important information about the range of temperatures at which the particular system can be studied. The molecules that we have chosen for study in this thesis are shown in \textfigref{my mols}. 
+A non-circularly symmetric molecule in a plane has three degrees of freedom, translations in the $x$ and $y$ directions and a rotation in the $xy$ plane. Understanding the dynamics of a system requires an understanding of the translations and rotations that take place within that system and provides a basis for further study, giving information about the timescales on which events are likely to occur.
 
-These molecules were chosen from a search of a wide range of molecular shapes for exhibiting a number of characteristics that we are interested in. These characteristics are as follows: 
+\section{Choice of Molecules}
+
+To choose the molecules that we are studying in depth in this thesis, a survey of a wide range of molecular shapes was conducted. The survey included both the Snowman and Trimer molecule types over a radius $r$ range $r = [0.5,1]$, a distance $d$ range of $d = [1,1+r]$ and an angle range $\theta$ of $\theta = [90,180]$. These ranges were chosen so the resulting molecules are sufficiently distinct from a disc, a well studied problem~\cite{verlet:67}.
+
+The resulting collection of 50 molecules was cooled from a partially randomly generated high temperature state, resulting in a low temperature structure in which the particles have moved away from their initial configurations. These low temperature structures were assessed for suitability on a number of criteria:
 \begin{itemize}
-    \item the molecules had to be resistant to crystallisation allowing long time dynamics to be characterised,
-    \item it had to be possible to search for a crystal structure of the molecules,
-    \item the concavity of the molecules should cover a wide range,
-    \item the molecules had to be similar enough for direct comparison, and
-    \item the molecules should be representative of a wide range of molecular shapes.
+    \item The molecules have to be resistant to crystallisation allowing long time dynamics to be characterised. There had to be no evidence of crystallisation in the low temperature structures.
+    \item The molecules have to be radially definable.
+    \item The concavity of the molecules should cover a wide range,
+    \item The molecules have to be similar enough for direct comparison, and
+    \item The molecules are representative of a wide range of molecular shapes.
 \end{itemize}
-The radius of 0.637556 is interesting as it one of the radius ratios that form a compact packing. A molecule with a small radius of 0.637556 and a distance between the molecular centers of 1.637556 (\scon) has a crystal structure that mirrors this compact packing. Despite \scon having this low energy crystal structure, an initial study of an inherent structure from a long run showed no sign of crystal formation, indicating it is resilient to crystal formation. Retaining a radius of 0.637556 for the other molecules allows a more direct comparison, any differences are due to properties of the arrangement of particles, their shape, rather than the size ratios of the constituent particles. The distance of 1.0 was chosen for both the \tri and \sone, for both consistency between the molecules and to allowing all molecules to be described radially. The radial description allows us to use Toby's isopointal algorithm to find the best packing structures as an approximation of the lowest energy structures.
+The radius of 0.637556 is interesting as when combined with particles of radius 1 it can form a compact packing. A molecule with a small radius of 0.637556 and a distance between the molecular centers of 1.637556 (\scon) has a crystal structure that mirrors this compact packing. Despite \scon having this low energy crystal structure, the low temperature state exhibited none of this crystal, indicating it is resilient to crystal formation. Retaining a radius of 0.637556 for the other molecules allows a more direct comparison, any differences are due to properties of the arrangement of particles, their shape, rather than the size ratios of the constituent particles. The distance of 1.0 was chosen for both the \tri and \sone, for both consistency between the molecules and to allow all molecules to be described radially. The radial description allows us to use isopointal algorithm developed by \textcite{hudson:10} to find the best packing structures as an approximation of the lowest energy structures.
 
 \begin{figure}
     \centering
@@ -44,7 +48,7 @@ The radius of 0.637556 is interesting as it one of the radius ratios that form a
         \label{fig:snowman 0.637556 1.0 msd}
     \end{subfigure}
     \begin{subfigure}[t]{0.48\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-P1(t)}}}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-C_1}}}
         \caption{R$_1$}
         \label{fig:snowman 0.637556 1.0 r1}
     \end{subfigure}
@@ -80,38 +84,14 @@ The rotational relaxation for \sone is given in \textfigref{snowman 0.637556 1.0
 
 The third dynamical quantity that we were interested in is the Structure Function $F(t)$. The Structure function is different from the MSD and Rotational relaxations in that instead of calculating quantities for each molecule and averaging over all molecules, the values are calculated for each particle of each molecule and averaged over all the particles. The Structure function is given by
 \begin{align}
-    F(t) = \langle \begin{cases}
+    F(t) = \left \langle \begin{cases}
         \quad0 &\text{if } \Delta \vect x > 0.3 \\
         \quad1 &\text{if } \Delta \vect x \leq 0.3
-    \end{cases} \rangle
+    \end{cases} \right \rangle
 \end{align}
 where $\Delta \vect x$ is the distance of each particle from its initial position and the angle brackets $\langle\,\rangle$ denote averaging over all particles. The value of \num{0.3} was chosen to be small enough to be able to observe the combination of translational and rotational relaxations within a molecule.
 
 The Structure function for \sone is shown in \textfigref{snowman 0.637556 1.0 structure} and shows some interesting characteristics. The initial region between \num{e0} and \num{e1} timesteps is flat as the particles have not had enough time to move \si{0.3} units in distance. The sharp dropoff, characteristic of the binary function, matches closely with the time that the MSD transitions from the ballistic regime indicative of the molecules escaping their local environment. The other interesting feature is the increase in the Structure function for low temperatures at \num{e4}. This can be explained by the molecular vibrations or rotations of molecules within their initial local environment. Particles will move outside the cutoff distance as part of a vibration and return to their initial positions resulting in the periodicity of the vibrations.
-
-All the properties we have investigated so far have been averages over all the molecules or particles. These properties are geared towards homogeneous liquids, where all molecules show similar behaviour. One of the features of supercooled liquids is inhomogeneous dynamics, where the dynamics of the system is dominated by a small number of highly mobile molecules. One measure of the homogeneity of the system is the nongaussian parameter $\alpha(t)$ a measure of how closely the MSD of the system matches that of a gaussian distribution, the distribution a high temperature liquid would match. The nongaussian parameter is given by
-\begin{equation}
-    \alpha(t) = \frac{\langle \Delta x(t)^4 \rangle}{2 \langle \Delta x(t)^2\rangle^2} - 1
-\end{equation}
-where $\Delta x(t) = \sqrt{(x(t) - x_0)^2 + (y(t) - y_0)^2}$ and the angle brackets $\langle\,\rangle$ denote averaging over all molecules.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{{{Snowman-0.637556-1.0-alpha}}}
-    \caption{Nongaussian function}
-    \label{fig:snowman 0.637556 1.0 alpha}
-\end{figure}
-
-The nongaussian parameter for \sone is given in \textfigref{snowman 0.637556 1.0 alpha}. We can see that that with decreasing temperature there is an increase in the nongaussian parameter, meaning an increase in the dynamic inhomogeneities. There is also a move of the peak of the dynamics inhomogeneities to longer timescales as the temperature increases, a result that matches previous observations.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\textwidth]{{{Snowman-0.637556-1.0-moved}}}
-    \caption{Movement of particles within a frame. This shows the net motions of all \sone molecules over a simulation run. The motion of the centers of mass are displayed by the vectors, directly representing the motion that took place. The magnitude of the rotation is given by the intensity of the green circles.}
-    \label{fig:snowman 0.637556 1.0 moved}
-\end{figure}
-
-All these same functions can also be applied to the other systems we are studying
 
 \section{Dynamics of \scon}
 
@@ -123,7 +103,7 @@ All these same functions can also be applied to the other systems we are studyin
         \label{fig:snowman 0.637556 1.637556 msd}
     \end{subfigure}
     \begin{subfigure}{0.48\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-P1(t)}}}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-C_1}}}
         \caption{R$_1$}
         \label{fig:snowman 0.637556 1.637556 r1}
     \end{subfigure}
@@ -136,14 +116,7 @@ All these same functions can also be applied to the other systems we are studyin
     \label{snowman 0.637556 1.637556}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{{{Snowman-0.637556-1.637556-alpha}}}
-    \caption{Nongaussian function}
-    \label{fig:snowman 0.637556 1.637556 alpha}
-\end{figure}
-
-The dynamics of the \scon molecule show similar behaviour to the \scon molecule. The most noticeable difference is the temperature at which the dynamics slow down, in the \sone molecule we are able to collect dynamic quantities down to a temperature of 0.50, for the \scon molecule we are only able to get results down to 1.50. This is a dramatic change in behaviour for a relatively small change in molecular shape and a result that we investigate further throughout the rest of this thesis. 
+The dynamics of the \scon molecule show similar behaviour to the \sone molecule. The most noticeable difference is the temperature at which the dynamics slow down, in the \sone molecule we are able to collect dynamic quantities down to a temperature of 0.50, for the \scon molecule we are only able to get results down to 1.50. This is a dramatic change in behaviour for a relatively small change in molecular shape and a result that we investigate further throughout the rest of this thesis. 
 
 Apart from the dramatic differences in temperature the dynamics exhibits very similar behaviour. The MSD \figref{snowman 0.637556 1.637556 msd} shows the same levelling out at low temperature in the region between the short time ballistic regime and the long time diffusive regime. The rotational relaxations \figref{snowman 0.637556 1.637556 r1} occur on a longer timescale than \sone as might be expected of the elongated \scon molecule. The Structure function also shows the same behaviour, with peaks which we believe to be a result of the vibrational motion of particles at low temperature. Finally the nongaussian function \figref{snowman 0.637556 1.637556 alpha} shows a increasing heterogeneity at an increasing time as the temperature decreases.
 
@@ -158,7 +131,7 @@ Apart from the dramatic differences in temperature the dynamics exhibits very si
         \label{fig:trimer 0.637556 1.0 120 msd}
     \end{subfigure}
     \begin{subfigure}{0.48\linewidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-P1(t)}}}
+        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-C_1}}}
         \caption{R$_1$}
         \label{fig:trimer 0.637556 1.0 120 r1}
     \end{subfigure}
@@ -171,12 +144,7 @@ Apart from the dramatic differences in temperature the dynamics exhibits very si
     \label{fig:trimer 0.637556 1.0 120}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{{{Trimer-0.637556-1.00-120-alpha}}}
-    \caption{Nongaussian function}
-    \label{fig:trimer 0.637556 1.0 120 alpha}
-\end{figure}
+
 
 
 \section{Comparison}
@@ -215,3 +183,29 @@ the gradient of the MSD. The gradient that we are interested in is the diffusive
 \end{figure}
 
 From \textfigref{diffusion constant} we can see that as the size of the concavity increases from \sone, through \scon to \tri the fragility increases. This suggests that molecular shape is one of the features responsible for the fragility and by extension the formation of the glassy phase.
+
+
+\section{Dynamic Inhomogeneities}
+
+All the properties we have investigated so far have been averages over all the molecules or particles. These properties are geared towards homogeneous liquids, where all molecules show similar behaviour. One of the features of supercooled liquids is inhomogeneous dynamics, where the dynamics of the system is dominated by a small number of highly mobile molecules. One measure of the homogeneity of the system is the nongaussian parameter $\alpha(t)$ a measure of how closely the MSD of the system matches that of a gaussian distribution, the distribution a high temperature liquid would match. The nongaussian parameter is given by
+\begin{equation}
+    \alpha(t) = \frac{\langle \Delta x(t)^4 \rangle}{2 \langle \Delta x(t)^2\rangle^2} - 1
+\end{equation}
+where $\Delta x(t) = \sqrt{(x(t) - x_0)^2 + (y(t) - y_0)^2}$ and the angle brackets $\langle\,\rangle$ denote averaging over all molecules.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{{{Snowman-0.637556-1.0-alpha}}}
+    \caption{Nongaussian function}
+    \label{fig:snowman 0.637556 1.0 alpha}
+\end{figure}
+
+The nongaussian parameter for \sone is given in \textfigref{snowman 0.637556 1.0 alpha}. We can see that that with decreasing temperature there is an increase in the nongaussian parameter, meaning an increase in the dynamic inhomogeneities. There is also a move of the peak of the dynamics inhomogeneities to longer timescales as the temperature increases, a result that matches previous observations.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{{{Snowman-0.637556-1.0-moved}}}
+    \caption{Movement of particles within a frame. This shows the net motions of all \sone molecules over a simulation run. The motion of the centers of mass are displayed by the vectors, directly representing the motion that took place. The magnitude of the rotation is given by the intensity of the green circles.}
+    \label{fig:snowman 0.637556 1.0 moved}
+\end{figure}
+
