@@ -87,7 +87,7 @@ The third dynamical quantity that we were interested in is the Structure Functio
     F(t) = \left \langle \begin{cases}
         \quad0 &\text{if } \Delta \vect x > 0.3 \\
         \quad1 &\text{if } \Delta \vect x \leq 0.3
-    \end{cases} \right \rangle
+    \end{cases} \quad \right \rangle
 \end{align}
 where $\Delta \vect x$ is the distance of each particle from its initial position and the angle brackets $\langle\,\rangle$ denote averaging over all particles. The value of \num{0.3} was chosen to be small enough to be able to observe the combination of translational and rotational relaxations within a molecule.
 
@@ -97,17 +97,17 @@ The Structure function for \sone is shown in \textfigref{snowman 0.637556 1.0 st
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.48\linewidth}
+    \begin{subfigure}{0.6\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-msd}}}
         \caption{MSD}
         \label{fig:snowman 0.637556 1.637556 msd}
     \end{subfigure}
-    \begin{subfigure}{0.48\linewidth}
+    \begin{subfigure}{0.6\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-C_1}}}
         \caption{R$_1$}
         \label{fig:snowman 0.637556 1.637556 r1}
     \end{subfigure}
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.6\textwidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-F}}}
         \caption{structure function}
         \label{fig:snowman 0.637556 1.637556 structure}
@@ -125,17 +125,17 @@ Apart from the dramatic differences in temperature the dynamics exhibits very si
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.48\linewidth}
+    \begin{subfigure}{0.6\linewidth}
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-msd}}}
         \caption{MSD}
         \label{fig:trimer 0.637556 1.0 120 msd}
     \end{subfigure}
-    \begin{subfigure}{0.48\linewidth}
+    \begin{subfigure}{0.6\linewidth}
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-C_1}}}
         \caption{R$_1$}
         \label{fig:trimer 0.637556 1.0 120 r1}
     \end{subfigure}
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.6\textwidth}
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-F}}}
         \caption{structure function}
         \label{fig:trimer 0.637556 1.0 120 structure}
@@ -147,42 +147,65 @@ Apart from the dramatic differences in temperature the dynamics exhibits very si
 
 
 
-\section{Comparison}
+\section{Comparison of Dynamic Quantities}
 
 The functions that we have dealt with so far allow a comparison of the behaviour of a molecule over a range of temperatures, what we are unable to do is easily compare molecules and be able to interpret all the data on a single plot. To make comparisons we want to represent each function as a single value. The MSD can be represented as a diffusion constant $D$
 \begin{equation}
     D = \frac{1}{4}\ddiff{\,MSD(t)}{t}
 \end{equation} 
-the gradient of the MSD. The gradient that we are interested in is the diffusive region, to calculate an accurate value of the diffusion constant an average value of the gradient was calculated for this region. For the rotational relaxation and the structure function are similar in nature and can be treated in the same way. We can define a relaxation time for these function as the time for these functions to reach a specific value. The exponential nature of the rotational relaxation and structure functions 
-
-
+the gradient of the MSD. The gradient that we are interested in is the diffusive region, to calculate an accurate value of the diffusion constant an average value of the gradient was calculated for this region. For the rotational relaxation and the structure function are similar in nature and can be treated in the same way. We can define a relaxation time for these function as the time for these functions to reach a specific value. The exponentially decaying nature of the rotational relaxation and structure functions makes the value of $1/\e$ relevant since at that point the time $t$ is related to the exponential factor $k$ by the relation $k=1/t$.
 
 \begin{figure}
-    \begin{subfigure}{0.5\linewidth}
+    \centering
+    \begin{subfigure}{0.6\linewidth}
         \includegraphics[width=\textwidth]{Diffusion-constant}
-        \caption{Diffusion constant for all molecules}
+        \caption{The \sone molecule displays a diffusion constant that is fairly linear, while the small change in shape of the \scon molecule results in a dramatic decrease in the diffusion constant.}
         \label{fig:diffusion constant}
     \end{subfigure}
-    \begin{subfigure}{0.5\linewidth}
+    \begin{subfigure}{0.6\linewidth}
         \includegraphics[width=\textwidth]{t1}
-        \caption{Rotational relaxation time t1}
+        \caption{Somewhat counter intuitively the larger \tri molecule has a faster rotational relaxation than the \scon molecule.}
         \label{fig:tau1}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{t2}
-        \caption{Rotational relaxation time t2}
-        \label{fig:tau2}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
+    \begin{subfigure}{0.6\textwidth}
         \includegraphics[width=\textwidth]{struct-relax}
-        \caption{Structural relaxation times}
+        \caption{The difference in fragility of these systems is immense, the \sone molecule displays moderate fragility, the \tri molecule is a fragile system while the \scon molecule is phenomenally fragile spanning five decades of $t_s$ over a small temperature range.}
         \label{fig:struct relax}
     \end{subfigure}
-    \caption{Comparison of dynamics quantities}
+    \caption{Comparison of the diffusion constant, rotational relaxation time $t_1$ and structural relaxation time $t_s$ for the three molecules that we are studying. The small differences in shape result in behaviour differing by many orders of magnitude.}
     \label{fig:dynamic comparison}
 \end{figure}
 
 From \textfigref{diffusion constant} we can see that as the size of the concavity increases from \sone, through \scon to \tri the fragility increases. This suggests that molecular shape is one of the features responsible for the fragility and by extension the formation of the glassy phase.
+
+\section{What do these quantities tell us?}
+
+While the timescales of translational and rotational events are useful properties they do not provide information about the type and nature of the motions that take place.
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{{{t1.t2}}}
+        \caption{Structural relaxation times}
+        \label{fig:struct relax}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{{{t1.ts}}}
+        \caption{Structural relaxation times}
+        \label{fig:struct relax}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{{{t1.D}}}
+        \caption{Structural relaxation times}
+        \label{fig:struct relax}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{{{D.ts}}}
+        \caption{Structural relaxation times}
+        \label{fig:struct relax}
+    \end{subfigure}
+    \caption{Combination of dynamic quantities}
+\end{figure}
+
 
 
 \section{Dynamic Inhomogeneities}
