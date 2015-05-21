@@ -6,47 +6,117 @@ The goal of this chapter is to investigate the structural properties of the thre
 
 \section{Do the Structures Remain Amorphous?}
 
-Over the course of the simulations to determine the dynamic properties of the system it is possible that the system transitioned from the purely amorphous phase to a structure that was a mixture of crystalline and amorphous regions. If these regions are long lived, rather than just fluctuations, as the temperature is dropped these regions are only more likely to grow; the lower entropy crystal phase is more favourable at low temperatures. Using this reasoning we can use the final configuration as an indication of the formation of crystalline regions over the entire temperature range of the simulation. From this final configuration we can take an inherent structure, removing any of the vibrational noise giving a configuration that is representative of the mean arrangement of the molecules. These arrangements are shown in \textfigref{inherent structures frame} where the colour of each molecule is given by its orientation.
-\towrite{discuss inherent structures}
+Over the course of the simulations to determine the dynamic properties of the system it is possible that the system transitioned from the purely amorphous phase to a structure that was a mixture of crystalline and amorphous regions. If these regions are long lived, rather than just fluctuations, as the temperature is dropped these regions are only more likely to grow; the lower entropy crystal phase is more favourable at low temperatures. Using this reasoning we can use the final configuration as an indication of the formation of crystalline regions over the entire temperature range of the simulation. From this final configuration we can take an inherent structure, removing any of the vibrational noise giving a configuration that is representative of the mean arrangement of the molecules. These inherent structures for each molecule are shown in \textfigref{inherent structures frame} where the colour of each molecule denotes its orientation. The three molecules have different behaviours, the \sone molecule \figref{sone inherent} shows many regions of orientational order, where molecules are arranged in layers with the direction of molecules alternating between layers; a p2mg unit cell. The presence of crystallisation in the inherent structure of the \sone molecule indicates that our initial assessment of being a poor crystalliser was incorrect. The \scon molecule \figref{scon inherent} seems to show no long range ordering, there are small regions of about five molecules where there is antiparallel ordering, a p2 unit cell, however these regions are terminated with regions of random orientation. The size of the ordered regions is more indicative of a local structural phenomenon rather than long range crystal formation. The final molecule \tri \figref{tri inherent} shows no sign of crystallisation from a visual inspection. While visual inspection is a useful tool, providing us with a starting point for analysis and elucidating unexpected results, more specialised techniques need to be used to fully understand the structural properties of these inherent structures.
 
 \begin{figure}
-    \todofigure{Inherent structures}
-    \caption{Inherent structures}
+    \centering
+    \begin{subfigure}{0.5\linewidth}
+        \zoom{2}{Snowman-0.65-0.637556-1.0-frame-0320000181}
+        \caption{The configuration of \sone shows regions of orientational order with layers of molecules arranged antiparallel to each other. These regions have different orientations indicating a series of nucleation events.}
+        \label{fig:sone inherent}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}%
+        \zoom{2}{Snowman-1.55-0.637556-1.637556-frame-0320000182}
+        \caption{The \scon molecule shows no sign of long range order. There are small clusters of about five particles exhibiting antiparallel ordering, although not large enough to be considered nucleation.}
+        \label{fig:scon inherent}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}
+        \zoom{2}{Trimer-1.15-0.637556-1.00-120-frame-0320000198}
+        \caption{The \tri molecule shows no sign of ordering, a truly amorphous phase.}
+        \label{fig:scon inherent}
+    \end{subfigure}
+    \caption{Final inherent structure configurations for each molecule, the colouring of the molecules representative of their orientations.}
     \label{fig:inherent structures frame}
 \end{figure}
 
-While there appears to be no long range ordering in these configurations, to make a definitive statement we need more specialised tools. Consider the compact binary packing with a size ration of 0.637556:1; this is equivalent to packing the \scon molecule without the allocation of bonds. The allocation of bonds can be performed randomly with no adjustment to the structure of the underlying particles~\secref{compact degeneracy}. Two examples of assigning bonds; an ordered p2 structure~\figref{ordered frame}, and a randomly oriented structure~\figref{random frame}. The orientational order of the p2 structure can easily be seen with diagonal banding of colours, corresponding to the two orientations present in the structure. The randomly assigned structure has molecules arranged with no orientational order, distributed between the eight possible molecular orientations. We can attempt to remove the noise of this orientational disorder by only plotting the centers of mass~\figref{ordered com, random com}, however this gives a very similar result, the ordered structure exhibits distinctly crystalline behaviour with centers of mass aligning in rows while the random structure that needs further analysis to be considered ordered.
+\subsection{Order Parameters}
 
-Both of the previous attempts at describing order in the compact packing were using the properties of a molecule, its orientation and center of mass. While molecular properties are useful for dynamics, in both the ordered and random allocation of bonds the molecule is just a construct sitting atop a lattice of ordered particles. The particles define the arrangement and so using the particles to detect order within a configuration is a far more appropriate approach. Using the particles to define a 2D radial distribution function gives \textfigref{ordered radial2d, random radial2d} which are almost identical to each other. The energy and ordering of the structures is determined by the arrangement of the individual particles, not the arrangement of bonds.
+There are a plethora of ways order can be measured in a system depending of the type of order that is expected to be present. The radial distribution function $G(r)$ is one of the more general techniques. The radial distributions \figref{radial distributions} of these concave molecules are unusual for the intensity of the first peak, far in excess of what would be expected from a convex molecule. The intensity of the peaks can be attributed to the interaction of the molecules at the concavity, there is an intense peak in the distribution of COM \figref{scon radial2d} around the concavities. While there are these strong short range interactions they do not lead to long range order, with the radial distributions only showing peaks out to the second shell. Beyond the second shell the distribution is uniform, matching that of an amorphous phase.
 
 \begin{figure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{ordered-frame}
+    \centering
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{{{Snowman-0.65-0.637556-1.0-radial}}}
+        \caption{}
+        \label{fig:sone radial}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}%
+        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-radial}}}
+        \caption{}
+        \label{fig:scon radial}
+    \end{subfigure}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[width=\linewidth]{{{Trimer-1.15-0.637556-1.00-120-radial}}}
+        \caption{}
+        \label{fig:tri radial}
+    \end{subfigure}
+    \caption{}
+    \label{fig:radial distributions}
+\end{figure}
+
+\begin{figure}
+    \zoom{2}{Snowman-1.55-0.637556-1.637556-radial2d_rel}
+    \caption{A two dimensional radial distribution of the \scon molecule. The intense inner peaks show the distribution of the COM when the molecules interact via the concavity.}
+    \label{fig:scon radial2d_abs}
+\end{figure}
+
+Another measure of order is to look at the orientational distribution of the molecules.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{{{Snowman-0.65-0.637556-1.0-angular}}}
+        \caption{}
+        \label{fig:sone angular}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}%
+        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-angular}}}
+        \caption{}
+        \label{fig:scon angular}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{{{Trimer-1.15-0.637556-1.00-120-angular}}}
+        \caption{}
+        \label{fig:tri angular}
+    \end{subfigure}
+    \caption{}
+    \label{fig:angular distributions}
+\end{figure}
+
+\subsection{Order in \scon}
+
+Both of the previous attempts at describing order in the compact packing were using the properties of a molecule, its orientation and center of mass. in both the ordered and random allocation of bonds the molecule is just a construct sitting atop a lattice of ordered particles. The particles define the arrangement and so using the particles to detect order within a configuration is a far more appropriate approach. Using the particles to define a 2D radial distribution function gives \textfigref{ordered radial2d, random radial2d} which are almost identical to each other. The energy and ordering of the structures is determined by the arrangement of the individual particles, not the arrangement of bonds.
+
+Consider the compact binary packing with a size ration of 0.637556:1; this is equivalent to packing the \scon molecule without the allocation of bonds. The allocation of bonds can be performed randomly with no adjustment to the structure of the underlying particles~\secref{compact degeneracy}. Two examples of assigning bonds; an ordered p2 structure~\figref{ordered frame}, and a randomly oriented structure~\figref{random frame}. The orientational order of the p2 structure can easily be seen with diagonal banding of colours, corresponding to the two orientations present in the structure. The randomly assigned structure has molecules arranged with no orientational order, distributed between the eight possible molecular orientations. We can attempt to remove the noise of this orientational disorder by only plotting the centers of mass~\figref{ordered com, random com}, however this gives a very similar result, the ordered structure exhibits distinctly crystalline behaviour with centers of mass aligning in rows while the random structure that needs further analysis to be considered ordered.
+
+\begin{figure}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{ordered-frame}
         \caption{Ordered frame}
         \label{fig:ordered frame}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{random-frame}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{random-frame}
         \caption{Random frame}
         \label{fig:random frame}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{ordered-com}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{ordered-com}
         \caption{Ordered com}
         \label{fig:ordered com}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{random-com}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{random-com}
         \caption{Random com}
         \label{fig:random com}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{ordered-radial2d-part}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{ordered-radial2d-part}
         \caption{Ordered radial2d}
         \label{fig:ordered radial2d}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{random-radial2d-part}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{random-radial2d-part}
         \caption{Random radial2d}
         \label{fig:random radial2d}
     \end{subfigure}
@@ -55,7 +125,29 @@ Both of the previous attempts at describing order in the compact packing were us
 \end{figure}
 
 
-\section{Order Parameters}
+Using this new order parameter
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[width=\linewidth]{{{Snowman-0.65-0.637556-1.0-radial2d-part}}}
+        \caption{}
+        \label{fig:sone radial2d}
+    \end{subfigure}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-radial2d-part}}}
+        \caption{}
+        \label{fig:scon radial2d}
+    \end{subfigure}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[width=\linewidth]{{{Trimer-1.15-0.637556-1.00-120-radial2d-part}}}
+        \caption{}
+        \label{fig:tri radial2d}
+    \end{subfigure}
+    \caption{}
+    \label{fig:radial2d distributions}
+\end{figure}
+
 
 \section{What Crystals would Form}
 
@@ -91,18 +183,21 @@ From the energies in \texttabref{crystal energies} the most stable crystal struc
 
 \begin{figure}
     \centering
-    \begin{subfigure}[t]{0.47\textwidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.4-0.637556-1.00-p2mg-frame}}}
+    \begin{subfigure}[t]{0.5\linewidth}
+        %\includegraphics[width=\linewidth]{{{Snowman-0.4-0.637556-1.00-p2mg-frame}}}
+        \zoom{2}{Snowman-0.4-0.637556-1.00-p2mg-frame}
         \caption{}
         \label{fig:crystal sone}
     \end{subfigure}
-    \begin{subfigure}[t]{0.47\textwidth}%
-        \includegraphics[width=\textwidth]{{{Snowman-0.4-0.637556-1.637556-p2-frame}}}
+    \begin{subfigure}[t]{0.5\linewidth}%
+        %\includegraphics[width=\linewidth]{{{Snowman-0.4-0.637556-1.637556-p2-frame}}}
+        \zoom{2}{Snowman-0.4-0.637556-1.637556-p2-frame}
         \caption{}
         \label{fig:crystal sone}
     \end{subfigure}
-    \begin{subfigure}{0.47\textwidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.4-0.637556-1.00-120-p2gg-frame}}}
+    \begin{subfigure}{0.5\linewidth}
+        %\includegraphics[width=\linewidth]{{{Trimer-0.4-0.637556-1.00-120-p2gg-frame}}}
+        \zoom{2}{Trimer-0.4-0.637556-1.00-120-p2gg-frame}
         \caption{}
         \label{fig:crystal sone}
     \end{subfigure}

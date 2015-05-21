@@ -19,6 +19,9 @@
 \RequirePackage{caption}
 \RequirePackage{ccicons}
 \RequirePackage{xspace}
+\RequirePackage[export]{adjustbox}
+\RequirePackage{calc}
+\RequirePackage{fp}
 \RequirePackage[%
     backend=biber,
     style=nature,
@@ -69,6 +72,12 @@
     \captionsetup{font=footnotesize,singlelinecheck=false}
     \caption*{{\bf Source:} Adapted with permission from \linecite{#1}~%
     \copyright~\citeyear{#1} {#2}}
+}
+
+% Zoom on graphics
+\newcommand{\zoom}[2]{%
+    \FPeval{\crop}{0.5/#1}
+    \adjincludegraphics[width=\textwidth, trim={\crop\width} {\crop\width} {\crop\width} {\crop\width}, clip]{{{#2}}}
 }
 
 % Defines a vector as bold font
