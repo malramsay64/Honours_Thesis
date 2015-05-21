@@ -4,7 +4,7 @@ A non-circularly symmetric molecule in a plane has three degrees of freedom, tra
 
 \section{Choice of Molecules}
 
-To choose the molecules that we are studying in depth in this thesis, a survey of a wide range of molecular shapes was conducted. The survey included both the Snowman and Trimer molecule types over a radius $r$ range $r = [0.5,1]$, a distance $d$ range of $d = [1,1+r]$ and an angle range $\theta$ of $\theta = [90,180]$. These ranges were chosen so the resulting molecules are sufficiently distinct from a disc, a well studied problem~\cite{verlet:67}.
+To choose the molecules that we are studying in depth in this thesis, a survey of a wide range of molecular shapes was conducted. The survey included both the Snowman and Trimer molecule types over a radius range $r = [0.5,1]$, a distance range of $d = [1,1+r]$ and an angle range of $\theta = [90,180]$. These ranges were chosen so the resulting molecules are sufficiently distinct from a disc, a well studied problem~\cite{verlet:67}.
 
 The resulting collection of 50 molecules was cooled from a partially randomly generated high temperature state, resulting in a low temperature structure in which the particles have moved away from their initial configurations. These low temperature structures were assessed for suitability on a number of criteria:
 \begin{itemize}
@@ -14,27 +14,27 @@ The resulting collection of 50 molecules was cooled from a partially randomly ge
     \item The molecules have to be similar enough for direct comparison, and
     \item The molecules are representative of a wide range of molecular shapes.
 \end{itemize}
-The radius of 0.637556 is interesting as when combined with particles of radius 1 it can form a compact packing. A molecule with a small radius of 0.637556 and a distance between the molecular centers of 1.637556 (\scon) has a crystal structure that mirrors this compact packing. Despite \scon having this low energy crystal structure, the low temperature state exhibited none of this crystal, indicating it is resilient to crystal formation. Retaining a radius of 0.637556 for the other molecules allows a more direct comparison, any differences are due to properties of the arrangement of particles, their shape, rather than the size ratios of the constituent particles. The distance of 1.0 was chosen for both the \tri and \sone, for both consistency between the molecules and to allow all molecules to be described radially. The radial description allows us to use isopointal algorithm developed by \textcite{hudson:10} to find the best packing structures as an approximation of the lowest energy structures.
+The radius of 0.637556 is interesting as when combined with particles of radius $1.0$ it can form a compact packing. A molecule with a small radius of 0.637556 and a distance between the molecular centers of 1.637556 (\scon) has a crystal structure that mirrors this compact packing. Despite \scon having this low energy crystal structure, the low temperature state exhibited none of this crystal, indicating it is resilient to crystal formation. Retaining a radius of 0.637556 for the other molecules allows a more direct comparison, any differences are due to properties of the arrangement of particles, their shape, rather than the size ratios of the constituent particles. The distance of 1.0 was chosen for both the \tri and \sone, for both consistency between the molecules and to allow all molecules to be described radially. The radial description allows us to use isopointal algorithm developed by \textcite{hudson:10} to find the best packing structures as an approximation of the lowest energy structures.
 
 \begin{figure}
     \centering
     \captionsetup{justification=centering}
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.0}}}
-        \caption{\dimer{0.637556}{1.0} \\\sone}
+        \caption{$r=0.637556,$\\$d=1.0$ \\\sone}
         \label{fig:sone}
     \end{subfigure}
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Snowman-0.637556-1.637556}}}
-        \caption{\dimer{0.637556}{1.637556} \\\scon}
+        \caption{$r=0.637556,$\\$d=1.637556$ \\\scon}
         \label{fig:scon}
     \end{subfigure}
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Trimer-0.637556-1.00-120}}}
-        \caption{\trimer{0.637556}{1.0}{120} \\\tri}
+        \caption{$r=0.637556,$\\$d=1.0, \theta=120 $\\\tri}
         \label{fig:tri}
     \end{subfigure}
-    \caption[Molecules chosen for further study]{The molecules chosen for study in this thesis in order of the size of the concavity. The \sone with the smallest concavity, \scon with the smaller disc contacting and \tri with a concavity larger than the large disc.}
+    \caption[Molecules chosen for further study]{The molecules chosen for study in this thesis in order of the size of the concavity. The \sone with the smallest concavity, \scon with the smaller disc contacting the large disc and \tri which is a very similar to the \sone molecule.}
     \label{fig:my mols}
 \end{figure}
 
@@ -145,15 +145,13 @@ Apart from the dramatic differences in temperature the dynamics exhibits very si
 \end{figure}
 
 
-
-
 \section{Comparison of Dynamic Quantities}
 
 The functions that we have dealt with so far allow a comparison of the behaviour of a molecule over a range of temperatures, what we are unable to do is easily compare molecules and be able to interpret all the data on a single plot. To make comparisons we want to represent each function as a single value. The MSD can be represented as a diffusion constant $D$
 \begin{equation}
     D = \frac{1}{4}\ddiff{\,MSD(t)}{t}
 \end{equation} 
-the gradient of the MSD. The gradient that we are interested in is the diffusive region, to calculate an accurate value of the diffusion constant an average value of the gradient was calculated for this region. For the rotational relaxation and the structure function are similar in nature and can be treated in the same way. We can define a relaxation time for these function as the time for these functions to reach a specific value. The exponentially decaying nature of the rotational relaxation and structure functions makes the value of $1/\e$ relevant since at that point the time $t$ is related to the exponential factor $k$ by the relation $k=1/t$.
+the gradient of the MSD. The gradient that we are interested in is the diffusive region, to calculate an accurate value of the diffusion constant an average value of the gradient was calculated for this region. The rotational relaxation and the structure function are similar in nature and can be treated in the same way. We can define relaxation times $\tau_1,tau_2,\text{and},tau_s$ as the time for these functions to reach a specific value. The exponentially decaying nature of the rotational relaxation and structure functions makes the value of $1/\e$ relevant since at that point the time $t$ is related to the exponential factor $k$ by the relation $k=1/t$.
 
 \begin{figure}
     \centering
