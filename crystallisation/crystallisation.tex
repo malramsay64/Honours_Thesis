@@ -1,8 +1,12 @@
 \chapter{Crystallisation}
 
-In this chapter we apply the concepts of the previous two chapters together, in other words examining the dynamic structural changes present at the phase transition from the liquid to the crystal phase. Since one of the criteria for the choice of molecule is that they are resistant to crystallisation the timescales that these dynamics occur on are exceptionally long.
+In this chapter we apply the concepts of both dynamics and structure to investigate the dynamics of ordering. As found previously, order in the molecular systems we are studying is difficult to define, even in an inherent structure devoid of the vibrational noise of a dynamic system.
 
-\section{Melting Points}
+\section{Time Dependence of Ordering}
+
+As an initial test of our methods we have to be able to detect a change in the degree of ordering over time. The most appropriate temperature for this is slightly below the melting point, where the formation of crystalline order is likely but the dynamics are fast enough for ordering to occur on a reasonable timescale. To find this temperature we first have to determine the melting point of the lowest energy crystals.
+
+\subsection{Melting Points}
 
 After finding the lowest energy crystal structures and the dynamical properties of the molecules the remaining property for the study of crystallisation dynamics is the melting point. We need to know the melting point to get a range of temperatures at which crystal formation is expected to take place. Melting points were found by heating up from the crystal phase until it starts disordering. This gives an upper estimate on the melting point, similarly to the nucleation events required for crystallisation a nucleation event is required for melting to occur. The melting points obtained by this method are:
 \begin{itemize}
@@ -11,7 +15,34 @@ After finding the lowest energy crystal structures and the dynamical properties 
     \item \tri 1.40
 \end{itemize}
 
+While both the \sone and \scon molecules have crystal structures that are significantly lower in energy than the rest of the crystal structures, the \tri molecule has three different crystal structures very close in energy. To make sure that we found the most stable crystal structure the melting of all crystal structures was determined, with the highest melting point being the most stable crystal.
+
+We know that the p2 structure is the most stable for the \tri molecule as there is a solid state transition from the p2gg structure to the p2 structure before it melts.
+
+These crystal structure match the predictions of \textref{}, all the molecules are arranged in the crystal structure such that they are paired with an inversion center between them. It is likely that the inversion center is important for the stability of the molecules at higher temperature, since the \tri molecule had three crystal structures (p2, p2gg, pg) with very similar energies at low temperature, of which only the p2 and p2gg possess and inversion center. While the p2gg unit cell possess an inversion center between a pair of particles there is not an inversion center between each pair of particles like in the p2 structure.
+
+\subsection{Measuring Order}
+
+Using the order parameters developed in the previous chapter we can track the order over time.
+
+\subsection{Locality of Order}
+
+While we are able to show the growth of order within a system with out current tools we are unable to detect regions in which there is an increase of order. Being able to detect the locality of order enables us to determine quantities like the speed of growth or melt of a crystal.
+
+We have to treat each system separately based on the properties of the crystal structure.
+
+\scon we can count the number and type of neighbours of each particle. In a crystalline structure, whether ordered or random the number of large and small particles around each type of particle is the same.
+
+\sone forms a layered structure with the orientation of neighbouring molecules either parallel or antiparallel. We can use the dot product of these neighbouring orientations with the orientation of the central molecule to score the degree of crystallinity for that molecule.
+
+The \tri molecule is more difficult, however the crystal structure is comprised of molecules which are interacting with the faces of each molecule, resulting in the largest number of intermolecular interactions possible between two molecules. We can use molecules that are in this configuration as a proxy for the degree of ordering.
+
+These systems are all likely to introduce false positives and negatives in the results however they are informative.
+
 \section{Crystallisation Dynamics}
+
+
+Now that we have tools to detect changes to local order over time we are able to see the growth of order in a system.
 
 \subsection{Two Phase Systems}
 
@@ -25,8 +56,4 @@ Same for the \scon system
 
 \subsection{Spontaneous Nucleation}
 
-
-
-\section{Time Dependence of Structural Properties}
-
-
+We see spontaneous nucleation in the \sone system. The crystal grows a lot.
