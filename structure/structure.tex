@@ -1,12 +1,12 @@
 \chapter{Ordering in Inherent Structures}
 
-In the previous chapter we investigated the dynamics of three molecular systems. The dynamics properties of these systems remained smooth throughout the range we simulated them, indicating that there was no phase transition taking place. While there is no obvious phase transition, one possible cause of the increasing time scales for the dynamics properties is the growth of crystal regions within the simulations.
+In the previous chapter we investigated the dynamics of three molecular systems. The dynamic properties of these systems remained smooth throughout the range we simulated them, there were no discontinuities indicating that there was no phase transition taking place. While there is no obvious phase transition, one possible cause of the increasing time scale for the dynamic properties is the growth of ordered regions within the simulations.
 
 The goal of this chapter is to investigate the structural properties of the three systems studied in the previous chapter to determine whether the dynamic properties observed are purely dynamic properties or can be attributed to structural properties of the system.
 
 \section{Do the Structures Remain Amorphous?}
 
-Over the course of the simulations to determine the dynamic properties of the system it is possible that the system transitioned from the purely amorphous phase to a structure that was a mixture of crystalline and amorphous regions. If these regions are long lived, rather than just fluctuations, as the temperature is dropped these regions are only more likely to grow; the lower entropy crystal phase is more favourable at low temperatures. Using this reasoning we can use the final configuration as an indication of the formation of crystalline regions over the entire temperature range of the simulation. From this final configuration we can take an inherent structure, removing any of the vibrational noise giving a configuration that is representative of the mean arrangement of the molecules. These inherent structures for each molecule are shown in \textfigref{inherent structures frame} where the colour of each molecule denotes its orientation. The three molecules have different behaviours, the \sone molecule \figref{sone inherent} shows many regions of orientational order, where molecules are arranged in layers with the direction of molecules alternating between layers; a p2mg unit cell. The presence of crystallisation in the inherent structure of the \sone molecule indicates that our initial assessment of being a poor crystalliser was incorrect. The \scon molecule \figref{scon inherent} seems to show no long range ordering, there are small regions of about five molecules where there is antiparallel ordering, a p2 unit cell, however these regions are terminated with regions of random orientation. The size of the ordered regions is more indicative of a local structural phenomenon rather than long range crystal formation. The final molecule \tri \figref{tri inherent} shows no sign of crystallisation from a visual inspection. While visual inspection is a useful tool, providing us with a starting point for analysis and elucidating unexpected results, more specialised techniques need to be used to fully understand the structural properties of these inherent structures.
+Over the course of the simulations to determine the dynamic properties of the system it is possible that the system transitioned from the purely amorphous phase to a structure that was a mixture of crystalline and amorphous regions. If these regions are long lived, rather than just fluctuations, as the temperature is dropped these regions are only more likely to grow; the lower entropy crystal phase is more favourable at low temperatures. Using this reasoning we can use the final configuration as an indication of the formation of crystalline regions over the entire temperature range of the simulation. From this final configuration we can take an inherent structure, removing any of the vibrational noise giving a configuration that is representative of the mean arrangement of the molecules. These inherent structures for each molecule are shown in \textfigref{inherent structures frame} where the colour of each molecule denotes its orientation. The three molecules have different behaviours, the \sone molecule \figref{sone inherent} shows many regions of orientational order, where molecules are arranged in layers with the orientation of molecules alternating between layers forming a p2mg unit cell. The presence of crystallisation in the inherent structure of the \sone molecule indicates that our initial assessment of being a poor crystalliser was incorrect. The \scon molecule \figref{scon inherent} seems to show no long range ordering, there are small regions of about five molecules where there is antiparallel ordering, a p2 unit cell, however these regions are terminated with regions of random orientation. The size of the ordered regions is more indicative of a local structural phenomenon rather than long range crystal formation. The final molecule \tri \figref{tri inherent} shows no sign of crystallisation from a visual inspection. While visual inspection is a useful tool, providing us with a starting point for analysis and elucidating unexpected results, more specialised techniques need to be used to fully understand the structural properties of these inherent structures.
 
 \begin{figure}
     \centering
@@ -23,7 +23,7 @@ Over the course of the simulations to determine the dynamic properties of the sy
     \begin{subfigure}{0.45\linewidth}
         \zoom{2}{Trimer-1.15-0.637556-1.00-120-frame-0320000198}
         \caption{The \tri molecule shows no sign of ordering, a truly amorphous phase.}
-        \label{fig:scon inherent}
+        \label{fig:tri inherent}
     \end{subfigure}
     \caption{Final inherent structure configurations for each molecule, the colouring of the molecules representative of their orientations.}
     \label{fig:inherent structures frame}
@@ -31,7 +31,7 @@ Over the course of the simulations to determine the dynamic properties of the sy
 
 \subsection{Order Parameters}
 
-There are a plethora of ways order can be measured in a system depending of the type of order that is expected to be present. The radial distribution function $G(r)$ is one of the more general techniques. The radial distributions \figref{radial distributions} of these concave molecules are unusual for the intensity of the first peak, far in excess of what would be expected from a convex molecule. The intensity of the peaks can be attributed to the interaction of the molecules at the concavity, there is an intense peak in the distribution of COM \figref{scon radial2d} around the concavities. While there are these strong short range interactions they do not lead to long range order, with the radial distributions only showing peaks out to the second shell. Beyond the second shell the distribution is uniform, matching that of an amorphous phase.
+There are a plethora of ways order can be measured in a system depending of the type of order that is expected to be present. The radial distribution function $G(r)$ is one of the more general techniques. The radial distributions \figref{radial distributions} of these concave molecules are unusually intense first shell peaks, far in excess of what would be expected. The intensity of these peaks can be attributed to the interaction of the molecules at the concavity, there is an intense peak in the COM distribution\figref{scon radial2d} around the concavities. While there are these strong short range interactions they do not lead to long range order, with the radial distributions only showing peaks out to the second shell. Beyond the second shell the distribution is uniform, matching that of an amorphous phase.
 
 \begin{figure}
     \centering
@@ -61,6 +61,7 @@ There are a plethora of ways order can be measured in a system depending of the 
 \end{figure}
 
 Another measure of order is to look at the orientational distribution of the molecules.
+\towrite{orientational order}
 
 \begin{figure}
     \centering
@@ -85,8 +86,8 @@ Another measure of order is to look at the orientational distribution of the mol
 
 \subsection{Order in \scon}
 
-Both of the previous attempts at describing order in the compact packing were using the properties of a molecule, its orientation and center of mass. in both the ordered and random allocation of bonds the molecule is just a construct sitting atop a lattice of ordered particles. The particles define the arrangement and so using the particles to detect order within a configuration is a far more appropriate approach. Using the particles to define a 2D radial distribution function gives \textfigref{ordered radial2d, random radial2d} which are almost identical to each other. The energy and ordering of the structures is determined by the arrangement of the individual particles, not the arrangement of bonds.
-
+Both of the previous attempts at describing order in the compact packing were using the properties of a molecule, its orientation and center of mass. In both the ordered and random allocation of bonds the molecule is just a construct sitting atop a lattice of ordered particles. The particles define the arrangement and so using the particles to detect order within a configuration is a far more appropriate approach. Using the particles to define a 2D radial distribution function gives \textfigref{ordered radial2d, random radial2d} which are almost identical to each other. The energy and ordering of the structures is determined by the arrangement of the individual particles, not the arrangement of bonds.
+\tofix{these paragraphs}
 Consider the compact binary packing with a size ration of 0.637556:1; this is equivalent to packing the \scon molecule without the allocation of bonds. The allocation of bonds can be performed randomly with no adjustment to the structure of the underlying particles~\secref{compact degeneracy}. Two examples of assigning bonds; an ordered p2 structure~\figref{ordered frame}, and a randomly oriented structure~\figref{random frame}. The orientational order of the p2 structure can easily be seen with diagonal banding of colours, corresponding to the two orientations present in the structure. The randomly assigned structure has molecules arranged with no orientational order, distributed between the eight possible molecular orientations. We can attempt to remove the noise of this orientational disorder by only plotting the centers of mass~\figref{ordered com, random com}, however this gives a very similar result, the ordered structure exhibits distinctly crystalline behaviour with centers of mass aligning in rows while the random structure that needs further analysis to be considered ordered.
 
 \begin{figure}
@@ -126,6 +127,7 @@ Consider the compact binary packing with a size ration of 0.637556:1; this is eq
 
 
 Using this new order parameter
+\towrite{interparticle ordering}
 
 \begin{figure}
     \centering
@@ -148,10 +150,9 @@ Using this new order parameter
     \label{fig:radial2d distributions}
 \end{figure}
 
+\section{What are the Lowest Energy Crystal Phases}
 
-\section{What Crystals would Form}
-
-In the interests of developing more specialised tools for detecting crystalline order, we need to understand the crystal structures that are likely to form. This involves finding the structures that we believe to be the lowest in energy. To find these lowest energy structures we need tools other than molecular dynamics since the timescales for molecular dynamics are beyond the limits of our simulations. To find a good approximation of the lowest energy structures we look to packing hard shapes, by modelling our molecules as hard shapes we are able to use an isopointal algorithm to get a good approximation of the closest packed configurations. These closest packed configurations were then used as the starting configuration for a Lennard-Jones system. \texttabref{crystal energies} shows the energy of the Lennard Jones systems using the best packed isopointal structures for each wallpaper group as a starting configuration. The Lennard-Jones system does not retain the constraints of the wallpaper group symmetry, however the lower energy structures we are interested in do not deviate from these structures.
+In the interests of developing more specialised tools for detecting crystalline order, we need to know which crystal structures are likely to form. This involves finding the lowest energy crystal structures. To find these lowest energy structures we need tools other than molecular dynamics since the timescales for molecular dynamics are beyond the limits of our simulations. To find a good approximation of the lowest energy structures we look to packing hard shapes, by modelling our molecules as hard shapes we are able to use an isopointal algorithm to get a good approximation of the closest packed configurations. These closest packed configurations can be used as the starting configuration for a Lennard-Jones system which is equilibrated at a low temperature to allow the crystals to relax before an inherent structure is taken to find the energies. \texttabref{crystal energies} shows the energy of the Lennard Jones systems using the best packed isopointal structures for each wallpaper group as a starting configuration. The Lennard-Jones system does not retain the constraints of the wallpaper group symmetry, however there are no significant deviations for the systems tabulated.
 
 \begin{table}
     \sisetup{
@@ -167,19 +168,19 @@ In the interests of developing more specialised tools for detecting crystalline 
         \hline
         {Crystal} & \multicolumn{3}{c|}{Energy per molecule (\num{e-4})} \\
             &\sone & \scon & \tri \\ \hline
-        p1 & 0.00002598963975 & 0.0001551885511& -0.0003279078448\\
-        p2 & 0.00001376280055& 0.0001527208398& -0.0003934685913\\
-        p2mg & 0.000005732595806& 0.0004479052484& -0.0003354198174\\
-        p2gg & 0.00002632511042& 0.0001699363766& -0.000401823091\\
-        pg & 0.00002824743917& 0.0002860863393& -0.0004000561542\\
+        p2 & 0.00001376280055& \cellcolor{blue!20}0.0001527208398& \cellcolor{blue!10}-0.0003934685913\\
+        p2mg & \cellcolor{blue!20}0.000005732595806& 0.0004479052484& -0.0003354198174\\
+        p2gg & 0.00002632511042& 0.0001699363766& \cellcolor{blue!20}-0.000401823091\\
+        pg & 0.00002824743917& 0.0002860863393& \cellcolor{blue!10}-0.0004000561542\\
         p3 & 0.00003468842645& 0.0002424453316& -0.0003292839541\\
         \hline
     \end{tabular}
-    \caption{Tabulated energies per particle}
+    \caption{The energy per molecule for a variety of the best packing crystal structures. Both the \sone and \scon systems have an arrangement with significantly lower energy, p2mg and p2 respectively. While the \tri system has three arrangements with very similar energies, the p2, p2gg and pg wallpaper groups.}
     \label{tab:crystal energies}
 \end{table}
 
-From the energies in \texttabref{crystal energies} the most stable crystal structures are: \sone{} - p2mg, \scon{} - p2, and \tri{} - p2gg, with their repsectice configurations shown in \textfigref{crystals}. Interestingly these lowest energy structures are not necessarily the closest packed structures, it is possible the extra 
+From the energies in \texttabref{crystal energies} the most stable crystal structures are: \sone{} - p2mg, \scon{} - p2, and \tri{} - p2gg, with their repsectice configurations shown in \textfigref{crystals}. Interestingly these lowest energy structures are not necessarily the closest packed structures, it is possible the extra.
+\towrite{energies}
 
 \begin{figure}
     \centering
