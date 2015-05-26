@@ -80,15 +80,16 @@ Along with categorising the crystal structure the unit cell of a crystal structu
 
 \section{Molecular Liquids}
 
-The liquid phase is defined by its incompressibility and its ability to flow. There are two forces, a long range attractive and a short range repulsive, that define this behaviour. The ability to flow is comes from the energy of the particles, they have enough energy to move out of their local environments, but not enough to escape the attractive forces of the neighbouring particles as they flow around them. This attractive force is integral to the liquid phase, if the force is too short range or not present then the liquid phase does not exist~\tocite, only the solid and gas phases will form. When considering the process that occurs when a liquid flows, molecules must move away from their optimal position and around neighbouring molecules. If the attraction is too small at these larger distances there is nothing stopping the molecule flying off and becoming a gas. The other important force in a liquid is the repulsive force which is responsible for the structure of the liquid. A common measure of the structure of the liquid phase is the \emph{pair distribution function}~\figref{radial distribution} denoted $G(r)$. It can be calculated by
+The liquid phase is defined by its incompressibility and its ability to flow. There are two forces, a long range attractive and a short range repulsive, that define this behaviour. The ability to flow is comes from the energy of the particles, they have enough energy to move out of their local environments, but not enough to escape the attractive forces of the neighbouring particles as they flow around them. This attractive force is integral to the liquid phase, if the force is too short range or not present then the liquid phase does not exist~\tocite, only the solid and gas phases will form. When considering the process that occurs when a liquid flows, molecules must move away from their optimal position and around neighbouring molecules. If the attraction is too small at these larger distances there is nothing stopping the molecule flying off and becoming a gas. The other important force in a liquid is the repulsive force which is responsible for the structure of the liquid. A common measure of the structure of the liquid phase is the \emph{pair distribution function}~\figref{radial distribution} denoted $G(r)$ and given by
 \begin{equation}
     G(r) = \frac{1}{N\rho} \sum_i^N \sum_{j\ne i}^N \delta[ r - r_{ij}]
 \end{equation}
-where $N$ is the number of particles $\rho$ is the number density and $r_{ij}$ the separation of two particles. In essence it maps the probability of finding molecules at a distance $r$ from any particle, however unlike a probability the radial distribution function is normalised to $N-1$ where $N$ is the total number of particles in the system. It can also be expressed as the term that when multiplied by the number density $\rho$ gives the local density around a particle. The radial distribution function gives a very clear distinction between between the crystal, and liquid and gas phases~\figref{radial distribution}. In the liquid phase phase we can see there is a region of excluded volume at small $r$, this is the result of the repulsive force, the apparent size of the molecule. Beyond the excluded region there is a sharp peak corresponding to the shell of nearest neighbours around the central molecule. It is the excluded region and short range ordering that results in the incompressibility, there is nowhere for the particles to move upon compression because of the repulsive force. The final part of the radial distribution function is the long range behaviour, for liquids there is no long range ordering, while for crystals there are peaks out to very large $r$. The radial distribution function is very useful when modelling systems where it is easy to calculate the distance between each particle, for experimental systems this is not possible. The usefulness of the radial distribution function is that is can be linked to a directly measurable quantity, the \emph{static structure factor} by a Fourier transform
+where $N$ is the number of particles $\rho$ is the number density and $r_{ij}$ the separation of two particles. In essence it maps the probability of finding molecules at a distance $r$ from any particle, however unlike a probability the radial distribution function is normalised to $N-1$ where $N$ is the total number of particles in the system. It can also be expressed as the term that when multiplied by the number density $\rho$ gives the local density around a particle. The radial distribution function gives a very clear distinction between between the crystal, and liquid~\figref{radial distribution}. In the liquid phase phase we can see there is a region of excluded volume at small $r$, this is the result of the repulsive force, the apparent size of the molecule. Beyond the excluded region there is a sharp peak corresponding to the shell of nearest neighbours around the central molecule. It is the excluded region and short range ordering that results in the incompressibility, there is nowhere for the particles to move upon compression because of the repulsive force. The final part of the radial distribution function is the long range behaviour, for liquids there is no long range ordering, while for crystals there are peaks out to very large $r$. The radial distribution function is a property of a system where it is easy to calculate the distance between each particle, for experimental systems this is not possible. The strength of the radial distribution function is that is can be linked to a directly measurable quantity, the \emph{static structure factor} by a Fourier transform
 \begin{equation}
     S(q) = 1 + \rho \int [G(r)-1]\,\e^{ikr}\, \d r
 \end{equation}
-The static structure factor can be experimentally determined by taking the x-ray diffraction pattern of a sample providing the link between experimental and theoretical systems. Along with the structural differences between a liquid and a crystal there are also significant dynamical differences.
+The static structure factor can be experimentally determined by taking the x-ray diffraction pattern of a sample, providing a direct comparison between experimental and theoretical systems. Along with the structural differences between a liquid and a crystal there are also significant dynamical differences.
+
 
 \begin{figure}
     \todofigure{Radial distribution functions}
@@ -96,18 +97,15 @@ The static structure factor can be experimentally determined by taking the x-ray
     \label{fig:radial distribution}
 \end{figure}
 
-Two characteristic dynamic properties of a liquid are the viscosity and diffusion. The viscosity ($\eta$) of a liquid is a property of the bulk liquid measured in \si{\poise} or \emph{units of poise}. The viscosity is a temperature dependent quantity, following an Arrhenius curve
+Two characteristic dynamic properties of a liquid are the viscosity and diffusion. The viscosity ($\eta$) of a liquid is a property of the bulk liquid measured in units of \emph{poise} (\si{\poise}). The viscosity is a temperature dependent quantity, following an Arrhenius curve
 \begin{equation}
     \eta = \eta_0\, \e^{-E_a/(\boltzman T)}
 \end{equation}
-where $T_0$ is the viscosity at a known temperature $T_0$, \boltzman is the Boltzman constant, and $E_a$ is the activation energy. In this case the activation energy can be considered the energy required to move past the nearest neighbours. The Arrhenius relation holds because this activation energy remains constant throughout the temperature range. The viscosities of some common liquids are shown in \tabref{} showing the range that viscosities take. The other dynamic property is diffusion, this is a property of averaged over individual molecules. At short times the mean squared displacement (MSD) is dominated by ballistic motion from the local vibrations of particles. However at longer times we get a relation
+where $\eta_0$ is the viscosity at a known temperature $T_0$, \boltzman is the Boltzman constant, and $E_a$ is the activation energy. In this case the activation energy can be considered the energy required to move past the nearest neighbours. The Arrhenius relation holds because this activation energy remains constant throughout the temperature range. The viscosities of some common liquids are shown in \tabref{} showing the range that viscosities take. The other dynamic property is diffusion, this is a property of averaged over individual molecules. At short times the mean squared displacement (MSD) is dominated by ballistic motion from the local vibrations of particles. However at longer times we get a relation
 \begin{equation}
     \langle |\Delta \vect r|^2 \rangle = \frac{6\boltzman T}{m\zeta} = 6Dt
 \end{equation}
-where $\Delta \vect r$ is the distance between $r$ and $r_0$, $T$ is the temperature, $m$ is the molecular mass and the angle brackets denote averaging over all molecules. The diffusion constant $D$ can be defined as $D = \boltzman T/m\zeta$ simplifying the equation. The factor of 6 is a property of a three dimensional system, for a two dimensional system a factor of 4 is necessary.
-
-
-When dealing with molecules, along with the motion of the molecules the rotations of the molecules is also important. 
+where $\Delta \vect r$ is the distance between $r$ and $r_0$, $T$ is the temperature, $m$ is the molecular mass and the angle brackets denote averaging over all molecules. The diffusion constant $D$ can be defined as $D = \boltzman T/m\zeta$ simplifying the equation. The factor of 6 is a property of a three dimensional system, for a two dimensional system a factor of 4 is used instead. When dealing with molecules, along with translational motion, rotational motions are also important.
 
 
 \towrite{rotational relaxations}
@@ -118,10 +116,9 @@ When dealing with molecules, along with the motion of the molecules the rotation
 
 \section{Supercooled Liquids}
 
-
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{crystal-growth}
+    \includegraphics[width=0.6\textwidth]{crystal-growth}
     \caption[Crystal growth rate as a function of temperature]{Experimentally determined crystal growth rate as a function of temperature for supercooled tri-(napthylbenzene). As the temperature approaches \si{\Tg} the mobility of the liquid limits the rate at which the crystal can grow}
     \source{ediger:08}{AIP Publishing LLC}
     \label{fig:crys rate}
@@ -135,7 +132,7 @@ where $\Delta H$ is the change in enthalpy and $\Delta S$ is the change in entro
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{supercooled}
+    \includegraphics[width=0.6\linewidth]{supercooled}
     \caption[Temperature dependence of entropy for condensed phases]{The temperature dependence of entropy for the different phases. The liquid phases have more degrees of freedom and hence the larger slope.}
     \label{fig:entropy}
 \end{figure}
@@ -145,7 +142,7 @@ When dealing with dynamics of supercooled liquids in most cases the viscosity ob
 \begin{equation}
     m = \left [ \pddiff{\log_{10} \eta}{\si{\Tg}/T} \right ]_{T=\si{\Tg}}
 \end{equation}
-This gives a range of fragilities from silica, $m = 1$ to \emph{o}-terphenyl, $m = ??$~\tocheck with everything in between~\tabref{fragility}. It is interesting to note that along with \emph{o}-terphenyl many of the fragile supercooled liquids are molecular, this feeds the hypothesis that glass forming ability is in some way related to shape, it can not be the only contributing factor but is a line of investigation to pursue.
+This gives a range of fragilities from silica, $m = 22$ to \emph{o}-terphenyl, $m = 86$ with everything in between~\tabref{fragility}. It is interesting to note that along with \emph{o}-terphenyl many of the fragile supercooled liquids are molecular, this feeds the hypothesis that glass forming ability is in some way related to shape, it can not be the only contributing factor but is a line of investigation to pursue.
 
 \begin{figure}
     \centering
@@ -158,13 +155,13 @@ This gives a range of fragilities from silica, $m = 1$ to \emph{o}-terphenyl, $m
 \begin{table}
     \begin{tabular}{l | c c c }
         System & Fragility ($m$) & \si{\Tm} (\si{\kelvin}) & Type \\ \hline
-        $\alpha$-phenol \emph{o}-cresol (\ce{C_{13}H_{14}O}) & 84 & 324 & Molecular \\
         Indomethacin $\alpha$ (\ce{C_{19}H_{16}ClNO4}) & 89 & 426 & Molecular \\
         \emph{o}-terphenyl (\ce{C_{18}H_{14}}) & 86 & 329 & Molecular \\
+        $\alpha$-phenol \emph{o}-cresol (\ce{C_{13}H_{14}O}) & 84 & 324 & Molecular \\
         Sorbitol E (\ce{C6H14O6}) & 77 & 353 & Molecular \\
         Diopside (\ce{CaO.MgO.2SiO2}) & 66 & 1664 & Ionic \\
-        Silica (\ce{SiO2}) & 21 & 2007 & Ionic \\
         Sodium disilicate (\ce{Na2O.2SiO2}) & 45 & 1146 & Ionic \\
+        Silica (\ce{SiO2}) & 21 & 2007 & Ionic \\
     \end{tabular}
     \caption{The fragility of a number of different systems}
     \label{tab:fragility}
