@@ -4,22 +4,21 @@ A non-circularly symmetric molecule on a plane has three degrees of freedom, tra
 
 \section{Choice of Molecules}
 
-To choose the molecules that we are studying in depth in this thesis, a survey of a wide range of molecular shapes was conducted. The survey included both the Snowman and Trimer molecule types over a radius range $r = [0.5,1]$, a distance range of $d = [1,1+r]$ and an angle range of $\theta = [90^\circ,180^\circ]$. These ranges were chosen so the resulting molecules are sufficiently distinct from a disc, a problem that has been studied for a long time~\cite{verlet:67}.
+With little prior research into the properties of molecular systems we chose the simplest types of molecules possible, a two particle dimer~\figref{dimer} and a three particle trimer~\figref{trimer}. The simplicity of these molecules allow us to survey a range of different molecular parameters to find molecules for further study in this thesis. The survey included both the Dimer and Trimer molecule types over a radius range $r = [0.5,1]$, a distance range of $d = [1,1+r]$ and an angle range of $\theta = [90^\circ,180^\circ]$. These ranges were chosen so the resulting molecules are sufficiently distinct from a disc, a problem that has been studied for a long time~\cite{verlet:67}.
 
 \begin{figure}
-    \begin{subfigure}{0.5\textwidth}
-        \centering
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
         \includegraphics[width=\linewidth]{Snowman}
-        \caption{Construction of Snowman molecules}
-        \label{fig:snowman}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \centering
+        \caption{The Dimer molecule consists of a large particle of radius $1.0$, a small particle of radius $r$ separated by a distance $d$.}
+        \label{fig:dimer}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.48\textwidth}
         \includegraphics[width=\linewidth]{Trimer}
-        \caption{Construction of Trimer molecules}
+        \caption{The Trimer molecule is comprised of a large particle of radius $1.0$ which subtends an angle $\theta$ between two small particles of radius $r$ at a distance $d$.}
         \label{fig:trimer}
     \end{subfigure}
-    \caption{Construction of the molecules used in this thesis}
+    \caption{Construction of the molecules used in this thesis.}
     \label{fig:construction}
 \end{figure}
 
@@ -40,12 +39,12 @@ The radius of 0.637556 is interesting as when combined with particles of radius 
         \includegraphics[width=\linewidth]{{{Sone}}}
         \caption{$r=0.637556,$\\$d=1.0$ \\\sone}
         \label{fig:sone}
-    \end{subfigure}
+    \end{subfigure}\hfill
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Scon}}}
         \caption{$r=0.637556,$\\$d=1.637556$ \\\scon}
         \label{fig:scon}
-    \end{subfigure}
+    \end{subfigure}\hfill
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\linewidth]{{{Tri}}}
         \caption{$r=0.637556,$\\$d=1.0, \theta=120 $\\\tri}
@@ -57,26 +56,6 @@ The radius of 0.637556 is interesting as when combined with particles of radius 
 
 \section{Dynamics of \sone}
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.48\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-msd}}}
-        \caption{MSD, the translational motion}
-        \label{fig:snowman 0.637556 1.0 msd}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.48\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-C_1}}}
-        \caption{C$_1$, the rotational motion}
-        \label{fig:snowman 0.637556 1.0 r1}
-    \end{subfigure}
-    \begin{subfigure}{0.48\textwidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-F}}}
-        \caption{Structure Function, a combination both translations and rotations.}
-        \label{fig:snowman 0.637556 1.0 structure}
-    \end{subfigure}
-    \caption{The main dynamical features of the \sone molecule over a range of temperatures, from a highly mobile liquid to the slowest dynamics we could measure.}
-    \label{fig:snowman 0.637556 1.0}
-\end{figure} 
 
 With the main dynamical quantities of interest being the translation of the center of mass (COM) and the rotation. The measure of translational motion we are interested in is Mean Squared Displacement (MSD) a measure of the translational motion, the slope of which is related to the diffusion constant. The MSD is given by
 \begin{equation}
@@ -84,11 +63,32 @@ With the main dynamical quantities of interest being the translation of the cent
 \end{equation}
 where $x(t)$ and $y(t)$ are the coordinates of the COM at time $t$, while $x_0$ and $y_0$ are the initial coordinates of the molecule while the angle brackets $\langle\,\rangle$ denote averaging over all molecules. The MSD for \sone over a range of temperatures is shown in \textfigref{snowman 0.637556 1.0 msd}. The initial region up to approximately $10^1$ timesteps is the ballistic region where the particles are yet to collide with each other and are moving away from their initial position. At higher temperatures the transition from the ballistic to the diffusive regime is seamless. The diffusive regime is defined by a MSD that increases as a linear function of $t$, indicated by the grey line, where the molecules are rearranging randomly. At lower temperatures like \num{0.90} (shown in red) there is a distinct levelling off of the MSD between the ballistic and diffusive regimes. This region with a slow increase in the MSD is where there are only a small number of molecules that have escaped their local minima, most molecules still have the neighbours that they started with and are vibrating within the bounds of those neighbours.
 
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.48\linewidth}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-msd}}}
+        \caption{Mean Squared Displacement, a measure of translational motion.}
+        \label{fig:snowman 0.637556 1.0 msd}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.48\linewidth}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-C_1}}}
+        \caption{Rotational relaxation, a measure of rotational motion.}
+        \label{fig:snowman 0.637556 1.0 r1}
+    \end{subfigure}
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-F}}}
+        \caption{Structure Function, a measure of structural relaxation.}
+        \label{fig:snowman 0.637556 1.0 structure}
+    \end{subfigure}
+    \caption{The main dynamical features of the \sone molecule over a range of temperatures, from a highly mobile liquid to the slowest dynamics we could measure.}
+    \label{fig:snowman 0.637556 1.0}
+\end{figure} 
+
 The second dynamic quantity we are interested in is the rotational relaxation, a measure of the angular mobility of the molecule. The rotational relaxation $C_n(t)$ is given by
 \begin{equation}
     C_n(t) = \langle P_n[\vect{e}(0) \cdot \vect{e}(t)] \rangle
 \end{equation}
-where $P_n$ is the $n$\textsuperscript{th} order Legendre polynomial, $e(t)$ is the orientation vector at time $t$ and the angle brackets $\langle\,\rangle$ denote the averaging over all molecules. The rotational relaxation in this form is a function with a range of $[-1,1]$, a value of $C_n(t)=1$ is when the molecule is in the same orientation as at $t=0$, a value of $C_n(t)=0$ is when the molecule is perpendicular to its initial orientation, and a value $C_n(t)=-1$ when the orientation is perpendicular to the initial orientation\tofix. We are primarily concerned with $C_1$ in which the Legendre polynomial takes the form
+where $P_n$ is the $n$\textsuperscript{th} order Legendre polynomial, $e(t)$ is the orientation vector at time $t$ and the angle brackets $\langle\,\rangle$ denote the averaging over all molecules. We are primarily interested in the first order rotational relaxation $C_1$ in which the Legendre polynomial takes the form
 \begin{equation}
     P_1(x) = x
 \end{equation}
@@ -96,8 +96,9 @@ however we do use the second order function $C_2$ later in this thesis for compa
 \begin{equation}
     P_2(x) = 2x^2 - 1
 \end{equation}
+The first order rotational relaxation ($C_1$) is a function with a range of $[-1,1]$, a value of $C_1(t)=1$ is when the molecule is in the same orientation as at $t=0$, a value of $C_1(t)=0$ is when the molecule is perpendicular to its initial orientation, and a value $C_1(t)=-1$ when the orientation is antiparallel to the initial orientation.
 
-The rotational relaxation for \sone is given in \textfigref{snowman 0.637556 1.0 r1}. The rotational relaxation shows many features that are similar to the MSD, the initial period up to \num{e2} timesteps where the molecules have not had enough time to relax. Once past this initial region higher temperatures show qhich relaxation, however like the MSD at low temperatures there is a stagnation of the relaxation before taking the same shape as the high temperature relaxation. This shape is important in that it is an exponential decay which can be easily characterised.
+The rotational relaxation for \sone is given in \textfigref{snowman 0.637556 1.0 r1}. The rotational relaxation shows many features that are similar to the MSD, the initial period up to \num{e2} timesteps where the molecules have not had enough time to relax. Once past this initial region higher temperatures ($\geq 1.20$) show exponential relaxation. However at low temperatures there is a two step relaxation process a small initial relaxation followed by an exponential relaxation with a plateau in between.
 
 The third dynamical quantity that we were interested in is the Structure Function $F(t)$. The Structure function is different from the MSD and Rotational relaxations in that instead of calculating quantities for each molecule and averaging over all molecules, the values are calculated for each particle of each molecule and averaged over all the particles. The Structure function is given by
 \begin{align}
@@ -114,27 +115,26 @@ The Structure function for \sone is shown in \textfigref{snowman 0.637556 1.0 st
 
 The dynamics of the \scon \figref{scon dynamics} and \tri~\figref{tri dynamics} molecules show similar behaviour to the \sone molecule. The most noticeable difference is the temperature at which the dynamics slow down, in the \sone molecule we are able to collect dynamic quantities down to a temperature of \num{0.50}, for the \scon molecule we are only able to get results down to \num{1.50} and the \tri molecule down to \num{1.05}. We are unable to characterise the dynamics below these temperature as dynamical quantities are not definable where there is no motion of the molecules. The dramatic change in low temperature behaviour for relatively small changes in molecular shape is a result that we investigate further throughout the rest of this thesis.
 
-Apart from the dramatic differences in temperature the dynamics exhibits very similar behaviour. The MSD \figref{snowman 0.637556 1.637556 msd} shows the same levelling out at low temperature in the region between the short time ballistic regime and the long time diffusive regime. The rotational relaxations \figref{snowman 0.637556 1.637556 r1} occur on a longer timescale than \sone as might be expected of the elongated \scon molecule. The Structure function also shows the same behaviour, with peaks which we believe to be a result of the vibrational motion of particles at low temperature.
-
+Apart from the dramatic differences in temperature the dynamics exhibits very similar behaviour. The MSD of both \scon \figref{snowman 0.637556 1.637556 msd} and \tri \figref{trimer 0.637556 1.0 120 msd} shows the same levelling out at low temperature in the region between the short time ballistic regime and the long time diffusive regime. The rotational relaxations and structure functions also show the same two step relaxations as the \sone molecule.
 
 \begin{figure}
     \centering
     \begin{subfigure}{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-msd}}}
-        \caption{MSD}
+        \caption{Mean Squared Displacement, a measure of translational motion.}
         \label{fig:snowman 0.637556 1.637556 msd}
     \end{subfigure}
     \begin{subfigure}{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-C_1}}}
-        \caption{C$_1$}
+        \caption{Rotational relaxation, a measure of rotational motion.}
         \label{fig:snowman 0.637556 1.637556 r1}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-F}}}
-        \caption{Structure function}
+        \caption{Structure function, a measure of structural relaxation.}
         \label{fig:snowman 0.637556 1.637556 structure}
     \end{subfigure}
-    \caption{The dynamics of the \scon molecule over a range of temperatures.}
+    \caption{The dynamics of the \scon molecule over a range of temperatures. The range of temperatures is smaller than that of the \sone molecule due to the slower dynamics of the \scon molecule at low temperatures.}
     \label{fig:scon dynamics}
 \end{figure}
 
@@ -142,23 +142,22 @@ Apart from the dramatic differences in temperature the dynamics exhibits very si
     \centering
     \begin{subfigure}{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-msd}}}
-        \caption{MSD}
+        \caption{Mean Squared Displacement, a measure a translational motion.}
         \label{fig:trimer 0.637556 1.0 120 msd}
-    \end{subfigure}
+    \end{subfigure}\hfill
     \begin{subfigure}{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-C_1}}}
-        \caption{C$_1$}
+        \caption{Rotational relaxation, a measure of rotational motion.}
         \label{fig:trimer 0.637556 1.0 120 r1}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-F}}}
-        \caption{Structure function}
+        \caption{Structure function, a measure of structural relaxation.}
         \label{fig:trimer 0.637556 1.0 120 structure}
     \end{subfigure}
     \caption{Dynamics of the \tri molecule across a range of temperatures.}
     \label{fig:tri dynamics}
 \end{figure}
-
 
 \section{Comparison of Dynamic Quantities}
 
@@ -223,29 +222,8 @@ From \textfigref{diffusion constant} we can see that the fragility increases fro
 
 We hypothesise that the large differences in the dynamical quantities are a result of the local interactions of the molecules. We can test this hypothesis using the Debye-Waller factor. 
 
-\begin{figure}
-    \centering
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.0-dMSD}}}
-        \caption{}
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-dMSD}}}
-        \caption{}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-dMSD}}}
-        \caption{}
-    \end{subfigure}
-    \caption{Taking the slope of the MSD as plotted in the MSD plots, log, log}
-    \label{fig:tri dynamics}
-\end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{{{logD.DW}}}
-    \caption{Plotting the diffusion constant against Debye-Waller factor we get all molecules on the same line.}
-\end{figure}
+
 
 \section{Dynamic Inhomogeneities}
 
@@ -262,12 +240,12 @@ where $\Delta x(t) = \sqrt{(x(t) - x_0)^2 + (y(t) - y_0)^2}$ and the angle brack
     \label{fig:tri alpha}
 \end{figure}
 
-The nongaussian parameter for \tri is given in \textfigref{tri alpha}. We can see that that with decreasing temperature there is an increase in the nongaussian parameter, meaning an increase in the dynamic inhomogeneities. There is also a move of the peak of the dynamic inhomogeneities to longer timescales as the temperature increases, a result that matches previous observations.
+The nongaussian parameter for \tri is given in \textfigref{tri alpha}. We can see that that with decreasing temperature there is an increase in the nongaussian parameter, indicating an increase in the dynamic inhomogeneities. There is also a move of the peak of the dynamic inhomogeneities to longer timescales as the temperature increases, a result that matches previous observations. We can visualise these dynamic inhomogeneities by looking at the net motions of molecules over a particular time period. Choosing the maximum of the $T=1.15$ peak as the time between the initial and final times, \textfigref{tri moved} shows the distribution of motion amongst the molecules. There are regions of space containing highly mobile molecules that are generally undergoing correlated motion, all moving in the same direction or in a circular motion. These same regions also hold the majority of the rotationally diffusive molecules, however there is not a 1:1 relationship of translational motion to rotational motion there are molecules with a lot of rotational motion and no translational motion and vice versa.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{{{Trimer-1.15-0.637556-1.00-120-moved}}}
-    \caption{Movement of particles within a frame. This shows the net motions of all \sone molecules over a simulation run. The motion of the centers of mass are displayed by the vectors, directly representing the motion that took place. The magnitude of the rotation is given by the intensity of the green circles.}
-    \label{fig:}
+    \caption{Movement of particles within a frame. This shows the net motions of all \tri molecules at the maximum of the nongaussian parameter. The motion of the centers of mass are displayed by the vectors, directly representing the motion that took place. The magnitude of the rotation is given by the intensity of the green circles.}
+    \label{fig:tri moved}
 \end{figure}
 
