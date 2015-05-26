@@ -9,3 +9,5 @@
 # Ignore thesis.pdf
 thesis.pdf
 
+# Ignore Adobe Illustrator files
+*.ai
