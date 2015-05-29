@@ -21,17 +21,30 @@ else
 	bibcommand = $(bib) $(output)/$(basename $(input))
 endif
 
-all: thesis.pdf
+all: thesis.pdf pres.pdf
+
+pres: pres.pdf
+
+thesis: thesis.pdf
 
 bib: $(bibfile)
 
+.PHONY: thesis.pdf
 thesis.pdf: thesis.tex $(folders) $(bibfile) | $(output)
 	$(shell export TEXINPUTS=.:$(subst $(space),:,$(folders)))
 	pdflatex $(pre_flags) $(pdf_flags) $(input)
 	$(bibcommand)
 	pdflatex $(pre_flags) $(pdf_flags) $(input)
 	pdflatex $(pdf_flags) $(input)
-	mv $(output)/$(input:.tex=.pdf) .
+	mv $(output)/$@ .
+
+pres.pdf: pres.tex $(folders) $(bibfile) | $(output)
+	$(shell export TEXINPUTS=.:$(subst $(space),:,$(folders)))
+	pdflatex $(pre_flags) $(pdf_flags) $<
+	$(bibcommand)
+	pdflatex $(pre_flags) $(pdf_flags) $<
+	pdflatex $(pdf_flags) $<
+	mv $(output)/$@ .
 
 $(bibfile): $(master_bibfile) bibliography/convert.py bibliography/journals.txt
 	cp $< $@
@@ -42,6 +55,9 @@ clean:
 	-rm -rf $(output)
 	-rm -f $(input:.tex=.pdf)
 	-rm $(bibfile)
+
+clean-pres:
+	-rm -rf $(output)/pres*
 
 clean-cache:
 	rm -rf $$(biber --cache)

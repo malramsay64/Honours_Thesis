@@ -1,0 +1,50 @@
+% This package imports the common packages between the document and presentation
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{common}
+
+\RequirePackage[australian]{babel}
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{siunitx}
+\RequirePackage{hyperref}
+\RequirePackage[version=3]{mhchem}
+\RequirePackage{ccicons}
+\RequirePackage{xspace}
+
+
+% Defining Molecules
+\newcommand*{\tri}{{\bf Tr}\xspace}
+\newcommand*{\done}{{\bf D1}\xspace}
+\newcommand*{\dcon}{{\bf Dc}\xspace}
+
+% Defining Mathematical Terms
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+
+\renewcommand*{\d}[1]{\ensuremath{d #1}}
+\newcommand*{\pd}[1]{\ensuremath{\partial #1}}
+\newcommand*{\dd}[1]{\ensuremath{d^2 #1}}
+\newcommand*{\pdd}[1]{\ensuremath{\partial^2 #1}}
+
+\newcommand*{\ddiff}[2]{\ensuremath{\frac{\d #1}{\d #2}}}
+\newcommand*{\pddiff}[2]{\ensuremath{\frac{\pd #1}{\pd #2}}}
+\newcommand*{\dddiff}[2]{\ensuremath{\frac{\dd #1}{\d #2^2}}}
+\newcommand*{\pdddiff}[2]{\ensuremath{\frac{\pdd #1}{\pd #2^2}}}
+
+ % Defining Poise as a unit
+\sisetup{qualifier-mode = subscript}
+\DeclareSIUnit[number-unit-product = \,]{\poise}{P}
+\DeclareSIQualifier{\melting}{m}
+\DeclareSIQualifier{\glass}{g}
+\DeclareSIQualifier{\kauzmann}{k}
+\DeclareSIUnit[number-unit-product = \,]{\T}{T}
+\DeclareSIUnit[number-unit-product = \,]{\Tg}{\T\glass}
+\DeclareSIUnit[number-unit-product = \,]{\Tm}{\T\melting}
+\DeclareSIUnit[number-unit-product = \,]{\Tk}{\T\kauzmann}
+
+\newcommand*{\e}{\ensuremath{\text{e}}}
+\newcommand*{\boltzman}{\ensuremath{k_\text{B}}}
+
+\PassOptionsToPackage{colorlinks=true, linkcolor=blue, citecolor=blue}{hyperref}
+
+

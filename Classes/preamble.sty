@@ -5,20 +5,15 @@
 \ProvidesPackage{preamble}
   [2014/01/12 v0.01 LaTeX package for my standard preamble]
 
-\RequirePackage[australian]{babel}
-\RequirePackage{amsmath}
-\RequirePackage{graphicx}
+
+\RequirePackage{common}
 \RequirePackage{subcaption}
-\RequirePackage{siunitx}
 \RequirePackage{todonotes}
 \RequirePackage{parskip}
-\RequirePackage{hyperref}
 \RequirePackage{doi}
 \RequirePackage[version=3]{mhchem}
 \RequirePackage{mysyntax}
 \RequirePackage{caption}
-\RequirePackage{ccicons}
-\RequirePackage{xspace}
 \RequirePackage[export]{adjustbox}
 \RequirePackage{calc}
 \RequirePackage{fp}
@@ -47,11 +42,9 @@
 \newcommand*{\textsecref}[1]{\S~\ref{sec:#1}}
 
 % Molecules
-\newcommand*{\trimer}[3]{$r=#1, d=#2, \theta=#3$}
-\newcommand*{\dimer}[2]{$r=#1, d=#2$}
 \newcommand*{\sone}{{\bf D1}\xspace}
 \newcommand*{\scon}{{\bf Dc}\xspace}
-\newcommand*{\tri}{{\bf Tr}\xspace}
+
 
 % Citations
 %\let\textcite\cite
@@ -77,22 +70,8 @@
 % Zoom on graphics
 \newcommand{\zoom}[2]{%
     \FPeval{\crop}{0.5/#1}
-    \adjincludegraphics[width=\textwidth, trim={\crop\width} {\crop\width} {\crop\width} {\crop\width}, clip]{{{#2}}}
+    \adjincludegraphics[width=\textwidth, trim={\crop\width} {\crop\height} {\crop\width} {\crop\height}, clip]{{{#2}}}
 }
-
-% Defines a vector as bold font
-\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
-
-% Derivatives
-\renewcommand*{\d}[1]{\ensuremath{d #1}}
-\newcommand*{\pd}[1]{\ensuremath{\partial #1}}
-\newcommand*{\dd}[1]{\ensuremath{d^2 #1}}
-\newcommand*{\pdd}[1]{\ensuremath{\partial^2 #1}}
-
-\newcommand*{\ddiff}[2]{\ensuremath{\frac{\d #1}{\d #2}}}
-\newcommand*{\pddiff}[2]{\ensuremath{\frac{\pd #1}{\pd #2}}}
-\newcommand*{\dddiff}[2]{\ensuremath{\frac{\dd #1}{\d #2^2}}}
-\newcommand*{\pdddiff}[2]{\ensuremath{\frac{\pdd #1}{\pd #2^2}}}
 
 % Todo commands
 \reversemarginpar
@@ -103,24 +82,6 @@
 \newcommand*{\tocite}{\todo[color=yellow]{Cite}\xspace}
 \newcommand*{\tocheck}{\todo[color=blue!50]{Check}\xspace}
 \newcommand*{\toref}{\todo[color=orange]{Ref}\xspace}
-
-% Defining Poise as a unit
-\sisetup{qualifier-mode = subscript}
-\DeclareSIUnit[number-unit-product = \,]{\poise}{P}
-\DeclareSIQualifier{\melting}{m}
-\DeclareSIQualifier{\glass}{g}
-\DeclareSIQualifier{\kauzmann}{k}
-\DeclareSIUnit[number-unit-product = \,]{\T}{T}
-\DeclareSIUnit[number-unit-product = \,]{\Tg}{\T\glass}
-\DeclareSIUnit[number-unit-product = \,]{\Tm}{\T\melting}
-\DeclareSIUnit[number-unit-product = \,]{\Tk}{\T\kauzmann}
-
-
-% Defining style of constants
-\newcommand*{\e}{\ensuremath{\text{e}}}
-\newcommand*{\boltzman}{\ensuremath{k_\text{B}}}
-
-\PassOptionsToPackage{colorlinks=true, linkcolor=blue, citecolor=blue}{hyperref}
 
 % Bibliography Settings
 %\DeclareFieldFormat{labelnumberwidth}{#1.~}
