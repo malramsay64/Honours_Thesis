@@ -3,19 +3,27 @@
 
 \section{Molecules}
 
-There were two types of molecule that we study in this thesis, dimers~\figref{snowman} and Trimers~\figref{trimer}. The Dimer molecule is constructed from two particles, a large and a small particle. The large particle has by definition a radius of \num{1.0}, the size of the small particle $r$ is then a ratio with the size of the large particle. The only other variable in the Dimer molecule is the distance $d$ between the centers of the two particles. The Trimer molecule is similar to the Dimer molecule, it also has a large particle of radius $1$, the difference is that there are two small particles of radius $r$ at distance $d$ subtended by an angle $\theta$. Each particle in these molecules interacts with the particles of other molecules by way of a modified Lennard-Jones potential with the parameters $\epsilon = 1$ and $\sigma = 2r$. The intramolecular bonded and angular interactions are given by a harmonic potential with a spring constant $k=5000$, more than three orders of magnitude larger than the intermolecular interactions. The large spring constant was chosen such that the resulting molecules were a good approximation to rigid molecules.
-
-The modified Lennard Jones potential is a potential commonly used in molecular dynamics systems due to its simplicity to calculate. It is also the potential used by many studies to study glass forming binary liquids~\cite{gotze:92,sciortino:99,glotzer:00,huer:08,royall:15}. The Lennard-Jones potential takes the form
+The molecules that we are using are built out of particles that interact via a modified Lennard-Jones potential. The modified Lennard Jones potential is a potential commonly used in molecular dynamics systems due to its simplicity to calculate. It is also the potential used by many studies to study glass forming binary liquids~\cite{gotze:92,sciortino:99,glotzer:00,huer:08,royall:15}. The Lennard-Jones potential takes the form
 \begin{equation}
     V_{LJ}(r) = 4\epsilon\left [ \left (\frac{\sigma}{r}\right )^{12} -\left ( \frac{\sigma}{r} \right )^6 \right]
 \end{equation}
-where $r$ is the separation of two centers and, $\epsilon$ and $\sigma$ are parameters describing the strength and the size of the potential respectively. The computational simplicity comes from the ease of computing a 6th power function, the 12th power term is then just the square of the 6th power term. In the default form the Lennard-Jones potential acts over all space, a particle would have interaction with all other particles despite most of these interactions being negligible. To reduce the number of interactions to compute the potential is commonly modified to have a cutoff distance at some small value of the potential; we chose a cutoff distance of $2.5\sigma$. The final modification to the potential is to retain the continuity of the original function, subtracting the value at the cutoff giving a function of the form
+where $r$ is the separation of two particles and, $\epsilon$ and $\sigma$ are parameters describing the strength and the size of the potential respectively. The computational simplicity comes from the ease of computing a 6\textsuperscript{th} power function, the 12\textsuperscript{th} power term is then just the square of the 6\textsuperscript{th} power term. In the default form the Lennard-Jones potential acts over all space, a particle would have interaction with all other particles despite most of these interactions being negligible. To reduce the number of interactions to compute the potential is commonly modified to have a cutoff distance at some small value of the potential; we chose a cutoff distance of $2.5\sigma$. The final modification to the potential is to retain the continuity of the original function, subtracting the value at the cutoff giving a function of the form
 \begin{equation}
     V_{mod}(r) = \begin{cases}
         \quad V_{LJ}(r) - V_{LJ}(2.5\sigma) & \text{if}\quad r < 2.5\sigma \\
         \quad 0  &\text{if}\quad r >= 2.5\sigma
     \end{cases}
 \end{equation}
+We have chosen the parameters for the particles to be $\epsilon = 1$, $\sigma = 2r$ with each particle having a mass $m=1$.
+
+The bonds between each particle comprising the molecules are given by harmonic potentials of the form
+\begin{equation}
+    V_H = - k (x - x_0)^2
+\end{equation}
+where $x_0$ is the bond length and we have chosen $k = 5000$ so that despite the molecules being flexible they are a close approximation to rigid molecules. This same harmonic potential also applies to the bond angles.
+
+Another important property of the molecules is the criteria for neighbouring, particles are considered neighbours if they are closer than $1.2\sigma$.
+
 
 
 \section{Molecular Dynamics}
