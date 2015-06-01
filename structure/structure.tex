@@ -226,9 +226,9 @@ We have the radial distribution functions and the orientational order parameters
 
 For the \done molecule we can define a local order parameter $O_\sone$ based on the p2mg crystal structure as
 \begin{equation}
-    O_{\sone} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect e \cdot \vect e_i)^2
+    O_{\sone} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect{\hat e} \cdot \vect{\hat e_i})^2
 \end{equation}
-where $N_\text{neigh}$ is the number of neighbours, $\vect e$ is orientation vector of the molecule and $\vect e_i$ is the orientation of each neighbour. Molecules that are above a cutoff of $0.8$ are considered to be crystalline while molecules below this cutoff are amorphous. \textfigref{sone inherent} demonstrates this order parameter using the inherent structure of the \done molecule studied throughout this chapter. There are many small regions of crystalline order while most of the configuration is amorphous.
+where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. Molecules that are above a cutoff of $0.8$ are considered to be crystalline while molecules below this cutoff are amorphous. \textfigref{sone inherent} demonstrates this order parameter using the inherent structure of the \done molecule studied throughout this chapter. There are many small regions of crystalline order while most of the configuration is amorphous.
 
 Defining a local order parameter for the \dcon molecules we can use the particle approach that worked well for the global order parameter, however in this case we are looking at the local environment of each particle. In the p2 crystalline structure each small particle has one other small neighbour and four large neighbours, and each large particle has three small and three large neighbours. Molecules with particles that have these specific neighbours are considered ordered.
 
@@ -243,7 +243,7 @@ The \tri molecule we are treating in the same way as the \sone molecule, using t
     \end{subfigure}\hfill
     \begin{subfigure}[t]{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-1.55-0.637556-1.637556-frame-0320000182}}}
-        \caption{The \scon molecule shows no sign of long range order. There are small clusters of about five particles exhibiting antiparallel ordering, although not large enough to be considered nucleation.}
+        \caption{The \scon molecule shows no sign of long range order. There are small clusters of particles exhibiting the orientationally disordered crystalline phase, however these only exhibit local interactions.}
         \label{fig:scon inherent}
     \end{subfigure}
     \begin{subfigure}{0.45\linewidth}
