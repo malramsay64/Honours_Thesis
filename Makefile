@@ -16,9 +16,9 @@ empty=
 space=$(empty) $(empty)
 
 ifeq ($(bib), bibtex)
-	bibcommand = ( cd $(output); $(bib) $(basename $(input)) )
+	bibcommand = ( cd $(output); $(bib) $(basename $<) )
 else
-	bibcommand = $(bib) $(output)/$(basename $(input))
+	bibcommand = $(bib) $(output)/$(basename $<)
 endif
 
 all: thesis.pdf pres.pdf
