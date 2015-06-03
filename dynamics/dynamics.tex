@@ -145,12 +145,12 @@ Apart from the dramatic differences in temperature the dynamics exhibits similar
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.45\linewidth}
+    \begin{subfigure}[t]{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-msd}}}
         \caption{Mean Squared Displacement, a measure of translational motion. The grey line indicates the $t^1$ power law defining the diffusive regime.}
         \label{fig:snowman 0.637556 1.637556 msd}
     \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
+    \begin{subfigure}[t]{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.637556-1.637556-C_1}}}
         \caption{Rotational relaxation, a measure of rotational motion.}
         \label{fig:snowman 0.637556 1.637556 r1}
@@ -166,12 +166,12 @@ Apart from the dramatic differences in temperature the dynamics exhibits similar
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.45\linewidth}
+    \begin{subfigure}[t]{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-msd}}}
         \caption{Mean Squared Displacement, a measure a translational motion. The grey line indicates the $t^1$ power law defining the diffusive regime.}
         \label{fig:trimer 0.637556 1.0 120 msd}
     \end{subfigure}\hfill
-    \begin{subfigure}{0.45\linewidth}
+    \begin{subfigure}[t]{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Trimer-0.637556-1.00-120-C_1}}}
         \caption{Rotational relaxation, a measure of rotational motion.}
         \label{fig:trimer 0.637556 1.0 120 r1}
@@ -193,9 +193,9 @@ The functions that we have dealt with so far allow a comparison of the behaviour
 \end{equation} 
 a multiple of the gradient. The gradient of the MSD from which the diffusion constant is defined is in the diffusive region. To get an accurate value of the diffusion constant the average value of the gradient was calculated for this region. The rotational relaxation and the structure function are functions with similar characteristics and can be treated in the same way. We can define relaxation times $\tau_1,\tau_2,\text{and},\tau_s$ as the time for these functions to reach a specific value. The exponentially decaying nature of the rotational relaxation and structure functions makes the value of $1/\e$ relevant since the time $t$ is related to the exponential factor $k$ by the relation $k=1/t$.
 
-Comparing the dynamic quantities of the three molecules~\figref{dynamic comparison} there are large differences between the molecules. Looking at the diffusion constant~\figref{diffusion constant}, \done shows a linear decrease in the diffusion constant as the temperature decreases. This linear behaviour is consistent with the Arrhenius relation and indicates that the molecular rearrangements that take place have a constant activation energy. The \dcon molecule shows definite non Arrhenius behaviour, with the diffusion constant diverging from that of \done by more than two orders of magnitude, while the \tri molecule tracks between the \done and \dcon molecules. Both the rotational relaxation~\figref{tau1} and structural relaxation~\figref{struct relax} show similar behaviour to the diffusion constant, \done shows linear temperature dependence, the behaviour of a strong glass forming liquid. The \dcon molecule exhibits a significant increase as the temperature decreases, the behaviour of a fragile liquid. The final molecule, \tri sits between the \done and the \dcon molecules covering the range of dynamic behaviour of liquids.
+Comparing the dynamic quantities of the three molecules~\figref{dynamic comparison} there are large differences between the molecules. Looking at the diffusion constant~\figref{D}, \done shows a linear decrease in the diffusion constant as the temperature decreases. This linear behaviour is consistent with the Arrhenius relation and indicates that the molecular rearrangements that take place have a constant activation energy. The \dcon molecule shows definite non Arrhenius behaviour, with the diffusion constant diverging from that of \done by more than two orders of magnitude, while the \tri molecule tracks between the \done and \dcon molecules. Both the rotational relaxation~\figref{t1} and structural relaxation~\figref{ts} show similar behaviour to the diffusion constant, \done shows linear temperature dependence, the behaviour of a strong glass forming liquid. The \dcon molecule exhibits a significant increase as the temperature decreases, the behaviour of a fragile liquid. The final molecule, \tri sits between the \done and the \dcon molecules covering the range of dynamic behaviour of liquids.
 
-The structural relaxation~\figref{ts} displays two gradients for each of the molecules, indicative of two separate relaxation processes with different activation energies. At high temperatures there is a process with a low activation energy which suddenly transitions at low temperatures to a process with a high activation energy. Neither the diffusion constant or the rotational relaxation show this sudden transition between two processes. By multiplying the diffusion constant $D$ by the structural relaxation time $\tau_s$~\figref{D.ts} the change in relaxation process is clearly seen as the inflection point. Initially the structural relaxation is dominated by translational motion, a process with a low activation energy. However at the inflection point the process changes to one dominated by rotational motion with at higher activation energy. Further evidence of this transition is comparing the activation energies of the rotational~\figref{t1} and structural~\figref{ts} relaxations, after the transition of the structural relaxation to a rotationally dominated process the activation energies show strong correlations. Despite the sudden change in the structural relaxation time, there is no corresponding discontinuity in the diffusion constant~\figref{D}. In defining the diffusion constant we are only interested in the gradient of the MSD in the diffusive regime, ignoring the time to reach the diffusive regime. At low temperatures the plateau region of the MSD is sits below the 0.09 cutoff of the structure function, during which rotations are the primary contributor to the structural relaxation. 
+The structural relaxation~\figref{ts} displays two gradients for each of the molecules, indicative of two separate relaxation processes with different activation energies. At high temperatures there is a process with a low activation energy which suddenly transitions at low temperatures to a process with a high activation energy. Neither the diffusion constant or the rotational relaxation show this sudden transition between two processes. By multiplying the diffusion constant~$D$ by the structural relaxation time~$\tau_s$ \figref{D.ts} the change in relaxation process is clearly seen as the inflection point. Initially the structural relaxation is dominated by translational motion, a process with a low activation energy. However at the inflection point the process changes to one dominated by rotational motion with at higher activation energy. Further evidence of this transition is comparing the activation energies of the rotational~\figref{t1} and structural~\figref{ts} relaxations, after the transition of the structural relaxation to a rotationally dominated process the activation energies show strong correlations. Despite the sudden change in the structural relaxation time, there is no corresponding discontinuity in the diffusion constant~\figref{D}. In defining the diffusion constant we are only interested in the gradient of the MSD in the diffusive regime, ignoring the time to reach the diffusive regime. At low temperatures the plateau region of the MSD is sits below the 0.09 cutoff of the structure function, during which rotations are the primary contributor to the structural relaxation. 
 
 \begin{figure}
     \centering
@@ -232,7 +232,7 @@ The increased contribution of the rotations to the overall dynamics is an intere
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{{{D.t1}}}
+    \includegraphics[width=0.6\textwidth]{{{D.t1}}}
     \caption{Relative contributions of the diffusion constant and rotational relaxation to the overall dynamics. The decrease as the temperature decreased indicates the translational diffusion is getting slower faster than the rotational diffusion.}
     \label{fig:D.t1}
 \end{figure}
@@ -252,20 +252,22 @@ In describing the differences between the dynamic properties of the molecules th
 \end{equation}
 where $a$ is the displacement to overcome the local energy barrier and $\langle u^2 \rangle$ is the Debye-Waller factor, a measure of the local rigidity of the structure. The Debye-Waller factor is found as the MSD at the time where 
 \begin{equation}
-    \ddiff{\log{MSD}}{d\log{t}}
+    \ddiff{\log{(\text{MSD})}}{\log{(t)}}
 \end{equation}
 is a minimised~\cite{larini:08}, the value where the slope is lowest in \textfigref{snowman 0.637556 1.0 msd}.
 
 Plotting the diffusion constant~\figref{DW.D} and the rotational relaxation time~\figref{DW.t1} against $1/\langle u^2 \rangle$ we see that instead of the molecules diverging there is a much better correlation between them. The Debye-Waller factor normalises the dynamics based on the local structural rigidity explaining a significant portion of the difference in the dynamics of the molecules. In changing the shape of molecules we change the local stiffness of the liquid phase resulting in order of magnitude changes of the dynamics. The cause of the temperature dependence of the local stiffness is likely a key contributor to the fragility of a liquid.
 
 \begin{figure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{DW.D}}}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{{{DW.D}}}
         \caption{At high temperatures the Debye-Waller factor $\langle u^2 \rangle$ is a fairly constant large value (left of figure). As the temperature decreases all molecules show diffusion constants over an order of magnitude range at any value of $\langle u^2 \rangle$, much smaller than the four orders of magnitude when plotting against temperature.}
         \label{fig:DW.D}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=\textwidth]{{{DW.t1}}}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{{{DW.t1}}}
         \caption{At high temperatures the Debye-Waller factor $\langle u^2 \rangle$ is a fairly constant large value (left of figure). As the temperature decreases both \done and \tri show similar rotational relaxation times. The \dcon molecule shows a steeper slope indicating the presence of more complicated process.}
         \label{fig:DW.t1}
     \end{subfigure}
