@@ -1,13 +1,17 @@
 # LaTeX Ouput
 .output
 
-# Include all image files
-!*.pdf
+# Include some image files
 !*.png
 !*.jpg
+
+# Ignore all pdf illustrator and photoshop files
+*.pdf
+*.ai
+*.psd
 
 # Ignore thesis.pdf
 thesis.pdf
 
-# Ignore Adobe Illustrator files
-*.ai
+# Ignore movie files
+presentation/movie

@@ -21,7 +21,7 @@ else
 	bibcommand = $(bib) $(output)/$(basename $<)
 endif
 
-all: thesis.pdf pres.pdf
+all: thesis.pdf
 
 pres: pres.pdf
 
