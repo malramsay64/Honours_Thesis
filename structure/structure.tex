@@ -1,34 +1,40 @@
-\chapter{Ordering in Inherent Structures}
+\chapter{Ground State Structures for Molecular Crystals and Liquids}
 \label{sec:structure}
 
-The dynamic properties of the systems studied remains smooth and well behaved throughout the range simulated indicating that no phase transition took place over the range of temperatures studied. While the dynamics show no presence of a phase transition further study of the structure is necessary to rule out the possibility of ordering as a contributing factor in the behaviour of the dynamics. To remove the noise of vibrations from the structural analysis all the analysis in this chapter will be performed using inherent structures.
+As we lower the temperature, the properties of a condensed phase become increasingly dominated by the arrangement of molecules corresponding to the local potential energy minima, the ground state. In the same way the structure and dynamics of a small molecule can be inferred from its ground state structure, these properties can be inferred from the ground state of these condensed phases with thousands of molecules.
+
+In this chapter we address: What are the structures and energies of the most stable crystal structures of our molecules? The problems with generic measures of order in molecular systems? What degree of ordering is present in the ground states of our molecular liquids?
 
 \section{The Most Stable Crystal Phase}
 
-Here they are
+The most stable crystal phase, for our purposes, is the crystal that will form spontaneously from the liquid phase upon cooling. Since by design this process is slow or unobservable for the molecular liquids we are using we need to use other means to identify the most stable crystal phase (described below). Of most stable crystal phases~\figref{crystals} the \dcon and \tri molecules have unit cells in the p2 wallpaper group in which the majority of crystals lie~\cite{plass:07,jennings:15}. While the \done molecule is contained in the p2mg wallpaper group which contains very few crystal structures, making it an interesting crystal structure.
 
-We know they are because of melting points
-Tested the melting points of the lowest energy structures
-These lowest energy structures were found from the isopointal search of hard discs
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\linewidth}
+        \includegraphics[width=\textwidth]{{{Snowman-0.4-0.637556-1.00-p2mg-frame}}}
+        \caption{}
+        \label{fig:crystal done}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.45\linewidth}%
+        \includegraphics[width=\textwidth]{{{Snowman-0.4-0.637556-1.637556-p2-frame}}}
+        \caption{}
+        \label{fig:crystal dcon}
+    \end{subfigure}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[width=\textwidth]{{{Trimer-0.4-0.637556-1.00-120-p2-frame}}}
+        \caption{}
+        \label{fig:crystal tri}
+    \end{subfigure}
+    \caption{The stable crystal forms of the \done~\subfigref{crystal done}, \dcon~\subfigref{crystal dcon}, and \tri~\subfigef{crystal tri} phases for each molecule. The molecules are coloured according to their orientation. The unit cell is indicated by a black box with an inversion center marked with a red dot.}
+    \label{fig:crystals}
+\end{figure}
 
-\section{Identifying Order in Amorphous Structures}
+The crystal structures shown in \textfigef{crystals} were determined to be the most stable crystal structures using a variety of techniques. As a starting point we wanted to find the lowest energy crystal structures, since using molecular dynamics was not possible we had to use an alternate method. By approximating our particles as hard discs and finding the closest packed structure we are able to use the isopointal search algorithm developed by~\textcite{husdon:10} to search the reduced packing space, generating a best packed structure for each wallpaper group.
 
-Using standard methods we only find odering in D1
+The best packed structures can then be used as the starting configurations for a molecular dynamics simulation to find the lowest energy ground state~\tabref{crystal energies}. The \done and \dcon molecules have configurations with a ground state significantly lower than any other, p2mg and p2 respectively. For these two molecules we can be fairly certain these are the most stable ground state, however for the \tri molecule there are three configurations p2, p2gg and pg all with similar ground state energies.
 
-\subsection{Problems with Generic Descriptions of Order in Molecular Systems}
-
-\section{Locality of Order}
-
-We can find the location of the order, it is in small regions not contributing to long range ording
-
-These are the methods we use to detect order in these systems.
-
-% End of structure
-
-\section{The Lowest Energy Crystal Phases}
-
-In the interests of developing more specific tools for detecting crystalline order, we need to know which crystal structures are likely to form. In most cases finding the crystal structure that is likely to form is a case of finding the lowest energy crystal structure. To find these lowest energy structures we need tools other than molecular dynamics since we chose systems to have crystallisation timescales at or beyond the limits of our simulations. To find a good approximation of the lowest energy structures we look to packing hard shapes, by modelling our molecules as hard discs we are able to use an isopointal algorithm to get a good approximation of the closest packed configurations. These closest packed configurations can be used as the starting configuration for our system to be equilibrated at a low temperature allowing the crystals to relax into their lowest energy state. \texttabref{crystal energies} shows the energy of the Lennard Jones systems that we are studying using the best packed isopointal structures for each wallpaper group as the starting configuration. Our Lennard-Jones system does not retain the constraints of the wallpaper group symmetry, however there are no significant deviations in the structure from that of the wallpaper group.
-
+ 
 \begin{table}
     \sisetup{
         table-format = +3.4,
@@ -54,24 +60,25 @@ In the interests of developing more specific tools for detecting crystalline ord
     \label{tab:crystal energies}
 \end{table}
 
-With the \tri molecule having three crystal forms with similar energies, further analysis needs to be performed to elucidate the crystal structures that will form. Because the energies are so close together this moves from a search of structures, to the dynamics of crystal formation (full discussion on these systems in \textsecref{two phase}). For the \tri molecule in a system with a liquid-crystal boundary we observed a solid state rearrangement from the initial p2gg structure~\figref{tri rearr init} to a structure with bands of p2 crystal~\figref{tri rearr fine} telling us the p2 structure is more stable than the p2gg structure and the preferred of the three structures.
+With multiple structures of the \tri molecule having similar energies further analysis is required to determine the most stable structure, for this we looked to a two phase system as described in \textsecref{two phase}. The two phase system~\figref{tri two phase} showed a rearrangement of molecules from the p2gg structure, which had the lowest ground state energy, to the p2 structure. The most likely reason for this phase transition from p2gg structure is an increased entropy in the p2 structure, hence thermodynamic stability at higher temperatures. From this analysis the p2 structure was considered the most stable structure.
+
 
 \begin{figure}
     \begin{subfigure}[t]{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Trimer-1.30-0.637556-1.00-120-p2gg-1-frame-0000000000}}}
-        \caption{Initial p2gg structure of the \tri molecule. Note there are four layers of molecules.}
+        \caption{Initial}
         \label{fig:tri rearr init}
     \end{subfigure}
     \begin{subfigure}[t]{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Trimer-1.30-0.637556-1.00-120-p2gg-1-frame-0320000000}}}
-        \caption{In this configuration a number of the rows have switched orientations creating layers of p2 structure between the regions of p2gg structure.}
+        \caption{Final}
         \label{fig:tri rearr fine}
     \end{subfigure}
-\caption{These configurations of the \tri molecule below the melting point show the solid-state phase transition that takes place.}
+    \caption{The initial~\subfigref{tri rearr init} and final~\subfigref{tri rearr fine} configurations of a two phase simulation of the \tri molecule below the melting point. We can see the solid state phase transition from a p2mg structure with four layers in each unit cell to a structure that alternates between the p2 structure (two layers) and the p2gg structure (4 layers).}
     \label{fig:tri two phase}
 \end{figure}
 
-Similarly as confirmation the three lowest energy crystal structures for the \done molecules were also simulated using a two phase system. Just like the \tri molecule the p2gg crystal of the \done molecule also a exhibited a solid state phase transition from the p2gg to the p2 crystal, both the p2gg and p2 crystals of the \done molecules had a lower melting point than the lowest energy \done crystal, p2mg. The high melting point of the p2mg crystal in the \done system compared to the other crystal structures confirms that the lowest energy p2mg structure is the most likely crystal to form. With the \dcon molecule only the p2 and p2gg structure were tested, these crystals had energies far below that of any other \dcon crystal structures. In this case the p2 structure had the higher melting point for the \dcon molecule again confirming the result we obtained from the energies.
+In light of the \tri molecule having a stable structure that did not have the lowest energy ground state we performed melting point analysis on the \done and \dcon molecules. The melting points for each crystal were obtained using a two phase system~\tabref{melting}. These results confirmed the lowest energy structures were the most stable having significantly higher melting points.
 
 \begin{table}
     \centering
@@ -80,99 +87,29 @@ Similarly as confirmation the three lowest energy crystal structures for the \do
         Molecule & Crystal & {Melting Point} \\ \hline
         \multirow{3}{*}{\done} & p2 & 0.65 \\
                                & p2gg & 0.55 \\
-                               & p2mg & 0.80 \\ \hline
+                               & p2mg & 0.92 \\ \hline
         \multirow{2}{*}{\dcon} & p2 & 1.85 \\
                                & p2gg & 1.50 \\ \hline
     \end{tabular}
-    \caption{Melting points of the crystal phases established from two phase systems}
+    \caption{Melting points of the crystal phases established from two phase systems.}
     \label{tab:melting}
 \end{table}
 
-The lowest energy crystal structures we have determined for out molecules~\figref{crystals} consist of p2 and p2mg wallpaper groups. The p2 wallpaper group is the most heavily populated~\cite{plass:07,jennings:15} of the wallpaper groups, while the p2mg wallpaper group is rarely found in experimental systems~\cite{plass:07} . Both p2 and the p2mg structures exhibit an inversion center between pairs of molecules, a result that aligns with the crystal packing guidelines of~\textcite{torquato:12}.
+\section{Quantifying Order in Molecular Systems}
 
-Having worked out the crystal structures that are most likely to form for our molecules~\figref{crystals}, the properties of these crystal structures can be used to identify structures in the liquid phase that may indicate the presence of ordering.
+In most cases it is fairly easy to distinguish a crystal from an amorphous phase by simple visual inspection of the two configurations. Much harder to determine visually is to quantify the degree to which a system is ordered, a problem with application in crystal growth. In this section we investigate a number of measures of order, including local order, as well as problems associated with each.
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-0.4-0.637556-1.00-p2mg-frame}}}
-        \caption{The stable crystal phase of the \done molecule belongs to the p2mg wallpaper group.}
-        \label{fig:crystal done}
-    \end{subfigure}\hfill
-    \begin{subfigure}[t]{0.45\linewidth}%
-        \includegraphics[width=\textwidth]{{{Snowman-0.4-0.637556-1.637556-p2-frame}}}
-        \caption{The stable crystal phase of the \dcon molecule belongs to the p2 wallpaper group.}
-        \label{fig:crystal dcon}
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\textwidth]{{{Trimer-0.4-0.637556-1.00-120-p2-frame}}}
-        \caption{The stable crystal phase of the \tri molecules belongs to the p2 wallpaper group.}
-        \label{fig:crystal tri}
-    \end{subfigure}
-    \caption{The configurations of the stable crystal phases for each molecule. The molecules are coloured according to orientation. The unit cell is indicated by a black box and an inversion center is marked with a red dot.}
-    \label{fig:crystals}
-\end{figure}
+We will be investigating the order parameters using an amorphous \scon structure and a crystalline \scon structure.
 
-\subsection{Order Parameters}
+2D correlation functions taking the radial distribution function at each angle
 
-Taking what we know about the crystal structures we can develop order parameters which will aid in identifying regions of crystalline order. Along with crystalline order we also want to be able to identify other types of ordering including alignment of layers as would be found in a plastic-crystal. These more general forms of ordering form the basis of more specific techniques.
+G(r)
 
-The radial distribution function $G(r)$ is one of the general techniques for detecting ordering in a simulated system. It is a distribution of the distances between the molecular centers of mass. The radial distribution of the \done molecule~\figref{done radial} shows an intense first shell peak, the immediate neighbours are at well defined distances. This order extends out to 12 units distance with \done molecule exhibiting broad peaks, indicating the presence of some weak medium-range ordering. The \dcon molecule~\figref{dcon radial} exhibits an intense first peak and some sharp secondary and second shell peaks. The intensity and sharpness of these peaks can be attributed to the interactions of the \dcon molecules as the concavity. The \dcon molecule has the largest concavity of the three molecules and when molecules are in the concavity they are highly constrained giving tight distributions of the center of mass~\figref{dcon radial part}. Unlike the sharp peaks of the \dcon molecule the \tri molecule~\figref{tri radial} has a series of three broad peaks in the first shell of neighbours, with order only extending to three broad peaks in the second shell. It is likely the concavities of the \tri molecule are much less selective than the concavities of the dimers.
+Orientational order
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Snowman-0.80-0.637556-1.0-radial}}}
-        \caption{Radial distribution of \done molecule. The broad peaks out a distance of 12 indicate long range weak medium range ordering in the inherent structure.}
-        \label{fig:done radial}
-    \end{subfigure}\hfill
-    \begin{subfigure}[t]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-radial}}}
-    \caption{Radial distribution of the \dcon molecule. The initial peaks are incredibly sharp showing strong short range ordering, however this order only extends to the second shell.}
-        \label{fig:dcon radial}
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Trimer-1.05-0.637556-1.00-120-radial}}}
-        \caption{Radial distribution of the \tri molecule. All the peaks for this molecule are very broad, even in the first shell.}
-        \label{fig:tri radial}
-    \end{subfigure}
-    \caption{Radial distribution function for each molecule showing a range of types of order.}
-    \label{fig:radial distributions}
-\end{figure}
+\subsection{Problems with Generic Descriptions of Order in Molecular Systems}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.45\textwidth]{{{Snowman-1.55-0.637556-1.637556-radial2d_rel}}}
-    \caption{The two dimensional radial distribution of the \dcon molecule in which the intensity of the peak is indicated by the amount of blue. The intense inner peaks (circled in red) show the distribution of the COM when the molecules interact via the concavity.}
-    \label{fig:dcon radial2d_abs}
-\end{figure}
-
-Another measure of order is to look at the orientational distribution of the molecules. This provides an alternate look at the degree to which molecules are organising over large distances. The angular distribution looks at whether there are some directions which molecules are favouring, an indicator of long range ordering. None of the molecules~\figref{angular distributions} show a directional preference, a sign that there is no long range orientational ordering taking place.
-
-\begin{figure}
-    \centering
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Snowman-0.80-0.637556-1.0-angular}}}
-        \caption{The angular distribution of the \done molecule.}
-        \label{fig:done angular}
-    \end{subfigure}\hfill
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-angular}}}
-        \caption{The angular distribution of the \dcon molecule}
-        \label{fig:dcon angular}
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Trimer-1.05-0.637556-1.00-120-angular}}}
-        \caption{The angular distribution of the \tri molecule.}
-        \label{fig:tri angular}
-    \end{subfigure}
-    \caption{Angular distributions of the three molecules show no orientational ordering.}
-    \label{fig:angular distributions}
-\end{figure}
-
-\subsection{Order in \dcon}
-
-Both of the previous methods of describing order use properties of the molecule, the orientation and center of mass. In molecular systems these properties can fail to reflect the underlying structure. Consider the compact binary packing with a size ratio of 1:0.637556~\figref{compact}, an arrangement equivalent to packing the \dcon molecule without the allocation of bonds. The allocation of bonds can be performed randomly with no adjustment to the structure of the underlying particles. Two examples of assigning bonds; an ordered p2 structure~\figref{ordered frame}, and a randomly oriented structure~\figref{random frame} demonstrate the issues in identifying order with a random assignment of bonds. The orientational order of the p2 structure can easily be seen with diagonal banding of colours, corresponding to the two orientations present in the structure while the randomly assigned structure has molecules arranged with no orientational order, distributed between the eight possible molecular orientations. We can attempt to remove the noise of this orientational disorder by only plotting the centers of mass~(\textfigref{ordered com} and~\textfigref{random com}), however this gives a very similar result, the ordered structure exhibits distinctly crystalline behaviour with centers of mass aligning in rows while the random structure needs further analysis to be considered ordered.
+The \dcon molecule was chosen for being a special case, this ratio of hard discs will form a compact packing~\appref{compact packing}. If we start with the compact packing of discs~\figref{compact} we can assign bonds between large and small particles to form molecules without modifying the underlying structure. Two examples of this assignment of bonds, an orientationally ordered p2 structure~\figref{ordered-frame} and an orientationally disordered random assignment of bonds~\figref{random-frame}. Both these structures have the same underlying structure of particles, despite the orientational disorder in the randomly assigned configuration it is indisputably crystalline in character and any order parameter should reflect this.
 
 \begin{figure}
     \centering
@@ -180,8 +117,6 @@ Both of the previous methods of describing order use properties of the molecule,
     \caption{The compact packing of discs with ratio 1:0.637556. Assignment of bonds to this structure can be performed randomly (top left) with no alteration of the underlying structure.}
     \label{fig:compact}
 \end{figure}
-
-In the randomly oriented configuration the molecules are a construct placed on an ordered arrangement of particles. Since it is the particles define the order rather than the molecules, using an order parameter that is a measure of the ordering of the particles rather than the molecules is more appropriate for this molecule. If we define the \emph{particle radial distribution function} $G_p(r)$ in the same way as the radial distribution function, however instead of centers of mass we use the centers of density, the center of each disc. This particle radial distribution function translates better to experiments which look at the centers of density, each atom, rather than centers of mass. 
 
 \begin{figure}
     \begin{subfigure}[t]{0.5\linewidth}
@@ -218,8 +153,48 @@ In the randomly oriented configuration the molecules are a construct placed on a
     \label{fig:compact bonds}
 \end{figure}
 
+Solution
 
-Using this particle radial distribution function we can look for order in the inherent structures of the molecules. The \dcon molecule~\figref{dcon radial part} shows medium range ordering which was not present on the radial distribution function~\figref{dcon radial}. The particle radial distribution function has also helped in reducing the number of secondary peaks with much sharper and higher intensity peaks. The \done molecule~\figref{done radial part} shows no medium range ordering unlike when using the radial distribution~\figref{done radial} which is an demonstrates the specificity of detecting order in these molecules. To get the best results order parameters need to be tailored to the particular molecule.
+
+\subsection{Locality of Order}
+
+We have the radial distribution functions and the orientational order parameters that inform us of order in the bulk. However these order parameters do not provide information on where the order is located, how many molecules are in these areas, whether there is a single crystal or is polycrystalline, and the size of any regions of order; a local order parameter can address all these problems. To take a local approach to order we have to find new order parameters that are capable of defining local order.
+
+For the \done molecule we can define a local order parameter $O_\done$ based on the p2mg crystal structure as
+\begin{equation}
+    O_{\done} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect{\hat e} \cdot \vect{\hat e_i})^2
+\end{equation}
+where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. Molecules that are above a cutoff of $0.8$ are considered to be crystalline while molecules below this cutoff are classed as amorphous. \textfigref{done inherent} demonstrates this order parameter using the inherent structure of the \done molecule studied throughout this chapter. There are many small regions of crystalline order while most of the configuration is amorphous.
+
+In defining a local order parameter for the \dcon molecules we can use the particle approach that worked well for the global order parameter, however in this case we are looking at the local environment of each particle. In the p2 crystalline structure each small particle has one other small neighbour and four large neighbours, and each large particle has three small and three large neighbours. Molecules consisting of particles that have these specific neighbours are considered ordered.
+
+The \tri molecule we are treating in the same way as the \done molecule, using the local orientational order of each molecule to assess the degree of ordering. For the \tri molecule the cutoff for this function was determined to be \num{0.7}, giving good differentiation between the crystal and liquid phases with an acceptable level of false positives and false negatives.
+
+\section{The Structure in Amorphous Ground States}
+
+G(r) for each
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{{{Snowman-0.80-0.637556-1.0-radial}}}
+        \caption{Radial distribution of \done molecule. The broad peaks out a distance of 12 indicate long range weak medium range ordering in the inherent structure.}
+        \label{fig:done radial}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-radial}}}
+    \caption{Radial distribution of the \dcon molecule. The initial peaks are incredibly sharp showing strong short range ordering, however this order only extends to the second shell.}
+        \label{fig:dcon radial}
+    \end{subfigure}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[width=\linewidth]{{{Trimer-1.05-0.637556-1.00-120-radial}}}
+        \caption{Radial distribution of the \tri molecule. All the peaks for this molecule are very broad, even in the first shell.}
+        \label{fig:tri radial}
+    \end{subfigure}
+    \caption{Radial distribution function for each molecule showing a range of types of order.}
+    \label{fig:radial distributions}
+\end{figure}
+
+G_part(R) for each
 
 \begin{figure}
     \centering
@@ -241,20 +216,7 @@ Using this particle radial distribution function we can look for order in the in
     \caption{Radial particle distribution for the three molecules.}
     \label{fig:radial part distributions}
 \end{figure}
-
-\section{Locality of Order}
-
-We have the radial distribution functions and the orientational order parameters that inform us of order in the bulk. However these order parameters do not provide information on where the order is located, how many molecules are in these areas, whether there is a single crystal or is polycrystalline, and the size of any regions of order; a local order parameter can address all these problems. To take a local approach to order we have to find new order parameters that are capable of defining local order.
-
-For the \done molecule we can define a local order parameter $O_\done$ based on the p2mg crystal structure as
-\begin{equation}
-    O_{\done} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect{\hat e} \cdot \vect{\hat e_i})^2
-\end{equation}
-where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. Molecules that are above a cutoff of $0.8$ are considered to be crystalline while molecules below this cutoff are classed as amorphous. \textfigref{done inherent} demonstrates this order parameter using the inherent structure of the \done molecule studied throughout this chapter. There are many small regions of crystalline order while most of the configuration is amorphous.
-
-In defining a local order parameter for the \dcon molecules we can use the particle approach that worked well for the global order parameter, however in this case we are looking at the local environment of each particle. In the p2 crystalline structure each small particle has one other small neighbour and four large neighbours, and each large particle has three small and three large neighbours. Molecules consisting of particles that have these specific neighbours are considered ordered.
-
-The \tri molecule we are treating in the same way as the \done molecule, using the local orientational order of each molecule to assess the degree of ordering. For the \tri molecule the cutoff for this function was determined to be \num{0.7}, giving good differentiation between the crystal and liquid phases with an acceptable level of false positives and false negatives.
+Local order of each
 
 \begin{figure}
     \centering
@@ -276,5 +238,31 @@ The \tri molecule we are treating in the same way as the \done molecule, using t
     \caption{Final inherent structure configurations for each molecule, the colouring of the molecules representative of their orientations.}
     \label{fig:inherent structures frame}
 \end{figure}
+% End of structure
 
-With these tools in detecting ordering in structures it is possible to detect the crystallisation of molecules.
+The radial distribution function $G(r)$ is one of the general techniques for detecting ordering in a simulated system. It is a distribution of the distances between the molecular centers of mass. The radial distribution of the \done molecule~\figref{done radial} shows an intense first shell peak, the immediate neighbours are at well defined distances. This order extends out to 12 units distance with \done molecule exhibiting broad peaks, indicating the presence of some weak medium-range ordering. The \dcon molecule~\figref{dcon radial} exhibits an intense first peak and some sharp secondary and second shell peaks. The intensity and sharpness of these peaks can be attributed to the interactions of the \dcon molecules as the concavity. The \dcon molecule has the largest concavity of the three molecules and when molecules are in the concavity they are highly constrained giving tight distributions of the center of mass~\figref{dcon radial part}. Unlike the sharp peaks of the \dcon molecule the \tri molecule~\figref{tri radial} has a series of three broad peaks in the first shell of neighbours, with order only extending to three broad peaks in the second shell. It is likely the concavities of the \tri molecule are much less selective than the concavities of the dimers.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{{{Snowman-1.55-0.637556-1.637556-radial2d_rel}}}
+    \caption{The two dimensional radial distribution of the \dcon molecule in which the intensity of the peak is indicated by the amount of blue. The intense inner peaks (circled in red) show the distribution of the COM when the molecules interact via the concavity.}
+    \label{fig:dcon radial2d_abs}
+\end{figure}
+
+Another measure of order is to look at the orientational distribution of the molecules. This provides an alternate look at the degree to which molecules are organising over large distances. The angular distribution looks at whether there are some directions which molecules are favouring, an indicator of long range ordering. None of the molecules~\figref{angular distributions} show a directional preference, a sign that there is no long range orientational ordering taking place.
+
+\subsection{Order in \dcon}
+
+Both of the previous methods of describing order use properties of the molecule, the orientation and center of mass. In molecular systems these properties can fail to reflect the underlying structure. Consider the compact binary packing with a size ratio of 1:0.637556~\figref{compact}, an arrangement equivalent to packing the \dcon molecule without the allocation of bonds. The allocation of bonds can be performed randomly with no adjustment to the structure of the underlying particles. Two examples of assigning bonds; an ordered p2 structure~\figref{ordered frame}, and a randomly oriented structure~\figref{random frame} demonstrate the issues in identifying order with a random assignment of bonds. The orientational order of the p2 structure can easily be seen with diagonal banding of colours, corresponding to the two orientations present in the structure while the randomly assigned structure has molecules arranged with no orientational order, distributed between the eight possible molecular orientations. We can attempt to remove the noise of this orientational disorder by only plotting the centers of mass~(\textfigref{ordered com} and~\textfigref{random com}), however this gives a very similar result, the ordered structure exhibits distinctly crystalline behaviour with centers of mass aligning in rows while the random structure needs further analysis to be considered ordered.
+
+
+In the randomly oriented configuration the molecules are a construct placed on an ordered arrangement of particles. Since it is the particles define the order rather than the molecules, using an order parameter that is a measure of the ordering of the particles rather than the molecules is more appropriate for this molecule. If we define the \emph{particle radial distribution function} $G_p(r)$ in the same way as the radial distribution function, however instead of centers of mass we use the centers of density, the center of each disc. This particle radial distribution function translates better to experiments which look at the centers of density, each atom, rather than centers of mass. 
+
+
+
+Using this particle radial distribution function we can look for order in the inherent structures of the molecules. The \dcon molecule~\figref{dcon radial part} shows medium range ordering which was not present on the radial distribution function~\figref{dcon radial}. The particle radial distribution function has also helped in reducing the number of secondary peaks with much sharper and higher intensity peaks. The \done molecule~\figref{done radial part} shows no medium range ordering unlike when using the radial distribution~\figref{done radial} which is an demonstrates the specificity of detecting order in these molecules. To get the best results order parameters need to be tailored to the particular molecule.
+
+
+\section{Locality of Order}
+
