@@ -107,7 +107,30 @@ G(r)
 
 Orientational order
 
+
+\subsection{Locality of Order}
+
+In all crystal structures we have molecules aligning antiparallel - orientations are 180 to each other. We can define local order using this.
+
+It works
+
+
+
+We have the radial distribution functions and the orientational order parameters that inform us of order in the bulk. However these order parameters do not provide information on where the order is located, how many molecules are in these areas, whether there is a single crystal or is polycrystalline, and the size of any regions of order; a local order parameter can address all these problems. To take a local approach to order we have to find new order parameters that are capable of defining local order.
+
+For the \done molecule we can define a local order parameter $O_\done$ based on the p2mg crystal structure as
+\begin{equation}
+    O_{\done} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect{\hat e} \cdot \vect{\hat e_i})^2
+\end{equation}
+where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. Molecules that are above a cutoff of $0.8$ are considered to be crystalline while molecules below this cutoff are classed as amorphous. \textfigref{done inherent} demonstrates this order parameter using the inherent structure of the \done molecule studied throughout this chapter. There are many small regions of crystalline order while most of the configuration is amorphous.
+
+In defining a local order parameter for the \dcon molecules we can use the particle approach that worked well for the global order parameter, however in this case we are looking at the local environment of each particle. In the p2 crystalline structure each small particle has one other small neighbour and four large neighbours, and each large particle has three small and three large neighbours. Molecules consisting of particles that have these specific neighbours are considered ordered.
+
+The \tri molecule we are treating in the same way as the \done molecule, using the local orientational order of each molecule to assess the degree of ordering. For the \tri molecule the cutoff for this function was determined to be \num{0.7}, giving good differentiation between the crystal and liquid phases with an acceptable level of false positives and false negatives.
+
 \subsection{Problems with Generic Descriptions of Order in Molecular Systems}
+
+Wait a second, no it doesn't
 
 The \dcon molecule was chosen for being a special case, this ratio of hard discs will form a compact packing~\appref{compact packing}. If we start with the compact packing of discs~\figref{compact} we can assign bonds between large and small particles to form molecules without modifying the underlying structure. Two examples of this assignment of bonds, an orientationally ordered p2 structure~\figref{ordered-frame} and an orientationally disordered random assignment of bonds~\figref{random-frame}. Both these structures have the same underlying structure of particles, despite the orientational disorder in the randomly assigned configuration it is indisputably crystalline in character and any order parameter should reflect this.
 
@@ -156,19 +179,6 @@ The \dcon molecule was chosen for being a special case, this ratio of hard discs
 Solution
 
 
-\subsection{Locality of Order}
-
-We have the radial distribution functions and the orientational order parameters that inform us of order in the bulk. However these order parameters do not provide information on where the order is located, how many molecules are in these areas, whether there is a single crystal or is polycrystalline, and the size of any regions of order; a local order parameter can address all these problems. To take a local approach to order we have to find new order parameters that are capable of defining local order.
-
-For the \done molecule we can define a local order parameter $O_\done$ based on the p2mg crystal structure as
-\begin{equation}
-    O_{\done} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect{\hat e} \cdot \vect{\hat e_i})^2
-\end{equation}
-where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. Molecules that are above a cutoff of $0.8$ are considered to be crystalline while molecules below this cutoff are classed as amorphous. \textfigref{done inherent} demonstrates this order parameter using the inherent structure of the \done molecule studied throughout this chapter. There are many small regions of crystalline order while most of the configuration is amorphous.
-
-In defining a local order parameter for the \dcon molecules we can use the particle approach that worked well for the global order parameter, however in this case we are looking at the local environment of each particle. In the p2 crystalline structure each small particle has one other small neighbour and four large neighbours, and each large particle has three small and three large neighbours. Molecules consisting of particles that have these specific neighbours are considered ordered.
-
-The \tri molecule we are treating in the same way as the \done molecule, using the local orientational order of each molecule to assess the degree of ordering. For the \tri molecule the cutoff for this function was determined to be \num{0.7}, giving good differentiation between the crystal and liquid phases with an acceptable level of false positives and false negatives.
 
 \section{The Structure in Amorphous Ground States}
 
