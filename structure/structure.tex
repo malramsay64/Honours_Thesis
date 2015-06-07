@@ -1,4 +1,4 @@
-\chapter{Ground State Structures for Molecular Crystals and Liquids}
+\chapter[Strucuture of Crystals and Liquids]{Ground State Structures of Molecular Crystals and Liquids}
 \label{sec:structure}
 
 As we lower the temperature, the properties of a condensed phase become increasingly dominated by the arrangement of molecules corresponding to the local potential energy minima, the ground state. In the same way the structure and dynamics of a small molecule can be inferred from its ground state structure, these properties can be inferred from the ground state of these condensed phases with thousands of molecules.
@@ -26,11 +26,11 @@ The most stable crystal phase, for our purposes, is the crystal that will form s
         \caption{}
         \label{fig:crystal tri}
     \end{subfigure}
-    \caption{The stable crystal forms of the \done~\subfigref{crystal done}, \dcon~\subfigref{crystal dcon}, and \tri~\subfigef{crystal tri} phases for each molecule. The molecules are coloured according to their orientation. The unit cell is indicated by a black box with an inversion center marked with a red dot.}
+    \caption{The stable crystal forms of the \done~\subfigref{crystal done}, \dcon~\subfigref{crystal dcon}, and \tri~\subfigref{crystal tri} phases for each molecule. The molecules are coloured according to their orientation. The unit cell is indicated by a black box with an inversion center marked with a red dot.}
     \label{fig:crystals}
 \end{figure}
 
-The crystal structures shown in \textfigef{crystals} were determined to be the most stable crystal structures using a variety of techniques. As a starting point we wanted to find the lowest energy crystal structures, since using molecular dynamics was not possible we had to use an alternate method. By approximating our particles as hard discs and finding the closest packed structure we are able to use the isopointal search algorithm developed by~\textcite{husdon:10} to search the reduced packing space, generating a best packed structure for each wallpaper group.
+The crystal structures shown in \textfigref{crystals} were determined to be the most stable crystal structures using a variety of techniques. As a starting point we wanted to find the lowest energy crystal structures, since using molecular dynamics was not possible we had to use an alternate method. By approximating our particles as hard discs and finding the closest packed structure we are able to use the isopointal search algorithm developed by~\textcite{husdon:10} to search the reduced packing space, generating a best packed structure for each wallpaper group.
 
 The best packed structures can then be used as the starting configurations for a molecular dynamics simulation to find the lowest energy ground state~\tabref{crystal energies}. The \done and \dcon molecules have configurations with a ground state significantly lower than any other, p2mg and p2 respectively. For these two molecules we can be fairly certain these are the most stable ground state, however for the \tri molecule there are three configurations p2, p2gg and pg all with similar ground state energies.
 
@@ -97,40 +97,62 @@ In light of the \tri molecule having a stable structure that did not have the lo
 
 \section{Quantifying Order in Molecular Systems}
 
-In most cases it is fairly easy to distinguish a crystal from an amorphous phase by simple visual inspection of the two configurations. Much harder to determine visually is to quantify the degree to which a system is ordered, a problem with application in crystal growth. In this section we investigate a number of measures of order, including local order, as well as problems associated with each.
+In most cases it is fairly easy to distinguish a crystal from an amorphous phase by simple visual inspection of the two configurations. Much harder to determine visually is to quantify the degree to which a system is ordered, a problem with application in crystal growth. In this section we investigate a number of measures of order, including local order, as well as problems associated with each. We will be investigating these order parameters using an amorphous and crystal configuration~\figref{frame comp} of the \dcon molecule.
 
-We will be investigating the order parameters using an amorphous \scon structure and a crystalline \scon structure.
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\linewidth]{amorphous-frame}
+        \caption{}
+        \label{fig:amorphous frame}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\linewidth]{crys-frame}
+        \caption{}
+        \label{fig:crys frame}
+    \end{subfigure}
+    \caption{The amorphous \subfigref{amorphous frame} and crystal \subfigref{crys frame} configurations with the colour of the molecules indicating orientation.}
+    \label{fig:frame comp}
+\end{figure}
 
-2D correlation functions taking the radial distribution function at each angle
+The first of the order parameters is the radial distribution function~\figref{radial comp}, a distribution of the relative intermolecular distances. The amorphous structure shows short range ordering characteristic of any condensed phase, however this order is only present in the first layer of molecules, once past this region the distribution of molecules is uniform. This is in contrast with the crystal structure that exhibits distinct peaks out to long ranges showing the long range order of this structure.
 
-G(r)
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\linewidth]{amorphous-radial}
+        \caption{}
+        \label{fig:amorphous radial}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\linewidth]{crys-radial}
+        \caption{}
+        \label{fig:crys radial}
+    \end{subfigure}
+    \caption{The amorphous \subfigref{amorphous radial} and crystal \subfigref{crys radial} radial distribution functions. The amorphous structure shows a peak at short range which quickly becomes a uniform distribution. The crystal structure shows sharp peaks out to long ranges.}
+    \label{fig:frame comp}
+\end{figure}
 
-Orientational order
-
-
-\subsection{Locality of Order}
-
-In all crystal structures we have molecules aligning antiparallel - orientations are 180 to each other. We can define local order using this.
-
-It works
-
-
-
-We have the radial distribution functions and the orientational order parameters that inform us of order in the bulk. However these order parameters do not provide information on where the order is located, how many molecules are in these areas, whether there is a single crystal or is polycrystalline, and the size of any regions of order; a local order parameter can address all these problems. To take a local approach to order we have to find new order parameters that are capable of defining local order.
-
-For the \done molecule we can define a local order parameter $O_\done$ based on the p2mg crystal structure as
+Along with the global order measured by the radial distribution function we can also measure local order to classify molecules as crystalline or amorphous. This allows a count of the number of molecules that are considered crystalline, an easy measure of crystal growth. The crystal structures of all three molecules have the molecules aligned antiparallel to each other, all molecules are either \ang{0} or \ang{180} relative to each other. We can use this to define a local order parameter $O_\text{local}$,
 \begin{equation}
-    O_{\done} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect{\hat e} \cdot \vect{\hat e_i})^2
+    O_{\text{local}} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect{\hat e} \cdot \vect{\hat e_i})^2
 \end{equation}
-where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. Molecules that are above a cutoff of $0.8$ are considered to be crystalline while molecules below this cutoff are classed as amorphous. \textfigref{done inherent} demonstrates this order parameter using the inherent structure of the \done molecule studied throughout this chapter. There are many small regions of crystalline order while most of the configuration is amorphous.
+where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. In the perfect crystal structure molecules with $O_\text{local}=1$ would be considered crystalline, however to account for the rotations and vibrations of molecules when heated up a cutoff of \num{0.8} was chosen as being best at differentiating crystal $O_\text{local}> 0.8$ and amorphous $O_\text{local} < 0.8$ regions. To assist in identifying this local order within a configuration~\figref{local comp} we can colour the ordered molecules leaving all others grey. Since this local order parameter identifies molecules with antiparallel orientations the molecules are coloured such that both have the same colour. The coloured regions of the amorphous phase show molecules or small clusters that exhibit short range ordering, with the number of local orderings in the amorphous phase some are going to be considered locally crystalline.
 
-In defining a local order parameter for the \dcon molecules we can use the particle approach that worked well for the global order parameter, however in this case we are looking at the local environment of each particle. In the p2 crystalline structure each small particle has one other small neighbour and four large neighbours, and each large particle has three small and three large neighbours. Molecules consisting of particles that have these specific neighbours are considered ordered.
-
-The \tri molecule we are treating in the same way as the \done molecule, using the local orientational order of each molecule to assess the degree of ordering. For the \tri molecule the cutoff for this function was determined to be \num{0.7}, giving good differentiation between the crystal and liquid phases with an acceptable level of false positives and false negatives.
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\linewidth]{amorphous-local}
+        \caption{}
+        \label{fig:amorphous radial}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\linewidth]{crys-local}
+        \caption{}
+        \label{fig:crys radial}
+    \end{subfigure}
+    \caption{The amorphous \subfigref{amorphous local} and crystal \subfigref{crys local} configurations with the colouring identifying local order. The molecules are coloured according to the orientation of the crystal. The crystal phase shows a single purple crystal for the entire configuration, while the amorphous phase has a few individual molecules showing order with a small cluster.}
+    \label{fig:frame comp}
+\end{figure}
 
 \subsection{Problems with Generic Descriptions of Order in Molecular Systems}
-
-Wait a second, no it doesn't
 
 The \dcon molecule was chosen for being a special case, this ratio of hard discs will form a compact packing~\appref{compact packing}. If we start with the compact packing of discs~\figref{compact} we can assign bonds between large and small particles to form molecules without modifying the underlying structure. Two examples of this assignment of bonds, an orientationally ordered p2 structure~\figref{ordered-frame} and an orientationally disordered random assignment of bonds~\figref{random-frame}. Both these structures have the same underlying structure of particles, despite the orientational disorder in the randomly assigned configuration it is indisputably crystalline in character and any order parameter should reflect this.
 
@@ -141,138 +163,107 @@ The \dcon molecule was chosen for being a special case, this ratio of hard discs
     \label{fig:compact}
 \end{figure}
 
+Using the local order parameter~\figref{compact local} the orientationally ordered configuration has the expected crystal structure while the orientationally disordered structure is not considered crystalline. For the \dcon molecule the more complex and specific crystal phase makes a general order parameter insufficient to resolve the crystal structure. Instead we want a local order parameter designed specifically for the \dcon system.
+
 \begin{figure}
     \begin{subfigure}[t]{0.5\linewidth}
-        \includegraphics[width=\linewidth]{ordered-frame}
-        \caption{A configuration of the \dcon molecule with p2 ordering.}
-        \label{fig:ordered frame}
+        \includegraphics[width=\linewidth]{random-local}
+        \caption{}
+        \label{fig:random local}
     \end{subfigure}
     \begin{subfigure}[t]{0.5\linewidth}
+        \includegraphics[width=\linewidth]{ordered-local}
+        \caption{}
+        \label{fig:orderd local}
+    \end{subfigure}
+    \caption{Comparison of the local order parameter on the ordered \subfigref{ordered local} and random \figref{random local} configurations of the \dcon molecule.}
+    \label{fig:compact local}
+\end{figure}
+
+The crystalline structure of the \dcon molecule is defined by the underlying arrangement of particles, the arrangement of bonds on top of the arrangement of particles does not contribute to the crystal structure. As such we want an order parameter $O_\dcon$ based on the arrangement of individual particles rather than molecules. The way we have done this is to consider the local environment of each particle. In the crystalline structure each small particle has one small and four large neighbouring particles, and each large particle has three small and three large neighbours. By counting the number and type of neighbours particles with the appropriate local environment are classed as crystalline.
+
+Using this targeted order parameter~\figref{compact frame} both the structures with random orientation and ordered orientation are completely crystalline. This demonstrates that the order parameters need to be carefully matched with the molecule to accurately identify the crystal phase.
+
+\begin{figure}
+    \begin{subfigure}[t]{0.5\linewidth}
         \includegraphics[width=\linewidth]{random-frame}
-        \caption{A configuration of the \dcon molecule in which the bonds have been assigned randomly.}
+        \caption{}
         \label{fig:random frame}
     \end{subfigure}
     \begin{subfigure}[t]{0.5\linewidth}
-        \includegraphics[width=\linewidth]{ordered-com}
-        \caption{The COM of the \dcon molecule align when the configuration is crystalline.}
-        \label{fig:ordered com}
+        \includegraphics[width=\linewidth]{ordered-frame}
+        \caption{}
+        \label{fig:orderd frame}
     \end{subfigure}
-    \begin{subfigure}[t]{0.5\linewidth}
-        \includegraphics[width=\linewidth]{random-com}
-        \caption{In the random configuration the COM of the \dcon molecule appear disordered.}
-        \label{fig:random com}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.5\linewidth}
-        \includegraphics[width=\linewidth]{ordered-radial-part}
-        \caption{The radial particle distribution function shows clear crystalline order in the sharp peaks.}
-        \label{fig:ordered radial part}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.5\linewidth}
-        \includegraphics[width=\linewidth]{random-radial-part}
-        \caption{The radial particle distribution function is essentially identical to the ordered structure.}
-        \label{fig:random radial part}
-    \end{subfigure}
-    \caption{Comparison of the \dcon molecule with crystalline p2 ordering (left column) and random assignment of bonds (right column).}
-    \label{fig:compact bonds}
+    \caption{Comparison of the $O_\dcon$ order parameter on the ordered \subfigref{ordered local} and random \figref{random local} configurations of the \dcon molecule. Crystalline molecules are coloured according to their orientation and amorphous molecules are grey.}
+    \label{fig:compact local}
 \end{figure}
-
-Solution
-
-
 
 \section{The Structure in Amorphous Ground States}
 
-G(r) for each
+While liquids show no long range anisotropy (i.e. they are isotropic) there is no reason why they might not accumulate short range structure as they are cooled below their freezing point. By \emph{short range} or \emph{local} structure we are referring to small clusters of particles that adopt an ordered arrangement that does not extend beyond the cluster. Using the tools developed above, in this section we investigate local structure of the supercooled liquid state.
+
+The \done molecule~\figref{done order} shows a small degree of long range ordering in the radial distribution function which we can see as mostly small clusters of crystalline order, with some larger crystals in the local order parameter. These larger crystals are the crystal phase nucleating and their presence in the ground state structure suggests that it will be possible to grow crystals of the \done molecule in \textchapref{crystallisation}.
+
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.45\linewidth}
         \includegraphics[width=\linewidth]{{{Snowman-0.80-0.637556-1.0-radial}}}
-        \caption{Radial distribution of \done molecule. The broad peaks out a distance of 12 indicate long range weak medium range ordering in the inherent structure.}
+        \caption{}
         \label{fig:done radial}
     \end{subfigure}\hfill
     \begin{subfigure}[t]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-radial}}}
-    \caption{Radial distribution of the \dcon molecule. The initial peaks are incredibly sharp showing strong short range ordering, however this order only extends to the second shell.}
-        \label{fig:dcon radial}
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Trimer-1.05-0.637556-1.00-120-radial}}}
-        \caption{Radial distribution of the \tri molecule. All the peaks for this molecule are very broad, even in the first shell.}
-        \label{fig:tri radial}
-    \end{subfigure}
-    \caption{Radial distribution function for each molecule showing a range of types of order.}
-    \label{fig:radial distributions}
-\end{figure}
-
-G_part(R) for each
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Snowman-0.80-0.637556-1.0-radial_part}}}
-        \caption{Radial particle distribution function for the \done molecule.}
-        \label{fig:done radial part}
-    \end{subfigure}\hfill
-    \begin{subfigure}[t]{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-radial_part}}}
-        \caption{Radial particle distribution function for the \dcon molecule. This figure shows the presence of medium range ordering in the peaks extending out to a distance of 12.}
-        \label{fig:dcon radial part}
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\linewidth]{{{Trimer-1.05-0.637556-1.00-120-radial_part}}}
-        \caption{Radial particle distribution function for the \tri molecule.}
-        \label{fig:tri radial part}
-    \end{subfigure}
-    \caption{Radial particle distribution for the three molecules.}
-    \label{fig:radial part distributions}
-\end{figure}
-Local order of each
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.45\linewidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.80-0.637556-1.0-frame-0320000191}}}
-        \caption{The configuration of \done shows regions of orientational order with layers of molecules arranged antiparallel to each other. These regions have different orientations indicating a series of nucleation events.}
+        \caption{}
         \label{fig:done inherent}
     \end{subfigure}\hfill
-    \begin{subfigure}[t]{0.45\linewidth}
-        \includegraphics[width=\textwidth]{{{Snowman-1.55-0.637556-1.637556-frame-0320000182}}}
-        \caption{The \dcon molecule shows no sign of long range order. There are small clusters of particles exhibiting the orientationally disordered crystalline phase, however these only exhibit local interactions.}
-        \label{fig:dcon inherent}
-    \end{subfigure}
-    \begin{subfigure}{0.45\linewidth}
-        \includegraphics[width=\textwidth]{{{Trimer-1.00-0.637556-1.00-120-frame-0320000177}}}
-        \caption{The \tri molecule shows no sign of ordering, a truly amorphous phase.}
-        \label{fig:tri inherent}
-    \end{subfigure}
-    \caption{Final inherent structure configurations for each molecule, the colouring of the molecules representative of their orientations.}
-    \label{fig:inherent structures frame}
+    \caption{Radial distribution function \subfigref{done radial} and local ordering \subfigref{done inherent} of \done molecule. The broad peaks of the radial distribution function out a distance of 12 indicate some longer range ordering present in the structure which we see in the configuration as small clusters of crystalline ordering. The large cluster shows a nucleation event demonstrating that these events are possible.}
+    \label{fig:done order}
 \end{figure}
-% End of structure
 
-The radial distribution function $G(r)$ is one of the general techniques for detecting ordering in a simulated system. It is a distribution of the distances between the molecular centers of mass. The radial distribution of the \done molecule~\figref{done radial} shows an intense first shell peak, the immediate neighbours are at well defined distances. This order extends out to 12 units distance with \done molecule exhibiting broad peaks, indicating the presence of some weak medium-range ordering. The \dcon molecule~\figref{dcon radial} exhibits an intense first peak and some sharp secondary and second shell peaks. The intensity and sharpness of these peaks can be attributed to the interactions of the \dcon molecules as the concavity. The \dcon molecule has the largest concavity of the three molecules and when molecules are in the concavity they are highly constrained giving tight distributions of the center of mass~\figref{dcon radial part}. Unlike the sharp peaks of the \dcon molecule the \tri molecule~\figref{tri radial} has a series of three broad peaks in the first shell of neighbours, with order only extending to three broad peaks in the second shell. It is likely the concavities of the \tri molecule are much less selective than the concavities of the dimers.
-
+The ground state of the \dcon appears to be amorphous from the radial distribution function~\figref{dcon inherent} however from the local order parameter we see see regions of orientationally disordered crystalline order. In developing the local order parameter for \dcon we used the order of the particles as a measure of the order of the molecules, we can define a radial distribution function in the same way such that we are looking at the distances between each particle rather than each center of mass. This alternate radial distribution function gives \textfigref{dcon radial part} which shows long range ordering like we observe with the local order parameter.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.45\textwidth]{{{Snowman-1.55-0.637556-1.637556-radial2d_rel}}}
-    \caption{The two dimensional radial distribution of the \dcon molecule in which the intensity of the peak is indicated by the amount of blue. The intense inner peaks (circled in red) show the distribution of the COM when the molecules interact via the concavity.}
-    \label{fig:dcon radial2d_abs}
+    \begin{subfigure}[t]{0.5\linewidth}
+        \includegraphics[width=\linewidth]{{{Snowman-1.55-0.637556-1.637556-radial}}}
+        \caption{}
+        \label{fig:dcon radial}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{0.5\linewidth}
+        \includegraphics[width=\textwidth]{{{Snowman-1.55-0.637556-1.637556-frame-0320000182}}}
+        \caption{}
+        \label{fig:dcon inherent}
+    \end{subfigure}
+    \caption{Radial distribution function \subfigref{dcon radial} and local order parameter \subfigref{dcon inherent} of the \dcon molecule. The initial peaks of the radial distribution function are incredibly sharp showing strong short range ordering, however this order only extends to the second shell, this is contrasting with the local order parameter which shows clusters of orientationally disorderd crustal formation.}
+        \label{fig:dcon order}
 \end{figure}
 
-Another measure of order is to look at the orientational distribution of the molecules. This provides an alternate look at the degree to which molecules are organising over large distances. The angular distribution looks at whether there are some directions which molecules are favouring, an indicator of long range ordering. None of the molecules~\figref{angular distributions} show a directional preference, a sign that there is no long range orientational ordering taking place.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{{{Snowman-1.55-0.637556-1.637556-radial_part}}}
+    \caption{Radial particle distribution function for the \dcon molecule. This is a distribution of interparticle distances rather than center of mass distances. This figure shows the presence of medium range ordering in the peaks extending out to a distance of 12.}
+    \label{fig:dcon radial part}
+\end{figure}
 
-\subsection{Order in \dcon}
+The \tri molecule shows no ordering in liquid phase~\figref{tri order} from either the radial distribution function or the local order parameter. While there are some regions of local orientational order indicated by coloured molecules, these are a combination of the molecules occupying all the possible arrangements and false positives. From inspection the regions of local order identified are not representative of any longer range order. This is intriguing since the \tri molecule was taken further below the melting point than either of the other molecules with no indication of any order, a truly amorphous phase.
 
-Both of the previous methods of describing order use properties of the molecule, the orientation and center of mass. In molecular systems these properties can fail to reflect the underlying structure. Consider the compact binary packing with a size ratio of 1:0.637556~\figref{compact}, an arrangement equivalent to packing the \dcon molecule without the allocation of bonds. The allocation of bonds can be performed randomly with no adjustment to the structure of the underlying particles. Two examples of assigning bonds; an ordered p2 structure~\figref{ordered frame}, and a randomly oriented structure~\figref{random frame} demonstrate the issues in identifying order with a random assignment of bonds. The orientational order of the p2 structure can easily be seen with diagonal banding of colours, corresponding to the two orientations present in the structure while the randomly assigned structure has molecules arranged with no orientational order, distributed between the eight possible molecular orientations. We can attempt to remove the noise of this orientational disorder by only plotting the centers of mass~(\textfigref{ordered com} and~\textfigref{random com}), however this gives a very similar result, the ordered structure exhibits distinctly crystalline behaviour with centers of mass aligning in rows while the random structure needs further analysis to be considered ordered.
+\begin{figure}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\linewidth]{{{Trimer-1.05-0.637556-1.00-120-radial}}}
+        \caption{}
+        \label{fig:tri radial}
+    \end{subfigure}
+    \label{fig:radial distributions}
+    \begin{subfigure}{0.5\linewidth}
+        \includegraphics[width=\textwidth]{{{Trimer-1.00-0.637556-1.00-120-frame-0320000177}}}
+        \caption{}
+        \label{fig:tri inherent}
+    \end{subfigure}
+    \caption{Radial distribution function \subfigref{tri radial} and local order parameter \subfigref{tri inherent} of the \tri molecule. Neither the radial distribution function or the local order parameter display any signs of ordering, a truly amorphous phase.}
+    \label{fig:tri order}
+\end{figure}
 
+\section{Summary}
 
-In the randomly oriented configuration the molecules are a construct placed on an ordered arrangement of particles. Since it is the particles define the order rather than the molecules, using an order parameter that is a measure of the ordering of the particles rather than the molecules is more appropriate for this molecule. If we define the \emph{particle radial distribution function} $G_p(r)$ in the same way as the radial distribution function, however instead of centers of mass we use the centers of density, the center of each disc. This particle radial distribution function translates better to experiments which look at the centers of density, each atom, rather than centers of mass. 
-
-
-
-Using this particle radial distribution function we can look for order in the inherent structures of the molecules. The \dcon molecule~\figref{dcon radial part} shows medium range ordering which was not present on the radial distribution function~\figref{dcon radial}. The particle radial distribution function has also helped in reducing the number of secondary peaks with much sharper and higher intensity peaks. The \done molecule~\figref{done radial part} shows no medium range ordering unlike when using the radial distribution~\figref{done radial} which is an demonstrates the specificity of detecting order in these molecules. To get the best results order parameters need to be tailored to the particular molecule.
-
-
-\section{Locality of Order}
-
+In this Chapter we have identified the most stable crystal forms of each of our molecules as well as order parameters enabling us to distinguish the amorphous liquid phase from the ordered crystal phase. In investigating order in the \dcon molecule we identified that using a single order parameter for all molecules is inadequate and that the order parameters need to be targeted. The order parameters we have identified will allow us to investigate the growth of the crystal form the liquid phase in the next Chapter.
