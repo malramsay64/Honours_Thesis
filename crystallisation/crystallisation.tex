@@ -1,10 +1,17 @@
 \chapter{Crystallisation}
 
-In this chapter we apply the concepts of both dynamics and structure to investigate the dynamics of ordering. We use the dynamics from \textchapref{dynamics} to determine appropriate timescales for these events and the stable crystal structures and order parameters from \textchapref{structure} to identify regions of crystalline order.
+As introduced in \textchapref{introduction} the growth rate of molecular crystals is roughly 4 to 8 orders of magnitude slower than the growth rates of atomic crystals. A difference which simply cannot be attributed to the difference in mobilities. What is the origin of these slow crystal growth rates?
 
-\section{Melting Points}
+In this Chapter we report on the crystallisation kinetics of our three molecules. In \textsecref{two phase} we use a two phase system, consisting of a block of crystal surrounded by liquid, to find the melting points of our molecular crystals, and to characterise the crystal growth below these melting points. In \textsecref{nucleation} we describe our observation of the spontaneous nucleation and freezing of the \done molecule and use this to extract a growth rate.
 
-In \textchapref{dynamics} we established the dynamics of our molecular systems which we can use to find the lowest temperature at which we expect to see crystallisation. To find the upper limit of crystallisation we need to identify the melting points of out molecules~\tabref{melting points}. From this data we can postulate the slow crystallisation we see in these molecules is a result of the large entropy difference between the liquid and crystal phases. This large entropy difference stabilises the liquid phase lowering the melting point such that the dynamics of the system are slow.
+\section{The Time Evolution of the Crystal-Liquid Interface}
+\label{sec:two phase}
+
+Crystallisation of a supercooled liquid is initiated by a nucleation event, a rare structural fluctuation of crystal like order. Such events are difficult to study because of their rarity, making the collection of statistically significant data incredibly time consuming. The introduction of the crystal-liquid interface allows us to sidestep the rare nucleation events. Crystal fluctuations are generally expected to to to occur with much higher frequency at an interface than in the bulk. While using an interface does not allow us to study the nucleation events, it does allow us to study the kinetics of ordering at the interface of a crystal.
+
+The two phase system comprises of a central crystal region using the most stable crystals found in \textchapref{structure}. This crystal region comprises half of the simulation area, with the remaining half comprising the liquid phase. Simulations were performed with the liquid oriented in both the $x$ and $y$ directions of the crystal, presenting both faces of the crystal to the liquid, with the possibility that the crystallisation occurs preferentially on one face.
+
+The melting point of each crystal is found as the temperature at which the liquid phase encroaches irreversibly on the region previously occupied by crystal. This was chosen over an equilibrium definition since no net change can be a result of either equilibrium, or the timescale being too short for the processes taking place. The melting points~\tabref{melting points} span a range of temperatures that matches the slowing down of the dynamics. The most noticeable difference between each of the freezing points is the value of the diffusion constant, spanning two orders of magnitude. As the diffusion constants get smaller the entropy of the freezing transition gets larger, one possible explanation for this is that the liquid phase is entropically stabilised lowering the melting point. All these entropies are much larger than that of 2D discs which is 0.33~\cite{ramakrishnan:84}.
 
 \begin{table}
     \centering
@@ -20,72 +27,65 @@ In \textchapref{dynamics} we established the dynamics of our molecular systems w
     \label{tab:melting points}
 \end{table}
 
-The melting points were obtained from the analysis of two phase systems, where a central crystal region is surrounded by liquid. The temperature at which the size of the central crystal region begins to shrink are considered the melting point.
 
-\section{Crystallisation Dynamics}
-
-\subsection{Two Phase Systems}
-\label{sec:two phase}
-
-To get around the issues of waiting for a nucleation event to occur to see the growth of a crystal, we can create a two phase system in which the liquid-crystal boundary is already present. This can then be used to observe the growth of the crystal phase on this surface. Using these two phase configurations as the starting point we see crystallisation of the \done molecule~\figref{done crys}. It is interesting to note that the preferred crystal growth direction is at a \SI{45}{\degree} angle to the crystal boundary. Along with the crystal growth at the existing crystal interface there is also the nucleation of large crystals from the liquid, nucleation may be a fairly common event for the \done molecule.
 
 \begin{figure}
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.75-0.637556-1.0-p2mg-1-frame-0000000000}}}
-        \caption{}
+        \caption{Initial}
         \label{fig:done p2mg init}
     \end{subfigure}
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Snowman-0.75-0.637556-1.0-p2mg-1-frame-0320000000}}}
-        \caption{}
+        \caption{Final}
         \label{fig:done p2mg fine}
     \end{subfigure}
-    \caption{The initial \subfigref{done p2mg init} and final \subfigref{done p2mg fine} configurations of a two phase system of the \done molecule containing the stable p2mg crystal in the center. The temperature is held at 0.75. Molecules considered crystalline are coloured according to their orientation such that antiparallel molecules have the same colour while non-crystalline molecules are grey. This system promotes growth at the boundary of the crystal as seen by the expanding region of teal colour.}
+    \caption{The initial \subfigref{done p2mg init} and final \subfigref{done p2mg fine} configurations of a two phase system of the \done molecule containing the stable p2mg crystal in the center. The temperature is held at 0.75 and the simulation is run for $4\tau_s$. Molecules considered crystalline are coloured according to their orientation such that antiparallel molecules have the same colour while non-crystalline molecules are grey. This system promotes growth at the boundary of the crystal as seen by the expanding region of teal colour.}
     \label{fig:done crys}
 \end{figure}
 
 The two phase analysis can also be performed on the \dcon system~\figref{dcon crys}. The order parameter we are using for the \dcon system appears to be less robust than for the \dcon system, \textfigref{dcon crys} shows many false negatives within the crystal system, while there are also more false positives, individual particles deemed as crystalline. However despite the noise in the order parameter we see growth of the crystal~\figref{dcon crys fine}, the regions where the ordered phase is lacking orientational order are regions of growth of the crystal. These orientationally disordered regions have to have come from the liquid phase as the crystal phase has all molecules in an antiparallel orientational order. Also like the \sone molecule we observe the spontaneous nucleation of ordered regions.
 
 \begin{figure}
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Snowman-1.60-0.637556-1.637556-p2-1-frame-0000000000}}}
-        \caption{}
+        \caption{Initial}
         \label{fig:dcon crys init}
     \end{subfigure}
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Snowman-1.60-0.637556-1.637556-p2-1-frame-0320000000}}}
-        \caption{}
+        \caption{Final}
         \label{fig:dcon crys fine}
     \end{subfigure}
-    \caption{The initial \subfigref{dcon crys init} and final \subfigref{dcon crys fine} configurations of the two phase system of the \dcon molecule containing the favoured p2 crystal in the center. The temperature of this system is held at 1.60. Molecules considered ordered are coloured according to their orientation while molecule slacking order are grey. Growth of the crystal can be seen as coloured regions lacking the orientational order of the central crystalline region.}
+    \caption{The initial \subfigref{dcon crys init} and final \subfigref{dcon crys fine} configurations of the two phase system of the \dcon molecule containing the favoured p2 crystal in the center. The temperature of this system is held at 1.60 and run for a duration of $10\tau_s$. Molecules considered ordered are coloured according to their orientation while molecule slacking order are grey. Growth of the crystal can be seen as coloured regions lacking the orientational order of the central crystalline region.}
     \label{fig:dcon crys}
 \end{figure}
 
 Unlike the \done and \dcon molecules the \tri molecules does not show crystallisation in the two phase system~\figref{tri crys}. The trimer shows small changes on the surface of the crystal between the initial~\figref{tri crys init} and the final~\figref{tri crys fine} configurations however these are more like what would occur at equilibrium, a rearrangement of the surface rather than growth, despite being below the melting point of the crystal phase. One explanation for this behaviour is the timescale that we are looking at is short compared to the rate of crystal growth.
 
 \begin{figure}
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Trimer-1.30-0.637556-1.00-120-p2-1-frame-0000000000}}}
         \caption{}
         \label{fig:tri crys init}
     \end{subfigure}
-    \begin{subfigure}{\textwidth}
+    \begin{subfigure}{0.5\textwidth}
         \includegraphics[width=\textwidth]{{{Trimer-1.30-0.637556-1.00-120-p2-1-frame-0320000000}}}
         \caption{}
         \label{fig:tri crys fine}
     \end{subfigure}
-    \caption{The initial \subfigref{tri crys init} and final \subfigref{tri crys fine} of the two phase system of the \tri molecule with the favoured p2 crystal in the central region. The temperature of this system is held at 1.30. Molecules considered ordered are coloured according to their orientation such that molecules that are antiparallel are coloured the same while non-crystalline regions are grey. Despite being below the melting point of the crystal there is no significant net growth of the crystal phase.}
+    \caption{The initial \subfigref{tri crys init} and final \subfigref{tri crys fine} of the two phase system of the \tri molecule with the favoured p2 crystal in the central region. The temperature of this system is held at 1.30 and run for a time of $750\tau_s$. Molecules considered ordered are coloured according to their orientation such that molecules that are antiparallel are coloured the same while non-crystalline regions are grey. Despite being below the melting point of the crystal there is no significant net growth of the crystal phase.}
     \label{fig:tri crys}
 \end{figure}
 
-\subsection{Spontaneous Nucleation}
+\subsection{Crystal Nucleation and Growth in the \done Liquid}
 
-We have seen spontaneous nucleation from both the \done and \dcon molecules in the two phase system. We want to be able to see this nucleation from a random starting phase, to show that this is not just a remnant of order from the crystal the liquid phase was melted from. To see this nucleation we had to run simulations far longer than the simulations for dynamics.
+We have seen spontaneous nucleation from the \done molecule in the two phase system. We want to be able to see this nucleation from a random starting phase, to fully understand the growth kinetics of this molecule. To see this nucleation simulations were run for $40\tau_s$, an order of magnitude larger than for the two phase system.
 
 The \done molecule shows significant regions of crystallinity~\figref{done nuc}. The configuration is dominated by a number of peach coloured crystals, the dominance of this orientation can be explained by examining the bottom right corner, between above the crystal there are layers of molecules with a more complex ordered structure, this structure forms most of the links between the peach crystal regions keeping them aligned. The other interesting feature of the crystal structure is the boundary between the lavender and peach~\cite{munroe:10} regions where the molecules alternate the crystal structure they are a part of, like a zipper connecting these two crystal regions.
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{{{Snowman-0.75-0.637556-1.0-frame-2147000000}}}
+    \includegraphics[width=\textwidth]{{{done-crys}}}
     \caption{Configuration of the \done molecule showing significant crystal growth. Along with the p2mg crystal, coloured to show orientation such that antiparallel molecules have the same colour, there are regions of ordered structure not coloured.}
     \label{fig:done nuc}
 \end{figure}
