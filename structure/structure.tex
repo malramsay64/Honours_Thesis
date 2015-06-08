@@ -3,9 +3,10 @@
 
 As we lower the temperature, the properties of the condensed phase become increasingly dominated by the arrangement of molecules corresponding to the local potential energy minima, the ground state. This is similar to the way that the structure and dynamics of a small molecule can be inferred from its ground state structure. In the same way these properties can be inferred from the ground state structure of these condensed phases containing thousands of molecules.
 
-In this chapter we address a number of structural properties of our molecules. In \secref{crys phase} we find the most stable crystal phase for our molecules. In \secref{order parameter} we develop methods to identify order including whether it is possible to identify order in all crystal structures with a single measure of order. In \secref{order inherent} we use the order parameters to investigate order in the ground state structures of the supercooled liquid configurations from \chapref{dynamics}.
+In this chapter we address a number of structural properties of our molecules. In \textsecref{crys phase} we find the most stable crystal phase for our molecules. In \textsecref{order parameter} we develop methods to identify order including whether it is possible to identify order in all crystal structures with a single measure of order. In \textsecref{order inherent} we use the order parameters to investigate order in the ground state structures of the supercooled liquid configurations from \textchapref{dynamics}.
 
 \section{The Most Stable Crystal Phase}
+\label{sec:crys phase}
 
 The most stable crystal phase, for our purposes, is the crystal that will form spontaneously from the liquid phase upon cooling. Since by design this process is slow or unobservable for the molecular liquids we are using we need to use other means to identify the most stable crystal phase (described below). Of most stable crystal phases~\figref{crystals} the \dcon and \tri molecules have unit cells in the p2 wallpaper group \appref{wallpaper} which contains the majority of crystals~\cite{plass:07,jennings:15}. The \done molecule has a stable crystal with the p2mg wallpaper group, a wallpaper group which contains very few crystal structures, making the crystal structure inherently interesting. It should be noted that all the crystal structures contain molecules paired the maximum number of interactions and an inversion center between them. It is likely that the formation of this interlocking structure plays a role in stabilising these crystal phases.
 
@@ -26,11 +27,11 @@ The most stable crystal phase, for our purposes, is the crystal that will form s
         \caption{}
         \label{fig:crystal tri}
     \end{subfigure}
-    \caption{The stable crystal forms of the \done~\subfigref{crystal done}, \dcon~\subfigref{crystal dcon}, and \tri~\subfigref{crystal tri} molecules. The molecules are coloured according to their orientation. The unit cell is indicated by a black box with an inversion center marked with a red dot.}
+    \caption{The stable crystal forms of the \done p2mg~\subfigref{crystal done}, \dcon p2~\subfigref{crystal dcon}, and \tri p2~\subfigref{crystal tri} molecules. The molecules are coloured according to their orientation. The unit cell is indicated by a black box with an inversion center marked with a red dot.}
     \label{fig:crystals}
 \end{figure}
 
-The crystal structures shown in \textfigref{crystals} were determined to be the most stable crystal structures using a variety of techniques. As a starting point we wanted to find the lowest energy crystal structures, since using molecular dynamics was not possible we had to use an alternate method. By approximating our particles as hard discs and finding the closest packed structure we are able to use the isopointal search algorithm developed by~\textcite{husdon:10} to search the reduced packing space, generating series of best packed structures.
+The crystal structures shown in \textfigref{crystals} were determined to be the most stable crystal structures using a variety of techniques. As a starting point we wanted to find the lowest energy crystal structures, since using molecular dynamics was not possible we had to use an alternate method. By approximating our particles as hard discs and finding the closest packed structure we are able to use the isopointal search algorithm developed by~\textcite{hudson:10} to search the reduced packing space, generating a series of best packed structures.
 
 The best packed structures were then used as the starting configurations for a molecular dynamics simulation to find the lowest energy ground state~\tabref{crystal energies}. The \done and \dcon molecules have configurations with a ground state significantly lower than any other, p2mg and p2 respectively. For these two molecules we can be fairly certain these are the most stable ground state, however for the \tri molecule there are three configurations p2, p2gg and pg all with similar ground state energies.
 
@@ -55,7 +56,7 @@ The best packed structures were then used as the starting configurations for a m
         p3 & 0.00003468842645& 0.0002424453316& -0.0003292839541\\
         \hline
     \end{tabular}
-    \caption{The ground state energy per molecule for a variety of the best packing initial configurations. Both the \done and \dcon systems have an arrangement with significantly lower energy, p2mg and p2 respectively. In contrast the \tri system has three arrangements with very similar energies, the p2, p2gg and pg wallpaper groups.}
+    \caption{The ground state energy per molecule for a variety of the best packing initial configurations, the lowest energies are shaded blue. Both the \done and \dcon systems have an arrangement with significantly lower energy, p2mg and p2 respectively. In contrast the \tri system has three arrangements with very similar energies, the p2, p2gg and pg wallpaper groups.}
     \label{tab:crystal energies}
 \end{table}
 
@@ -94,6 +95,7 @@ In light of the \tri molecule having a stable structure that is not the lowest e
 \end{table}
 
 \section{Quantifying Order in Molecular Systems}
+\label{sec:order parameter}
 
 In most cases it is fairly easy to distinguish a crystal from an amorphous phase by simple visual inspection of the two configurations. Much harder to determine visually is to quantify the degree to which a system is ordered, a problem with application in crystal growth. In this section we investigate a number of measures of order, including local order, as well as problems associated with each. We will be investigating these order parameters using an amorphous ground state from the supercooled \dcon liquid in \textchapref{dynamics} and the most stable ground state crystal configuration~\figref{frame comp} of the \dcon molecule.
 
@@ -126,14 +128,14 @@ The first of the order parameters is the radial distribution function~\figref{ra
         \label{fig:crys radial}
     \end{subfigure}
     \caption{The radial distribution function of the amorphous ground state \subfigref{amorphous radial} and most stable ground state crystal \subfigref{crys radial} configurations. The amorphous structure shows a peak at short range which quickly becomes a uniform distribution. The crystal structure shows sharp peaks out to long ranges.}
-    \label{fig:frame comp}
+    \label{fig:radial comp}
 \end{figure}
 
 Along with the global order measured by the radial distribution function we can also measure local order to classify individual molecules as crystalline or amorphous. This allows us to count the number of molecules that are considered crystalline, an easy measure of crystal growth. The crystal structures of all three molecules have the molecules aligned antiparallel to each other, molecules are aligned either \ang{0} or \ang{180} relative to each other. We can use this local orientational order to define a local order parameter $O_\text{orient}$,
 \begin{equation}
     O_{\text{orient}} = \frac{1}{N_{\text{neigh}}}\sum_{i=1}^{N_\text{neigh}} (\vect{\hat e} \cdot \vect{\hat e_i})^2
 \end{equation}
-where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. In the perfect ground state crystal structure molecules with $O_\text{orient}=1$ would be considered crystalline, however to account for the rotations and vibrations of molecules when heated above the ground state a cutoff of \num{0.8} was chosen as being best at differentiating crystal $O_\text{orient}> 0.8$ and amorphous $O_\text{orient} < 0.8$ regions. To assist in identifying this local order within a configuration~\figref{orient comp} we can colour the ordered molecules leaving all others grey. Since this local order parameter identifies molecules with antiparallel orientations the molecules are coloured such that both have the same colour showing the orientation of the resulting crystal. The coloured regions of the amorphous phase show molecules or small clusters that exhibit short range ordering, with the number of local orderings in the amorphous phase some are going to be considered locally crystalline.
+where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit orientation vector of the molecule and $\vect{\hat e_i}$ is the unit orientation vector of each neighbour. In the perfect ground state crystal structure molecules with $O_\text{orient}=1$ would be considered crystalline, however to account for the rotations and vibrations of molecules when heated above the ground state a cutoff of \num{0.8} was chosen as being best at differentiating crystal $O_\text{orient}> 0.8$ and amorphous $O_\text{orient} < 0.8$ regions. To assist in identifying this local order within a configuration~\figref{orient comp} we can colour the ordered molecules leaving all others grey. Since this local order parameter identifies molecules with antiparallel orientations the molecules are coloured such that both have the same colour showing the orientation of the resulting crystal. The coloured regions of the amorphous phase show molecules or small clusters that exhibit short range ordering, because of the number of local orderings in the amorphous phase some are going to be considered locally crystalline.
 
 \begin{figure}
     \begin{subfigure}{0.5\textwidth}
@@ -152,7 +154,7 @@ where $N_\text{neigh}$ is the number of neighbours, $\vect{\hat e}$ is the unit 
 
 \subsection{Problems with Generic Descriptions of Order in Molecular Systems}
 
-The \dcon molecule was chosen for being a special case, this ratio of hard discs will form a compact packing~\appref{compact packing}. If we start with the compact packing of discs~\figref{compact} we can assign bonds between large and small particles to form \dcon molecules without modifying the underlying structure. Two examples of this assignment of bonds, an orientationally ordered p2 structure~\figref{ordered-frame} and an orientationally disordered random assignment of bonds~\figref{random-frame}. Both these structures have the same underlying structure of particles, despite the orientational disorder in the randomly assigned configuration it is indisputably crystalline in character and any order parameter should reflect this.
+The \dcon molecule was chosen for being a special case, this ratio of hard discs will form a compact packing~\appref{compact}. If we start with the compact packing of discs~\figref{compact} we can assign bonds between large and small particles to form \dcon molecules without modifying the underlying structure. Two examples of this assignment of bonds, an orientationally ordered p2 structure~\figref{ordered frame} and an orientationally disordered random assignment of bonds~\figref{random frame}. Both these structures have the same underlying structure of particles, despite the orientational disorder in the randomly assigned configuration it is indisputably crystalline in character and any order parameter should reflect this.
 
 \begin{figure}
     \centering
@@ -200,10 +202,11 @@ Using this targeted order parameter~\figref{compact frame} both the structures w
 \end{figure}
 
 \section{The Structure in Amorphous Ground States}
+\label{sec:order inherent}
 
 While liquids show no long range anisotropy there is no reason why they might not accumulate short range structure as they are cooled below their freezing point. By \emph{short range} or \emph{local} structure we are referring to small clusters of particles that adopt an ordered arrangement that does not extend beyond the cluster. Using the tools developed above, in this section we investigate local structure of the supercooled liquid state using their ground state configurations.
 
-The \done molecule~\figref{done order} shows a small degree of long range ordering of the ground state in the radial distribution function, which we can see as mostly small clusters local of crystalline order, with some larger crystals in the local order parameter \oorient. These larger crystals are the crystal phase nucleating and their presence in the ground state structure suggests that it will be possible to grow crystals of the \done molecule in \textchapref{crystallisation}.
+The \done molecule~\figref{done order} shows a small degree of long range ordering of the ground state in the radial distribution function, which we can see as mostly small clusters of local crystalline order, with some larger crystals in the local order parameter \oorient. These larger crystals are the crystal phase nucleating and their presence in the ground state structure suggests that it will be possible to grow crystals of the \done molecule in \textchapref{crystallisation}.
 
 \begin{figure}
     \centering

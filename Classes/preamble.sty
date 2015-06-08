@@ -17,6 +17,7 @@
 \RequirePackage[export]{adjustbox}
 \RequirePackage{calc}
 \RequirePackage{fp}
+\RequirePackage{placeins}
 \RequirePackage[%
     backend=biber,
     style=nature,
@@ -53,6 +54,10 @@
 %\let\textcite\cite
 \let\cite\supercite
 \newcommand*{\linecite}[1]{Ref.~\onlinecite{#1}}
+
+% Figures appear in sections refernces in
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
 
 % Figure Source
 \def\source{\@ifnextchar[{\@commons}{\@copyright}}
@@ -91,8 +96,9 @@
 %\DeclareFieldFormat[article]{title}{#1.}
 %\DeclareFieldFormat[article]{journaltitle}{{\em #1}}
 \DeclareFieldFormat{url}{\url{#1}}
+%\DeclareFieldFormat{titlecase}{\MakeSentenceCase{#1}}
 \AtEveryBibitem{\clearlist{language}} % clears language
-\AtEveryBibitem{\clearlist{series}} % clear series
+\AtEveryBibitem{\clearlist{series}\clearfield{month}\clearfield{note}\clearfield{issue}} % clear series
 \addbibresource{bibliography/crystal.bib}
 \addbibresource{bibliography/images.bib}
 %\let\cite\autocite
