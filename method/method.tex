@@ -3,18 +3,18 @@
 
 \section{Molecules}
 
-The molecules that we are using are built out of particles that interact via a modified Lennard-Jones potential. The modified Lennard Jones potential is a potential commonly used in molecular dynamics systems due to its simplicity to calculate. It is also the potential used by many studies to study glass forming binary liquids~\cite{gotze:92,sciortino:99,glotzer:00,huer:08,royall:15}. The Lennard-Jones potential takes the form
+The molecules we are using are constructed from particles that interact via a modified Lennard-Jones potential. The modified Lennard Jones potential is a potential commonly used in molecular dynamics systems due to its simplicity to calculate. It is also the potential used by many studies to study the long timescale processes glass forming binary liquids~\cite{gotze:92,sciortino:99,glotzer:00,huer:08,royall:15}. The Lennard-Jones potential takes the form
 \begin{equation}
     V_{LJ}(r) = 4\epsilon\left [ \left (\frac{\sigma}{r}\right )^{12} -\left ( \frac{\sigma}{r} \right )^6 \right]
 \end{equation}
-where $r$ is the separation of two particles and, $\epsilon$ and $\sigma$ are parameters describing the strength and the size of the potential respectively. The computational simplicity comes from the ease of computing a 6\textsuperscript{th} power function, the 12\textsuperscript{th} power term is then just the square of the 6\textsuperscript{th} power term. In the default form the Lennard-Jones potential acts over all space, a particle would have interaction with all other particles despite most of these interactions being negligible. To reduce the number of interactions to compute the potential is commonly modified to have a cutoff distance at some small value of the potential; we chose a cutoff distance of $2.5\sigma$. The final modification to the potential is to retain the continuity of the original function, subtracting the value at the cutoff giving a function of the form
+where $r$ is the separation of two particles and, $\epsilon$ and $\sigma$ are parameters describing the strength and the size of the potential respectively. The computational simplicity comes from the ease of computing a 6\textsuperscript{th} power function, the 12\textsuperscript{th} power term is then the square of the 6\textsuperscript{th} power term. In the default form the Lennard-Jones potential acts over all space, a particle would have interaction with all other particles despite most of these interactions being negligible. To reduce the number of interactions to compute the potential is commonly modified to have a cutoff distance at some small value of the potential; we chose a cutoff distance of $2.5\sigma$. The final modification to the potential is to retain the continuity of the original function, subtracting the value at the cutoff giving a function of the form
 \begin{equation}
     V_{mod}(r) = \begin{cases}
         \quad V_{LJ}(r) - V_{LJ}(2.5\sigma) & \text{if}\quad r < 2.5\sigma \\
         \quad 0  &\text{if}\quad r >= 2.5\sigma
     \end{cases}
 \end{equation}
-We have chosen the parameters for the particles to be $\epsilon = 1$, $\sigma = 2r$ with each particle having a mass $m=1$.
+We have chosen the parameters for the particles to be $\epsilon = 1$, $\sigma = 2r$, where $r$ is the radius of the particle and each particle has a mass $m=1$.
 
 The bonds between each particle comprising the molecules are given by harmonic potentials of the form
 \begin{equation}
@@ -22,15 +22,12 @@ The bonds between each particle comprising the molecules are given by harmonic p
 \end{equation}
 where $x_0$ is the bond length and we have chosen $k = 5000$ so that despite the molecules being flexible they are a close approximation to rigid molecules. This same harmonic potential also applies to the bond angles.
 
-Another important property of the molecules is the criteria for neighbouring, particles are considered neighbours if they are closer than $1.2\sigma$.
-
-
 
 \section{Molecular Dynamics}
 
-The simulations in this thesis are performed using molecular dynamics, the positions of molecules are stepped through time by solving Newton's equations at each step. The software used to perform the molecular dynamics simulations is Lammps~\cite{plimpton:95b}, an open source program designed to efficiently perform large scale molecular dynamics simulations\footnote{More information about Lammps, including downloading and installation can be found at \href{http://lammps.sandia.gov}{http://lammps.sandia.gov}}. An integral part of the optimisation achieved by Lammps is the spatial decomposition of particles amongst the available processors, allowing for efficient use use of a large number of processors. Spatial decomposition is a technique that divides the simulation area into a grid equal to the number of processors. Each processor is then assigned an area of the grid for which it is responsible for computing. The processors are also assigned a set of \emph{ghost particles}, particles which are outside of the region the processor is responsible for computing but are close enough to be applying a force to particles in that region. The use of ghost atoms reduces the amount of communication between processors, at each step the only communication required is the updated positions of the ghost atoms. The reduction in communication is important for efficiency as it is the major speed bottleneck in alternative methods.
+The simulations in this thesis are performed using molecular dynamics. The positions of molecules are stepped through time by solving Newton's equations at each step. The software used to perform the molecular dynamics simulations is Lammps~\cite{plimpton:95b}, an open source program designed to efficiently perform large scale molecular dynamics simulations\footnote{More information about Lammps, including downloading and installation can be found at \href{http://lammps.sandia.gov}{http://lammps.sandia.gov}}. An integral part of the optimisation achieved by Lammps is the spatial decomposition of particles amongst the available processors, allowing for efficient use of a large number of processors. Spatial decomposition is a technique that divides the simulation area into a grid equal to the number of processors. Each processor is then assigned an area of the grid for which it is responsible for computing. The processors are also assigned a set of \emph{ghost particles}, particles which are outside of the region the processor is responsible for computing but are close enough to be applying a force to particles in that region. The use of ghost atoms reduces the communication between processors since at each step the only communication required is the updated positions of the ghost atoms. The reduction in communication is important for efficiency as it is the major speed bottleneck in alternative methods.
 
-In a simple system like a Lennard-Jones system the standard units for various properties are cumbersome and not well matched to the specific system. Instead Lammps uses a set of reduced units, with mass $m = 1$ as the fundamental unit. A series of further units can be derived using the parameters of the Lennard-Jones potential $\sigma$ and $\epsilon$. 
+In a simple system like a Lennard-Jones system the standard units for various properties are cumbersome and not well matched to the specific system. Instead Lammps uses a set of reduced units, with mass $m = 1$ as the fundamental unit. A series of further units can be derived using the parameters of the Lennard-Jones potential $\sigma$ and $\epsilon$ as shown in \texttabref{reduced units}.
 
 \begin{table}
     \centering
@@ -47,21 +44,19 @@ In a simple system like a Lennard-Jones system the standard units for various pr
 \end{table}
 
 
-The thermodynamic ensemble for the simulation is the NPT ensemble, with a constant number of particles (N), constant pressure (P) and constant temperature (T). The constant number of particles is achieved by not adding or removing any particles from the simulation, the temperature and pressure are kept constant by a Nose-Hoover thermostat and barostat~\cite{nose:84,hoover:85}.
+The thermodynamic ensemble we are using for our simulation is the NPT ensemble, with a constant number of particles (N), constant pressure (P) and constant temperature (T). The constant number of particles is achieved by not adding or removing any particles from the simulation, and the temperature and pressure are kept constant by a Nose-Hoover thermostat and barostat~\cite{nose:84,hoover:85}. The Nose-Hoover thermostat and barostat works by adding an extra degree of freedom to the system which acts as an external system restoring the temperature or pressure to their set values while the allowing fluctuations of a typical distribution.
 
-\towrite{Thermostat and barostat}
-
-\section{Simulation Parameters}
+\section{Details of Simulations}
 
 \subsection{Dynamics}
 
-The initial configuration for the dynamics runs is a grid of molecules each with a random orientation. The distance between molecules is larger than the dimensions of the molecules such that they do not contact each other. From this initial configuration the molecules are compressed into a liquid and equilibrated at a temperature $T=5$, well above the melting point. The configuration is then cooled through a series of temperatures, equilibrating at each temperature for at least the relaxation time at that temperature. The production runs at each temperature use the equilibrated configurations as a starting point to ensure the dynamics are consistent across the simulation.
+The initial configuration for the dynamics simulations is a grid of molecules each with a random orientation. The distance between molecules is larger than the dimensions of the molecules such that they do not contact each other. From this initial configuration the molecules are compressed into a liquid and equilibrated at a temperature $T=5$, well above the melting point. The configuration is then cooled through a series of temperatures, equilibrating at each temperature for at least the relaxation time at that temperature. The production runs at each temperature use the equilibrated configurations as a starting point to ensure the dynamics are consistent across the simulation.
 
 \subsection{Crystal Structures}
+\label{sec:method crys struc}
 
-The optimal configurations for the wallpaper groups were found using the Isopointal search algorithm developed by \textcite{hudson:10}. Large systems of the best packed structures were generated by replicating the wallpaper group in the $a$ and $b$ unit cell coordinates before wrapping the coordinates into a rectangle. These large systems were then equilibrated at low temperature using the Rahman-Parinello algorithm~\tocite, \tofix{}which allows for both the size of the simulation and the tilt of the simulation to be adjusted to lower the energy of the system. These equilibrated systems were then subjected to conjugate gradient minimisation for comparison with the amorphous packings.
+The optimal configurations for the hard non-interacting molecules were found using the Isopointal search algorithm developed by \textcite{hudson:10} which systematically searches through the space of possible crystallographic groups. Large systems of the best packed structures were generated by replicating the unit cell in the $a$ and $b$ coordinates. These large systems were then equilibrated at low temperature using the Rahman-Parinello algorithm~\tocite, which allows for both the size of the simulation and tilt of the simulation to be adjusted to lower the energy of the system of interacting Lennard-Jones molecules. These equilibrated systems were then subjected to conjugate gradient minimisation~\tocite before comparison with the amorphous packings.
 
-For these simulations we start with the lowest energy crystals formed in the previous sections. These square regions of crystal are then duplicated in either the $x$ or the $y$ directions. The long edge of these is then divided up into two halves, with one half heated above the melting point forming a liquid, and the other half held in position. This generates an liquid/crystal interface on the two different faces of the crystal from which it is expected that crystals will grow.
+\subsection{Two Phase Systems}
 
-These boundaries then held at a series of temperatures close to the melting point to observe the phase changes that are taking place at the boundary.
-
+For these simulations we start with the lowest energy crystals formed from the method in \textsecref{method crys struc}. For each system a periodic rectangular cell was constructed, half of which was melted by keeping half the atoms fixed in place while heating the system. This generates in initial configuration with two crystal-liquid interface. Simulations were then run at a series of temperatures close to the melting point to study the dynamical and structural properties of the liquid near the crystal surface.
