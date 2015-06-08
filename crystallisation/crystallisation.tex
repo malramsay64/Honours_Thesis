@@ -2,16 +2,16 @@
 
 As introduced in \textchapref{introduction} the growth rate of molecular crystals is roughly 4 to 8 orders of magnitude slower than the growth rates of atomic crystals. A difference which simply cannot be attributed to the difference in mobilities. What is the origin of these slow crystal growth rates?
 
-In this Chapter we report on the crystallisation kinetics of our three molecules. In \textsecref{two phase} we use a two phase system, consisting of a block of crystal surrounded by liquid, to find the melting points of our molecular crystals, and to characterise the crystal growth below these melting points. In \textsecref{nucleation} we describe our observation of the spontaneous nucleation and freezing of the \done molecule and use this to extract a growth rate.
+In this Chapter we report on the crystallisation kinetics of our three molecules. In \textsecref{two phase} we use a two phase system, consisting of a block of crystal surrounded by liquid, to find the melting points of our molecular crystals, and to characterise the crystal growth below these melting points. In \textsecref{nucleation} we describe our observation of the spontaneous nucleation and freezing of the \done molecule and use this to extract a crystal growth rate for this molecule.
 
 \section{The Time Evolution of the Crystal-Liquid Interface}
 \label{sec:two phase}
 
-Crystallisation of a supercooled liquid is initiated by a nucleation event, a rare structural fluctuation of crystal like order. Such events are difficult to study because of their rarity, making the collection of statistically significant data incredibly time consuming. The introduction of the crystal-liquid interface allows us to sidestep the rare nucleation events. Crystal fluctuations are generally expected to to to occur with much higher frequency at an interface than in the bulk. While using an interface does not allow us to study the nucleation events, it does allow us to study the kinetics of ordering at the interface of a crystal.
+Crystallisation of a supercooled liquid is initiated by a nucleation event, a rare structural fluctuation of crystal like order. Such events are difficult to study because of their rarity, making the collection of statistically significant data incredibly time consuming. The introduction of the crystal-liquid interface allows us to sidestep the rare nucleation events. Crystal fluctuations are generally expected to occur with much higher frequency at an interface than in the bulk. While using an interface does not allow us to study the nucleation events, it does allow us to study the kinetics of ordering at the crystal-liquid interface.
 
-The two phase system comprises of a central crystal region using the most stable crystals found in \textchapref{structure}. This crystal region comprises half of the simulation area, with the remaining half comprising the liquid phase. Simulations were performed with the liquid oriented in both the $x$ and $y$ directions of the crystal, presenting both faces of the crystal to the liquid, with the possibility that the crystallisation occurs preferentially on one face.
+The two phase system comprises of a central crystal region using the most stable crystals found in \textchapref{structure}. This crystal region comprises half of the simulation area, with the remaining half comprising the liquid phase. Simulations were performed with the liquid oriented in both the $x$ and $y$ directions of the crystal, presenting both faces of the crystal to the liquid, with the possibility crystallisation occurs preferentially on one of the faces.
 
-The melting point of each crystal is found as the temperature at which the liquid phase encroaches irreversibly on the region previously occupied by crystal. This was chosen over an equilibrium definition since no net change can be a result of either equilibrium, or the timescale being too short for the processes taking place. The melting points~\tabref{melting points} span a range of temperatures that matches the slowing down of the dynamics. The most noticeable difference between each of the freezing points is the value of the diffusion constant, spanning two orders of magnitude. As the diffusion constants get smaller the entropy of the freezing transition gets larger, one possible explanation for this is that the liquid phase is entropically stabilised lowering the melting point. All these entropies are much larger than that of 2D discs which is 0.33~\cite{ramakrishnan:84}.
+The melting point of each crystal is found as the temperature at which the liquid phase encroaches irreversibly on the region previously occupied by crystal. Encroachment was chosen over an equilibrium definition since no net change can either be a result of equilibrium, or the timescale being too short to observe the processes taking place. The melting points~\tabref{melting points} span a range of temperatures that matches the trends of the dynamics~\chapref{dynamics}. The most noticeable difference between each of the freezing points is the value of the diffusion constant, spanning two orders of magnitude. As the diffusion constants get smaller the entropy of the freezing transition gets larger, an explanation for this is that the liquid phase is entropically stabilised, lowering the melting point. All these molecular entropies are much larger than that of 2D discs which is 0.33~\cite{ramakrishnan:84}.
 
 \begin{table}
     \centering
@@ -27,7 +27,7 @@ The melting point of each crystal is found as the temperature at which the liqui
     \label{tab:melting points}
 \end{table}
 
-
+Taking these two phase liquid-crystal systems we are able to observe crystal growth at the boundary. With the \done molecule~\figref{done crys} we see significant growth of the crystal regions at the boundary. The growth occurs forming an angle of \ang{45} to the boundary, indicating that this is the preferred crystal growth direction. Along with the crystal growth at the boundary there are also regions of nucleation away from the boundary which indicates that nucleation is a fairly common event in the \done molecule.
 
 \begin{figure}
     \begin{subfigure}{0.5\textwidth}
@@ -40,11 +40,11 @@ The melting point of each crystal is found as the temperature at which the liqui
         \caption{Final}
         \label{fig:done p2mg fine}
     \end{subfigure}
-    \caption{The initial \subfigref{done p2mg init} and final \subfigref{done p2mg fine} configurations of a two phase system of the \done molecule containing the stable p2mg crystal in the center. The temperature is held at 0.75 and the simulation is run for $4\tau_s$. Molecules considered crystalline are coloured according to their orientation such that antiparallel molecules have the same colour while non-crystalline molecules are grey. This system promotes growth at the boundary of the crystal as seen by the expanding region of teal colour.}
+    \caption{The initial \subfigref{done p2mg init} and final \subfigref{done p2mg fine} configurations of a two phase crystal-liquid system of the \done molecule containing the stable p2mg crystal at the bottom. The temperature is held at 0.75 and the simulation is run for $4\tau_s$, where $\tau_s$ is the structural relaxation time. Molecules considered crystalline by \oorient are coloured according to their orientation such that antiparallel molecules have the same colour while non-crystalline molecules are grey. This system promotes growth at the boundary of the crystal as seen by the expanding region of teal colour.}
     \label{fig:done crys}
 \end{figure}
 
-The two phase analysis can also be performed on the \dcon system~\figref{dcon crys}. The order parameter we are using for the \dcon system appears to be less robust than for the \dcon system, \textfigref{dcon crys} shows many false negatives within the crystal system, while there are also more false positives, individual particles deemed as crystalline. However despite the noise in the order parameter we see growth of the crystal~\figref{dcon crys fine}, the regions where the ordered phase is lacking orientational order are regions of growth of the crystal. These orientationally disordered regions have to have come from the liquid phase as the crystal phase has all molecules in an antiparallel orientational order. Also like the \sone molecule we observe the spontaneous nucleation of ordered regions.
+The two phase analysis can also be performed on the \dcon system~\figref{dcon crys}. The order parameter we are using for the \dcon system appears to be less robust than for the \done system, \textfigref{dcon crys} shows many false negatives within the crystal system, while there are also more false positives, individual particles deemed crystalline. Despite the noise in the order parameter we see growth of the crystal~\figref{dcon crys fine}, the regions where the ordered phase is lacking orientational order are regions of crystal growing from the liquid phase. These orientationally disordered regions have to have come from the liquid phase as the crystal phase has all molecules in an antiparallel orientational order. Also like the \sone molecule we observe the spontaneous nucleation of small ordered regions.
 
 \begin{figure}
     \begin{subfigure}{0.5\textwidth}
@@ -57,11 +57,11 @@ The two phase analysis can also be performed on the \dcon system~\figref{dcon cr
         \caption{Final}
         \label{fig:dcon crys fine}
     \end{subfigure}
-    \caption{The initial \subfigref{dcon crys init} and final \subfigref{dcon crys fine} configurations of the two phase system of the \dcon molecule containing the favoured p2 crystal in the center. The temperature of this system is held at 1.60 and run for a duration of $10\tau_s$. Molecules considered ordered are coloured according to their orientation while molecule slacking order are grey. Growth of the crystal can be seen as coloured regions lacking the orientational order of the central crystalline region.}
+    \caption{The initial \subfigref{dcon crys init} and final \subfigref{dcon crys fine} configurations of the two phase crystal-liquid system of the \dcon molecule containing the favoured p2 crystal at the bottom. The temperature of this system is held at 1.60 and run for a duration of $10\tau_s$, where $\tau_s$ is the structural relaxation time. Molecules considered ordered by \ocon are coloured according to their orientation while molecules lacking order are grey. Growth of the crystal can be seen as the coloured regions lacking orientational order.}
     \label{fig:dcon crys}
 \end{figure}
 
-Unlike the \done and \dcon molecules the \tri molecules does not show crystallisation in the two phase system~\figref{tri crys}. The trimer shows small changes on the surface of the crystal between the initial~\figref{tri crys init} and the final~\figref{tri crys fine} configurations however these are more like what would occur at equilibrium, a rearrangement of the surface rather than growth, despite being below the melting point of the crystal phase. One explanation for this behaviour is the timescale that we are looking at is short compared to the rate of crystal growth.
+Unlike the \done and \dcon molecules the \tri molecules does not show crystallisation in the two phase system~\figref{tri crys}. The trimer shows small changes on the surface of the crystal between the initial~\figref{tri crys init} and the final~\figref{tri crys fine} configurations however these are more like what would occur at equilibrium, small rearrangements of the surface rather than growth. One explanation for this behaviour is the timescale that we are looking at is short compared to the rate of crystal growth, regardless of whether this is the case the \tri molecule is an excellent glass forming liquid.
 
 \begin{figure}
     \begin{subfigure}{0.5\textwidth}
@@ -74,7 +74,7 @@ Unlike the \done and \dcon molecules the \tri molecules does not show crystallis
         \caption{}
         \label{fig:tri crys fine}
     \end{subfigure}
-    \caption{The initial \subfigref{tri crys init} and final \subfigref{tri crys fine} of the two phase system of the \tri molecule with the favoured p2 crystal in the central region. The temperature of this system is held at 1.30 and run for a time of $750\tau_s$. Molecules considered ordered are coloured according to their orientation such that molecules that are antiparallel are coloured the same while non-crystalline regions are grey. Despite being below the melting point of the crystal there is no significant net growth of the crystal phase.}
+    \caption{The initial \subfigref{tri crys init} and final \subfigref{tri crys fine} of the two phase crystal-liquid system of the \tri molecule with the favoured p2 crystal at the bottom. The temperature of this system is held at 1.30 and run for a time of $750\tau_s$ where $\tau_s$ is the structural relaxation time at this temperature. Molecules considered ordered by \oorient are coloured according to their orientation such that molecules that are antiparallel are coloured the same while non-crystalline regions are grey. Despite being below the melting point of the crystal there is no significant net growth of the crystal phase.}
     \label{fig:tri crys}
 \end{figure}
 
@@ -82,11 +82,11 @@ Unlike the \done and \dcon molecules the \tri molecules does not show crystallis
 
 We have seen spontaneous nucleation from the \done molecule in the two phase system. We want to be able to see this nucleation from a random starting phase, to fully understand the growth kinetics of this molecule. To see this nucleation simulations were run for $40\tau_s$, an order of magnitude larger than for the two phase system.
 
-The \done molecule shows significant regions of crystallinity~\figref{done nuc}. The configuration is dominated by a number of peach coloured crystals, the dominance of this orientation can be explained by examining the bottom right corner, between above the crystal there are layers of molecules with a more complex ordered structure, this structure forms most of the links between the peach crystal regions keeping them aligned. The other interesting feature of the crystal structure is the boundary between the lavender and peach~\cite{munroe:10} regions where the molecules alternate the crystal structure they are a part of, like a zipper connecting these two crystal regions.
+The \done molecule shows significant regions of crystallinity~\figref{done nuc}. The configuration is dominated by a number of peach coloured crystals, the dominance of this orientation can be explained by examining the bottom right corner, above the crystal there are layers of molecules with a more complex ordered structure, this structure forms most of the links between the peach crystal regions keeping them aligned. The other interesting feature of the crystal structure is the boundary between the lavender and peach~\cite{munroe:10} regions where the molecules alternate the crystal structure they are a part of, like a zipper connecting these two crystal regions.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{{{done-crys}}}
-    \caption{Configuration of the \done molecule showing significant crystal growth. Along with the p2mg crystal, coloured to show orientation such that antiparallel molecules have the same colour, there are regions of ordered structure not coloured.}
+    \caption{Configuration of the \done molecule showing significant crystal growth. Along with the regions of the p2mg crystal, coloured to show orientation such that antiparallel molecules have the same colour. There are regions of ordered structure (bottom right corner) in which the molecules order in a more complicated four layer p2gg structure.}
     \label{fig:done nuc}
 \end{figure}
 
@@ -96,4 +96,8 @@ The \done molecule shows significant regions of crystallinity~\figref{done nuc}.
     \caption{Crystal growth of the \done molecule counting the number of molecules considered crystalline in each configuration. The region of crystal growth (green) has a growth rate of \num{4.52e-5} molecules per unit time with the nucleation rate (blue) of \num{3.45e-4} molecules per unit time.}
 \end{figure}
 
-Measuring the crystal growth rate we can compare this to the dynamics of the system at these temperatures, at a temperature of 0.75 the \done molecule has a structural relaxation time of \num{4.3e5} an order of magnitude smaller than the time before the nucleation event. However the large nucleation event occurred on the timescale of a structural relaxation; crystallisation in the \done molecule can occur with very small motions of molecules.
+Measuring the crystal growth rate we can compare this to the dynamics of the system at these temperatures, at a temperature of 0.75 the \done molecule has a structural relaxation time of \num{4.3e5}, an order of magnitude smaller than the time before the nucleation event. However the large nucleation event occurred on the timescale of a structural relaxation; crystallisation in the \done molecule can occur with very small motions of molecules.
+
+\section{Summary}
+
+In this chapter we have found that both the \done and \dcon molecules have a measurable crystal growth rate. In the case of the \done molecule we have characterised the crystal growth rate and found that addition of molecules to the existing structure occur on a timescale comparable to the structural relaxation time showing that only small rearrangements are taking place at the interface. We have also found a candidate for a simple single component molecular glass former in the \tri molecular with no measurable crystallisation.
