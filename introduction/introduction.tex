@@ -5,17 +5,17 @@ The freezing of a liquid into a crystalline state is the most important path to 
 
 The microscopic description of the freezing of molecular liquids represents a topic of both considerable interest and challenge. The mechanisms that underly the kinetics of crystallisation remain poorly understood as crystal growth kinetics are restricted to the interfacial region between the liquid and the solid phases, making the investigation of this process inaccessible by experiment. Computer simulations are a means of resolving the process through which order emerges from the liquid state~\cite{jackson:02,svishchev:94,tenwolde:96}. The interest, beyond a fundamental understanding of the freezing transition, stems from two lines of research. Firstly, understanding the kinetics that drive the formation of a particular crystal structure, in particular small organic drug molecules~\cite{childs:04}. Secondly, understanding the glass transition in organic molecules like \emph{o}-terphenyl~\cite{greet:67}, trisnapthylbenzene~\cite{swallen:03} and indomethacin~\cite{hancock:00}. Both of these approches are concerned with the properties of low temperature liquids that either promote or inhibit crystal growth.
 
-Despite being an area of much interest, there have only been a small number of simulation studies of molecular crystallisation~\cite{affouard:99,kammerer:97,moreno:05}. A major challenge for these studies is the extremely long times required to observe crystallisation in molecular liquids compared to atomic liquids. This slow rate of crystallisation is not just a product of simulations, the experimentally determined crystal growth rates $U$ of molecular crystals are between 4 and 8 orders of magnitude slower than those of atomic crystals~\figref{growth rate}~\cite{orava:14}, representing one of the fundamental puzzles in our understanding of crystallisation.
+Despite being an area of much interest, there have only been a small number of simulation studies of molecular crystallisation~\cite{affouard:99,kammerer:97,moreno:05}. A major challenge for these studies is the extremely long times required to observe crystallisation in molecular liquids compared to atomic liquids. This slow rate of crystallisation is not just a product of simulations. The experimentally determined crystal growth rates $U$ of molecular crystals are between 4 and 8 orders of magnitude slower than those of atomic crystals~\figref{growth rate}~\cite{orava:14}, representing one of the fundamental puzzles in our understanding of crystallisation.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{growth-rate}
-    \caption{Crystal growth rates relative to the melting point. The dotted lines indicate calculated values of $U$. The growth rates of molecular liquids like {\em o}-terphenyl are orders of magnitude below that on an atomic liquid like \ce{Ag}.}
+    \caption{Crystal growth rates $U$ relative to the melting point. The dotted lines indicate calculated values of $U$. The growth rates of molecular liquids like {\em o}-terphenyl are orders of magnitude below that on an atomic liquid like \ce{Ag}.}
     \source{orava:14}{AIP Publishing LLC}
     \label{fig:growth rate}
 \end{figure}
 
-Computational modelling requires balancing a physically realistic system with the constraints of the computational complexity of the system. If realistic molecules in 3D crystallise too slowly to be modelled by molecular dynamics simulations, perhaps something can be leaned about the fundamental characteristics of crystallisation in the computationally simpler 2D system. Performing a broad analysis in 2D can identify features to later explore in a 3D system.
+Computational modelling requires balancing a physically realistic system with the constraints of the computational complexity of the system. If realistic molecules in 3D crystallise too slowly to be modelled by molecular dynamics simulations, perhaps we can learn something about the fundamental characteristics of crystallisation in the computationally simpler 2D system. Performing a broad analysis in 2D can identify features to later explore in a 3D system.
 
 The goal of this project has been to i) develop tractable 2D molecules for use in simulations of liquids and crystals, ii) characterise the liquid state dynamics of these molecules, iii) identify the stable structures in the crystalline state and iv) determine the kinetics of crystallisation from supercooled molecular liquids.
 
@@ -37,12 +37,12 @@ where $A$ is a scaling factor, $T$ is the temperature, and $e_A$ is the activati
 \begin{equation}
     m = \left [ \pddiff{\log_{10}\eta}{T_g/T} \right ]
 \end{equation}
-where the \emph{glass transition temperature} \si{\Tg} is defined as the temperature at which the viscosity of the supercooled liquid reaches \SI{e13}{\poise}. This definition of the glass transition temperature highlights an important feature of the glass transition, it lacks a first order phase transition~\cite{santen:00}, instead it is a purely dynamic phase transition. Despite the lack of a first order phase transition to the glass phase, the fragility of liquids near the glass transition temperature is indicative of the glass phase being an inherent property of the liquid.
+where the \emph{glass transition temperature} \si{\Tg} is defined as the temperature at which the viscosity of the supercooled liquid reaches \SI{e13}{\poise}. This definition of the glass transition temperature highlights an important feature of the glass transition, namely that it lacks a first order phase transition~\cite{santen:00}. Instead it is a purely dynamic phase transition. Despite the lack of a first order phase transition to the glass phase, the fragility of liquids near the glass transition temperature is indicative of the glass phase being an inherent property of the liquid.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{angell}
-    \caption{The temperature dependence of liquid dynamics near the glass transition. Strong liquids like silica (\ce{SiO2}) exhibit an Arrhenius like temperature dependence. Fragile liquids, like {\em o}-terphenyl exhibit a non-Arrhenius behaviour with a dramatic increase in the viscosity close to the glass transition temperature.}
+    \caption{The temperature dependence of liquid dynamics near the glass transition. Strong liquids like silica (\ce{SiO2}) exhibit an Arrhenius like temperature dependence. Fragile liquids, like {\em o}-terphenyl exhibit a non-Arrhenius behaviour with a dramatic increase in the viscosity close to the glass transition temperature \si{\Tg}.}
     \source{lubchenko:07}{Annual Reviews}
     \label{fig:angell}
 \end{figure}
@@ -53,12 +53,12 @@ There are two processes that contribute to the growth of a crystal; the nucleati
 \begin{equation}
 \Delta G = \Delta H - T\Delta S
 \end{equation}
-where $\Delta H$ is the change in enthalpy, $\Delta S$ is the change in entropy and $T$ is the temperature. At the melting point, both the liquid surrounding a crystal nucleus and the crystal structure inside the crystal nucleus have the same energy, however, there is a free energy cost to the boundary between the two regions making the crystal nucleus unstable. By reducing the temperature below the melting point the additional entropy of the liquid phase gives it a larger free energy than the crystal phase. As we reduce the temperature the extra free energy of the crystal phase makes up for the free energy cost of the boundary stabilising the nucleus. In experimental crystal growth rates~\figref{crys growth} we see the stabilisation of the crystal nucleus increase the growth rate until the kinetics, the second contributor to the growth rate of a crystal, limits the growth of the crystal. For crystal growth to occur molecules need to rearrange to align both position and orientation with the existing crystal region. At low temperatures the dynamics of these processes become slow and limit the crystal growth.
+where $\Delta H$ is the change in enthalpy, $\Delta S$ is the change in entropy and $T$ is the temperature. At the melting point, both the liquid surrounding a crystal nucleus and the crystal structure inside the crystal nucleus have the same energy, however, there is a free energy cost to the boundary between the two regions making the crystal nucleus unstable. By reducing the temperature below the melting point the additional entropy of the liquid phase gives it a larger free energy than the crystal phase. As we reduce the temperature the extra stability of the crystal phase makes up for the free energy cost of the boundary stabilising the nucleus. In experimental crystal growth rates~\figref{crys growth} we see the stabilisation of the crystal nucleus case the growth rate to increase upon cooling until the kinetics, the second contributor to the growth rate of a crystal, limits the growth of the crystal. For crystal growth to occur molecules need to rearrange to align both position and orientation with the existing crystal region. At low temperatures the dynamics of these processes become slow and limit the crystal growth.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{crystal-growth}
-    \caption{Experimentally determined crystal growth rate as a function of temperature for supercooled tri-(napthylbenzene). Close to the melting point the crystal growth rate is limited by the thermodynamics. At low temperatures the decreased mobility of the liquid phase limits the crystal growth rate.}
+    \caption{Experimentally determined crystal growth rate as a function of temperature for supercooled tri-(napthylbenzene). Close to the melting point the crystal growth rate is limited by the thermodynamics. At low temperatures the decreased mobility of the liquid phase limits the crystal growth rate. \si{\Tm} ans \si{\Tg} are the melting and glass-transition temperatures.}
     \source{ediger:08}{AIP Publishing LLC}
     \label{fig:crys growth}
 \end{figure}
@@ -76,4 +76,9 @@ The dynamics of the crystal growth are also interesting for its anisotropy. All 
 
 \section{Aims of this Project}
 
-This project aims to provide insight into the effect that molecular shape has on the dynamics of the crystal-liquid phase transition. To understand this transition we need to investigate how shape affects the dynamic properties of the liquid phase. We also need a method of quantitatively identifying the crystal phase in a liquid. The final aim of the project is to investigate the process of crystallisation and how the properties of a molecule influence the rate of crystallisation.
+This project aims to:
+\begin{itemize}
+    \item Calculate liquid state dynamics; mean squared displacement, rotational relaxation, and structural relaxation functions for a variety of molecular shapes, with the goal of determining the associated relaxation times over a range of temperatures to establish how the shape of a molecule influences these relaxation times and their temperature dependence. 
+    \item Determine the most stable crystal structures for a range of molecular shapes with a range of concavity to develop useful measures of order allowing a quantitative measure of the degree of crystal like order in any condensed phase, and to use these measures of order to measure the time dependence of crystal-like order during crystallisation.
+    \item To directly simulate the crystal growth of molecules to measure the crystal growth rate and to visualise the mechanism of ordering.
+\end{itemize}
