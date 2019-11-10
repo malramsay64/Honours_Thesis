@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python3
 
 import bibtexparser as btp
 import sys
@@ -34,7 +34,7 @@ if __name__ == '__main__':
             j = entry.get('journal')
             entry['journal'] = lengthen.get(my_strip(shorten.get(my_strip(j),j)),j)
             if my_strip(j) not in shorten and my_strip(j) not in lengthen:
-                print j, my_strip(j)
+                print(j, my_strip(j))
 
     if len(sys.argv) > 1 and sys.argv[1] == 'true':
         for entry in bibtex_database.entries:
@@ -44,6 +44,4 @@ if __name__ == '__main__':
 
     with codecs.open('crystal.bib', 'w', 'utf-8') as bibtex_file:
         btp.dump(bibtex_database, bibtex_file)
-    #w = btp.bwriter.BibTexWriter();
-    #output.write(w.write(bibtex_database))
 
