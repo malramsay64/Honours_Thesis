@@ -1,0 +1,4 @@
+name: honours
+dependencies:
+  - python=3.6
+  - conda-forge::bibtexparser
